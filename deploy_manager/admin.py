@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import threading
 from uuid import uuid1
 
 from django.contrib import admin
@@ -55,28 +56,23 @@ class DeployJobDetailInline(admin.StackedInline):
         return False
 
 
-@admin.register(DeployJob)
-class DeployJobAdmin(admin.ModelAdmin):
-    list_display = ['job_name', 'project_version']
-    search_fields = ['job_name']
-    inlines = [DeployJobDetailInline]
+class cmdThread(threading.Thread):
+    def __init__(self, instances):
+        threading.Thread.__init__(self)
+        self.instances = instances
 
-    def save_formset(self, request, form, formset, change):
-        instances = form.save(commit=False)
-        project = instances.project_version.project
-        hosts = project.host.all()
-        formset.save()
+    def run(self):
         rc = salt.runner.RunnerClient(salt.config.master_config('/etc/salt/master'))
-
+        project = self.instances.project_version.project
+        hosts = project.host.all()
         uid = uuid1().__str__()
         scriptPath = PACKAGE_PATH + uid + ".sls"
         output = open(scriptPath, 'w')
         output.write(project.playbook)
         output.close()
 
-        #暂时先用同步调用
         local = salt.client.LocalClient()
-        result = local.cmd_async('*', 'state.sls', [uid])
+        result = local.cmd('*', 'state.sls', [uid])
         for master in result:
             if isinstance(result[master], dict):
                 for cmd in result[master]:
@@ -87,8 +83,24 @@ class DeployJobAdmin(admin.ModelAdmin):
                     deployJobDetail = DeployJobDetail(
                         host=targetHost,
                         deploy_message=msg,
-                        job=instances
+                        job=self.instances
                     )
                     deployJobDetail.save()
 
         os.remove(scriptPath)
+        self.instances.deploy_status = 1
+        self.instances.save()
+
+
+@admin.register(DeployJob)
+class DeployJobAdmin(admin.ModelAdmin):
+    list_display = ['job_name', 'project_version', 'deploy_status']
+    search_fields = ['job_name']
+    list_filter = ['deploy_status']
+    inlines = [DeployJobDetailInline]
+
+    def save_formset(self, request, form, formset, change):
+        instances = form.save(commit=False)
+        formset.save()
+        thread = cmdThread(instances)
+        thread.start()

@@ -126,7 +126,7 @@ CRONJOBS = [
 ]
 
 # 文件上传的路径
-PACKAGE_PATH = "/home/kira/dev/github/saltops/doc/script/"
+PACKAGE_PATH = os.path.join("doc/script/")
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
