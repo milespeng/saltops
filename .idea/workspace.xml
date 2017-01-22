@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/migrations/0012_projectversion_is_default.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admin.py" afterPath="$PROJECT_DIR$/deploy_manager/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/models.py" afterPath="$PROJECT_DIR$/deploy_manager/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/常用命令.md" afterPath="$PROJECT_DIR$/doc/常用命令.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/settings.py" afterPath="$PROJECT_DIR$/saltops/settings.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +42,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy_manager/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="18" />
+            <state relative-caret-position="296">
+              <caret line="46" column="14" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -53,8 +52,18 @@
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deploy_manager/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+            <state relative-caret-position="261">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -813,14 +822,6 @@
     <entry file="file://$PROJECT_DIR$/doc/script/orch/0d72ccb4-def6-11e6-956e-a8bbcf17ec44" />
     <entry file="file://$PROJECT_DIR$/doc/script/orch/top.sls" />
     <entry file="file://$PROJECT_DIR$/doc/script/orch/demo.sls" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/envs/saltops/local/lib/python2.7/site-packages/django/db/models/fields/files.py" />
     <entry file="file://$PROJECT_DIR$/saltjob/admin.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -953,18 +954,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="18" />
+        <state relative-caret-position="296">
+          <caret line="46" column="14" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+        <state relative-caret-position="261">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
           <folding />
         </state>
       </provider>

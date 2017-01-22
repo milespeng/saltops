@@ -18,7 +18,7 @@ sys.setdefaultencoding("utf-8")
 
 class ProjectVersionInline(admin.TabularInline):
     model = ProjectVersion
-    fields = ['name', 'files']
+    fields = ['name', 'is_default', 'files']
     verbose_name = '版本'
     verbose_name_plural = '版本'
     extra = 0

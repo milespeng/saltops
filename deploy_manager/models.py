@@ -44,6 +44,7 @@ class ProjectVersion(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="版本名称")
     project = models.ForeignKey(Project, default="", verbose_name="业务名称", blank=True, null=True, )
     files = models.FileField(verbose_name='版本', blank=True, null=True, upload_to=PACKAGE_PATH + 'files')
+    is_default = models.BooleanField(verbose_name='默认版本', blank=True, default=True)
 
     def __str__(self):
         return self.project.__str__() + '---' + self.name
