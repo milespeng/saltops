@@ -4,6 +4,71 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+class ISP(models.Model):
+    name = models.CharField(max_length=255, verbose_name='名称')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "ISP"
+        verbose_name_plural = verbose_name
+
+
+class IDCType(models.Model):
+    name = models.CharField(max_length=255, verbose_name='名称')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "机房类型"
+        verbose_name_plural = verbose_name
+
+
+class IDC(models.Model):
+    name = models.CharField(max_length=255, verbose_name='机房名称')
+    bandwidth = models.CharField(max_length=255, blank=True, null=True, verbose_name='机房带宽')
+    phone = models.CharField(max_length=255, verbose_name='联系电话')
+    linkman = models.CharField(max_length=255, null=True, verbose_name='联系人')
+    address = models.CharField(max_length=255, blank=True, null=True, verbose_name="机房地址")
+    network = models.TextField(blank=True, null=True, verbose_name="IP地址段")
+    create_time = models.DateField(auto_now=True, verbose_name='创建时间')
+    operator = models.ForeignKey(ISP, verbose_name='ISP类型')
+    type = models.ForeignKey(IDCType, verbose_name='机房类型')
+    comment = models.TextField(blank=True, null=True, verbose_name="备注")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "IDC"
+        verbose_name_plural = verbose_name
+
+
+class Cabinet(models.Model):
+    idc = models.ForeignKey(IDC, verbose_name='IDC')
+    name = models.CharField(max_length=30, unique=True, verbose_name="机柜编号")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "机柜"
+        verbose_name_plural = verbose_name
+
+
+class Rack(models.Model):
+    cabinet = models.ForeignKey(Cabinet, verbose_name='机柜')
+    name = models.CharField(max_length=30, unique=True, verbose_name="机架名称")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "机架"
+        verbose_name_plural = verbose_name
+
 
 class Host(models.Model):
     host_name = models.CharField(max_length=255, blank=True, null=True, verbose_name="主机DNS名称")
@@ -24,6 +89,7 @@ class Host(models.Model):
     os = models.CharField(max_length=255, blank=True, null=True, verbose_name="操作系统")
     mem_total = models.IntegerField(blank=True, null=True, verbose_name="内存大小")
     num_cpus = models.IntegerField(blank=True, null=True, verbose_name="CPU数量")
+    rack = models.ForeignKey(Rack, verbose_name='机架', blank=True, null=True)
 
     def __str__(self):
         return self.host_name

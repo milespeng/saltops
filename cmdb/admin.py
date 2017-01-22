@@ -24,7 +24,39 @@ class ProjectInline(admin.TabularInline):
 @admin.register(Host)
 class HostAdmin(admin.ModelAdmin):
     list_display = ['host_name', 'kernel', 'kernel_release',
-                    'host', 'saltversion', 'num_gpus', 'system_serialnumber', 'cpu_model',
+                    'host', 'rack', 'saltversion', 'num_gpus', 'system_serialnumber', 'cpu_model',
                     'os', 'mem_total', 'cpuarch', 'osarch']
     search_fields = ['host']
     inlines = [IPInline, ProjectInline]
+
+
+@admin.register(Cabinet)
+class CabinetAdmin(admin.ModelAdmin):
+    list_display = ['idc', 'name']
+    search_fields = ['name']
+
+
+@admin.register(IDC)
+class IDCAdmin(admin.ModelAdmin):
+    list_display = ['name', 'bandwidth', 'phone',
+                    'linkman', 'address', 'network',
+                    'create_time', 'operator', 'type']
+    search_fields = ['name']
+
+
+@admin.register(IDCType)
+class IDCTypeAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    search_fields = ['name']
+
+
+@admin.register(ISP)
+class ISPAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    search_fields = ['name']
+
+
+@admin.register(Rack)
+class RackAdmin(admin.ModelAdmin):
+    list_display = ['cabinet', 'name']
+    search_fields = ['cabinet', 'name']
