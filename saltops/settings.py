@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'saltjob',
     'jet.dashboard',
     'jet',
+    'mptt',
     'deploy_manager',
     'django_crontab',
     'django.contrib.admin',

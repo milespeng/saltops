@@ -5,6 +5,8 @@ from uuid import uuid1
 
 from django.contrib import admin
 import salt.client
+from mptt.admin import MPTTModelAdmin
+
 from deploy_manager.models import *
 import salt.runner
 import salt.config
@@ -30,9 +32,15 @@ class HostInline(admin.TabularInline):
     extra = 0
 
 
+@admin.register(ProjectModule)
+class ProjectModuleAdmin(MPTTModelAdmin):
+    list_display = ['name', 'parent']
+    search_fields = ['name']
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['project_module', 'name']
     search_fields = ['host']
     inlines = [ProjectVersionInline, HostInline]
 
