@@ -579,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485073402261</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="添加业务模块信息">
+      <created>1485076918824</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1485076918824</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -649,7 +656,8 @@
     <MESSAGE value="更新ReadMe" />
     <MESSAGE value="作业执行调整为异步" />
     <MESSAGE value="添加CMDB的其他信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加CMDB的其他信息" />
+    <MESSAGE value="添加业务模块信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加业务模块信息" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
