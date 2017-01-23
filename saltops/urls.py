@@ -20,8 +20,16 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.sessions import serializers
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+from rest_framework import routers
+
+# from deploy_manager.serializer import UserViewSet
+
+# router = routers.DefaultRouter()
+# router.register(r'users', UserViewSet)
 
 urlpatterns = [
+    # url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

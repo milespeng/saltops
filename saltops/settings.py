@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'jet.dashboard',
     'jet',
     'mptt',
+    'rest_framework',
     'deploy_manager',
     'django_crontab',
     'django.contrib.admindocs',
@@ -165,3 +166,9 @@ JET_SIDE_MENU_CUSTOM_APPS = [
         'User'
     ]),
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

@@ -2,11 +2,14 @@ backports-abc==0.5
 certifi==2016.9.26
 Django==1.10.5
 django-crontab==0.7.1
+django-filter==1.0.1
 django-jet==1.0.4
 django-mptt==0.8.7
+djangorestframework==3.5.3
 docutils==0.13.1
 futures==3.0.5
 Jinja2==2.9.4
+Markdown==2.6.7
 MarkupSafe==0.23
 msgpack-python==0.4.8
 pycrypto==2.6.1
