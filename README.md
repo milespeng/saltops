@@ -9,7 +9,7 @@ SaltOps是一个基于SaltStack和Django开发的运维平台，
 
 #系统会具备什么功能
 
-* CMDB：这个也是没办法的事情。。一是没有特别好用的CMDB，另外一个方面来看，Salt的Agent非常适合采集这些基础信息，
+* CMDB：这个也是没办法的事情，资产信息还是要的。。而且Salt的Agent非常适合采集这些基础信息
 最后，包发布的过程是需要用到CMDB信息的，所以CMDB是作为附属品存在的
 * 包发布：程序包发布的功能，这块主要是用到salt的state.sls，通过编写好
 sls文件，然后调用salt进行发布的动作，发布完后应用与主机的信息自然就对接起来了
@@ -20,8 +20,7 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 配合着Django-jet的话也长得还不错
 
 #一些图片
-![输入图片说明](http://git.oschina.net/uploads/images/2017/0121/195423_4270a117_8819.png "在这里输入图片标题")
-![输入图片说明](http://git.oschina.net/uploads/images/2017/0121/195430_684a393c_8819.png "在这里输入图片标题")
-![输入图片说明](http://git.oschina.net/uploads/images/2017/0121/195437_e3a4da54_8819.png "在这里输入图片标题")
-![输入图片说明](http://git.oschina.net/uploads/images/2017/0121/195443_2d245968_8819.png "在这里输入图片标题")
-![输入图片说明](http://git.oschina.net/uploads/images/2017/0121/195449_bbba99fb_8819.png "在这里输入图片标题")
+![输入图片说明](http://git.oschina.net/uploads/images/2017/0123/103726_0f841e0b_8819.png "在这里输入图片标题")
+![输入图片说明](http://git.oschina.net/uploads/images/2017/0123/103734_49fb795f_8819.png "在这里输入图片标题")
+![输入图片说明](http://git.oschina.net/uploads/images/2017/0123/103741_6e9bca49_8819.png "在这里输入图片标题")
+![输入图片说明](http://git.oschina.net/uploads/images/2017/0123/103747_1cbe3394_8819.png "在这里输入图片标题")
