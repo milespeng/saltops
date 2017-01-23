@@ -20,6 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^jet/', include('jet.urls', 'jet')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
 ]
 admin.site.site_header = '运维平台'
