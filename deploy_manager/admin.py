@@ -5,6 +5,7 @@ from uuid import uuid1
 
 from django.contrib import admin
 import salt.client
+from django.forms import RadioSelect, forms
 from django.urls import reverse
 from mptt.admin import MPTTModelAdmin
 
@@ -23,6 +24,9 @@ class ProjectVersionInline(admin.TabularInline):
     verbose_name = '版本'
     verbose_name_plural = '版本'
     extra = 0
+
+    class Media:
+        js = ('/static/js/ProjectVersionInline.js',)
 
 
 class HostInline(admin.TabularInline):
@@ -47,6 +51,10 @@ class ProjectAdmin(admin.ModelAdmin):
 
     actions = ['deploydefaultAction', ]
 
+    # def save_formset(self, request, form, formset, change):
+    #     instances = form.save(commit=False)
+    #     formset.save()
+
     # 这里可以切换成自己的URL
     # def view_on_site(self, obj):
     #     url = reverse('person-detail', kwargs={'slug': obj.slug})
@@ -66,17 +74,14 @@ class ProjectAdmin(admin.ModelAdmin):
 
 class DeployJobDetailInline(admin.StackedInline):
     model = DeployJobDetail
-    fields = ['host', 'deploy_message']
+    fields = ['host', 'job_cmd', 'duration', 'deploy_message', 'stderr']
     verbose_name = '作业详情'
     verbose_name_plural = '作业详情'
     extra = 0
     can_delete = False
-    readonly_fields = ['host', 'deploy_message']
+    readonly_fields = ['host', 'job_cmd', 'duration', 'deploy_message', 'stderr']
 
     def has_add_permission(self, request):
-        return False
-
-    def has_change_permission(self, request, obj=None):
         return False
 
     def has_delete_permission(self, request, obj=None):
@@ -98,8 +103,13 @@ class cmdThread(threading.Thread):
         output.write(project.playbook)
         output.close()
 
+        target = ""
+        for host in hosts:
+            target = host.host_name + ","
+        if target != "":
+            target = target[0:len(target) - 1]
         local = salt.client.LocalClient()
-        result = local.cmd('*', 'state.sls', [uid])
+        result = local.cmd(target, 'state.sls', [uid])
         for master in result:
             if isinstance(result[master], dict):
                 for cmd in result[master]:
@@ -107,10 +117,16 @@ class cmdThread(threading.Thread):
                     msg = ""
                     if "stdout" in result[master][cmd]['changes']:
                         msg = result[master][cmd]['changes']["stdout"]
+                    stderr = ""
+                    if "stderr" in result[master][cmd]['changes']:
+                        stderr = result[master][cmd]['changes']["stderr"]
                     deployJobDetail = DeployJobDetail(
                         host=targetHost,
                         deploy_message=msg,
-                        job=self.instances
+                        job=self.instances,
+                        stderr=stderr,
+                        # start_time=result[master][cmd]['start_time'],
+                        duration=result[master][cmd]['duration'],
                     )
                     deployJobDetail.save()
 
