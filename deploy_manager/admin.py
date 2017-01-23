@@ -44,6 +44,19 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ['host']
     inlines = [ProjectVersionInline, HostInline]
 
+    actions = ['deploydefaultAction', ]
+
+    def deploydefaultAction(self, request, queryset):
+        for obj in queryset:
+            version = obj.projectversion_set.get(is_default=True)
+            job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
+            job.save()
+            thread = cmdThread(job)
+            thread.start()
+            self.message_user(request, "%s 个部署作业成功启动" % len(queryset))
+
+    deploydefaultAction.short_description = "部署默认版本"
+
 
 class DeployJobDetailInline(admin.StackedInline):
     model = DeployJobDetail

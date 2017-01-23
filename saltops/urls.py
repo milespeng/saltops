@@ -16,6 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.sessions import serializers
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 urlpatterns = [
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
@@ -25,3 +29,12 @@ urlpatterns = [
 ]
 admin.site.site_header = '运维平台'
 admin.site.site_title = '运维平台'
+
+
+def export_selected_objects(modeladmin, request, queryset):
+    selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+    ct = ContentType.objects.get_for_model(queryset.model)
+    return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
+
+
+admin.site.add_action(export_selected_objects, '导出选定内容')
