@@ -28,6 +28,15 @@ class HostAdmin(admin.ModelAdmin):
                     'os', 'mem_total', 'cpuarch', 'osarch']
     search_fields = ['host']
     inlines = [IPInline, ProjectInline]
+    # fieldsets = (
+    #     ('基础信息', {
+    #         'fields': ('host_name', 'kernel', 'kernel_release','virtual',
+    #                    'host','osrelease','osfinger','os_family','num_gpus','system_serialnumber')
+    #     }),
+    #     ('Agent信息', {
+    #         'fields': ('saltversion',)
+    #     }),
+    # )
 
 
 @admin.register(Cabinet)

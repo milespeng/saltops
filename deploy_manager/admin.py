@@ -5,6 +5,7 @@ from uuid import uuid1
 
 from django.contrib import admin
 import salt.client
+from django.urls import reverse
 from mptt.admin import MPTTModelAdmin
 
 from deploy_manager.models import *
@@ -46,6 +47,11 @@ class ProjectAdmin(admin.ModelAdmin):
 
     actions = ['deploydefaultAction', ]
 
+    # 这里可以切换成自己的URL
+    # def view_on_site(self, obj):
+    #     url = reverse('person-detail', kwargs={'slug': obj.slug})
+    #     return 'https://example.com' + url
+
     def deploydefaultAction(self, request, queryset):
         for obj in queryset:
             version = obj.projectversion_set.get(is_default=True)
@@ -70,7 +76,7 @@ class DeployJobDetailInline(admin.StackedInline):
     def has_add_permission(self, request):
         return False
 
-    def has_edit_permission(self, request):
+    def has_change_permission(self, request, obj=None):
         return False
 
     def has_delete_permission(self, request, obj=None):
@@ -116,12 +122,18 @@ class cmdThread(threading.Thread):
 @admin.register(DeployJob)
 class DeployJobAdmin(admin.ModelAdmin):
     list_display = ['job_name', 'project_version', 'deploy_status']
+    readonly_fields = ['job_name', 'project_version', 'deploy_status']
     search_fields = ['job_name']
     list_filter = ['deploy_status']
     inlines = [DeployJobDetailInline]
 
-    def save_formset(self, request, form, formset, change):
-        instances = form.save(commit=False)
-        formset.save()
-        thread = cmdThread(instances)
-        thread.start()
+    actions = None
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    class Media:
+        js = ('/static/js/DeployJobAdmin.js',)
