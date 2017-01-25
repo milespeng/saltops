@@ -154,7 +154,7 @@ JET_SIDE_MENU_CUSTOM_APPS = [
         'DeployJob'
     ]),
     ('cmdb', [
-        'IDCType',
+        'IDCLevel',
         'ISP',
         'IDC',
         'Cabinet',

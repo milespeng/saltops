@@ -11,18 +11,19 @@ class ISP(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "ISP"
+        verbose_name = "ISP类型"
         verbose_name_plural = verbose_name
 
 
-class IDCType(models.Model):
+class IDCLevel(models.Model):
     name = models.CharField(max_length=255, verbose_name='名称')
+    comment = models.TextField(verbose_name='描述')
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = "机房类型"
+        verbose_name = "机房等级"
         verbose_name_plural = verbose_name
 
 
@@ -32,22 +33,23 @@ class IDC(models.Model):
     phone = models.CharField(max_length=255, verbose_name='联系电话')
     linkman = models.CharField(max_length=255, null=True, verbose_name='联系人')
     address = models.CharField(max_length=255, blank=True, null=True, verbose_name="机房地址")
+    concat_email = models.EmailField(verbose_name='联系邮箱', blank=True, null=True, default="")
     network = models.TextField(blank=True, null=True, verbose_name="IP地址段")
     create_time = models.DateField(auto_now=True, verbose_name='创建时间')
     operator = models.ForeignKey(ISP, verbose_name='ISP类型')
-    type = models.ForeignKey(IDCType, verbose_name='机房类型')
+    type = models.ForeignKey(IDCLevel, verbose_name='机房类型')
     comment = models.TextField(blank=True, null=True, verbose_name="备注")
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = "IDC"
+        verbose_name = "机房"
         verbose_name_plural = verbose_name
 
 
 class Cabinet(models.Model):
-    idc = models.ForeignKey(IDC, verbose_name='IDC')
+    idc = models.ForeignKey(IDC, verbose_name='机房')
     name = models.CharField(max_length=30, unique=True, verbose_name="机柜编号")
 
     def __str__(self):

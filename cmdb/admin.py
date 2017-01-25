@@ -47,16 +47,16 @@ class CabinetAdmin(admin.ModelAdmin):
 
 @admin.register(IDC)
 class IDCAdmin(admin.ModelAdmin):
-    list_display = ['name', 'bandwidth', 'phone',
-                    'linkman', 'address', 'network',
-                    'create_time', 'operator', 'type']
+    list_display = ['name', 'type', 'phone',
+                    'linkman', 'address',
+                    'operator', 'concat_email', 'create_time']
     search_fields = ['name']
 
 
-@admin.register(IDCType)
-class IDCTypeAdmin(admin.ModelAdmin):
-    list_display = ['name']
-    search_fields = ['name']
+@admin.register(IDCLevel)
+class IDCLevelAdmin(admin.ModelAdmin):
+    list_display = ['name', 'comment']
+    search_fields = ['name', 'comment']
 
 
 @admin.register(ISP)
