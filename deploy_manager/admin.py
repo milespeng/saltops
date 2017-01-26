@@ -18,8 +18,8 @@ from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from saltops.settings import SALT_REST_URL
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
+# reload(sys)
+# sys.setdefaultencoding("utf-8")
 
 
 class ProjectVersionInline(admin.TabularInline):

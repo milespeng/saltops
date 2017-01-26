@@ -1,5 +1,5 @@
 # coding=utf8
-import urllib2, cookielib, urllib, yaml, json
+import urllib, yaml, json
 import requests
 
 requests.packages.urllib3.disable_warnings()
@@ -19,7 +19,7 @@ class salt_api_token(object):
             'CustomUser-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
             "Accept": "application/x-yaml",
         }
-        s = { "client": "local_async"}
+        s = {"client": "local_async"}
         self.headers.update(token)
         self.data.update(s)
 
@@ -45,8 +45,8 @@ class salt_api_jobs(object):
         self.headers.update(token)
 
     def run(self):
-        context = urllib2.Request(self.url, headers=self.headers)
-        resp = urllib2.urlopen(context)
+        context = urllib.request.Request(self.url, headers=self.headers)
+        resp = urllib.request.urlopen(context)
         context = resp.read()
         return yaml.load(context)
 
@@ -70,7 +70,7 @@ class pxe_api(object):
             pxe_content_data = {'status': 110, 'result': u"pxe接口请求失败,请通知管理员检查接口请况"}
             return json.dumps(pxe_content_data)
         pxe_content_data = pxe_content.text
-        print pxe_content
+        print(pxe_content)
         return pxe_content_data
 
 
