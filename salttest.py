@@ -1,20 +1,7 @@
-# import salt.client
-# import time
-#
-# local = salt.client.LocalClient()
-# jid = local.cmd_async('*', 'state.sls', ['es'])
-# t = 0
-# while not local.get_full_returns(jid,'*'):
-#     time.sleep(1)
-#     if t == 100:
-#         print 'Connection Failed!'
-#         break
-#     else:
-#         t += 1
-#         print "Not Finish" + str(t)
-#
-# print local.get_full_returns(jid,'*')
-import datetime
+from saltjob.salt_https_api import salt_api_token
+from saltjob.salt_token_id import token_id
+from saltops.settings import SALT_REST_URL
 
-str = '15:38:30.077481'
-datetime.datetime.strptime(str, "%Y-%m-%d %H:%M:%S")
+rs = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
+                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return']
+print rs

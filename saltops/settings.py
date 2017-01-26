@@ -173,3 +173,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+SALT_REST_URL='http://127.0.0.1:8001/'
+SALT_USER='kira'
+SALT_PASSWORD='8565'

@@ -1,11 +1,14 @@
 import salt.client
 
 from cmdb.models import Host, HostIP
+from saltjob.salt_https_api import salt_api_token
+from saltjob.salt_token_id import token_id
+from saltops.settings import SALT_REST_URL
 
 
 def scanHostJob():
-    local = salt.client.LocalClient()
-    result = local.cmd('*', 'grains.items')
+    result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
+                            SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
     for host in result:
         try:
             rs = Host.objects.filter(host_name=host, host=result[host]["host"])

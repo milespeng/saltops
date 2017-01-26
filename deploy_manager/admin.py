@@ -14,6 +14,10 @@ import salt.runner
 import salt.config
 import sys
 
+from saltjob.salt_https_api import salt_api_token
+from saltjob.salt_token_id import token_id
+from saltops.settings import SALT_REST_URL
+
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -94,7 +98,6 @@ class cmdThread(threading.Thread):
         self.instances = instances
 
     def run(self):
-        rc = salt.runner.RunnerClient(salt.config.master_config('/etc/salt/master'))
         project = self.instances.project_version.project
         hosts = project.host.all()
         uid = uuid1().__str__()
@@ -108,8 +111,9 @@ class cmdThread(threading.Thread):
             target = host.host_name + ","
         if target != "":
             target = target[0:len(target) - 1]
-        local = salt.client.LocalClient()
-        result = local.cmd(target, 'state.sls', [uid])
+        result = salt_api_token({'fun': 'state.sls', 'tgt': target,
+                                 'arg': uid},
+                                SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
         for master in result:
             if isinstance(result[master], dict):
                 for cmd in result[master]:
