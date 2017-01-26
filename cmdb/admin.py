@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+from django.db.models.aggregates import Count
+from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
 from cmdb.models import *
 from deploy_manager.models import *
@@ -39,18 +41,50 @@ class HostAdmin(admin.ModelAdmin):
     # )
 
 
+class RackInline(NestedStackedInline):
+    model = Rack
+    fields = ['name']
+    verbose_name = '机架'
+    verbose_name_plural = '机架'
+    extra = 0
+    fk_name = 'cabinet'
+
+
 @admin.register(Cabinet)
 class CabinetAdmin(admin.ModelAdmin):
-    list_display = ['idc', 'name']
+    list_display = ['idc', 'name', 'rack_count']
     search_fields = ['name']
+    fk_name = 'cabinet'
+
+    def rack_count(self, obj):
+        return obj.rack_set.count()
+
+    rack_count.short_description = '机架数量'
+    inlines = [RackInline]
+
+
+class CabinetInline(NestedStackedInline):
+    model = Cabinet
+    fields = ['name']
+    verbose_name = '机柜'
+    verbose_name_plural = '机柜'
+    extra = 0
+    fk_name = 'idc'
+    inlines = [RackInline]
 
 
 @admin.register(IDC)
-class IDCAdmin(admin.ModelAdmin):
+class IDCAdmin(NestedModelAdmin):
     list_display = ['name', 'type', 'phone',
                     'linkman', 'address',
-                    'operator', 'concat_email', 'create_time']
+                    'operator', 'concat_email', 'idc_count', 'create_time']
     search_fields = ['name']
+    inlines = [CabinetInline]
+
+    def idc_count(self, obj):
+        return obj.cabinet_set.count()
+
+    idc_count.short_description = '机柜数量'
 
 
 @admin.register(IDCLevel)

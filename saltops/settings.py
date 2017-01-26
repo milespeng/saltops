@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'saltjob',
     'jet.dashboard',
     'jet',
+    'nested_inline',
     'mptt',
     'rest_framework',
     'deploy_manager',
