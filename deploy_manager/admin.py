@@ -18,8 +18,12 @@ from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from saltops.settings import SALT_REST_URL
 
-# reload(sys)
-# sys.setdefaultencoding("utf-8")
+
+@admin.register(ProjectModule)
+class ProjectModuleAdmin(MPTTModelAdmin):
+    list_display = ['name', 'parent', 'create_time', 'update_time']
+    search_fields = ['name']
+    list_filter = ['parent']
 
 
 class ProjectVersionInline(admin.TabularInline):
@@ -41,16 +45,11 @@ class HostInline(admin.TabularInline):
     extra = 0
 
 
-@admin.register(ProjectModule)
-class ProjectModuleAdmin(MPTTModelAdmin):
-    list_display = ['name', 'parent']
-    search_fields = ['name']
-
-
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['project_module', 'name']
+    list_display = ['project_module', 'name', 'job_script_type']
     search_fields = ['host']
+    list_filter = ['job_script_type']
     inlines = [ProjectVersionInline, HostInline]
 
     actions = ['deploydefaultAction', ]

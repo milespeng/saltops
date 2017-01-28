@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils.timezone import now
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
@@ -10,9 +10,14 @@ from saltops.settings import PACKAGE_PATH
 
 
 class ProjectModule(MPTTModel):
+    """
+    业务模块
+    """
     parent = TreeForeignKey('self', verbose_name='上级业务模块',
                             null=True, blank=True, related_name='children', db_index=True)
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="业务模块名称")
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     class MPTTMeta:
         parent_attr = 'parent'
@@ -25,12 +30,20 @@ class ProjectModule(MPTTModel):
         verbose_name_plural = verbose_name
 
 
+JOB_SCRIPT_TYPE = (
+    (0, 'sls'),
+    (1, 'shell')
+)
+
+
 class Project(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="业务名称")
     host = models.ManyToManyField(Host, default="", verbose_name="主机",
                                   blank=True, through='ProjectHost')
     project_module = models.ForeignKey(ProjectModule, verbose_name='业务模块', blank=True, null=True, default="")
     playbook = models.TextField(verbose_name='部署脚本', null=True, blank=True)
+    job_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
+                                          verbose_name='脚本语言')
 
     def __str__(self):
         return self.name

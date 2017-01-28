@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'jet',
     'nested_inline',
     'mptt',
+    'tools_manager',
     'rest_framework',
     'deploy_manager',
     'django_crontab',
@@ -162,6 +163,10 @@ JET_SIDE_MENU_CUSTOM_APPS = [
         'Rack',
         'Host'
     ]),
+    # ('tools_manager', [
+    #     'ToolsTypes',
+    #     'ToolsScript',
+    # ]),
     ('auth', [
         'Group',
         'User'
@@ -174,6 +179,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-SALT_REST_URL='http://127.0.0.1:8001/'
-SALT_USER='kira'
-SALT_PASSWORD='8565'
+SALT_REST_URL = 'http://127.0.0.1:8001/'
+SALT_USER = 'kira'
+SALT_PASSWORD = '8565'
