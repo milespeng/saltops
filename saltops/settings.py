@@ -150,11 +150,6 @@ STATICFILES_DIRS = (
 JET_SIDE_MENU_COMPACT = True
 
 JET_SIDE_MENU_CUSTOM_APPS = [
-    ('deploy_manager', [
-        'ProjectModule',
-        'Project',
-        'DeployJob'
-    ]),
     ('cmdb', [
         'IDCLevel',
         'ISP',
@@ -162,6 +157,11 @@ JET_SIDE_MENU_CUSTOM_APPS = [
         'Cabinet',
         'Rack',
         'Host'
+    ]),
+    ('deploy_manager', [
+        'ProjectModule',
+        'Project',
+        'DeployJob'
     ]),
     # ('tools_manager', [
     #     'ToolsTypes',

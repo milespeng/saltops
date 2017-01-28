@@ -44,6 +44,8 @@ class Project(models.Model):
     playbook = models.TextField(verbose_name='部署脚本', null=True, blank=True)
     job_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
                                           verbose_name='脚本语言')
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -58,6 +60,8 @@ class ProjectVersion(models.Model):
     project = models.ForeignKey(Project, default="", verbose_name="业务名称", blank=True, null=True, )
     files = models.FileField(verbose_name='版本', blank=True, null=True, upload_to=PACKAGE_PATH + 'files')
     is_default = models.BooleanField(verbose_name='默认版本', blank=True, default=False)
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.project.__str__() + '---' + self.name
@@ -70,6 +74,8 @@ class ProjectVersion(models.Model):
 class ProjectHost(models.Model):
     host = models.ForeignKey(Host, verbose_name='主机')
     project = models.ForeignKey(Project, verbose_name='业务')
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.host.host_name
@@ -91,6 +97,8 @@ class DeployJob(models.Model):
     job_name = models.CharField(max_length=255, blank=True, null=True, verbose_name="作业名称")
     deploy_status = models.IntegerField(null=True, blank=True, verbose_name="部署状态", choices=DEPLOY_STATUS,
                                         default=0)
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.job_name
@@ -109,6 +117,8 @@ class DeployJobDetail(models.Model):
     start_time = models.DateTimeField(verbose_name='开始时间', blank=True, null=True)
     duration = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='执行时长', blank=True, null=True)
     stderr = models.TextField(blank=True, null=True, verbose_name="其他信息")
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return ""

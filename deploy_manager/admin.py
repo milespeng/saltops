@@ -34,7 +34,9 @@ class ProjectVersionInline(admin.TabularInline):
     extra = 0
 
     class Media:
-        js = ('/static/js/ProjectVersionInline.js',)
+        js = (
+            '/static/js/ProjectVersionInline.js',
+        )
 
 
 class HostInline(admin.TabularInline):
@@ -47,12 +49,22 @@ class HostInline(admin.TabularInline):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['project_module', 'name', 'job_script_type']
+    list_display = ['project_module', 'name', 'job_script_type', 'deployMsg']
     search_fields = ['host']
     list_filter = ['job_script_type']
     inlines = [ProjectVersionInline, HostInline]
 
     actions = ['deploydefaultAction', ]
+
+    def deployMsg(self, obj):
+        try:
+            return dict(DEPLOY_STATUS)[obj.projectversion_set.
+                get(is_default=True).deployjob_set.
+                order_by('-update_time').all()[0].deploy_status]
+        except Exception as e:
+            return ""
+
+    deployMsg.short_description = '部署状态'
 
     # def save_formset(self, request, form, formset, change):
     #     instances = form.save(commit=False)

@@ -6,6 +6,8 @@ from django.db import models
 
 class ISP(models.Model):
     name = models.CharField(max_length=255, verbose_name='名称')
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -18,6 +20,8 @@ class ISP(models.Model):
 class IDCLevel(models.Model):
     name = models.CharField(max_length=255, verbose_name='名称')
     comment = models.TextField(verbose_name='描述')
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -39,6 +43,8 @@ class IDC(models.Model):
     operator = models.ForeignKey(ISP, verbose_name='ISP类型')
     type = models.ForeignKey(IDCLevel, verbose_name='机房类型')
     comment = models.TextField(blank=True, null=True, verbose_name="备注")
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -51,6 +57,8 @@ class IDC(models.Model):
 class Cabinet(models.Model):
     idc = models.ForeignKey(IDC, verbose_name='机房')
     name = models.CharField(max_length=30, unique=True, verbose_name="机柜编号")
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -63,6 +71,8 @@ class Cabinet(models.Model):
 class Rack(models.Model):
     cabinet = models.ForeignKey(Cabinet, verbose_name='机柜')
     name = models.CharField(max_length=30, unique=True, verbose_name="机架名称")
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -92,6 +102,8 @@ class Host(models.Model):
     mem_total = models.IntegerField(blank=True, null=True, verbose_name="内存大小")
     num_cpus = models.IntegerField(blank=True, null=True, verbose_name="CPU数量")
     rack = models.ForeignKey(Rack, verbose_name='机架', blank=True, null=True)
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.host_name
@@ -104,6 +116,8 @@ class Host(models.Model):
 class HostIP(models.Model):
     ip = models.CharField(max_length=255, blank=True, null=True, verbose_name="IP地址")
     host = models.ForeignKey(Host, default="", verbose_name="主机", blank=True, null=True, )
+    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.ip
