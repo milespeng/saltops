@@ -49,7 +49,9 @@ class HostInline(admin.TabularInline):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['project_module', 'name', 'job_script_type', 'deployMsg']
+    list_display = ['project_module', 'name', 'job_script_type',
+                    'create_time', 'update_time',
+                    'deployMsg']
     search_fields = ['host']
     list_filter = ['job_script_type']
     inlines = [ProjectVersionInline, HostInline]
@@ -94,7 +96,9 @@ class DeployJobDetailInline(admin.StackedInline):
     verbose_name_plural = '作业详情'
     extra = 0
     can_delete = False
-    readonly_fields = ['host', 'job_cmd', 'duration', 'deploy_message', 'stderr']
+    readonly_fields = ['host', 'job_cmd', 'duration', 'deploy_message', 'stderr',
+                       'create_time', 'update_time']
+    ordering = ['-create_time']
 
     def has_add_permission(self, request):
         return False
@@ -114,7 +118,9 @@ class cmdThread(threading.Thread):
         uid = uuid1().__str__()
         scriptPath = PACKAGE_PATH + uid + ".sls"
         output = open(scriptPath, 'w')
-        output.write(project.playbook)
+        defaultVersion = project.projectversion_set.get(is_default=True)
+        playbookContent = project.playbook.replace('${version}', defaultVersion.name)
+        output.write(playbookContent)
         output.close()
 
         target = ""
@@ -122,9 +128,16 @@ class cmdThread(threading.Thread):
             target = host.host_name + ","
         if target != "":
             target = target[0:len(target) - 1]
-        result = salt_api_token({'fun': 'state.sls', 'tgt': target,
-                                 'arg': uid},
-                                SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+        result = None
+
+        if project.job_script_type == 0:
+            result = salt_api_token({'fun': 'state.sls', 'tgt': target,
+                                     'arg': uid},
+                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+        if project.job_script_type == 1:
+            # 脚本类型的下个版本再支持
+            pass
+
         for master in result:
             if isinstance(result[master], dict):
                 for cmd in result[master]:
@@ -140,6 +153,7 @@ class cmdThread(threading.Thread):
                         deploy_message=msg,
                         job=self.instances,
                         stderr=stderr,
+                        job_cmd=result[master][cmd]['name'],
                         # start_time=result[master][cmd]['start_time'],
                         duration=result[master][cmd]['duration'],
                     )
@@ -152,7 +166,7 @@ class cmdThread(threading.Thread):
 
 @admin.register(DeployJob)
 class DeployJobAdmin(admin.ModelAdmin):
-    list_display = ['job_name', 'project_version', 'deploy_status']
+    list_display = ['job_name', 'project_version', 'create_time', 'update_time', 'deploy_status']
     readonly_fields = ['job_name', 'project_version', 'deploy_status']
     search_fields = ['job_name']
     list_filter = ['deploy_status']

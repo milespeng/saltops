@@ -41,7 +41,8 @@ class Project(models.Model):
     host = models.ManyToManyField(Host, default="", verbose_name="主机",
                                   blank=True, through='ProjectHost')
     project_module = models.ForeignKey(ProjectModule, verbose_name='业务模块', blank=True, null=True, default="")
-    playbook = models.TextField(verbose_name='部署脚本', null=True, blank=True)
+    playbook = models.TextField(verbose_name='部署脚本', null=True, blank=True,
+                                help_text='${version}代表默认版本号')
     job_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
                                           verbose_name='脚本语言')
     create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
@@ -104,7 +105,7 @@ class DeployJob(models.Model):
         return self.job_name
 
     class Meta:
-        verbose_name = "部署作业"
+        verbose_name = "历史作业"
         verbose_name_plural = verbose_name
 
 

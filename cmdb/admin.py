@@ -27,7 +27,7 @@ class ProjectInline(admin.TabularInline):
 class HostAdmin(admin.ModelAdmin):
     list_display = ['host_name', 'kernel', 'kernel_release',
                     'host', 'rack', 'saltversion', 'num_gpus', 'system_serialnumber', 'cpu_model',
-                    'os', 'mem_total', 'cpuarch', 'osarch']
+                    'os', 'mem_total', 'cpuarch', 'osarch', 'create_time', 'update_time']
     search_fields = ['host']
     inlines = [IPInline, ProjectInline]
     # fieldsets = (
@@ -52,7 +52,7 @@ class RackInline(NestedStackedInline):
 
 @admin.register(Cabinet)
 class CabinetAdmin(admin.ModelAdmin):
-    list_display = ['idc', 'name', 'rack_count']
+    list_display = ['idc', 'name', 'rack_count', 'create_time', 'update_time']
     search_fields = ['name']
     fk_name = 'cabinet'
 
@@ -77,7 +77,7 @@ class CabinetInline(NestedStackedInline):
 class IDCAdmin(NestedModelAdmin):
     list_display = ['name', 'type', 'phone',
                     'linkman', 'address',
-                    'operator', 'concat_email', 'idc_count', 'create_time']
+                    'operator', 'concat_email', 'idc_count', 'create_time', 'update_time']
     search_fields = ['name']
     inlines = [CabinetInline]
 
@@ -89,17 +89,17 @@ class IDCAdmin(NestedModelAdmin):
 
 @admin.register(IDCLevel)
 class IDCLevelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'comment']
+    list_display = ['name', 'comment', 'create_time', 'update_time']
     search_fields = ['name', 'comment']
 
 
 @admin.register(ISP)
 class ISPAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['name', 'create_time', 'update_time']
     search_fields = ['name']
 
 
 @admin.register(Rack)
 class RackAdmin(admin.ModelAdmin):
-    list_display = ['cabinet', 'name']
+    list_display = ['cabinet', 'name', 'create_time', 'update_time']
     search_fields = ['cabinet', 'name']
