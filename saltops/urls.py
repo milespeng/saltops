@@ -23,12 +23,15 @@ from django.http import HttpResponseRedirect
 from rest_framework import routers
 
 # from deploy_manager.serializer import UserViewSet
+from deploy_manager.views import *
 
-# router = routers.DefaultRouter()
-# router.register(r'users', UserViewSet)
+router = routers.DefaultRouter()
+router.register(r'projectversionViewSet', ProjectVersionViewSet)
+router.register(r'projectViewSet', ProjectViewSet)
+router.register(r'deployJobViewSet', DeployJobViewSet)
 
 urlpatterns = [
-    # url(r'^api/', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^jet/', include('jet.urls', 'jet')),
