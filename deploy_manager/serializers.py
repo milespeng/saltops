@@ -13,7 +13,7 @@ class ProjectVersionSerializer(serializers.HyperlinkedModelSerializer):
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Project
-        fields = ('name')
+        fields = ('name',)
 
 
 class DeployJobSerializer(serializers.HyperlinkedModelSerializer):
