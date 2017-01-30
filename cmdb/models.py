@@ -3,11 +3,11 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from common.models import BaseModel
 
-class ISP(models.Model):
+
+class ISP(BaseModel):
     name = models.CharField(max_length=255, verbose_name='名称')
-    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -17,11 +17,9 @@ class ISP(models.Model):
         verbose_name_plural = verbose_name
 
 
-class IDCLevel(models.Model):
+class IDCLevel(BaseModel):
     name = models.CharField(max_length=255, verbose_name='名称')
     comment = models.TextField(verbose_name='描述')
-    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -31,7 +29,7 @@ class IDCLevel(models.Model):
         verbose_name_plural = verbose_name
 
 
-class IDC(models.Model):
+class IDC(BaseModel):
     name = models.CharField(max_length=255, verbose_name='机房名称')
     bandwidth = models.CharField(max_length=255, blank=True, null=True, verbose_name='机房带宽')
     phone = models.CharField(max_length=255, verbose_name='联系电话')
@@ -43,8 +41,6 @@ class IDC(models.Model):
     operator = models.ForeignKey(ISP, verbose_name='ISP类型')
     type = models.ForeignKey(IDCLevel, verbose_name='机房类型')
     comment = models.TextField(blank=True, null=True, verbose_name="备注")
-    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -54,11 +50,9 @@ class IDC(models.Model):
         verbose_name_plural = verbose_name
 
 
-class Cabinet(models.Model):
+class Cabinet(BaseModel):
     idc = models.ForeignKey(IDC, verbose_name='机房')
     name = models.CharField(max_length=30, unique=True, verbose_name="机柜编号")
-    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -68,11 +62,9 @@ class Cabinet(models.Model):
         verbose_name_plural = verbose_name
 
 
-class Rack(models.Model):
+class Rack(BaseModel):
     cabinet = models.ForeignKey(Cabinet, verbose_name='机柜')
     name = models.CharField(max_length=30, unique=True, verbose_name="机架名称")
-    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.name
@@ -82,7 +74,7 @@ class Rack(models.Model):
         verbose_name_plural = verbose_name
 
 
-class Host(models.Model):
+class Host(BaseModel):
     host_name = models.CharField(max_length=255, blank=True, null=True, verbose_name="主机DNS名称")
     kernel = models.CharField(max_length=255, blank=True, null=True, verbose_name="系统内核")
     kernel_release = models.CharField(max_length=255, blank=True, null=True, verbose_name="系统内核版本")
@@ -102,8 +94,6 @@ class Host(models.Model):
     mem_total = models.IntegerField(blank=True, null=True, verbose_name="内存大小")
     num_cpus = models.IntegerField(blank=True, null=True, verbose_name="CPU数量")
     rack = models.ForeignKey(Rack, verbose_name='机架', blank=True, null=True)
-    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.host_name
@@ -113,11 +103,9 @@ class Host(models.Model):
         verbose_name_plural = verbose_name
 
 
-class HostIP(models.Model):
+class HostIP(BaseModel):
     ip = models.CharField(max_length=255, blank=True, null=True, verbose_name="IP地址")
     host = models.ForeignKey(Host, default="", verbose_name="主机", blank=True, null=True, )
-    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
     def __str__(self):
         return self.ip
