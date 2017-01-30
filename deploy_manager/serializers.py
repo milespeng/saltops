@@ -5,6 +5,12 @@ from deploy_manager.models import *
 
 
 class ProjectVersionSerializer(serializers.HyperlinkedModelSerializer):
+    def create(self, validated_data):
+        if validated_data['is_default'] == True:
+            ProjectVersion.objects.filter(project=validated_data['project']).update(is_default=False)
+        obj = ProjectVersion.objects.create(**validated_data)
+        return obj
+
     class Meta:
         model = ProjectVersion
         fields = ('name', 'project', 'files', 'is_default')

@@ -88,6 +88,9 @@ class ProjectAdmin(admin.ModelAdmin):
 
     deploydefaultAction.short_description = "部署默认版本"
 
+    class Media:
+        js = ('/static/js/prefixfree.min.js', '/static/js/Project.js')
+
 
 class DeployJobDetailInline(admin.StackedInline):
     model = DeployJobDetail
