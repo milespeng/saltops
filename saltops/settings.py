@@ -140,9 +140,9 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 
-    # ('gentelella', os.path.join(STATIC_ROOT, 'gentelella').replace('\\', '/')),
-    # ('js', os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
-    # ('img', os.path.join(STATIC_ROOT, 'img').replace('\\', '/')),
+    ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
+    ('jet', os.path.join(STATIC_ROOT, 'jet').replace('\\', '/')),
+    ('range_filter', os.path.join(STATIC_ROOT, 'range_filter').replace('\\', '/')),
     # ('fonts', os.path.join(STATIC_ROOT, 'fonts').replace('\\', '/')),
     # ('plugins', os.path.join(STATIC_ROOT, 'plugins').replace('\\', '/')),
 
