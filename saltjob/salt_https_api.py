@@ -23,6 +23,11 @@ class salt_api_token(object):
         self.headers.update(token)
         self.data.update(s)
 
+    def loadJob(self, jid):
+        req = requests.get(self.url + '/jobs/' + jid, headers=self.headers, data=self.data, verify=False)
+        context = req.text
+        return yaml.load(context)
+
     def run(self):
         req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
         context = req.text

@@ -74,6 +74,7 @@ class ProjectAdmin(admin.ModelAdmin):
                     'deployMsg']
     search_fields = ['host']
     list_filter = ['job_script_type']
+    # list_editable = ['name', ]
     inlines = [ProjectVersionInline, HostInline]
 
     actions = ['deploydefaultAction', ]

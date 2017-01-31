@@ -33,4 +33,4 @@ def get_state(target):
 
 
 if __name__ == "__main__":
-    print get_state('*')
+    print (get_state('*'))

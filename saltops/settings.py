@@ -180,6 +180,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-SALT_REST_URL = 'http://127.0.0.1:8001/'
+SALT_REST_URL = 'http://127.0.0.1:18001/'
 SALT_USER = 'kira'
 SALT_PASSWORD = '8565'
