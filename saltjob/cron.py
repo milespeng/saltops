@@ -64,5 +64,5 @@ def scanHostJob():
                     hostip = HostIP(ip=ip, host=entity)
                     hostip.save()
 
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
