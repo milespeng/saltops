@@ -47,7 +47,7 @@ class salt_api_jobs(object):
             'CustomUser-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
             "Accept": "application/x-yaml",
         }
-        self.headers.update(token)
+        self.headers.update({"X-Auth-Token": token})
 
     def run(self):
         context = urllib.request.Request(self.url, headers=self.headers)

@@ -3,6 +3,7 @@ from uuid import uuid1
 
 import salt.client
 from celery import task
+from salt.renderers import yaml
 
 from cmdb.models import Host, HostIP
 from deploy_manager.models import DeployJobDetail
@@ -48,14 +49,25 @@ def deployTask(deployJob):
                 stderr = ""
                 if "stderr" in result[master][cmd]['changes']:
                     stderr = result[master][cmd]['changes']["stderr"]
+
+                jobCmd = ""
+                if 'name' in result[master][cmd]:
+                    jobCmd = result[master][cmd]['name']
+
+                duration = 0
+                if 'duration' in result[master][cmd]:
+                    duration = result[master][cmd]['duration']
+
                 deployJobDetail = DeployJobDetail(
                     host=targetHost,
                     deploy_message=msg,
                     job=deployJob,
                     stderr=stderr,
-                    job_cmd=result[master][cmd]['name'],
+                    job_cmd=jobCmd,
+                    comment=result[master][cmd]['comment'],
+                    is_success=result[master][cmd]['result'],
                     # start_time=result[master][cmd]['start_time'],
-                    duration=result[master][cmd]['duration'],
+                    duration=duration,
                 )
                 deployJobDetail.save()
 

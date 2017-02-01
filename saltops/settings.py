@@ -155,33 +155,36 @@ STATICFILES_DIRS = (
 
 )
 JET_SIDE_MENU_COMPACT = True
-#
-# JET_SIDE_MENU_CUSTOM_APPS = [
-#     ('cmdb', [
-#         'IDCLevel',
-#         'ISP',
-#         'IDC',
-#         'Cabinet',
-#         'Rack',
-#         'Host'
-#     ]),
-#     ('deploy_manager', [
-#         'ProjectModule',
-#         'Project',
-#         'DeployJob'
-#     ]),
-#     # ('tools_manager', [
-#     #     'ToolsTypes',
-#     #     'ToolsScript',
-#     # ]),
-#     ('auth', [
-#         'Group',
-#         'User'
-#     ]),
-#     # ('kombu', [
-#     #     'Message',
-#     # ]),
-# ]
+
+JET_SIDE_MENU_CUSTOM_APPS = [
+    ('cmdb', [
+        'IDCLevel',
+        'ISP',
+        'IDC',
+        'Cabinet',
+        'Rack',
+        'Host'
+    ]),
+    ('deploy_manager', [
+        'ProjectModule',
+        'Project',
+        'DeployJob'
+    ]),
+    # ('tools_manager', [
+    #     'ToolsTypes',
+    #     'ToolsScript',
+    # ]),
+    ('djcelery', [
+        'IntervalSchedule',
+        'CrontabSchedule',
+        'PeriodicTask',
+        'TaskState'
+
+    ]),
+    # ('kombu', [
+    #     'Message',
+    # ]),
+]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
