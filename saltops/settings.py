@@ -14,6 +14,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import djcelery
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -29,6 +31,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# CELERY_IMPORTS = ('saltjob.cron.scanHostJob',)
+# CELERY_TIMEZONE = 'Asia/Shanghai'
 INSTALLED_APPS = [
     'common',
     'cmdb',
@@ -48,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djcelery',
+    'kombu.transport.django',
 ]
 
 MIDDLEWARE = [
@@ -149,30 +155,33 @@ STATICFILES_DIRS = (
 
 )
 JET_SIDE_MENU_COMPACT = True
-
-JET_SIDE_MENU_CUSTOM_APPS = [
-    ('cmdb', [
-        'IDCLevel',
-        'ISP',
-        'IDC',
-        'Cabinet',
-        'Rack',
-        'Host'
-    ]),
-    ('deploy_manager', [
-        'ProjectModule',
-        'Project',
-        'DeployJob'
-    ]),
-    # ('tools_manager', [
-    #     'ToolsTypes',
-    #     'ToolsScript',
-    # ]),
-    ('auth', [
-        'Group',
-        'User'
-    ]),
-]
+#
+# JET_SIDE_MENU_CUSTOM_APPS = [
+#     ('cmdb', [
+#         'IDCLevel',
+#         'ISP',
+#         'IDC',
+#         'Cabinet',
+#         'Rack',
+#         'Host'
+#     ]),
+#     ('deploy_manager', [
+#         'ProjectModule',
+#         'Project',
+#         'DeployJob'
+#     ]),
+#     # ('tools_manager', [
+#     #     'ToolsTypes',
+#     #     'ToolsScript',
+#     # ]),
+#     ('auth', [
+#         'Group',
+#         'User'
+#     ]),
+#     # ('kombu', [
+#     #     'Message',
+#     # ]),
+# ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -183,3 +192,8 @@ REST_FRAMEWORK = {
 SALT_REST_URL = 'http://127.0.0.1:18001/'
 SALT_USER = 'kira'
 SALT_PASSWORD = '8565'
+
+djcelery.setup_loader()
+BROKER_URL = 'django://'
+CELERY_ALWAYS_EAGER = True
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
