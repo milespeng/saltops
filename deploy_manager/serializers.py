@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from deploy_manager.admin import cmdThread
 from deploy_manager.models import *
+from saltjob.tasks import deployTask
 
 
 class ProjectVersionSerializer(serializers.HyperlinkedModelSerializer):
@@ -25,8 +25,7 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
 class DeployJobSerializer(serializers.HyperlinkedModelSerializer):
     def create(self, validated_data):
         obj = DeployJob.objects.create(**validated_data)
-        thread = cmdThread(obj)
-        thread.start()
+        deployTask(obj)
         return obj
 
     class Meta:

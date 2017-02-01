@@ -16,6 +16,7 @@ import sys
 
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
+from saltjob.tasks import deployTask
 from saltops.settings import SALT_REST_URL
 
 
@@ -103,8 +104,7 @@ class ProjectAdmin(admin.ModelAdmin):
             version = obj.projectversion_set.get(is_default=True)
             job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
             job.save()
-            thread = cmdThread(job)
-            thread.start()
+            deployTask(job)
             self.message_user(request, "%s 个部署作业成功启动" % len(queryset))
 
     deploydefaultAction.short_description = "部署默认版本"
@@ -129,63 +129,6 @@ class DeployJobDetailInline(admin.StackedInline):
 
     def has_delete_permission(self, request, obj=None):
         return False
-
-
-class cmdThread(threading.Thread):
-    def __init__(self, instances):
-        threading.Thread.__init__(self)
-        self.instances = instances
-
-    def run(self):
-        project = self.instances.project_version.project
-        hosts = project.host.all()
-        uid = uuid1().__str__()
-        scriptPath = PACKAGE_PATH + uid + ".sls"
-        output = open(scriptPath, 'w')
-        defaultVersion = project.projectversion_set.get(is_default=True)
-        playbookContent = project.playbook.replace('${version}', defaultVersion.name)
-        output.write(playbookContent)
-        output.close()
-
-        target = ""
-        for host in hosts:
-            target = host.host_name + ","
-        if target != "":
-            target = target[0:len(target) - 1]
-        result = None
-
-        if project.job_script_type == 0:
-            result = salt_api_token({'fun': 'state.sls', 'tgt': target,
-                                     'arg': uid},
-                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-        if project.job_script_type == 1:
-            # 脚本类型的下个版本再支持
-            pass
-
-        for master in result:
-            if isinstance(result[master], dict):
-                for cmd in result[master]:
-                    targetHost = Host.objects.get(host_name=master)
-                    msg = ""
-                    if "stdout" in result[master][cmd]['changes']:
-                        msg = result[master][cmd]['changes']["stdout"]
-                    stderr = ""
-                    if "stderr" in result[master][cmd]['changes']:
-                        stderr = result[master][cmd]['changes']["stderr"]
-                    deployJobDetail = DeployJobDetail(
-                        host=targetHost,
-                        deploy_message=msg,
-                        job=self.instances,
-                        stderr=stderr,
-                        job_cmd=result[master][cmd]['name'],
-                        # start_time=result[master][cmd]['start_time'],
-                        duration=result[master][cmd]['duration'],
-                    )
-                    deployJobDetail.save()
-
-        os.remove(scriptPath)
-        self.instances.deploy_status = 1
-        self.instances.save()
 
 
 @admin.register(DeployJob)
