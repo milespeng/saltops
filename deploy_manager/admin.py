@@ -77,18 +77,23 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = ['job_script_type']
     # list_editable = ['name', ]
     inlines = [ProjectVersionInline, HostInline]
-
-    actions = ['deploydefaultAction', ]
+    list_display_links = ['project_module', 'deployMsg', ]
+    actions = ['deploydefaultAction']
 
     def deployMsg(self, obj):
         try:
-            return dict(DEPLOY_STATUS)[obj.projectversion_set.
-                get(is_default=True).deployjob_set.
-                order_by('-update_time').all()[0].deploy_status]
+            return "<a href='/admin/deploy_manager/deployjob/%s/change/#/tab/inline_0/'>%s</a>" % (
+                obj.projectversion_set.
+                    get(is_default=True).deployjob_set.
+                    order_by('-update_time').all()[0].id,
+                dict(DEPLOY_STATUS)[obj.projectversion_set.
+                    get(is_default=True).deployjob_set.
+                    order_by('-update_time').all()[0].deploy_status])
         except Exception as e:
             return ""
 
     deployMsg.short_description = '部署状态'
+    deployMsg.allow_tags = True
 
     # def save_formset(self, request, form, formset, change):
     #     instances = form.save(commit=False)
@@ -104,7 +109,7 @@ class ProjectAdmin(admin.ModelAdmin):
             version = obj.projectversion_set.get(is_default=True)
             job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
             job.save()
-            deployTask(job)
+            deployTask.delay(job)
             self.message_user(request, "%s 个部署作业成功启动" % len(queryset))
 
     deploydefaultAction.short_description = "部署默认版本"
@@ -122,7 +127,7 @@ class DeployJobDetailInline(admin.StackedInline):
     can_delete = False
     readonly_fields = ['host', 'job_cmd', 'duration', 'deploy_message', 'stderr',
                        'create_time', 'update_time', 'comment', 'is_success']
-    ordering = ['create_time']
+    ordering = ['-create_time']
 
     def has_add_permission(self, request):
         return False
