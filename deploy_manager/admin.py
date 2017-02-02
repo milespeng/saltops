@@ -122,7 +122,7 @@ class DeployJobDetailInline(admin.StackedInline):
     can_delete = False
     readonly_fields = ['host', 'job_cmd', 'duration', 'deploy_message', 'stderr',
                        'create_time', 'update_time', 'comment', 'is_success']
-    ordering = ['-create_time']
+    ordering = ['create_time']
 
     def has_add_permission(self, request):
         return False

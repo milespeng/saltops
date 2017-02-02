@@ -14,6 +14,7 @@ from saltops.settings import SALT_REST_URL, PACKAGE_PATH
 
 @task(name='deployTask')
 def deployTask(deployJob):
+    # 动态生成SLS
     project = deployJob.project_version.project
     hosts = project.host.all()
     uid = uuid1().__str__()
@@ -24,6 +25,7 @@ def deployTask(deployJob):
     output.write(playbookContent)
     output.close()
 
+    # 指定目标主机
     target = ""
     for host in hosts:
         target = host.host_name + ","
@@ -31,13 +33,18 @@ def deployTask(deployJob):
         target = target[0:len(target) - 1]
     result = None
 
+    #SLS模式
     if project.job_script_type == 0:
+        #这里先用同步执行，发现异步执行好像也没什么区别的样子
         result = salt_api_token({'fun': 'state.sls', 'tgt': target,
                                  'arg': uid},
                                 SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+
+    #Script模式
     if project.job_script_type == 1:
         # 脚本类型的下个版本再支持
         pass
+
 
     for master in result:
         if isinstance(result[master], dict):
@@ -66,6 +73,7 @@ def deployTask(deployJob):
                     job_cmd=jobCmd,
                     comment=result[master][cmd]['comment'],
                     is_success=result[master][cmd]['result'],
+
                     # start_time=result[master][cmd]['start_time'],
                     duration=duration,
                 )
