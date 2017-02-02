@@ -34,11 +34,12 @@ ALLOWED_HOSTS = []
 # CELERY_IMPORTS = ('saltjob.cron.scanHostJob',)
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 INSTALLED_APPS = [
+    'import_export',
     'common',
     'cmdb',
     'saltjob',
-    'jet.dashboard',
-    'jet',
+    # 'jet.dashboard',
+    # 'jet',
     'nested_inline',
     'mptt',
     'tools_manager',
@@ -147,44 +148,44 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 
-    ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
-    ('jet', os.path.join(STATIC_ROOT, 'jet').replace('\\', '/')),
-    ('range_filter', os.path.join(STATIC_ROOT, 'range_filter').replace('\\', '/')),
+    # ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
+    # ('jet', os.path.join(STATIC_ROOT, 'jet').replace('\\', '/')),
+    # ('range_filter', os.path.join(STATIC_ROOT, 'range_filter').replace('\\', '/')),
     # ('fonts', os.path.join(STATIC_ROOT, 'fonts').replace('\\', '/')),
     # ('plugins', os.path.join(STATIC_ROOT, 'plugins').replace('\\', '/')),
 
 )
-JET_SIDE_MENU_COMPACT = True
+# JET_SIDE_MENU_COMPACT = True
 
-JET_SIDE_MENU_CUSTOM_APPS = [
-    ('cmdb', [
-        'IDCLevel',
-        'ISP',
-        'IDC',
-        'Cabinet',
-        'Rack',
-        'Host'
-    ]),
-    ('deploy_manager', [
-        'ProjectModule',
-        'Project',
-        'DeployJob'
-    ]),
-    # ('tools_manager', [
-    #     'ToolsTypes',
-    #     'ToolsScript',
-    # ]),
-    ('djcelery', [
-        'IntervalSchedule',
-        'CrontabSchedule',
-        'PeriodicTask',
-        'TaskState'
-
-    ]),
-    # ('kombu', [
-    #     'Message',
-    # ]),
-]
+# JET_SIDE_MENU_CUSTOM_APPS = [
+#     ('cmdb', [
+#         'IDCLevel',
+#         'ISP',
+#         'IDC',
+#         'Cabinet',
+#         'Rack',
+#         'Host'
+#     ]),
+#     ('deploy_manager', [
+#         'ProjectModule',
+#         'Project',
+#         'DeployJob'
+#     ]),
+#     # ('tools_manager', [
+#     #     'ToolsTypes',
+#     #     'ToolsScript',
+#     # ]),
+#     ('djcelery', [
+#         'IntervalSchedule',
+#         'CrontabSchedule',
+#         'PeriodicTask',
+#         'TaskState'
+#
+#     ]),
+#     # ('kombu', [
+#     #     'Message',
+#     # ]),
+# ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

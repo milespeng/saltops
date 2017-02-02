@@ -33,19 +33,19 @@ router.register(r'deployJobViewSet', DeployJobViewSet)
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
-    url(r'^jet/', include('jet.urls', 'jet')),
+    # url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+    # url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
 ]
-admin.site.site_header = '运维平台'
-admin.site.site_title = '运维平台'
+admin.site.site_header = 'SaltOps'
+admin.site.site_title = 'SaltOps'
 
 
-def export_selected_objects(modeladmin, request, queryset):
-    selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
-    ct = ContentType.objects.get_for_model(queryset.model)
-    return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
+# def export_selected_objects(modeladmin, request, queryset):
+#     selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+#     ct = ContentType.objects.get_for_model(queryset.model)
+#     return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
 
 
-admin.site.add_action(export_selected_objects, '导出选定内容')
+# admin.site.add_action(export_selected_objects, '导出选定内容')

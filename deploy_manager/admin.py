@@ -2,11 +2,13 @@
 import os
 import threading
 from uuid import uuid1
-
+from import_export.admin import ImportExportActionModelAdmin
 from django.contrib import admin
 import salt.client
 from django.forms import RadioSelect, forms
 from django.urls import reverse
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 from mptt.admin import MPTTModelAdmin
 
 from deploy_manager.models import *
@@ -68,8 +70,14 @@ class HostInline(admin.TabularInline):
     extra = 0
 
 
+class ProjectResource(resources.ModelResource):
+    class Meta:
+        model = Project
+        exclude = ('project_module','host')
+
+
 @admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(ImportExportModelAdmin):
     list_display = ['project_module', 'name', 'job_script_type',
                     'create_time', 'update_time',
                     'deployMsg']
@@ -79,6 +87,7 @@ class ProjectAdmin(admin.ModelAdmin):
     inlines = [ProjectVersionInline, HostInline]
     list_display_links = ['project_module', 'deployMsg', ]
     actions = ['deploydefaultAction']
+    resource_class = ProjectResource
 
     def deployMsg(self, obj):
         try:
