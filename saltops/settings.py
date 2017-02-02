@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # CELERY_IMPORTS = ('saltjob.cron.scanHostJob',)
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 INSTALLED_APPS = [
+    'suit',
     'import_export',
     'common',
     'cmdb',
@@ -201,3 +202,17 @@ djcelery.setup_loader()
 BROKER_URL = 'django://'
 CELERY_ALWAYS_EAGER = True
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': "SaltOps",
+    'MENU': (
+        {'app': 'cmdb', 'icon': 'icon-leaf',
+         'models': ('IDCLevel', 'ISP', 'IDC', 'Cabinet', 'Rack', 'Host')},
+        {'app': 'deploy_manager', 'icon': 'icon-hdd',
+         'models': ('ProjectModule', 'Project', 'DeployJob')},
+        {'app': 'auth', 'icon': 'icon-lock', 'models': ('user', 'group')},
+        {'app': 'djcelery', 'icon': 'icon-cog',
+         'models': ('IntervalSchedule', 'CrontabSchedule', 'PeriodicTask', 'TaskState')},
+    ),
+    'LIST_PER_PAGE': 15
+}
