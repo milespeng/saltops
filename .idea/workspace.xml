@@ -585,13 +585,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00003" summary="添加发布管理">
-      <created>1484902464245</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1484902464245</updated>
-    </task>
     <task id="LOCAL-00004" summary="添加文件存放位置的参数">
       <created>1484994506226</created>
       <option name="number" value="00004" />
@@ -928,7 +921,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486025524839</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="切换回django suit，django jet 有插件样式不兼容">
+      <created>1486026194515</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1486026194515</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="ToolWindowManager">
