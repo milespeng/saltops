@@ -23,7 +23,12 @@ from django.http import HttpResponseRedirect
 from rest_framework import routers
 
 # from deploy_manager.serializer import UserViewSet
+from dashboard.sites import DashboardSite
 from deploy_manager.views import *
+
+admin.site = DashboardSite()
+admin.sites.site = admin.site  # >= Django 1.9.5
+admin.autodiscover()
 
 router = routers.DefaultRouter()
 router.register(r'projectversionViewSet', ProjectVersionViewSet)

@@ -47,8 +47,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'deploy_manager',
     'django_crontab',
+    'dashboard',
     'django.contrib.admindocs',
-    'django.contrib.admin',
+    'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djcelery',
     'kombu.transport.django',
+    'suit_dashboard',
 ]
 
 MIDDLEWARE = [
