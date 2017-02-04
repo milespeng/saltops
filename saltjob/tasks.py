@@ -110,8 +110,11 @@ def deployTask(deployJob):
 
 @task(name='scanHostJob')
 def scanHostJob():
+
+    print("开始作业")
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                             SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+    print("作业调用结果")
     for host in result:
         try:
             rs = Host.objects.filter(host_name=host, host=result[host]["host"])
