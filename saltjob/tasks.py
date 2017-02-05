@@ -1,9 +1,7 @@
 import os
 from uuid import uuid1
 
-import salt.client
 from celery import task
-from salt.renderers import yaml
 
 from cmdb.models import Host, HostIP
 from deploy_manager.models import DeployJobDetail

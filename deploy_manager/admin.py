@@ -4,7 +4,6 @@ import threading
 from uuid import uuid1
 from import_export.admin import ImportExportActionModelAdmin
 from django.contrib import admin
-import salt.client
 from django.forms import RadioSelect, forms
 from django.urls import reverse
 from import_export import resources
@@ -12,8 +11,6 @@ from import_export.admin import ImportExportModelAdmin
 from mptt.admin import MPTTModelAdmin
 
 from deploy_manager.models import *
-import salt.runner
-import salt.config
 import sys
 
 from saltjob.salt_https_api import salt_api_token
