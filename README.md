@@ -1,9 +1,6 @@
 #saltops
 
 # [系统开发中～请不要用于生产系统] 
-# 文档
-
-国内好像就只有这个。。。国外的好慢[http://www.kancloud.cn/kira85650550/saltops](http://www.kancloud.cn/kira85650550/saltops)
 
 #目标
 SaltOps是一个基于SaltStack和Django开发的运维平台，
