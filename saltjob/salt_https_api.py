@@ -1,4 +1,3 @@
-# coding=utf8
 import urllib, yaml, json
 import requests
 
