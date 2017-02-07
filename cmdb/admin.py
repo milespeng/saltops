@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
 from django.contrib import admin
-from django.db.models.aggregates import Count
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
-
 from cmdb.models import *
 from deploy_manager.models import *
 
@@ -26,19 +23,11 @@ class ProjectInline(admin.TabularInline):
 @admin.register(Host)
 class HostAdmin(admin.ModelAdmin):
     list_display = ['host_name', 'kernel', 'kernel_release',
-                    'host', 'rack', 'saltversion', 'num_gpus', 'system_serialnumber', 'cpu_model',
-                    'os', 'mem_total', 'cpuarch', 'osarch', 'create_time', 'update_time']
+                    'host', 'rack', 'saltversion', 'system_serialnumber', 'cpu_model',
+                    'os', 'virtual', 'create_time', 'update_time']
     search_fields = ['host']
+    list_filter = ['virtual', 'os_family', 'os', 'rack']
     inlines = [IPInline, ProjectInline]
-    # fieldsets = (
-    #     ('基础信息', {
-    #         'fields': ('host_name', 'kernel', 'kernel_release','virtual',
-    #                    'host','osrelease','osfinger','os_family','num_gpus','system_serialnumber')
-    #     }),
-    #     ('Agent信息', {
-    #         'fields': ('saltversion',)
-    #     }),
-    # )
 
 
 class RackInline(NestedStackedInline):
