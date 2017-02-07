@@ -35,82 +35,82 @@ def deployTask(deployJob):
         files = {'file': open(scriptPath, 'rb')}
         requests.post(url, files=files)
 
+    jobList = []
     # 指定目标主机
-    target = ""
-    for host in hosts:
-        target = host.host_name + ","
-    if target != "":
-        target = target[0:len(target) - 1]
-    result = None
+    for target in hosts:
+        result = None
 
-    hasErr = False
-    # SLS模式
-    if project.job_script_type == 0:
-        # 这里先用同步执行，发现异步执行好像也没什么区别的样子
-        result = salt_api_token({'fun': 'state.sls', 'tgt': target,
-                                 'arg': uid},
-                                SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+        hasErr = False
 
-        for master in result:
-            if isinstance(result[master], dict):
-                for cmd in result[master]:
-                    # 判断总体任务是否失败，一个步骤失败则整个部署任务都失败
-                    if not result[master][cmd]['result']:
-                        hasErr = True
+        # SLS模式
+        if project.job_script_type == 0:
+            # 这里先用同步执行，发现异步执行好像也没什么区别的样子
 
-                    targetHost = Host.objects.get(host_name=master)
-                    msg = ""
-                    if "stdout" in result[master][cmd]['changes']:
-                        msg = result[master][cmd]['changes']["stdout"]
-                    stderr = ""
-                    if "stderr" in result[master][cmd]['changes']:
-                        stderr = result[master][cmd]['changes']["stderr"]
+            result = salt_api_token({'fun': 'state.sls', 'tgt': target,
+                                     'arg': uid},
+                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
 
-                    jobCmd = ""
-                    if 'name' in result[master][cmd]:
-                        jobCmd = result[master][cmd]['name']
+            for master in result:
+                if isinstance(result[master], dict):
+                    for cmd in result[master]:
+                        # 判断总体任务是否失败，一个步骤失败则整个部署任务都失败
+                        if not result[master][cmd]['result']:
+                            hasErr = True
 
-                    duration = 0
-                    if 'duration' in result[master][cmd]:
-                        duration = result[master][cmd]['duration']
+                        targetHost = Host.objects.get(host_name=master)
+                        msg = ""
+                        if "stdout" in result[master][cmd]['changes']:
+                            msg = result[master][cmd]['changes']["stdout"]
+                        stderr = ""
+                        if "stderr" in result[master][cmd]['changes']:
+                            stderr = result[master][cmd]['changes']["stderr"]
 
-                    deployJobDetail = DeployJobDetail(
-                        host=targetHost,
-                        deploy_message=msg,
-                        job=deployJob,
-                        stderr=stderr,
-                        job_cmd=jobCmd,
-                        comment=result[master][cmd]['comment'],
-                        is_success=result[master][cmd]['result'],
+                        jobCmd = ""
+                        if 'name' in result[master][cmd]:
+                            jobCmd = result[master][cmd]['name']
 
-                        # start_time=result[master][cmd]['start_time'],
-                        duration=duration,
-                    )
-                    deployJobDetail.save()
+                        duration = 0
+                        if 'duration' in result[master][cmd]:
+                            duration = result[master][cmd]['duration']
 
-    # Script模式
-    if project.job_script_type == 1:
-        result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
-                                 'arg': 'salt://%s.sh' % uid},
-                                SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-        for master in result:
-            targetHost = Host.objects.get(host_name=master)
-            if result[master]['stderr'] != '':
-                hasErr = True
+                        deployJobDetail = DeployJobDetail(
+                            host=targetHost,
+                            deploy_message=msg,
+                            job=deployJob,
+                            stderr=stderr,
+                            job_cmd=jobCmd,
+                            comment=result[master][cmd]['comment'],
+                            is_success=result[master][cmd]['result'],
+                            # start_time=result[master][cmd]['start_time'],
+                            duration=duration,
+                        )
+                        jobList.append(deployJobDetail)
 
-            deployJobDetail = DeployJobDetail(
-                host=targetHost,
-                deploy_message=result[master]['stdout'],
-                job=deployJob,
-                stderr=result[master]['stderr'],
-                job_cmd=playbookContent,
-                is_success=True if result[master]['stderr'] == '' else False,
-            )
-            deployJobDetail.save()
+        # Script模式
+        if project.job_script_type == 1:
+            result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
+                                     'arg': 'salt://%s.sh' % uid},
+                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+            for master in result:
+                targetHost = Host.objects.get(host_name=master)
+                if result[master]['stderr'] != '':
+                    hasErr = True
+
+                deployJobDetail = DeployJobDetail(
+                    host=targetHost,
+                    deploy_message=result[master]['stdout'],
+                    job=deployJob,
+                    stderr=result[master]['stderr'],
+                    job_cmd=playbookContent,
+                    is_success=True if result[master]['stderr'] == '' else False,
+                )
+                jobList.append(deployJobDetail)
 
     os.remove(scriptPath)
     deployJob.deploy_status = 1 if hasErr == False else 2
     deployJob.save()
+    for i in jobList:
+        i.save()
 
 
 @task(name='scanHostJob')
