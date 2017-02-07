@@ -1,4 +1,19 @@
+import os
+
 from flask import Flask, request
 
+app = Flask(__name__)
+
+app.config['UPLOAD_FOLDER'] = '/srv/salt/'
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    upload_file = request.files['file']
+    filename = upload_file.filename
+    upload_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return ''
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
