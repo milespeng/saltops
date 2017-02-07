@@ -46,9 +46,11 @@ class CabinetAdmin(admin.ModelAdmin):
     fk_name = 'cabinet'
 
     def rack_count(self, obj):
-        return obj.rack_set.count()
+        return '<a href="/admin/cmdb/rack/?q=&cabinet__id__exact=%s">%s</a>' % (obj.id, obj.rack_set.count())
 
+    rack_count.allow_tags = True
     rack_count.short_description = '机架数量'
+
     inlines = [RackInline]
 
 
@@ -92,3 +94,4 @@ class ISPAdmin(admin.ModelAdmin):
 class RackAdmin(admin.ModelAdmin):
     list_display = ['cabinet', 'name', 'create_time', 'update_time']
     search_fields = ['cabinet', 'name']
+    list_filter = ['cabinet']
