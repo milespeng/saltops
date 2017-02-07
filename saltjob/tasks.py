@@ -1,13 +1,14 @@
 import os
 from uuid import uuid1
 
+import requests
 from celery import task
 
 from cmdb.models import Host, HostIP
 from deploy_manager.models import DeployJobDetail
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
-from saltops.settings import SALT_REST_URL, PACKAGE_PATH
+from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL
 
 
 @task(name='deployTask')
@@ -27,6 +28,12 @@ def deployTask(deployJob):
     playbookContent = project.playbook.replace('${version}', defaultVersion.name)
     output.write(playbookContent)
     output.close()
+
+    # 根据执行模式，判断是否发送文件到主节点
+    if SALT_CONN_TYPE == 'http':
+        url = SALT_HTTP_URL + '/upload'
+        files = {'file': open(scriptPath, 'rb')}
+        requests.post(url, files=files)
 
     # 指定目标主机
     target = ""
@@ -48,7 +55,7 @@ def deployTask(deployJob):
             if isinstance(result[master], dict):
                 for cmd in result[master]:
                     # 判断总体任务是否失败，一个步骤失败则整个部署任务都失败
-                    if result[master][cmd]['result'] == False:
+                    if not result[master][cmd]['result']:
                         hasErr = True
 
                     targetHost = Host.objects.get(host_name=master)
@@ -108,7 +115,6 @@ def deployTask(deployJob):
 
 @task(name='scanHostJob')
 def scanHostJob():
-
     print("开始作业")
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                             SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
