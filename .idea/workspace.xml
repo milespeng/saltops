@@ -4,7 +4,6 @@
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celerybeat.pid" afterPath="$PROJECT_DIR$/celerybeat.pid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/admin.py" afterPath="$PROJECT_DIR$/cmdb/admin.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -46,8 +45,8 @@
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmdb/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="48" column="68" lean-forward="false" selection-start-line="48" selection-start-column="68" selection-end-line="48" selection-end-column="68" />
+            <state relative-caret-position="427">
+              <caret line="97" column="55" lean-forward="false" selection-start-line="97" selection-start-column="55" selection-end-line="97" selection-end-column="55" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -55,11 +54,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="requiement.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requiement.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy_manager/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="101" column="4" lean-forward="false" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="31" />
+            <state relative-caret-position="252">
+              <caret line="45" column="38" lean-forward="false" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="38" />
               <folding>
                 <element signature="e#24#33#0" expanded="true" />
               </folding>
@@ -78,7 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>js</find>
       <find>models.Model</find>
       <find>jobs</find>
       <find>login</find>
@@ -91,7 +99,6 @@
       <find>inline</find>
       <find>deployMsg</find>
       <find>simpl</find>
-      <find>ProjectModuleFilter</find>
       <find>register</find>
       <find>import_export</find>
       <find>object-tools</find>
@@ -108,6 +115,8 @@
       <find>html_theme</find>
       <find>`</find>
       <find>uid</find>
+      <find>nest</find>
+      <find>ProjectModuleFilter</find>
     </findStrings>
     <replaceStrings>
       <replace>BaseModel</replace>
@@ -864,13 +873,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00014" summary="添加业务模块信息">
-      <created>1485076918824</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1485076918824</updated>
-    </task>
     <task id="LOCAL-00015" summary="添加版本默认字段">
       <created>1485078176364</created>
       <option name="number" value="00015" />
@@ -1207,7 +1209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486450772552</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="机柜列表优化">
+      <created>1486456708464</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1486456708464</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1281,7 +1290,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="CMDB模块支持级联" />
     <MESSAGE value="从py2切换到py3" />
     <MESSAGE value="优化业务模块功能" />
     <MESSAGE value="优化业务管理" />
@@ -1306,7 +1314,8 @@
     <MESSAGE value="提交ReadMe" />
     <MESSAGE value="调整主机列表" />
     <MESSAGE value="修复多主机执行问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复多主机执行问题" />
+    <MESSAGE value="机柜列表优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="机柜列表优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1503,14 +1512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requiement.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/SimpleServiceClientTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -1636,10 +1637,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requiement.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="101" column="4" lean-forward="false" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="31" />
+        <state relative-caret-position="252">
+          <caret line="45" column="38" lean-forward="false" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="38" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
           </folding>
@@ -1648,8 +1657,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmdb/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="48" column="68" lean-forward="false" selection-start-line="48" selection-start-column="68" selection-end-line="48" selection-end-column="68" />
+        <state relative-caret-position="427">
+          <caret line="97" column="55" lean-forward="false" selection-start-line="97" selection-start-column="55" selection-end-line="97" selection-end-column="55" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>

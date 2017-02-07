@@ -39,11 +39,32 @@ class RackInline(NestedStackedInline):
     fk_name = 'cabinet'
 
 
+class IDCFilter(admin.SimpleListFilter):
+    title = '机房'
+    parameter_name = 'idc'
+
+    def lookups(self, request, model_admin):
+        rs = set([c for c in IDC.objects.all()])
+        v = set()
+        for obj in rs:
+            if obj is not None:
+                v.add((obj.id, obj.name))
+        return v
+
+    def queryset(self, request, queryset):
+        if 'idc' in request.GET:
+            idc = request.GET['idc']
+            return queryset.filter(idc=idc)
+        else:
+            return queryset.all()
+
+
 @admin.register(Cabinet)
 class CabinetAdmin(admin.ModelAdmin):
     list_display = ['idc', 'name', 'rack_count', 'create_time', 'update_time']
     search_fields = ['name']
     fk_name = 'cabinet'
+    list_filter = [IDCFilter]
 
     def rack_count(self, obj):
         return '<a href="/admin/cmdb/rack/?q=&cabinet__id__exact=%s">%s</a>' % (obj.id, obj.rack_set.count())
@@ -68,14 +89,17 @@ class CabinetInline(NestedStackedInline):
 class IDCAdmin(NestedModelAdmin):
     list_display = ['name', 'type', 'phone',
                     'linkman', 'address',
-                    'operator', 'concat_email', 'idc_count', 'create_time', 'update_time']
+                    'operator', 'concat_email', 'cabinet_count', 'create_time', 'update_time']
     search_fields = ['name']
     inlines = [CabinetInline]
+    list_filter = ['type']
 
-    def idc_count(self, obj):
-        return obj.cabinet_set.count()
+    def cabinet_count(self, obj):
+        return '<a href="/admin/cmdb/cabinet/?q=&idc=%s">%s</a>' % (obj.id, obj.cabinet_set.count())
 
-    idc_count.short_description = '机柜数量'
+
+    cabinet_count.short_description = '机柜数量'
+    cabinet_count.allow_tags = True
 
 
 @admin.register(IDCLevel)
