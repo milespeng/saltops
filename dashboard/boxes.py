@@ -1,7 +1,5 @@
 import platform
 import psutil
-from datetime import timedelta
-from django.utils.translation import ugettext as _
 from suit_dashboard.box import Box, Item
 
 from cmdb.models import Host

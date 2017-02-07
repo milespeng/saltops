@@ -1,22 +1,10 @@
-# -*- coding: utf-8 -*-
-import os
-import threading
-from uuid import uuid1
-from import_export.admin import ImportExportActionModelAdmin
 from django.contrib import admin
-from django.forms import RadioSelect, forms
-from django.urls import reverse
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from mptt.admin import MPTTModelAdmin
 
 from deploy_manager.models import *
-import sys
-
-from saltjob.salt_https_api import salt_api_token
-from saltjob.salt_token_id import token_id
 from saltjob.tasks import deployTask
-from saltops.settings import SALT_REST_URL
 
 
 class ProjectModuleFilter(admin.SimpleListFilter):
@@ -70,7 +58,7 @@ class HostInline(admin.TabularInline):
 class ProjectResource(resources.ModelResource):
     class Meta:
         model = Project
-        exclude = ('project_module','host')
+        exclude = ('project_module', 'host')
 
 
 @admin.register(Project)
@@ -80,7 +68,6 @@ class ProjectAdmin(ImportExportModelAdmin):
                     'deployMsg']
     search_fields = ['host']
     list_filter = ['job_script_type']
-    # list_editable = ['name', ]
     inlines = [ProjectVersionInline, HostInline]
     list_display_links = ['project_module', 'deployMsg', ]
     actions = ['deploydefaultAction']
