@@ -23,18 +23,18 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 # 文档
 
 - [SaltOps的定位与目标](doc/wiki/SaltOps的定位与目标.md)
-- [架构概览](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/架构概览.md)
-- [安装前准备](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/安装前准备.md)
-- [集中部署](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/集中部署.md)
-- [分离部署](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/分离部署.md)
-- [功能简介:首页](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/首页.md)
-- [功能简介:资产管理](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/资产管理.md)
-- [功能简介:发布管理](https://git.oschina.net/wuwenhao/saltops/wikis/%E5%8F%91%E5%B8%83%E7%AE%A1%E7%90%86)
+- [架构概览](doc/wiki/架构概览.md)
+- [安装前准备](doc/wiki/安装前准备.md)
+- [集中部署](doc/wiki/集中部署.md)
+- [分离部署](doc/wiki/分离部署.md)
+- [功能简介:首页](doc/wiki/首页.md)
+- [功能简介:资产管理](doc/wiki/资产管理.md)
+- [功能简介:发布管理](doc/wiki/发布管理.md)
 - [对外接口]
 - [系统配置与可用参数列表]
-- [常见问题](https://git.oschina.net/wuwenhao/saltops/wikis/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
+- [常见问题](doc/wiki/常见问题.md)
 
 #常用部署模板
 
-- [JDK](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/sls/jdk8.sls)
-- [ElasticSearch](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/sls/elasticsearch-master.sls)
+- [JDK](doc/sls/jdk8.sls)
+- [ElasticSearch](doc/sls/elasticsearch-master.sls)

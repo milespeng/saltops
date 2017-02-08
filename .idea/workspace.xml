@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/wiki/发布管理.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/wiki/常见问题.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
@@ -45,8 +47,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="207">
-                <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+              <first_editor relative-caret-position="432">
+                <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -120,8 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/doc/deploy/elasticsearch-master.sls" />
-        <option value="$PROJECT_DIR$/deploy_manager/views.py" />
         <option value="$PROJECT_DIR$/deploy_manager/static/js/ProjectVersionInline.js" />
         <option value="$PROJECT_DIR$/deploy_manager/static/js/prefixfree.min.js" />
         <option value="$PROJECT_DIR$/deploy_manager/static/js/jqmeter.min.js" />
@@ -170,6 +170,8 @@
         <option value="$PROJECT_DIR$/doc/wiki/首页.md" />
         <option value="$PROJECT_DIR$/doc/wiki/架构概览.md" />
         <option value="$PROJECT_DIR$/doc/wiki/资产管理.md" />
+        <option value="$PROJECT_DIR$/doc/wiki/发布管理.md" />
+        <option value="$PROJECT_DIR$/doc/wiki/常见问题.md" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -815,13 +817,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00032" summary="调整ElasticSearch部署脚本">
-      <created>1485674908869</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1485674908869</updated>
-    </task>
     <task id="LOCAL-00033" summary="调整ElasticSearch部署脚本">
       <created>1485675612110</created>
       <option name="number" value="00033" />
@@ -1158,7 +1153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486522443223</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="更新ReadMe">
+      <created>1486522467545</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1486522467545</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1283,14 +1285,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/simple_rwhttpserver.py" />
-    <entry file="file://$PROJECT_DIR$/services/SimpleService.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/SimpleServiceClientTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -1599,20 +1593,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/wiki/架构概览.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
@@ -1683,11 +1663,53 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/doc/wiki/常见问题.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="119" lean-forward="false" selection-start-line="2" selection-start-column="119" selection-end-line="2" selection-end-column="119" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/wiki/发布管理.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="432">
+            <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/wiki/架构概览.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="207">
-            <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <first_editor relative-caret-position="432">
+            <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
             <folding />
           </first_editor>
           <second_editor />
