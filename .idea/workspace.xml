@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/wiki/img/分离部署.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/wiki/img/集中部署.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/wiki/架构概览.md" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/img/bus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/img/dash.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/img/host.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/img/job.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/img/list.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,8 +53,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="432">
-                <caret line="39" column="103" lean-forward="false" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
+              <first_editor relative-caret-position="207">
+                <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="96" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -57,7 +65,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaltOps的定位与目标.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="架构概览.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/wiki/架构概览.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="150">
+                <caret line="10" column="80" lean-forward="false" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaltOps的定位与目标.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
@@ -146,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tools_manager/models.py" />
         <option value="$PROJECT_DIR$/tools_manager/admin.py" />
         <option value="$PROJECT_DIR$/tools_manager/static/js/ToolsScriptAdmin.js" />
         <option value="$PROJECT_DIR$/doc/script/ls.sls" />
@@ -195,8 +218,9 @@
         <option value="$PROJECT_DIR$/deploy_manager/models.py" />
         <option value="$PROJECT_DIR$/deploy_manager/admin.py" />
         <option value="$PROJECT_DIR$/saltjob/tasks.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/doc/wiki/架构概览.md" />
       </list>
     </option>
   </component>
@@ -274,6 +298,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wiki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -290,6 +336,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/doc/wiki/img" />
       <recent name="$PROJECT_DIR$/doc/sls" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/deploy_manager/static/js" />
@@ -858,13 +905,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00024" summary="调整CMDB配置项">
-      <created>1485341103702</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1485341103702</updated>
-    </task>
     <task id="LOCAL-00025" summary="准备把Python升级到3,重构salt调用方式">
       <created>1485356161986</created>
       <option name="number" value="00025" />
@@ -1201,7 +1241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486521271180</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="把文档挪到项目里面">
+      <created>1486521366190</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1486521366190</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1275,7 +1322,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="业务版本列表加入js校验" />
     <MESSAGE value="优化model，提取公共的model" />
     <MESSAGE value="业务模块：上级业务模块的过滤太多了，应该把没有子节点的数据过滤掉" />
     <MESSAGE value="使用docker作为salt环境，测试异步获取作业通过" />
@@ -1300,7 +1346,8 @@
     <MESSAGE value="Common代码优化" />
     <MESSAGE value="业务模块支持子脚本覆盖主脚本" />
     <MESSAGE value="更新ReadMe" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新ReadMe" />
+    <MESSAGE value="把文档挪到项目里面" />
+    <option name="LAST_COMMIT_MESSAGE" value="把文档挪到项目里面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1326,13 +1373,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/Project.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="22" column="52" lean-forward="false" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -1658,11 +1698,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="432">
-            <caret line="39" column="103" lean-forward="false" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
+          <first_editor relative-caret-position="195">
+            <caret line="13" column="89" lean-forward="false" selection-start-line="13" selection-start-column="89" selection-end-line="13" selection-end-column="89" />
             <folding />
           </first_editor>
           <second_editor />
@@ -1672,11 +1712,25 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="195">
-            <caret line="13" column="89" lean-forward="false" selection-start-line="13" selection-start-column="89" selection-end-line="13" selection-end-column="89" />
+          <first_editor relative-caret-position="207">
+            <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="96" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/wiki/架构概览.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="80" lean-forward="false" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
             <folding />
           </first_editor>
           <second_editor />

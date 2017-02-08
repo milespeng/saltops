@@ -22,7 +22,7 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 
 # 文档
 
-- [SaltOps的定位与目标](https://git.oschina.net/wuwenhao/saltops/wikis/SaltOps%E7%9A%84%E5%AE%9A%E4%BD%8D%E4%B8%8E%E7%9B%AE%E6%A0%87)
+- [SaltOps的定位与目标](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/SaltOps的定位与目标.md)
 - [架构概览](https://git.oschina.net/wuwenhao/saltops/wikis/%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88)
 - [安装前准备](https://git.oschina.net/wuwenhao/saltops/wikis/%E5%AE%89%E8%A3%85%E5%89%8D%E5%87%86%E5%A4%87)
 - [集中部署](https://git.oschina.net/wuwenhao/saltops/wikis/%E9%9B%86%E4%B8%AD%E9%83%A8%E7%BD%B2)
