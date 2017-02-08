@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/sls/elasticsearch-master.sls" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/deploy/elasticsearch-master.sls" afterPath="$PROJECT_DIR$/doc/sls/elasticsearch-master.sls" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
@@ -47,7 +48,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="432">
-                <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="79" />
+                <caret line="39" column="103" lean-forward="false" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -55,16 +56,6 @@
           </provider>
           <provider editor-type-id="MarkdownFxPreviewEditor">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="elasticsearch-master.sls" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/doc/deploy/elasticsearch-master.sls">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="27" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="29" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -284,16 +275,17 @@
     <property name="settings.editor.splitter.proportion" value="0.24204436" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/doc/sls" />
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/deploy_manager/static/js" />
+      <recent name="$PROJECT_DIR$/doc/script/files" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/doc/img" />
       <recent name="$PROJECT_DIR$/templates/admin/templates" />
       <recent name="$PROJECT_DIR$/doc/script/orch" />
       <recent name="$PROJECT_DIR$/doc/script" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/deploy_manager/static/js" />
-      <recent name="$PROJECT_DIR$/doc/script/files" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -852,13 +844,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00022" summary="调整业务模块">
-      <created>1485159053594</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1485159053594</updated>
-    </task>
     <task id="LOCAL-00023" summary="加入django-rest">
       <created>1485162665028</created>
       <option name="number" value="00023" />
@@ -1195,7 +1180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486521033325</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="更新ReadMe">
+      <created>1486521224468</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1486521224468</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1657,7 +1649,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="432">
-            <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="79" />
+            <caret line="39" column="103" lean-forward="false" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
             <folding />
           </first_editor>
           <second_editor />
