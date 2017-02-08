@@ -27,8 +27,10 @@ class ProjectModule(MPTTModel, BaseModel):
 
 
 JOB_SCRIPT_TYPE = (
+    (100, '----'),
     (0, 'sls'),
-    (1, 'shell')
+    (1, 'shell'),
+
 )
 
 
@@ -55,6 +57,10 @@ class ProjectVersion(BaseModel):
     project = models.ForeignKey(Project, default="", verbose_name="业务名称", blank=True, null=True, )
     files = models.FileField(verbose_name='版本', blank=True, null=True, upload_to=PACKAGE_PATH + 'files')
     is_default = models.BooleanField(verbose_name='默认版本', blank=True, default=False)
+    subplaybook = models.TextField(verbose_name='部署脚本', null=True, blank=True,
+                                   help_text='为空则使用全局的部署脚本')
+    sub_job_script_type = models.IntegerField(default=100, choices=JOB_SCRIPT_TYPE,
+                                              verbose_name='脚本语言')
 
     def __str__(self):
         return self.project.__str__() + '---' + self.name

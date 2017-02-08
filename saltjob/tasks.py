@@ -1,6 +1,7 @@
 import os
 from uuid import uuid1
 
+import logging
 import requests
 from celery import task
 
@@ -13,38 +14,61 @@ from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_H
 
 @task(name='deployTask')
 def deployTask(deployJob):
-    # 动态生成SLS
-    project = deployJob.project_version.project
-    hosts = project.host.all()
-    uid = uuid1().__str__()
+    logger = logging.getLogger(__name__)
 
-    if project.job_script_type == 0:
-        scriptPath = PACKAGE_PATH + uid + ".sls"
-    if project.job_script_type == 1:
-        scriptPath = PACKAGE_PATH + uid + ".sh"
+    logger.info("动态生成脚本文件")
+    project = deployJob.project_version.project
+    defaultVersion = project.projectversion_set.get(is_default=True)
+
+    hosts = project.host.all()
+
+    uid = uuid1().__str__()
+    logger.info("脚本UUID为:%s", uid)
+
+    isSubScript = defaultVersion.sub_job_script_type == 100
+    if isSubScript is True:
+        if project.job_script_type == 0:
+            logger.info("脚本类型为sls")
+            scriptPath = PACKAGE_PATH + uid + ".sls"
+        if project.job_script_type == 1:
+            logger.info("脚本类型为sh")
+            scriptPath = PACKAGE_PATH + uid + ".sh"
+    else:
+        if defaultVersion.sub_job_script_type == 0:
+            logger.info("脚本类型为sls")
+            scriptPath = PACKAGE_PATH + uid + ".sls"
+        if defaultVersion.sub_job_script_type == 1:
+            logger.info("脚本类型为sh")
+            scriptPath = PACKAGE_PATH + uid + ".sh"
 
     output = open(scriptPath, 'w')
-    defaultVersion = project.projectversion_set.get(is_default=True)
-    playbookContent = project.playbook.replace('${version}', defaultVersion.name)
+
+    logger.info("填写动态变量")
+
+    if isSubScript is True:
+        playbookContent = project.playbook
+    else:
+        playbookContent = defaultVersion.subplaybook
+
+    playbookContent = playbookContent.replace('${version}', project.name)
+
     output.write(playbookContent)
     output.close()
 
-    # 根据执行模式，判断是否发送文件到主节点
     if SALT_CONN_TYPE == 'http':
+        logger.info("当前执行模式为分离模式，发送脚本到Master节点")
         url = SALT_HTTP_URL + '/upload'
         files = {'file': open(scriptPath, 'rb')}
         requests.post(url, files=files)
 
     jobList = []
-    # 指定目标主机
-    for target in hosts:
-        result = None
 
+    for target in hosts:
+        logger.info("执行脚本，目标主机为:%s", target)
         hasErr = False
 
         # SLS模式
         if project.job_script_type == 0:
-            # 这里先用同步执行，发现异步执行好像也没什么区别的样子
 
             result = salt_api_token({'fun': 'state.sls', 'tgt': target,
                                      'arg': uid},
@@ -53,7 +77,7 @@ def deployTask(deployJob):
             for master in result:
                 if isinstance(result[master], dict):
                     for cmd in result[master]:
-                        # 判断总体任务是否失败，一个步骤失败则整个部署任务都失败
+
                         if not result[master][cmd]['result']:
                             hasErr = True
 
@@ -73,6 +97,9 @@ def deployTask(deployJob):
                         if 'duration' in result[master][cmd]:
                             duration = result[master][cmd]['duration']
 
+                        # startTime = None
+                        # if 'start_time' in result[master][cmd]:
+                        #     startTime = result[master][cmd]['start_time']
                         deployJobDetail = DeployJobDetail(
                             host=targetHost,
                             deploy_message=msg,
@@ -81,12 +108,11 @@ def deployTask(deployJob):
                             job_cmd=jobCmd,
                             comment=result[master][cmd]['comment'],
                             is_success=result[master][cmd]['result'],
-                            # start_time=result[master][cmd]['start_time'],
+                            # start_time=startTime,
                             duration=duration,
                         )
                         jobList.append(deployJobDetail)
 
-        # Script模式
         if project.job_script_type == 1:
             result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
                                      'arg': 'salt://%s.sh' % uid},
@@ -107,22 +133,28 @@ def deployTask(deployJob):
                 jobList.append(deployJobDetail)
 
     os.remove(scriptPath)
-    deployJob.deploy_status = 1 if hasErr == False else 2
+    deployJob.deploy_status = 1 if hasErr is False else 2
     deployJob.save()
     for i in jobList:
         i.save()
+    logger.info("执行脚本完成")
 
 
 @task(name='scanHostJob')
 def scanHostJob():
-    print("开始作业")
+    logger = logging.getLogger(__name__)
+    logger.info("开始执行主机扫描操作")
+
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                             SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-    print("作业调用结果")
+
+    logger.info("扫描主机数量为[%s]", len(result))
+
     for host in result:
         try:
             rs = Host.objects.filter(host_name=host, host=result[host]["host"])
             if len(rs) == 0:
+                logger.info("新增主机:%s", result[host]["host"])
                 device = Host(host_name=host,
                               kernel=result[host]["kernel"],
                               kernel_release=result[host]["kernelrelease"],
@@ -148,6 +180,7 @@ def scanHostJob():
                     hostip.save()
             else:
                 entity = rs[0]
+                logger.info("更新主机:%s", entity)
                 # str = result[host]["num_cpus"]
                 entity.kernel = result[host]["kernel"]
                 # entity.num_cpus = str,
@@ -175,4 +208,4 @@ def scanHostJob():
                     hostip.save()
 
         except Exception as e:
-            print(e)
+            logger.error("自动扫描出现异常:%s", e)
