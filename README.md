@@ -36,4 +36,5 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 
 #常用部署模板
 
-- [JDK](https://git.oschina.net/wuwenhao/saltops/wikis/JDK%E9%83%A8%E7%BD%B2%E6%A8%A1%E6%9D%BF)
+- [JDK](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/sls/jdk8.sls)
+- [ElasticSearch](https://git.oschina.net/wuwenhao/saltops/wikis/ElasticSearch)
