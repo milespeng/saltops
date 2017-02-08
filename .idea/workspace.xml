@@ -2,6 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/0dd8f6ec-e919-11e6-80b3-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/10fcd520-e543-11e6-a7f2-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/1b695c88-e915-11e6-80b3-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/1d5cec74-e921-11e6-93dd-a8bbcf17ec44.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/334eba02-e864-11e6-8220-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/48340970-e3b6-11e6-8af6-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/52de38ee-e863-11e6-8220-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/694ee21e-ecdb-11e6-be6b-a45e60ecf99b.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/6c0aacbc-e863-11e6-8220-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/7b956f5c-e91a-11e6-80b3-a8bbcf17ec44.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/7cd8b404-e91b-11e6-80b3-a8bbcf17ec44.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/827101f0-ecdb-11e6-b85f-a45e60ecf99b.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/89cae51a-e91b-11e6-80b3-a8bbcf17ec44.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/9147731a-e864-11e6-8220-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/92cd6548-e91b-11e6-80b3-a8bbcf17ec44.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/9385685e-e863-11e6-8220-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/a79c927a-e13d-11e6-b9a4-a45e60ecf99b.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/b2a47330-e631-11e6-81bf-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/c32315a6-e13e-11e6-a451-a45e60ecf99b.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/cc8fa78e-e914-11e6-80b3-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/ce852100-e13e-11e6-bafc-a45e60ecf99b.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/dde51402-e13e-11e6-9170-a45e60ecf99b.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/e11adf6a-e91a-11e6-80b3-a8bbcf17ec44.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/ef0da1a6-e13e-11e6-87e7-a45e60ecf99b.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/efd03eb5-e12b-11e6-bc31-a45e60ecf99b.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/es.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/f0d8f7f0-e863-11e6-8220-a8bbcf17ec44.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/ls.sls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/script/startsalt.sh" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -277,28 +306,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wiki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wiki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -887,13 +894,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00036" summary="业务版本列表加入js校验">
-      <created>1485747209876</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1485747209876</updated>
-    </task>
     <task id="LOCAL-00037" summary="优化model，提取公共的model">
       <created>1485780232571</created>
       <option name="number" value="00037" />
@@ -1230,7 +1230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486523010618</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="更新ReadMe">
+      <created>1486523995513</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1486523995513</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TodoView">
