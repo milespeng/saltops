@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/sls/elasticsearch-master.sls" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/doc/deploy/elasticsearch-master.sls" afterPath="$PROJECT_DIR$/doc/sls/elasticsearch-master.sls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,12 +41,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="432">
                 <caret line="39" column="103" lean-forward="false" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SaltOps的定位与目标.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="195">
+                <caret line="13" column="89" lean-forward="false" selection-start-line="13" selection-start-column="89" selection-end-line="13" selection-end-column="89" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -132,7 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tools_manager/__init__.py" />
         <option value="$PROJECT_DIR$/tools_manager/models.py" />
         <option value="$PROJECT_DIR$/tools_manager/admin.py" />
         <option value="$PROJECT_DIR$/tools_manager/static/js/ToolsScriptAdmin.js" />
@@ -183,6 +196,7 @@
         <option value="$PROJECT_DIR$/deploy_manager/admin.py" />
         <option value="$PROJECT_DIR$/saltjob/tasks.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md" />
       </list>
     </option>
   </component>
@@ -256,7 +270,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sls" />
+              <option name="myItemId" value="wiki" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -844,13 +858,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00023" summary="加入django-rest">
-      <created>1485162665028</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1485162665028</updated>
-    </task>
     <task id="LOCAL-00024" summary="调整CMDB配置项">
       <created>1485341103702</created>
       <option name="number" value="00024" />
@@ -1187,7 +1194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486521224468</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="更新ReadMe">
+      <created>1486521271180</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1486521271180</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1203,7 +1217,7 @@
     <frame x="0" y="23" width="1920" height="1097" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10117146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10543131" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1312,7 +1326,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/admin/change_list.html" />
     <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/Project.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -1650,6 +1663,20 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="432">
             <caret line="39" column="103" lean-forward="false" selection-start-line="39" selection-start-column="103" selection-end-line="39" selection-end-column="103" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/wiki/SaltOps的定位与目标.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="195">
+            <caret line="13" column="89" lean-forward="false" selection-start-line="13" selection-start-column="89" selection-end-line="13" selection-end-column="89" />
             <folding />
           </first_editor>
           <second_editor />
