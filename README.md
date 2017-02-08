@@ -28,7 +28,7 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 - [集中部署](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/集中部署.md)
 - [分离部署](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/分离部署.md)
 - [功能简介:首页](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/首页.md)
-- [功能简介:资产管理](https://git.oschina.net/wuwenhao/saltops/wikis/%E8%B5%84%E4%BA%A7%E7%AE%A1%E7%90%86)
+- [功能简介:资产管理](https://git.oschina.net/wuwenhao/saltops/blob/master/doc/wiki/资产管理.md)
 - [功能简介:发布管理](https://git.oschina.net/wuwenhao/saltops/wikis/%E5%8F%91%E5%B8%83%E7%AE%A1%E7%90%86)
 - [对外接口]
 - [系统配置与可用参数列表]
