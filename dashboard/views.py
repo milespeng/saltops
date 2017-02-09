@@ -7,7 +7,7 @@ from suit_dashboard.box import Box
 from suit_dashboard.layout import Grid, Row, Column
 from suit_dashboard.views import DashboardView
 
-from dashboard.boxes import BoxMachineBasicInfo, BoxMachineBasicInfoChart
+from dashboard.boxes import BoxMachineBasicInfo, BoxMachineBasicInfoChart, BoxMinionStatusChart
 
 
 class HomeView(DashboardView):
@@ -18,6 +18,7 @@ class HomeView(DashboardView):
     grid = Grid(
         Row(
             Column(BoxMachineBasicInfo(), width=6),
-            Column(BoxMachineBasicInfoChart(), width=6)
+            Column(BoxMachineBasicInfoChart(), width=6),
+            Column(BoxMinionStatusChart(), width=12)
         )
     )

@@ -1,9 +1,66 @@
 import platform
 import psutil
+from django.db.models import Count
 from suit_dashboard.box import Box, Item
 
 from cmdb.models import Host
 from deploy_manager.models import Project
+
+
+def minion_status_chart():
+    upMinionCount = Host.objects.filter(minion_status=1).count()
+    downMinionCount = Host.objects.filter(minion_status=0).count()
+
+    result = Host.objects.values('os').annotate(total=Count('os'))
+
+    os = []
+    total = []
+    for obj in result:
+        os.append(obj['os'])
+        total.append(obj['total'])
+
+    chart_options = {
+        'chart': {
+            'height': 350,
+        },
+        'title': {
+            'text': '客户端信息'
+        },
+        'xAxis': {
+            'categories': os
+        },
+        'labels': {
+            'items': [{
+                'html': 'Salt客户端状态',
+                'style': {
+                    'left': '80px',
+                    'top': '18px',
+                }
+            }]
+        },
+        'series': [
+            {
+                'name': '操作系统分布',
+                'type': 'column',
+                'data': total
+            }, {
+                'name': 'Salt客户端状态',
+                'type': 'pie',
+                'center': [100, 60],
+                'size': 80,
+                'data': [
+                    {
+                        'name': '运行中:(%s)' % upMinionCount,
+                        'y': upMinionCount,
+                    },
+                    {
+                        'name': '未运行(%s)' % downMinionCount,
+                        'y': downMinionCount,
+                    },
+                ]
+            }],
+    }
+    return chart_options
 
 
 def machine_usage_chart():
@@ -100,6 +157,17 @@ class BoxMachineBasicInfoChart(Box):
             html_id='machine-usage',
             name='主机资源',
             value=machine_usage_chart(),
+            display=Item.AS_HIGHCHARTS)
+
+        return [item_chart]
+
+
+class BoxMinionStatusChart(Box):
+    def get_items(self):
+        item_chart = Item(
+            html_id='minion-usage',
+            name='客户端运行状态',
+            value=minion_status_chart(),
             display=Item.AS_HIGHCHARTS)
 
         return [item_chart]
