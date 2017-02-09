@@ -1,4 +1,4 @@
-{% set es = "elasticsearch-2.3.5" %}
+{% set es = "elasticsearch-${version}" %}
 send_file:
   file.managed:
       - name: /tmp/{{es}}.tar.gz
@@ -29,5 +29,6 @@ run_es:
       - cwd: /tmp/{{es}}/bin
       - name: ./elasticsearch -d &
       - user: kira
+      - unless: ps -ef|grep elasticsearch|grep -v grep
       - require:
           - cmd: install_head

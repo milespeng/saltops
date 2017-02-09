@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/migrations/0029_auto_20170209_1317.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/script/08b33e2e-ee88-11e6-a6e9-a45e60ecf99b.sls" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/script/0e41fd80-ee88-11e6-b697-a45e60ecf99b.sls" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/script/db1ca178-ee87-11e6-98c1-a45e60ecf99b.sls" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/script/e2794cd0-ee87-11e6-a193-a45e60ecf99b.sls" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/migrations/0023_auto_20170209_1317.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admin.py" afterPath="$PROJECT_DIR$/deploy_manager/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/models.py" afterPath="$PROJECT_DIR$/deploy_manager/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltjob/tasks.py" afterPath="$PROJECT_DIR$/saltjob/tasks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/sls/elasticsearch-master.sls" afterPath="$PROJECT_DIR$/doc/sls/elasticsearch-master.sls" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,11 +52,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="422">
               <caret line="60" column="38" lean-forward="false" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="elasticsearch-master.sls" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/sls/elasticsearch-master.sls">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -133,7 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/deploy_manager/static/js/jqmeter.min.js" />
         <option value="$PROJECT_DIR$/deploy_manager/static/js/Project.css" />
         <option value="$PROJECT_DIR$/templates/admin/login.html" />
         <option value="$PROJECT_DIR$/deploy_manager/static/js/Project.js" />
@@ -184,6 +185,7 @@
         <option value="$PROJECT_DIR$/deploy_manager/models.py" />
         <option value="$PROJECT_DIR$/deploy_manager/admin.py" />
         <option value="$PROJECT_DIR$/saltjob/tasks.py" />
+        <option value="$PROJECT_DIR$/doc/sls/elasticsearch-master.sls" />
       </list>
     </option>
   </component>
@@ -225,6 +227,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sls" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -814,13 +848,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00042" summary="试验docker agent">
-      <created>1485937108060</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1485937108060</updated>
-    </task>
     <task id="LOCAL-00043" summary="把自动发现的功能改成celery">
       <created>1485939937777</created>
       <option name="number" value="00043" />
@@ -1157,7 +1184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486612667847</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="业务部署支持扩展参数">
+      <created>1486617991722</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1486617991722</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1231,7 +1265,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="业务模块：上级业务模块的过滤太多了，应该把没有子节点的数据过滤掉" />
     <MESSAGE value="使用docker作为salt环境，测试异步获取作业通过" />
     <MESSAGE value="试验docker agent" />
     <MESSAGE value="把自动发现的功能改成celery" />
@@ -1256,7 +1289,8 @@
     <MESSAGE value="把文档挪到项目里面" />
     <MESSAGE value="更新ReadMe" />
     <MESSAGE value="添加Minion状态" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加Minion状态" />
+    <MESSAGE value="业务部署支持扩展参数" />
+    <option name="LAST_COMMIT_MESSAGE" value="业务部署支持扩展参数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1283,13 +1317,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1720,6 +1747,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="60" column="38" lean-forward="false" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/sls/elasticsearch-master.sls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
           <folding />
         </state>
       </provider>
