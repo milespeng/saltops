@@ -43,6 +43,7 @@ class Project(BaseModel):
                                 help_text='${version}代表默认版本号')
     job_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
                                           verbose_name='脚本语言')
+    extra_param = models.TextField(verbose_name='扩展参数', default="", blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -61,6 +62,7 @@ class ProjectVersion(BaseModel):
                                    help_text='为空则使用全局的部署脚本')
     sub_job_script_type = models.IntegerField(default=100, choices=JOB_SCRIPT_TYPE,
                                               verbose_name='脚本语言')
+    extra_param = models.TextField(verbose_name='扩展参数', default="", blank=True, null=True)
 
     def __str__(self):
         return self.project.__str__() + '---' + self.name

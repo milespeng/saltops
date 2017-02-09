@@ -3,6 +3,7 @@ from uuid import uuid1
 
 import logging
 import requests
+import yaml
 from celery import task
 
 from cmdb.models import Host, HostIP
@@ -49,6 +50,18 @@ def deployTask(deployJob):
         playbookContent = project.playbook
     else:
         playbookContent = defaultVersion.subplaybook
+
+    logger.info("处理扩展参数")
+
+    if project.extra_param != "":
+        extraparam = yaml.load(project.extra_param)[0]
+        for key in extraparam:
+            playbookContent = playbookContent.replace('${%s}' % key, extraparam[key])
+
+    if defaultVersion.extra_param != '':
+        extraparam = yaml.load(defaultVersion.extra_param)[0]
+        for key in extraparam:
+            playbookContent = playbookContent.replace('${%s}' % key, extraparam[key])
 
     playbookContent = playbookContent.replace('${version}', project.name)
 

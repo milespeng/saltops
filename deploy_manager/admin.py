@@ -36,7 +36,7 @@ class ProjectModuleAdmin(MPTTModelAdmin):
 
 class ProjectVersionInline(admin.TabularInline):
     model = ProjectVersion
-    fields = ['name', 'sub_job_script_type', 'subplaybook', 'is_default', 'files', ]
+    fields = ['name', 'sub_job_script_type', 'subplaybook', 'extra_param', 'is_default', 'files', ]
     verbose_name = '版本'
     verbose_name_plural = '版本'
     extra = 0
