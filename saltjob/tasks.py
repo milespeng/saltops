@@ -1,4 +1,5 @@
 import os
+import traceback
 from uuid import uuid1
 
 import logging
@@ -232,3 +233,38 @@ def scanHostJob():
 
         except Exception as e:
             logger.error("自动扫描出现异常:%s", e)
+
+    sshResult = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
+                               SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
+    logger.info("扫描主机数量为[%s]", len(sshResult))
+    for host in sshResult:
+        try:
+            rs = Host.objects.filter(host=host)
+            entity = rs[0]
+            logger.info("更新主机:%s", host)
+            entity.host_name = sshResult[host]['return']['fqdn']
+            entity.kernel = sshResult[host]['return']['kernel']
+            entity.kernel_release = sshResult[host]['return']['kernelrelease']
+            entity.virtual = sshResult[host]['return']['virtual']
+            entity.osrelease = sshResult[host]['return']['osrelease']
+            entity.saltversion = sshResult[host]['return']['saltversion']
+            entity.osfinger = sshResult[host]['return']['osfinger']
+            entity.os_family = sshResult[host]['return']['os_family']
+            entity.num_gpus = sshResult[host]['return']['num_gpus']
+            entity.system_serialnumber = sshResult[host]['return']["serialnumber"]
+            entity.cpu_model = sshResult[host]['return']["cpu_model"]
+            entity.productname = sshResult[host]['return']["productname"]
+            entity.osarch = sshResult[host]['return']["osarch"]
+            entity.cpuarch = sshResult[host]['return']["cpuarch"]
+            entity.os = sshResult[host]['return']["os"]
+            # entity.num_cpus = int(sshResult[host]['return']["num_cpus"]),
+            # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
+            entity.minion_status = 1
+            entity.save()
+
+            for ip in sshResult[host]['return']["ipv4"]:
+                hostip = HostIP(ip=ip, host=entity)
+                hostip.save()
+
+        except Exception as e:
+            traceback.print_exc()

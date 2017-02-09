@@ -56,7 +56,7 @@ class Project(BaseModel):
 class ProjectVersion(BaseModel):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="版本名称")
     project = models.ForeignKey(Project, default="", verbose_name="业务名称", blank=True, null=True, )
-    files = models.FileField(verbose_name='版本', blank=True, null=True, upload_to=PACKAGE_PATH + 'files')
+    files = models.FileField(verbose_name='版本', blank=True, null=True, upload_to=PACKAGE_PATH)
     is_default = models.BooleanField(verbose_name='默认版本', blank=True, default=False)
     subplaybook = models.TextField(verbose_name='部署脚本', null=True, blank=True,
                                    help_text='为空则使用全局的部署脚本')

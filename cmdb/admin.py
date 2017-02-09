@@ -1,7 +1,10 @@
+import requests
 from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from cmdb.models import *
 from deploy_manager.models import *
+from saltjob.tasks import scanHostJob
+from saltops.settings import SALT_CONN_TYPE, SALT_HTTP_URL
 
 
 class IPInline(admin.TabularInline):
@@ -24,10 +27,37 @@ class ProjectInline(admin.TabularInline):
 class HostAdmin(admin.ModelAdmin):
     list_display = ['host_name', 'kernel',
                     'host', 'rack', 'saltversion', 'system_serialnumber', 'cpu_model',
-                    'os', 'virtual', 'minion_status', 'create_time', 'update_time']
+                    'os', 'virtual', 'enable_ssh', 'minion_status', 'create_time', 'update_time']
     search_fields = ['host']
     list_filter = ['virtual', 'os_family', 'os', 'rack', 'minion_status']
     inlines = [IPInline, ProjectInline]
+
+    def save_formset(self, request, form, formset, change):
+        entity = form.save()
+        formset.save()
+
+        hosts = Host.objects.all()
+
+        rosterString = ""
+        for host in hosts:
+            if host.enable_ssh is True:
+                rosterString += """
+
+%s:
+    host: %s
+    user: %s
+    passwd: %s
+    sudo: %s
+    tty: True
+
+                """ % (host.host, host.host, host.ssh_username, host.ssh_password,
+                       host.enable_ssh)
+
+        if SALT_CONN_TYPE == 'http':
+            requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})
+        else:
+            with open('/etc/salt/roster', 'w') as content:
+                content.write(content)
 
 
 class RackInline(NestedStackedInline):

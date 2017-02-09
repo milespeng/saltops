@@ -38,6 +38,12 @@ class salt_api_token(object):
         context = req.text
         return yaml.load(context)
 
+    def sshRun(self):
+        self.data["client"] = "ssh"
+        req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
+        context = req.text
+        return yaml.load(context)
+
     def runnerRun(self):
         self.data["client"] = "runner"
         req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
