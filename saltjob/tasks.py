@@ -28,6 +28,9 @@ def deployTask(deployJob):
     logger.info("脚本UUID为:%s", uid)
 
     isSubScript = defaultVersion.sub_job_script_type == 100
+
+    scriptType = 0  # 默认为SLS
+
     if isSubScript is True:
         if project.job_script_type == 0:
             logger.info("脚本类型为sls")
@@ -35,6 +38,7 @@ def deployTask(deployJob):
         if project.job_script_type == 1:
             logger.info("脚本类型为sh")
             scriptPath = PACKAGE_PATH + uid + ".sh"
+            scriptType = 1
     else:
         if defaultVersion.sub_job_script_type == 0:
             logger.info("脚本类型为sls")
@@ -42,6 +46,7 @@ def deployTask(deployJob):
         if defaultVersion.sub_job_script_type == 1:
             logger.info("脚本类型为sh")
             scriptPath = PACKAGE_PATH + uid + ".sh"
+            scriptType = 1
 
     output = open(scriptPath, 'w')
 
@@ -82,67 +87,88 @@ def deployTask(deployJob):
         hasErr = False
 
         # SLS模式
-        if project.job_script_type == 0:
+        if scriptType == 0:
 
-            result = salt_api_token({'fun': 'state.sls', 'tgt': target,
-                                     'arg': uid},
-                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-
+            if target.enable_ssh is False:
+                result = salt_api_token({'fun': 'state.sls', 'tgt': target,
+                                         'arg': uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+            else:
+                ins = salt_api_token({'fun': 'state.sls', 'tgt': target.host,
+                                      'arg': uid},
+                                     SALT_REST_URL, {'X-Auth-Token': token_id()})
+                result = ins.sshRun()['return'][0]
             for master in result:
                 if isinstance(result[master], dict):
-                    for cmd in result[master]:
+                    if target.enable_ssh is False:
+                        dataResult = result[master]
+                        targetHost = Host.objects.get(host_name=master)
+                    else:
+                        dataResult = result[master]['return']
+                        targetHost = Host.objects.get(host=master)
+                    for cmd in dataResult:
 
-                        if not result[master][cmd]['result']:
+                        if not dataResult[cmd]['result']:
                             hasErr = True
 
-                        targetHost = Host.objects.get(host_name=master)
                         msg = ""
-                        if "stdout" in result[master][cmd]['changes']:
-                            msg = result[master][cmd]['changes']["stdout"]
+                        if "stdout" in dataResult[cmd]['changes']:
+                            msg = dataResult[cmd]['changes']["stdout"]
                         stderr = ""
-                        if "stderr" in result[master][cmd]['changes']:
-                            stderr = result[master][cmd]['changes']["stderr"]
+                        if "stderr" in dataResult[cmd]['changes']:
+                            stderr = dataResult[cmd]['changes']["stderr"]
 
                         jobCmd = ""
-                        if 'name' in result[master][cmd]:
-                            jobCmd = result[master][cmd]['name']
+                        if 'name' in dataResult[cmd]:
+                            jobCmd = dataResult[cmd]['name']
 
                         duration = 0
-                        if 'duration' in result[master][cmd]:
-                            duration = result[master][cmd]['duration']
+                        if 'duration' in dataResult[cmd]:
+                            duration = dataResult[cmd]['duration']
 
                         # startTime = None
-                        # if 'start_time' in result[master][cmd]:
-                        #     startTime = result[master][cmd]['start_time']
+                        # if 'start_time' in dataResult[cmd]:
+                        #     startTime = dataResult[cmd]['start_time']
                         deployJobDetail = DeployJobDetail(
                             host=targetHost,
                             deploy_message=msg,
                             job=deployJob,
                             stderr=stderr,
                             job_cmd=jobCmd,
-                            comment=result[master][cmd]['comment'],
-                            is_success=result[master][cmd]['result'],
+                            comment=dataResult[cmd]['comment'],
+                            is_success=dataResult[cmd]['result'],
                             # start_time=startTime,
                             duration=duration,
                         )
                         jobList.append(deployJobDetail)
 
-        if project.job_script_type == 1:
-            result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
-                                     'arg': 'salt://%s.sh' % uid},
-                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+        if scriptType == 1:
+            if target.enable_ssh is False:
+                result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
+                                         'arg': 'salt://%s.sh' % uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+            else:
+                ins = salt_api_token({'fun': 'cmd.script', 'tgt': target.host,
+                                      'arg': 'salt://%s.sh' % uid},
+                                     SALT_REST_URL, {'X-Auth-Token': token_id()})
+                result = ins.sshRun()['return'][0]
             for master in result:
-                targetHost = Host.objects.get(host_name=master)
-                if result[master]['stderr'] != '':
+                if target.enable_ssh is False:
+                    dataResult = result[master]
+                    targetHost = Host.objects.get(host_name=master)
+                else:
+                    dataResult = result[master]['return']
+                    targetHost = Host.objects.get(host=master)
+                if dataResult['stderr'] != '':
                     hasErr = True
 
                 deployJobDetail = DeployJobDetail(
                     host=targetHost,
-                    deploy_message=result[master]['stdout'],
+                    deploy_message=dataResult['stdout'],
                     job=deployJob,
-                    stderr=result[master]['stderr'],
+                    stderr=dataResult['stderr'],
                     job_cmd=playbookContent,
-                    is_success=True if result[master]['stderr'] == '' else False,
+                    is_success=True if dataResult['stderr'] == '' else False,
                 )
                 jobList.append(deployJobDetail)
 
@@ -239,31 +265,32 @@ def scanHostJob():
     logger.info("扫描主机数量为[%s]", len(sshResult))
     for host in sshResult:
         try:
-            rs = Host.objects.filter(host=host)
-            entity = rs[0]
-            logger.info("更新主机:%s", host)
-            entity.host_name = sshResult[host]['return']['fqdn']
-            entity.kernel = sshResult[host]['return']['kernel']
-            entity.kernel_release = sshResult[host]['return']['kernelrelease']
-            entity.virtual = sshResult[host]['return']['virtual']
-            entity.osrelease = sshResult[host]['return']['osrelease']
-            entity.saltversion = sshResult[host]['return']['saltversion']
-            entity.osfinger = sshResult[host]['return']['osfinger']
-            entity.os_family = sshResult[host]['return']['os_family']
-            entity.num_gpus = sshResult[host]['return']['num_gpus']
-            entity.system_serialnumber = sshResult[host]['return']["serialnumber"]
-            entity.cpu_model = sshResult[host]['return']["cpu_model"]
-            entity.productname = sshResult[host]['return']["productname"]
-            entity.osarch = sshResult[host]['return']["osarch"]
-            entity.cpuarch = sshResult[host]['return']["cpuarch"]
-            entity.os = sshResult[host]['return']["os"]
-            # entity.num_cpus = int(sshResult[host]['return']["num_cpus"]),
-            # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
-            entity.minion_status = 1
-            entity.save()
-            HostIP.objects.filter(host=entity).delete()
-            for ip in sshResult[host]['return']["ipv4"]:
-                hostip = HostIP(ip=ip, host=entity)
+            if 'return' in sshResult[host]:
+                rs = Host.objects.filter(host=host)
+                entity = rs[0]
+                logger.info("更新主机:%s", host)
+                entity.host_name = sshResult[host]['return']['fqdn'] if 'fqdn' in sshResult[host]['return'] else ""
+                entity.kernel = sshResult[host]['return']['kernel']
+                entity.kernel_release = sshResult[host]['return']['kernelrelease']
+                entity.virtual = sshResult[host]['return']['virtual']
+                entity.osrelease = sshResult[host]['return']['osrelease']
+                entity.saltversion = sshResult[host]['return']['saltversion']
+                entity.osfinger = sshResult[host]['return']['osfinger']
+                entity.os_family = sshResult[host]['return']['os_family']
+                entity.num_gpus = sshResult[host]['return']['num_gpus']
+                entity.system_serialnumber = sshResult[host]['return']["serialnumber"]
+                entity.cpu_model = sshResult[host]['return']["cpu_model"]
+                entity.productname = sshResult[host]['return']["productname"]
+                entity.osarch = sshResult[host]['return']["osarch"]
+                entity.cpuarch = sshResult[host]['return']["cpuarch"]
+                entity.os = sshResult[host]['return']["os"]
+                # entity.num_cpus = int(sshResult[host]['return']["num_cpus"]),
+                # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
+                entity.minion_status = 1
+                entity.save()
+                HostIP.objects.filter(host=entity).delete()
+                for ip in sshResult[host]['return']["ipv4"]:
+                    hostip = HostIP(ip=ip, host=entity)
                 hostip.save()
 
         except Exception as e:

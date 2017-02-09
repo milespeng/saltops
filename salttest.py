@@ -8,11 +8,9 @@ from saltops.settings import SALT_REST_URL
 #                      SALT_REST_URL, {'X-Auth-Token': token_id()})
 # i = ins.sshRun()
 # print(i['return']['down'])
-ins = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
+ins = salt_api_token({'fun': 'state.sls', 'tgt': '192.168.80.110', 'arg': '06134798-ecff-11e6-b5f6-a45e60ecf99b'},
                      SALT_REST_URL, {'X-Auth-Token': token_id()})
-result = ins.sshRun()['return'][0]
-for host in result:
-    print(result[host]['return']['fqdn'])
+print(ins.sshRun())
 # minions_list_all = salt_api_jobs(
 #     url=SALT_REST_URL + '/jobs',
 #     token=token_id()
