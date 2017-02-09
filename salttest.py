@@ -4,6 +4,10 @@ from saltjob.salt_https_api import salt_api_token, salt_api_jobs
 from saltjob.salt_token_id import token_id
 from saltops.settings import SALT_REST_URL
 
+ins = salt_api_token({'fun': 'manage.status'},
+                     SALT_REST_URL, {'X-Auth-Token': token_id()})
+i = ins.runnerRun()
+print(i['return']['down'])
 # ins = salt_api_token({'fun': 'saltutil.find_job', 'tgt': '*'},
 #                      SALT_REST_URL, {'X-Auth-Token': token_id()})
 # rs = salt_api_jobs(url=SALT_REST_URL, token=token_id())

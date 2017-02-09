@@ -71,6 +71,12 @@ class Rack(BaseModel):
         verbose_name_plural = verbose_name
 
 
+MINION_STATUS = (
+    (0, '未启动'),
+    (1, '运行中')
+)
+
+
 class Host(BaseModel):
     host_name = models.CharField(max_length=255, blank=True, null=True, verbose_name="主机DNS名称")
     kernel = models.CharField(max_length=255, blank=True, null=True, verbose_name="系统内核")
@@ -91,6 +97,8 @@ class Host(BaseModel):
     mem_total = models.IntegerField(blank=True, null=True, verbose_name="内存大小")
     num_cpus = models.IntegerField(blank=True, null=True, verbose_name="CPU数量")
     rack = models.ForeignKey(Rack, verbose_name='机架', blank=True, null=True)
+    minion_status = models.IntegerField(verbose_name='Minion状态', default=0,
+                                        choices=MINION_STATUS)
 
     def __str__(self):
         return self.host_name

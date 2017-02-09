@@ -22,11 +22,11 @@ class ProjectInline(admin.TabularInline):
 
 @admin.register(Host)
 class HostAdmin(admin.ModelAdmin):
-    list_display = ['host_name', 'kernel', 'kernel_release',
+    list_display = ['host_name', 'kernel',
                     'host', 'rack', 'saltversion', 'system_serialnumber', 'cpu_model',
-                    'os', 'virtual', 'create_time', 'update_time']
+                    'os', 'virtual', 'minion_status', 'create_time', 'update_time']
     search_fields = ['host']
-    list_filter = ['virtual', 'os_family', 'os', 'rack']
+    list_filter = ['virtual', 'os_family', 'os', 'rack', 'minion_status']
     inlines = [IPInline, ProjectInline]
 
 

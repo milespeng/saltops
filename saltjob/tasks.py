@@ -145,6 +145,14 @@ def scanHostJob():
     logger = logging.getLogger(__name__)
     logger.info("开始执行主机扫描操作")
 
+    logger.info('扫描主机状态列表')
+
+    manageInstance = salt_api_token({'fun': 'manage.status'},
+                                    SALT_REST_URL, {'X-Auth-Token': token_id()})
+    statusResult = manageInstance.runnerRun()
+    upList = statusResult['return'][0]['up']
+    # downList = statusResult['return'][0]['down']
+
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                             SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
 
@@ -173,7 +181,9 @@ def scanHostJob():
                               cpuarch=result[host]["osarch"],
                               os=result[host]["os"],
                               # num_cpus=int(result[host]["num_cpus"]),
-                              mem_total=int(result[host]["mem_total"]), )
+                              mem_total=int(result[host]["mem_total"]),
+                              minion_status=1 if host in upList else 0
+                              )
                 device.save()
                 for ip in result[host]["ipv4"]:
                     hostip = HostIP(ip=ip, host=device)
@@ -199,7 +209,7 @@ def scanHostJob():
                 entity.cpuarch = result[host]["osarch"]
                 entity.os = result[host]["os"]
                 entity.mem_total = int(result[host]["mem_total"])
-
+                entity.minion_status = 1 if host in upList else 0
                 entity.save()
 
                 HostIP.objects.filter(host=entity).delete()
