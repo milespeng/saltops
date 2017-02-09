@@ -8,9 +8,6 @@ from deploy_manager.models import Project
 
 
 def minion_status_chart():
-    upMinionCount = Host.objects.filter(minion_status=1).count()
-    downMinionCount = Host.objects.filter(minion_status=0).count()
-
     result = Host.objects.values('os').annotate(total=Count('os'))
 
     os = []
@@ -24,40 +21,15 @@ def minion_status_chart():
             'height': 350,
         },
         'title': {
-            'text': '客户端信息'
+            'text': '操作系统分布'
         },
         'xAxis': {
             'categories': os
         },
-        'labels': {
-            'items': [{
-                'html': 'Salt客户端状态',
-                'style': {
-                    'left': '80px',
-                    'top': '18px',
-                }
-            }]
-        },
         'series': [
             {
-                'name': '操作系统分布',
                 'type': 'column',
                 'data': total
-            }, {
-                'name': 'Salt客户端状态',
-                'type': 'pie',
-                'center': [100, 60],
-                'size': 80,
-                'data': [
-                    {
-                        'name': '运行中:(%s)' % upMinionCount,
-                        'y': upMinionCount,
-                    },
-                    {
-                        'name': '未运行(%s)' % downMinionCount,
-                        'y': downMinionCount,
-                    },
-                ]
             }],
     }
     return chart_options
@@ -83,7 +55,7 @@ def machine_usage_chart():
     chart_options = {
         'chart': {
             'type': 'bar',
-            'height': 215,
+            'height': 243,
         },
         'title': {
             'text': '资源使用率'
@@ -128,6 +100,9 @@ def machine_usage_chart():
 
 class BoxMachineBasicInfo(Box):
     def get_items(self):
+        upMinionCount = Host.objects.filter(minion_status=1).count()
+        downMinionCount = Host.objects.filter(minion_status=0).count()
+
         # 系统基础信息
         item_info = Item(
             html_id='SysInfo', name='主机系统信息',
@@ -143,6 +118,7 @@ class BoxMachineBasicInfo(Box):
                 ('Python版本', platform.python_version()),
                 ('接入主机数量', Host.objects.count()),
                 ('业务数量', Project.objects.count()),
+                ('客户端运行情况', '运行中 %s,未运行 %s' % (upMinionCount, downMinionCount)),
             ),
             classes='table-bordered table-condensed '
                     'table-hover table-striped'
@@ -166,7 +142,7 @@ class BoxMinionStatusChart(Box):
     def get_items(self):
         item_chart = Item(
             html_id='minion-usage',
-            name='客户端运行状态',
+            name='操作系统分布',
             value=minion_status_chart(),
             display=Item.AS_HIGHCHARTS)
 
