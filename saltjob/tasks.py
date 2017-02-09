@@ -261,7 +261,7 @@ def scanHostJob():
             # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
             entity.minion_status = 1
             entity.save()
-
+            HostIP.objects.filter(host=entity).delete()
             for ip in sshResult[host]['return']["ipv4"]:
                 hostip = HostIP(ip=ip, host=entity)
                 hostip.save()
