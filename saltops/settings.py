@@ -196,9 +196,9 @@ REST_FRAMEWORK = {
     ]
 }
 
-SALT_REST_URL = 'http://192.168.80.133:8001/'
-SALT_USER = 'loginsight'
-SALT_PASSWORD = 'loginsight'
+SALT_REST_URL = 'http://127.0.0.1:8001/'
+SALT_USER = 'kira'
+SALT_PASSWORD = '8565'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'
@@ -219,5 +219,48 @@ SUIT_CONFIG = {
     'LIST_PER_PAGE': 15
 }
 
-SALT_CONN_TYPE = 'http'
+SALT_CONN_TYPE = ''  # http
 SALT_HTTP_URL = 'http://192.168.80.133:5000'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'formatters': {
+        'standard': {
+            'format': '%(levelname)s %(asctime)s %(pathname)s %(filename)s %(module)s %(funcName)s %(lineno)d: %(message)s'
+        },
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'standard'
+        },
+        # 'file_handler': {
+        #     'level': 'DEBUG',
+        #     'class': 'logging.handlers.TimedRotatingFileHandler',
+        #     'filename': '',
+        #     'formatter': 'standard'
+        # },
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard'
+        },
+    },
+    'loggers': {
+        'default': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True
+        }
+    }
+}
+
+DEFAULT_LOGGER = 'default'

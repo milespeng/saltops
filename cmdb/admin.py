@@ -57,7 +57,7 @@ class HostAdmin(admin.ModelAdmin):
             requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})
         else:
             with open('/etc/salt/roster', 'w') as content:
-                content.write(content)
+                content.write(rosterString)
 
 
 class RackInline(NestedStackedInline):

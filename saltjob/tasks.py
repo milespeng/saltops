@@ -11,12 +11,12 @@ from cmdb.models import Host, HostIP
 from deploy_manager.models import DeployJobDetail
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
-from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL
+from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL, DEFAULT_LOGGER
 
 
 @task(name='deployTask')
 def deployTask(deployJob):
-    logger = logging.getLogger(__name__)
+    logger = logging.getLogger(DEFAULT_LOGGER)
 
     logger.info("动态生成脚本文件")
     project = deployJob.project_version.project
@@ -182,7 +182,7 @@ def deployTask(deployJob):
 
 @task(name='scanHostJob')
 def scanHostJob():
-    logger = logging.getLogger(__name__)
+    logger = logging.getLogger(DEFAULT_LOGGER)
     logger.info("开始执行主机扫描操作")
 
     logger.info('扫描主机状态列表')
