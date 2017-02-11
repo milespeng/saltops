@@ -143,7 +143,7 @@ CRONJOBS = [
 ]
 
 # 文件上传的路径
-PACKAGE_PATH = os.path.join("doc/script/")
+PACKAGE_PATH = "/home/kira/dev/saltops/doc/script/"
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
@@ -232,7 +232,7 @@ LOGGING = {
     },
     'formatters': {
         'standard': {
-            'format': '%(levelname)s %(asctime)s %(pathname)s %(filename)s %(module)s %(funcName)s %(lineno)d: %(message)s'
+            'format': '%(levelname)s [ %(message)s] %(asctime)s %(pathname)s %(filename)s %(module)s %(funcName)s %(lineno)d'
         },
     },
     'handlers': {

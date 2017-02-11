@@ -6,3 +6,4 @@ doc/script/files/*
 .idea
 .idea/*
 db.sqlite3
+/doc/script

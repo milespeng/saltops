@@ -13,16 +13,18 @@ from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL, DEFAULT_LOGGER
 
+logger = logging.getLogger(DEFAULT_LOGGER)
+
 
 @task(name='deployTask')
 def deployTask(deployJob):
-    logger = logging.getLogger(DEFAULT_LOGGER)
-
     logger.info("动态生成脚本文件")
     project = deployJob.project_version.project
     defaultVersion = project.projectversion_set.get(is_default=True)
+    logger.info("使用的默认版本为%s", defaultVersion)
 
     hosts = project.host.all()
+    logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
 
     uid = uuid1().__str__()
     logger.info("脚本UUID为:%s", uid)
@@ -51,7 +53,6 @@ def deployTask(deployJob):
     output = open(scriptPath, 'w')
 
     logger.info("填写动态变量")
-
     if isSubScript is True:
         playbookContent = project.playbook
     else:
@@ -69,10 +70,11 @@ def deployTask(deployJob):
         for key in extraparam:
             playbookContent = playbookContent.replace('${%s}' % key, extraparam[key])
 
-    playbookContent = playbookContent.replace('${version}', project.name)
+    playbookContent = playbookContent.replace('${version}', defaultVersion.name)
 
     output.write(playbookContent)
     output.close()
+    logger.info("写入文件结束，文件为%s", scriptPath)
 
     if SALT_CONN_TYPE == 'http':
         logger.info("当前执行模式为分离模式，发送脚本到Master节点")
@@ -88,16 +90,20 @@ def deployTask(deployJob):
 
         # SLS模式
         if scriptType == 0:
-
             if target.enable_ssh is False:
+                logger.info("使用Minion方式执行")
                 result = salt_api_token({'fun': 'state.sls', 'tgt': target,
                                          'arg': uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+                logger.info("执行结果为%s", result)
             else:
+                logger.info("使用SaltSSH方式执行")
                 ins = salt_api_token({'fun': 'state.sls', 'tgt': target.host,
                                       'arg': uid},
                                      SALT_REST_URL, {'X-Auth-Token': token_id()})
                 result = ins.sshRun()['return'][0]
+                logger.info("执行结果为%s", result)
+
             for master in result:
                 if isinstance(result[master], dict):
                     if target.enable_ssh is False:
@@ -144,14 +150,19 @@ def deployTask(deployJob):
 
         if scriptType == 1:
             if target.enable_ssh is False:
+                logger.info("使用Minion方式执行")
                 result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
                                          'arg': 'salt://%s.sh' % uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+                logger.info("执行结果为%s", result)
+
             else:
+                logger.info("使用SaltSSH方式执行")
                 ins = salt_api_token({'fun': 'cmd.script', 'tgt': target.host,
                                       'arg': 'salt://%s.sh' % uid},
                                      SALT_REST_URL, {'X-Auth-Token': token_id()})
                 result = ins.sshRun()['return'][0]
+                logger.info("执行结果为%s", result)
             for master in result:
                 if target.enable_ssh is False:
                     dataResult = result[master]
@@ -182,33 +193,32 @@ def deployTask(deployJob):
 
 @task(name='scanHostJob')
 def scanHostJob():
-    logger = logging.getLogger(DEFAULT_LOGGER)
-    logger.info("开始执行主机扫描操作")
-    logger.info('扫描主机状态列表')
-
+    logger.info('扫描Minion启动状态列表')
     upList = []
     try:
-        # 获取客户端的状态信息
         manageInstance = salt_api_token({'fun': 'manage.status'},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()})
-
         statusResult = manageInstance.runnerRun()
         upList = statusResult['return'][0]['up']
     except Exception as e:
-        logger.info(e)
-    # 扫描客户端注册列表
+        logger.info("没有任何主机启动状态信息:%s" % e)
+
+    logger.info("扫描客户端注册列表")
     minionsInstance = salt_api_token({'fun': 'key.list_all'},
                                      SALT_REST_URL, {'X-Auth-Token': token_id()})
-
     minionList = minionsInstance.wheelRun()['return'][0]['data']['return']
     minions_pre = minionList['minions_pre']
     logger.info("待接受主机:%s" % len(minions_pre))
     # minions = minionList['minions']
-    # minions_rejected = minionList['minions_rejected']
-    # minions_denied = minionList['minions_denied']
+    minions_rejected = minionList['minions_rejected']
+    logger.info("已拒绝主机:%s", len(minions_rejected))
 
-    #使用自动接受
+    minions_denied = minionList['minions_denied']
+    logger.info("已禁用主机:%s", len(minions_denied))
+
+    logger.info("自动主机")
     for minion in minions_pre:
+        logger.info("自动接受主机:%s" % minion)
         salt_api_token({'fun': 'key.accept', 'match': minion},
                        SALT_REST_URL, {'X-Auth-Token': token_id()}).wheelRun()
         # rs = Host.objects.filter(host_name=minion)
@@ -219,10 +229,9 @@ def scanHostJob():
         #     except Exception as e:
         #         logger.info(e)
 
-    # 获取客户端配置信息
+    logger.info("获取Minion主机资产信息")
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                             SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-
     logger.info("扫描Minion数量为[%s]", len(result))
 
     for host in result:
@@ -294,6 +303,7 @@ def scanHostJob():
         except Exception as e:
             logger.error("自动扫描出现异常:%s", e)
 
+    logger.info("扫描Salt-SSH主机信息")
     sshResult = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                                SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
     logger.info("扫描主机数量为[%s]", len(sshResult))
