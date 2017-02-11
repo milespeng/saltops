@@ -31,6 +31,7 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 - [功能简介:资产管理](doc/wiki/资产管理.md)
 - [功能简介:发布管理](doc/wiki/发布管理.md)
 - [对外接口](doc/wiki/对外接口.md)
+- [使用SaltSSH](doc/wiki/使用SaltSSH.md)
 - [系统配置与可用参数列表](doc/wiki/系统配置与可用参数列表.md)
 - [常见问题](doc/wiki/常见问题.md)
 
