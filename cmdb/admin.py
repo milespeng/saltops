@@ -9,7 +9,7 @@ from saltops.settings import SALT_CONN_TYPE, SALT_HTTP_URL
 
 class IPInline(admin.TabularInline):
     model = HostIP
-    fields = ['ip']
+    fields = ['ip', 'ip_type']
     verbose_name = "IP"
     verbose_name_plural = "IP"
     extra = 0
@@ -35,6 +35,8 @@ class HostAdmin(admin.ModelAdmin):
     def save_formset(self, request, form, formset, change):
         entity = form.save()
         formset.save()
+
+        # 如果主机是SSH类型的，把SSH列表更新一遍
         if entity.enable_ssh is True:
             hosts = Host.objects.all()
 
