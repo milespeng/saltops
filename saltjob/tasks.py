@@ -184,14 +184,40 @@ def deployTask(deployJob):
 def scanHostJob():
     logger = logging.getLogger(DEFAULT_LOGGER)
     logger.info("开始执行主机扫描操作")
-
     logger.info('扫描主机状态列表')
 
-    # 获取客户端的状态信息
-    manageInstance = salt_api_token({'fun': 'manage.status'},
-                                    SALT_REST_URL, {'X-Auth-Token': token_id()})
-    statusResult = manageInstance.runnerRun()
-    upList = statusResult['return'][0]['up']
+    upList = []
+    try:
+        # 获取客户端的状态信息
+        manageInstance = salt_api_token({'fun': 'manage.status'},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()})
+
+        statusResult = manageInstance.runnerRun()
+        upList = statusResult['return'][0]['up']
+    except Exception as e:
+        logger.info(e)
+    # 扫描客户端注册列表
+    minionsInstance = salt_api_token({'fun': 'key.list_all'},
+                                     SALT_REST_URL, {'X-Auth-Token': token_id()})
+
+    minionList = minionsInstance.wheelRun()['return'][0]['data']['return']
+    minions_pre = minionList['minions_pre']
+    logger.info("待接受主机:%s" % len(minions_pre))
+    # minions = minionList['minions']
+    # minions_rejected = minionList['minions_rejected']
+    # minions_denied = minionList['minions_denied']
+
+    #使用自动接受
+    for minion in minions_pre:
+        salt_api_token({'fun': 'key.accept', 'match': minion},
+                       SALT_REST_URL, {'X-Auth-Token': token_id()}).wheelRun()
+        # rs = Host.objects.filter(host_name=minion)
+        # if len(rs) == 0:
+        #     try:
+        #         device = Host(host_name=minion, minion_status=2)
+        #         device.save()
+        #     except Exception as e:
+        #         logger.info(e)
 
     # 获取客户端配置信息
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
@@ -201,6 +227,14 @@ def scanHostJob():
 
     for host in result:
         try:
+            minionstatus = 0
+            if host in upList:
+                minionstatus = 1
+            if host in minions_rejected:
+                minionstatus = 3
+            if host in minions_denied:
+                minionstatus = 4
+
             rs = Host.objects.filter(host_name=host, host=result[host]["host"])
             if len(rs) == 0:
                 logger.info("新增主机:%s", result[host]["host"])
@@ -223,7 +257,7 @@ def scanHostJob():
                               os=result[host]["os"],
                               # num_cpus=int(result[host]["num_cpus"]),
                               mem_total=result[host]["mem_total"],
-                              minion_status=1 if host in upList else 0
+                              minion_status=minionstatus
                               )
                 device.save()
                 for ip in result[host]["ipv4"]:
@@ -249,7 +283,7 @@ def scanHostJob():
                 entity.cpuarch = result[host]["osarch"]
                 entity.os = result[host]["os"]
                 entity.mem_total = result[host]["mem_total"]
-                entity.minion_status = 1 if host in upList else 0
+                entity.minion_status = minionstatus
                 entity.save()
 
                 HostIP.objects.filter(host=entity).delete()

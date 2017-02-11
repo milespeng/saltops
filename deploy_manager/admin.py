@@ -34,7 +34,7 @@ class ProjectModuleAdmin(MPTTModelAdmin):
     list_filter = [ProjectModuleFilter, ]
 
 
-class ProjectVersionInline(admin.TabularInline):
+class ProjectVersionInline(admin.StackedInline):
     model = ProjectVersion
     fields = ['name', 'sub_job_script_type', 'subplaybook', 'extra_param', 'is_default', 'files', ]
     verbose_name = '版本'

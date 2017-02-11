@@ -3,8 +3,10 @@ from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from cmdb.models import *
 from deploy_manager.models import *
+from saltjob.salt_https_api import salt_api_token
+from saltjob.salt_token_id import token_id
 from saltjob.tasks import scanHostJob
-from saltops.settings import SALT_CONN_TYPE, SALT_HTTP_URL
+from saltops.settings import SALT_CONN_TYPE, SALT_HTTP_URL, SALT_REST_URL
 
 
 class IPInline(admin.TabularInline):
@@ -31,6 +33,16 @@ class HostAdmin(admin.ModelAdmin):
     search_fields = ['host']
     list_filter = ['virtual', 'os_family', 'os', 'rack', 'minion_status']
     inlines = [IPInline, ProjectInline]
+
+    # def acceptAction(self, request, queryset):
+    #     for obj in queryset:
+    #         salt_api_token({'fun': 'key.accept', 'match': obj.host_name},
+    #                        SALT_REST_URL, {'X-Auth-Token': token_id()}).wheelRun()
+    #         self.message_user(request, "%s 个客户端接受成功" % len(queryset))
+    #
+    # acceptAction.short_description = "接受客户端"
+    #
+    # actions = [acceptAction, ]
 
     def save_formset(self, request, form, formset, change):
         entity = form.save()
