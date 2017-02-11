@@ -23,28 +23,49 @@ class salt_api_token(object):
         self.data.update(s)
 
     def loadJob(self, jid):
+        """
+        加载作业信息
+        :param jid:
+        :return:
+        """
         req = requests.get(self.url + '/jobs/' + jid, headers=self.headers, data=self.data, verify=False)
         context = req.text
         return yaml.load(context)
 
     def run(self):
+        """
+        异步执行任务
+        :return:
+        """
         req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
         context = req.text
         return yaml.load(context)
 
     def CmdRun(self):
+        """
+        同步执行任务
+        :return:
+        """
         self.data["client"] = "local"
         req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
         context = req.text
         return yaml.load(context)
 
     def sshRun(self):
+        """
+        SSH模式执行任务
+        :return:
+        """
         self.data["client"] = "ssh"
         req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
         context = req.text
         return yaml.load(context)
 
     def runnerRun(self):
+        """
+        使用Runner客户端执行
+        :return:
+        """
         self.data["client"] = "runner"
         req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
         context = req.text

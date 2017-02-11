@@ -26,7 +26,7 @@ class ProjectInline(admin.TabularInline):
 @admin.register(Host)
 class HostAdmin(admin.ModelAdmin):
     list_display = ['host_name', 'kernel',
-                    'host', 'rack', 'saltversion', 'system_serialnumber', 'cpu_model',
+                    'host', 'rack', 'system_serialnumber',
                     'os', 'virtual', 'enable_ssh', 'minion_status', 'create_time', 'update_time']
     search_fields = ['host']
     list_filter = ['virtual', 'os_family', 'os', 'rack', 'minion_status']
@@ -35,13 +35,13 @@ class HostAdmin(admin.ModelAdmin):
     def save_formset(self, request, form, formset, change):
         entity = form.save()
         formset.save()
+        if entity.enable_ssh is True:
+            hosts = Host.objects.all()
 
-        hosts = Host.objects.all()
-
-        rosterString = ""
-        for host in hosts:
-            if host.enable_ssh is True:
-                rosterString += """
+            rosterString = ""
+            for host in hosts:
+                if host.enable_ssh is True:
+                    rosterString += """
 
 %s:
     host: %s
@@ -53,11 +53,11 @@ class HostAdmin(admin.ModelAdmin):
                 """ % (host.host, host.host, host.ssh_username, host.ssh_password,
                        host.enable_ssh)
 
-        if SALT_CONN_TYPE == 'http':
-            requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})
-        else:
-            with open('/etc/salt/roster', 'w') as content:
-                content.write(rosterString)
+            if SALT_CONN_TYPE == 'http':
+                requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})
+            else:
+                with open('/etc/salt/roster', 'w') as content:
+                    content.write(rosterString)
 
 
 class RackInline(NestedStackedInline):

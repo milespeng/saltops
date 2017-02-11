@@ -187,16 +187,17 @@ def scanHostJob():
 
     logger.info('扫描主机状态列表')
 
+    # 获取客户端的状态信息
     manageInstance = salt_api_token({'fun': 'manage.status'},
                                     SALT_REST_URL, {'X-Auth-Token': token_id()})
     statusResult = manageInstance.runnerRun()
     upList = statusResult['return'][0]['up']
-    # downList = statusResult['return'][0]['down']
 
+    # 获取客户端配置信息
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                             SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
 
-    logger.info("扫描主机数量为[%s]", len(result))
+    logger.info("扫描Minion数量为[%s]", len(result))
 
     for host in result:
         try:
@@ -212,7 +213,7 @@ def scanHostJob():
                               saltversion=result[host]["saltversion"],
                               osfinger=result[host]["osfinger"],
                               os_family=result[host]["os_family"],
-                              num_gpus=int(result[host]["num_gpus"]),
+                              num_gpus=result[host]["num_gpus"],
                               system_serialnumber=result[host]["system_serialnumber"]
                               if 'system_serialnumber' in result[host] else result[host]["serialnumber"],
                               cpu_model=result[host]["cpu_model"],
@@ -221,7 +222,7 @@ def scanHostJob():
                               cpuarch=result[host]["osarch"],
                               os=result[host]["os"],
                               # num_cpus=int(result[host]["num_cpus"]),
-                              mem_total=int(result[host]["mem_total"]),
+                              mem_total=result[host]["mem_total"],
                               minion_status=1 if host in upList else 0
                               )
                 device.save()
@@ -231,16 +232,15 @@ def scanHostJob():
             else:
                 entity = rs[0]
                 logger.info("更新主机:%s", entity)
-                # str = result[host]["num_cpus"]
                 entity.kernel = result[host]["kernel"]
-                # entity.num_cpus = str,
+                # entity.num_cpus = result[host]["num_cpus"],
                 entity.kernel_release = result[host]["kernelrelease"]
                 entity.virtual = result[host]["virtual"]
                 entity.osrelease = result[host]["osrelease"],
                 entity.saltversion = result[host]["saltversion"]
                 entity.osfinger = result[host]["osfinger"]
                 entity.os_family = result[host]["os_family"]
-                entity.num_gpus = int(result[host]["num_gpus"])
+                entity.num_gpus = result[host]["num_gpus"]
                 entity.system_serialnumber = result[host]["system_serialnumber"] \
                     if 'system_serialnumber' in result[host] else result[host]["serialnumber"]
                 entity.cpu_model = result[host]["cpu_model"]
@@ -248,7 +248,7 @@ def scanHostJob():
                 entity.osarch = result[host]["osarch"]
                 entity.cpuarch = result[host]["osarch"]
                 entity.os = result[host]["os"]
-                entity.mem_total = int(result[host]["mem_total"])
+                entity.mem_total = result[host]["mem_total"]
                 entity.minion_status = 1 if host in upList else 0
                 entity.save()
 
