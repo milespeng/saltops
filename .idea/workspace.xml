@@ -4,7 +4,8 @@
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celerybeat.pid" afterPath="$PROJECT_DIR$/celerybeat.pid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltjob/tasks.py" afterPath="$PROJECT_DIR$/saltjob/tasks.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,23 +43,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="376">
+              <caret line="222" column="49" lean-forward="false" selection-start-line="222" selection-start-column="49" selection-end-line="222" selection-end-column="49" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#505#7321#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+            <state relative-caret-position="242">
+              <caret line="41" column="30" lean-forward="false" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -67,7 +69,7 @@
       <file leaf-file-name="golang.sls" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doc/sls/golang.sls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="418">
               <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
               <folding />
             </state>
@@ -77,8 +79,8 @@
       <file leaf-file-name="常用命令.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doc/常用命令.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="53" selection-end-column="31" />
+            <state relative-caret-position="154">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -195,10 +197,10 @@
         <option value="$PROJECT_DIR$/saltjob/salt_https_api.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/saltops/settings.py" />
-        <option value="$PROJECT_DIR$/saltjob/tasks.py" />
         <option value="$PROJECT_DIR$/doc/wiki/使用SaltSSH.md" />
         <option value="$PROJECT_DIR$/doc/sls/golang.sls" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/saltjob/tasks.py" />
       </list>
     </option>
   </component>
@@ -210,9 +212,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1215" />
-    <option name="height" value="776" />
+    <option name="height" value="804" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -232,6 +234,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -255,35 +258,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sls" />
+              <option name="myItemId" value="saltjob" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../envs" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="$USER_HOME$/soft/node-v5.5.0-linux-x64/bin/node" />
@@ -573,6 +557,26 @@
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="" />
+      <working_directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GoRunFileConfiguration" factoryName="Go Single File">
+      <module name="" />
+      <working_directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -865,13 +869,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
-    </task>
-    <task id="LOCAL-00056" summary="去除salt声明">
-      <created>1486279394230</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1486279394245</updated>
     </task>
     <task id="LOCAL-00057" summary="提取SimpleService">
       <created>1486432426325</created>
@@ -1209,7 +1206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486867292958</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="添加Golang模板">
+      <created>1486867471277</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1486867471277</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1222,21 +1226,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1215" height="776" extended-state="6" />
+    <frame x="65" y="-4" width="1215" height="804" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19055794" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19399142" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48534203" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935324" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39576548" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4358209" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49552238" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38208956" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22238806" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3044776" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1244,6 +1247,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48534203" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1285,7 +1289,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="去除salt声明" />
     <MESSAGE value="提取SimpleService" />
     <MESSAGE value="使用Http模式执行" />
     <MESSAGE value="提交ReadMe" />
@@ -1310,7 +1313,8 @@
     <MESSAGE value="添加Salt-SSH文档" />
     <MESSAGE value="完善ReadMe" />
     <MESSAGE value="新增Golang部署模板" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增Golang部署模板" />
+    <MESSAGE value="添加Golang模板" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加Golang模板" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1522,7 +1526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1538,7 +1541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1554,7 +1556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1562,7 +1563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1570,49 +1570,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/script/e7103ac4-f0cb-11e6-93ed-000c29582753.sls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/script/e7103ac4-f0cb-11e6-93ed-000c29582753.sls" />
     <entry file="file://$PROJECT_DIR$/doc/sls/golang.sls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="418">
           <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="41" column="30" lean-forward="false" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/doc/常用命令.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="53" selection-end-column="31" />
+        <state relative-caret-position="154">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state relative-caret-position="376">
+          <caret line="222" column="49" lean-forward="false" selection-start-line="222" selection-start-column="49" selection-end-line="222" selection-end-column="49" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#505#7321#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>

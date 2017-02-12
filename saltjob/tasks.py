@@ -216,11 +216,11 @@ def scanHostJob():
     minions_denied = minionList['minions_denied']
     logger.info("已禁用主机:%s", len(minions_denied))
 
-    logger.info("自动主机")
-    for minion in minions_pre:
-        logger.info("自动接受主机:%s" % minion)
-        salt_api_token({'fun': 'key.accept', 'match': minion},
-                       SALT_REST_URL, {'X-Auth-Token': token_id()}).wheelRun()
+    # logger.info("自动主机")
+    # for minion in minions_pre:
+    #     logger.info("自动接受主机:%s" % minion)
+    #     salt_api_token({'fun': 'key.accept', 'match': minion},
+    #                    SALT_REST_URL, {'X-Auth-Token': token_id()}).wheelRun()
         # rs = Host.objects.filter(host_name=minion)
         # if len(rs) == 0:
         #     try:
