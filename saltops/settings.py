@@ -212,6 +212,8 @@ SUIT_CONFIG = {
          'models': ('IDCLevel', 'ISP', 'IDC', 'Cabinet', 'Rack', 'Host')},
         {'app': 'deploy_manager', 'icon': 'icon-hdd',
          'models': ('ProjectModule', 'Project', 'DeployJob')},
+        {'app': 'tools_manager', 'icon': 'icon-tasks',
+         'models': ('ToolsTypes', 'ToolsScript')},
         {'app': 'auth', 'icon': 'icon-lock', 'models': ('user', 'group')},
         {'app': 'djcelery', 'icon': 'icon-cog',
          'models': ('IntervalSchedule', 'CrontabSchedule', 'PeriodicTask', 'TaskState')},
