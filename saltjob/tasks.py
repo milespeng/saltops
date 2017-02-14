@@ -20,69 +20,140 @@ logger = logging.getLogger(DEFAULT_LOGGER)
 @task(name='execTools')
 def execTools(obj):
     logger.info("动态生成脚本文件")
-    playbookContent = obj.tools.tool_script
+    playbookContent = obj.tool_script
 
     logger.info("填写动态变量")
-    if obj.param != "":
-        extraparam = yaml.load(obj.param)[0]
+    job = obj.toolsexecjob_set.all()[0]
+    if job.param != "":
+        extraparam = yaml.load(job.param)[0]
         for key in extraparam:
             playbookContent = playbookContent.replace('${%s}' % key, extraparam[key])
 
     uid = uuid1().__str__()
 
     scriptPath = PACKAGE_PATH + uid
-    if obj.tools.tool_run_type == 0:
+    if obj.tool_run_type == 0:
         scriptPath = scriptPath + ".sls"
-    if obj.tools.tool_run_type == 1:
+    if obj.tool_run_type == 1:
         scriptPath = scriptPath + ".sh"
-    if obj.tools.tool_run_type == 2:
+    if obj.tool_run_type == 2:
         scriptPath = scriptPath + ".ps"
-    if obj.tools.tool_run_type == 3:
+    if obj.tool_run_type == 3:
         scriptPath = scriptPath + ".py"
 
     output = open(scriptPath, 'w')
     output.write(playbookContent)
     output.close()
+
+    if SALT_CONN_TYPE == 'http':
+        logger.info("当前执行模式为分离模式，发送脚本到Master节点")
+        url = SALT_HTTP_URL + '/upload'
+        files = {'file': open(scriptPath, 'rb')}
+        requests.post(url, files=files)
+
     logger.info("写入文件结束，文件为%s", scriptPath)
 
     logger.info("开始执行命令")
 
-    logger.info("获取目标主机信息,目标部署主机共%s台", len(obj.hosts))
+    logger.info("获取目标主机信息,目标部署主机共%s台", job.hosts.count())
 
-    for target in obj.hosts:
+    hostList = job.hosts.all()
+    for target in hostList:
         if target.enable_ssh is False:
-            if obj.tools.tool_run_type == 0:
+            if obj.tool_run_type == 0:
                 result = salt_api_token({'fun': 'state.sls', 'tgt': target,
                                          'arg': uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
                 logger.info("执行结果为%s", result)
-            if obj.tools.tool_run_type == 1:
+            if obj.tool_run_type == 1:
                 result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
                                          'arg': 'salt://%s.sh' % uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-            if obj.tools.tool_run_type == 2:
+                for master in result:
+                    if target.enable_ssh is False:
+                        dataResult = result[master]
+                        targetHost = Host.objects.get(host_name=master)
+                    else:
+                        dataResult = result[master]['return']
+                        targetHost = Host.objects.get(host=master)
+                    if dataResult['stderr'] != '':
+                        hasErr = True
+
+                    execDetail = ToolsExecDetailHistory(tool_exec_history=job,
+                                                        host=targetHost,
+                                                        exec_result=dataResult['stdout'])
+                    execDetail.save()
+            if obj.tool_run_type == 2:
                 result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
                                          'arg': 'salt://%s.ps' % uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-            if obj.tools.tool_run_type == 3:
+            if obj.tool_run_type == 3:
                 result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
                                          'arg': 'salt://%s.py' % uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+
+                # for master in result:
+                #     if isinstance(result[master], dict):
+                #         if target.enable_ssh is False:
+                #             dataResult = result[master]
+                #             targetHost = Host.objects.get(host_name=master)
+                #         else:
+                #             dataResult = result[master]['return']
+                #             targetHost = Host.objects.get(host=master)
+                #
+                #         for cmd in dataResult:
+                #             if not dataResult[cmd]['result']:
+                #                 hasErr = True
+                #
+                #             msg = ""
+                #             if "stdout" in dataResult[cmd]['changes']:
+                #                 msg = dataResult[cmd]['changes']["stdout"]
+                #             stderr = ""
+                #             if "stderr" in dataResult[cmd]['changes']:
+                #                 stderr = dataResult[cmd]['changes']["stderr"]
+                #
+                #             jobCmd = ""
+                #             if 'name' in dataResult[cmd]:
+                #                 jobCmd = dataResult[cmd]['name']
+                #
+                #             duration = 0
+                #             if 'duration' in dataResult[cmd]:
+                #                 duration = dataResult[cmd]['duration']
+                #
+                #             execDetail = ToolsExecDetailHistory(tool_exec_history=job,
+                #                                                 host=targetHost,
+                #                                                 exec_result=msg)
+                #             execDetail.save()
+
         else:
-            if obj.tools.tool_run_type == 0:
+            if obj.tool_run_type == 0:
                 result = salt_api_token({'fun': 'state.sls', 'tgt': target,
                                          'arg': uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
                 logger.info("执行结果为%s", result)
-            if obj.tools.tool_run_type == 1:
+            if obj.tool_run_type == 1:
                 result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
                                          'arg': 'salt://%s.sh' % uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
-            if obj.tools.tool_run_type == 2:
+                for master in result:
+                    if target.enable_ssh is False:
+                        dataResult = result[master]
+                        targetHost = Host.objects.get(host_name=master)
+                    else:
+                        dataResult = result[master]['return']
+                        targetHost = Host.objects.get(host=master)
+                    if dataResult['stderr'] != '':
+                        hasErr = True
+
+                    execDetail = ToolsExecDetailHistory(tool_exec_history=job,
+                                                        host=targetHost,
+                                                        exec_result=dataResult['stdout'])
+                    execDetail.save()
+            if obj.tool_run_type == 2:
                 result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
                                          'arg': 'salt://%s.ps' % uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
-            if obj.tools.tool_run_type == 3:
+            if obj.tool_run_type == 3:
                 result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
                                          'arg': 'salt://%s.py' % uid},
                                         SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]

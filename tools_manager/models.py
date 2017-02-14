@@ -47,7 +47,7 @@ class ToolsExecJob(BaseModel):
         return self.param
 
     class Meta:
-        verbose_name = "工具执行"
+        verbose_name = "执行记录"
         verbose_name_plural = verbose_name
 
 
@@ -57,7 +57,8 @@ class ToolsExecDetailHistory(BaseModel):
     exec_result = models.TextField(verbose_name='执行结果', blank=True, null=True, default="")
 
     def __str__(self):
-        return self.exec_result
+        return self.host.host_name
+
 
     class Meta:
         verbose_name = "工具详细信息"

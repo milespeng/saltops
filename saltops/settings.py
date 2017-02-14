@@ -197,8 +197,8 @@ REST_FRAMEWORK = {
 }
 
 SALT_REST_URL = 'http://192.168.80.133:8001/'
-SALT_USER = '12'
-SALT_PASSWORD = '34'
+SALT_USER = 'loginsight'
+SALT_PASSWORD = 'loginsight'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'
@@ -213,7 +213,7 @@ SUIT_CONFIG = {
         {'app': 'deploy_manager', 'icon': 'icon-hdd',
          'models': ('ProjectModule', 'Project', 'DeployJob')},
         {'app': 'tools_manager', 'icon': 'icon-tasks',
-         'models': ('ToolsTypes', 'ToolsScript')},
+         'models': ('ToolsTypes', 'ToolsScript', 'ToolsExecJob')},
         {'app': 'auth', 'icon': 'icon-lock', 'models': ('user', 'group')},
         {'app': 'djcelery', 'icon': 'icon-cog',
          'models': ('IntervalSchedule', 'CrontabSchedule', 'PeriodicTask', 'TaskState')},

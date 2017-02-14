@@ -43,9 +43,34 @@ class ToolsScriptAdmin(admin.ModelAdmin):
         if request.POST['action'] == '1':
             execTools(entity)
 
-#
-# @admin.register(ToolsExecJob)
-# class ToolsScriptAdmin(admin.ModelAdmin):
-#     list_display = ['tools', 'param']
-#     search_fields = ['tools']
-#     list_filter = ['tools']
+
+class ToolsExecDetailHistoryInline(admin.StackedInline):
+    model = ToolsExecDetailHistory
+    fields = ['host', 'exec_result']
+    verbose_name = "执行记录"
+    verbose_name_plural = "执行记录"
+    readonly_fields = ['host', 'exec_result']
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+@admin.register(ToolsExecJob)
+class ToolsExecJobAdmin(admin.ModelAdmin):
+    list_display = ['tools', 'param']
+    search_fields = ['tools']
+    list_filter = ['tools']
+    readonly_fields = ['tools', 'hosts', 'param']
+    inlines = [ToolsExecDetailHistoryInline, ]
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    class Media:
+        js = ('/static/js/ToolsExecJob.js',)
