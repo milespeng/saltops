@@ -47,7 +47,6 @@ class HostAdmin(admin.ModelAdmin):
     def save_formset(self, request, form, formset, change):
         entity = form.save()
         formset.save()
-
         # 如果主机是SSH类型的，把SSH列表更新一遍
         if entity.enable_ssh is True:
             hosts = Host.objects.all()

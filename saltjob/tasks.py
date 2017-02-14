@@ -12,8 +12,80 @@ from deploy_manager.models import DeployJobDetail
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL, DEFAULT_LOGGER
+from tools_manager.models import ToolsExecDetailHistory
 
 logger = logging.getLogger(DEFAULT_LOGGER)
+
+
+@task(name='execTools')
+def execTools(obj):
+    logger.info("动态生成脚本文件")
+    playbookContent = obj.tools.tool_script
+
+    logger.info("填写动态变量")
+    if obj.param != "":
+        extraparam = yaml.load(obj.param)[0]
+        for key in extraparam:
+            playbookContent = playbookContent.replace('${%s}' % key, extraparam[key])
+
+    uid = uuid1().__str__()
+
+    scriptPath = PACKAGE_PATH + uid
+    if obj.tools.tool_run_type == 0:
+        scriptPath = scriptPath + ".sls"
+    if obj.tools.tool_run_type == 1:
+        scriptPath = scriptPath + ".sh"
+    if obj.tools.tool_run_type == 2:
+        scriptPath = scriptPath + ".ps"
+    if obj.tools.tool_run_type == 3:
+        scriptPath = scriptPath + ".py"
+
+    output = open(scriptPath, 'w')
+    output.write(playbookContent)
+    output.close()
+    logger.info("写入文件结束，文件为%s", scriptPath)
+
+    logger.info("开始执行命令")
+
+    logger.info("获取目标主机信息,目标部署主机共%s台", len(obj.hosts))
+
+    for target in obj.hosts:
+        if target.enable_ssh is False:
+            if obj.tools.tool_run_type == 0:
+                result = salt_api_token({'fun': 'state.sls', 'tgt': target,
+                                         'arg': uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+                logger.info("执行结果为%s", result)
+            if obj.tools.tool_run_type == 1:
+                result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
+                                         'arg': 'salt://%s.sh' % uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+            if obj.tools.tool_run_type == 2:
+                result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
+                                         'arg': 'salt://%s.ps' % uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+            if obj.tools.tool_run_type == 3:
+                result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
+                                         'arg': 'salt://%s.py' % uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+        else:
+            if obj.tools.tool_run_type == 0:
+                result = salt_api_token({'fun': 'state.sls', 'tgt': target,
+                                         'arg': uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
+                logger.info("执行结果为%s", result)
+            if obj.tools.tool_run_type == 1:
+                result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
+                                         'arg': 'salt://%s.sh' % uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
+            if obj.tools.tool_run_type == 2:
+                result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
+                                         'arg': 'salt://%s.ps' % uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
+            if obj.tools.tool_run_type == 3:
+                result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
+                                         'arg': 'salt://%s.py' % uid},
+                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
 
 
 @task(name='deployTask')
@@ -204,23 +276,28 @@ def scanHostJob():
         logger.info("没有任何主机启动状态信息:%s" % e)
 
     logger.info("扫描客户端注册列表")
-    minionsInstance = salt_api_token({'fun': 'key.list_all'},
-                                     SALT_REST_URL, {'X-Auth-Token': token_id()})
-    minionList = minionsInstance.wheelRun()['return'][0]['data']['return']
-    minions_pre = minionList['minions_pre']
-    logger.info("待接受主机:%s" % len(minions_pre))
-    # minions = minionList['minions']
-    minions_rejected = minionList['minions_rejected']
-    logger.info("已拒绝主机:%s", len(minions_rejected))
+    minions_rejected = []
+    minions_denied = []
+    minions_pre = []
+    try:
+        minionsInstance = salt_api_token({'fun': 'key.list_all'},
+                                         SALT_REST_URL, {'X-Auth-Token': token_id()})
+        minionList = minionsInstance.wheelRun()['return'][0]['data']['return']
+        minions_pre = minionList['minions_pre']
+        logger.info("待接受主机:%s" % len(minions_pre))
+        # minions = minionList['minions']
+        minions_rejected = minionList['minions_rejected']
+        logger.info("已拒绝主机:%s", len(minions_rejected))
 
-    minions_denied = minionList['minions_denied']
-    logger.info("已禁用主机:%s", len(minions_denied))
-
-    # logger.info("自动主机")
-    # for minion in minions_pre:
-    #     logger.info("自动接受主机:%s" % minion)
-    #     salt_api_token({'fun': 'key.accept', 'match': minion},
-    #                    SALT_REST_URL, {'X-Auth-Token': token_id()}).wheelRun()
+        minions_denied = minionList['minions_denied']
+        logger.info("已禁用主机:%s", len(minions_denied))
+    except Exception as e:
+        logger.info("扫描主机键值状态异常:%s" % e)
+        # logger.info("自动主机")
+        # for minion in minions_pre:
+        #     logger.info("自动接受主机:%s" % minion)
+        #     salt_api_token({'fun': 'key.accept', 'match': minion},
+        #                    SALT_REST_URL, {'X-Auth-Token': token_id()}).wheelRun()
         # rs = Host.objects.filter(host_name=minion)
         # if len(rs) == 0:
         #     try:
@@ -311,31 +388,32 @@ def scanHostJob():
         try:
             if 'return' in sshResult[host]:
                 rs = Host.objects.filter(host=host)
-                entity = rs[0]
-                logger.info("更新主机:%s", host)
-                entity.host_name = sshResult[host]['return']['fqdn'] if 'fqdn' in sshResult[host]['return'] else ""
-                entity.kernel = sshResult[host]['return']['kernel']
-                entity.kernel_release = sshResult[host]['return']['kernelrelease']
-                entity.virtual = sshResult[host]['return']['virtual']
-                entity.osrelease = sshResult[host]['return']['osrelease']
-                entity.saltversion = sshResult[host]['return']['saltversion']
-                entity.osfinger = sshResult[host]['return']['osfinger']
-                entity.os_family = sshResult[host]['return']['os_family']
-                entity.num_gpus = sshResult[host]['return']['num_gpus']
-                entity.system_serialnumber = sshResult[host]['return']["serialnumber"]
-                entity.cpu_model = sshResult[host]['return']["cpu_model"]
-                entity.productname = sshResult[host]['return']["productname"]
-                entity.osarch = sshResult[host]['return']["osarch"]
-                entity.cpuarch = sshResult[host]['return']["cpuarch"]
-                entity.os = sshResult[host]['return']["os"]
-                # entity.num_cpus = int(sshResult[host]['return']["num_cpus"]),
-                # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
-                entity.minion_status = 1
-                entity.save()
-                HostIP.objects.filter(host=entity).delete()
-                for ip in sshResult[host]['return']["ipv4"]:
-                    hostip = HostIP(ip=ip, host=entity)
-                hostip.save()
+                if rs is not None:
+                    entity = rs[0]
+                    logger.info("更新主机:%s", host)
+                    entity.host_name = sshResult[host]['return']['fqdn'] if 'fqdn' in sshResult[host]['return'] else ""
+                    entity.kernel = sshResult[host]['return']['kernel']
+                    entity.kernel_release = sshResult[host]['return']['kernelrelease']
+                    entity.virtual = sshResult[host]['return']['virtual']
+                    entity.osrelease = sshResult[host]['return']['osrelease']
+                    entity.saltversion = sshResult[host]['return']['saltversion']
+                    entity.osfinger = sshResult[host]['return']['osfinger']
+                    entity.os_family = sshResult[host]['return']['os_family']
+                    entity.num_gpus = sshResult[host]['return']['num_gpus']
+                    entity.system_serialnumber = sshResult[host]['return']["serialnumber"]
+                    entity.cpu_model = sshResult[host]['return']["cpu_model"]
+                    entity.productname = sshResult[host]['return']["productname"]
+                    entity.osarch = sshResult[host]['return']["osarch"]
+                    entity.cpuarch = sshResult[host]['return']["cpuarch"]
+                    entity.os = sshResult[host]['return']["os"]
+                    # entity.num_cpus = int(sshResult[host]['return']["num_cpus"]),
+                    # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
+                    entity.minion_status = 1
+                    entity.save()
+                    HostIP.objects.filter(host=entity).delete()
+                    for ip in sshResult[host]['return']["ipv4"]:
+                        hostip = HostIP(ip=ip, host=entity)
+                    hostip.save()
 
         except Exception as e:
             traceback.print_exc()

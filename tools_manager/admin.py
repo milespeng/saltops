@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib import admin
 
+from saltjob.tasks import execTools
 from tools_manager.models import *
 
 
@@ -40,7 +41,7 @@ class ToolsScriptAdmin(admin.ModelAdmin):
 
         # TODO:执行脚本
         if request.POST['action'] == '1':
-            print(12)
+            execTools(entity)
 
 #
 # @admin.register(ToolsExecJob)

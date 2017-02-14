@@ -143,7 +143,7 @@ CRONJOBS = [
 ]
 
 # 文件上传的路径
-PACKAGE_PATH = "/home/kira/dev/saltops/doc/script/"
+PACKAGE_PATH = "/Users/kira/oschina/saltops/doc/script/"
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
@@ -196,9 +196,9 @@ REST_FRAMEWORK = {
     ]
 }
 
-SALT_REST_URL = 'http://127.0.0.1:8001/'
-SALT_USER = 'kira'
-SALT_PASSWORD = '8565'
+SALT_REST_URL = 'http://192.168.80.133:8001/'
+SALT_USER = 'loginsight'
+SALT_PASSWORD = 'loginsight'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'
@@ -221,7 +221,7 @@ SUIT_CONFIG = {
     'LIST_PER_PAGE': 15
 }
 
-SALT_CONN_TYPE = ''  # http
+SALT_CONN_TYPE = 'http'  # http
 SALT_HTTP_URL = 'http://192.168.80.133:5000'
 
 LOGGING = {
