@@ -18,3 +18,4 @@ class ProjectViewSet(viewsets.ModelViewSet):
 class DeployJobViewSet(viewsets.ModelViewSet):
     queryset = DeployJob.objects.all()
     serializer_class = DeployJobSerializer
+

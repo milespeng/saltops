@@ -1,4 +1,8 @@
+from django.conf.urls import url
 from django.contrib import admin
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.utils.html import format_html
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from mptt.admin import MPTTModelAdmin
@@ -63,15 +67,44 @@ class ProjectResource(resources.ModelResource):
 
 @admin.register(Project)
 class ProjectAdmin(ImportExportModelAdmin):
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            url(
+                r'^(?P<id>.+)/deploy_job/$',
+                self.admin_site.admin_view(self.deploy_job),
+                name='deploy_job',
+            ),
+        ]
+        return custom_urls + urls
+
     list_display = ['project_module', 'name', 'job_script_type',
                     'create_time', 'update_time',
-                    'deployMsg']
+                    'deployMsg', 'extra_btn']
     search_fields = ['host']
     list_filter = ['job_script_type']
     inlines = [ProjectVersionInline, HostInline]
-    list_display_links = ['project_module', 'deployMsg', ]
+    list_display_links = ['project_module', 'deployMsg']
     actions = ['deploydefaultAction']
     resource_class = ProjectResource
+
+    def extra_btn(self, obj):
+        return format_html(
+            '<a class="btn" href="{}">部署默认版本</a>',
+            reverse('admin:deploy_job', args=[obj.pk]),
+        )
+
+    extra_btn.short_description = '操作'
+    extra_btn.allow_tags = True
+
+    def deploy_job(self, request, id):
+        obj = Project.objects.get(pk=id)
+        version = obj.projectversion_set.get(is_default=True)
+        job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
+        job.save()
+        deployTask.delay(job)
+        self.message_user(request, "部署作业成功启动")
+        return redirect('/admin/deploy_manager/project')
 
     def deployMsg(self, obj):
         try:
@@ -107,8 +140,8 @@ class ProjectAdmin(ImportExportModelAdmin):
 
     deploydefaultAction.short_description = "部署默认版本"
 
-    # class Media:
-    # js = ('/static/js/Project.js',)
+    class Media:
+        js = ('/static/js/Project.js',)
 
 
 class DeployJobDetailInline(admin.StackedInline):

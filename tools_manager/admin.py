@@ -7,13 +7,15 @@ from tools_manager.models import *
 
 @admin.register(ToolsTypes)
 class ToolsTypesAdmin(admin.ModelAdmin):
-    list_display = ['name', 'script_count']
+    list_display = ['name', 'script_count', 'create_time', 'update_time']
     search_fields = ['name']
 
     def script_count(self, obj):
-        return obj.toolsscript_set.count()
+        return '<a href="/admin/tools_manager/toolsscript/?q=&tools_type__id__exact=%s">%s</a>' % (
+            obj.id, obj.toolsscript_set.count())
 
-        script_count.short_description = '工具数量'
+    script_count.short_description = '工具数量'
+    script_count.allow_tags = True
 
 
 class ToolsExecInline(admin.StackedInline):
@@ -27,7 +29,7 @@ class ToolsExecInline(admin.StackedInline):
 
 @admin.register(ToolsScript)
 class ToolsScriptAdmin(admin.ModelAdmin):
-    list_display = ['name', 'tools_type', 'tool_run_type', 'comment']
+    list_display = ['name', 'tools_type', 'tool_run_type', 'comment', 'create_time', 'update_time']
     search_fields = ['name']
     list_filter = ['tools_type', 'tool_run_type']
     inlines = [ToolsExecInline, ]
@@ -63,7 +65,7 @@ class ToolsExecJobAdmin(admin.ModelAdmin):
     list_display = ['tools', 'param']
     search_fields = ['tools']
     list_filter = ['tools']
-    readonly_fields = ['tools', 'hosts', 'param']
+    readonly_fields = ['tools', 'hosts', 'param', 'create_time', 'update_time']
     inlines = [ToolsExecDetailHistoryInline, ]
 
     def has_add_permission(self, request):
