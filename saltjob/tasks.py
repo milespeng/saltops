@@ -12,7 +12,7 @@ from deploy_manager.models import DeployJobDetail
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL, DEFAULT_LOGGER
-from tools_manager.models import ToolsExecDetailHistory
+from tools_manager.models import ToolsExecDetailHistory, ToolsExecJob
 
 logger = logging.getLogger(DEFAULT_LOGGER)
 
@@ -24,6 +24,11 @@ def execTools(obj):
 
     logger.info("填写动态变量")
     job = obj.toolsexecjob_set.all()[0]
+    # ToolsExecJob(
+    #     tools=obj,
+    #     param=job.param,
+    #     hosts=job.hosts
+    # )
     if job.param != "":
         extraparam = yaml.load(job.param)[0]
         for key in extraparam:

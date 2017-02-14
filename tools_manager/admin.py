@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib import admin
+from django.contrib import messages
 
 from saltjob.tasks import execTools
 from tools_manager.models import *
@@ -44,6 +45,7 @@ class ToolsScriptAdmin(admin.ModelAdmin):
         # TODO:执行脚本
         if request.POST['action'] == '1':
             execTools(entity)
+            self.message_user(request, "工具执行成功")
 
 
 class ToolsExecDetailHistoryInline(admin.StackedInline):
@@ -66,7 +68,7 @@ class ToolsExecJobAdmin(admin.ModelAdmin):
     search_fields = ['tools']
     list_filter = ['tools']
     readonly_fields = ['tools', 'hosts', 'param', 'create_time', 'update_time']
-    inlines = [ToolsExecDetailHistoryInline, ]
+    inlines = [ToolsExecDetailHistoryInline]
 
     def has_add_permission(self, request):
         return False
