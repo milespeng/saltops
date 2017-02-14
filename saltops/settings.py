@@ -197,8 +197,8 @@ REST_FRAMEWORK = {
 }
 
 SALT_REST_URL = 'http://192.168.80.133:8001/'
-SALT_USER = 'loginsight'
-SALT_PASSWORD = 'loginsight'
+SALT_USER = '12'
+SALT_PASSWORD = '34'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'
