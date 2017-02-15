@@ -19,33 +19,29 @@ class ToolsTypesAdmin(admin.ModelAdmin):
     script_count.allow_tags = True
 
 
-class ToolsExecInline(admin.StackedInline):
-    model = ToolsExecJob
-    fields = ['hosts', 'param']
-    verbose_name = "目标主机"
-    verbose_name_plural = "目标主机"
-    extra = 1
-    max_num = 1
-
-
 @admin.register(ToolsScript)
 class ToolsScriptAdmin(admin.ModelAdmin):
     list_display = ['name', 'tools_type', 'tool_run_type', 'comment', 'create_time', 'update_time']
     search_fields = ['name']
     list_filter = ['tools_type', 'tool_run_type']
-    inlines = [ToolsExecInline, ]
 
-    class Media:
-        js = ('/static/js/ToolsScriptAdmin.js',)
+    # class Media:
+    #     js = ('/static/js/ToolsScriptAdmin.js',)
 
-    def save_formset(self, request, form, formset, change):
-        entity = form.save()
-        formset.save()
+    change_form_template = 'tools_script_change_form.html'
 
-        # TODO:执行脚本
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        extra_context = extra_context or {}
+        extra_context['hostList'] = Host.objects.all()
+        return super(ToolsScriptAdmin, self).change_view(request, object_id=object_id, form_url=form_url,
+                                                         extra_context=extra_context)
+
+    def save_model(self, request, obj, form, change):
         if request.POST['action'] == '1':
-            execTools(entity)
+            execTools(obj)
             self.message_user(request, "工具执行成功")
+        else:
+            obj.save()
 
 
 class ToolsExecDetailHistoryInline(admin.StackedInline):
