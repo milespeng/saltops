@@ -59,7 +59,6 @@ class ToolsExecDetailHistory(BaseModel):
     def __str__(self):
         return self.host.host_name
 
-
     class Meta:
         verbose_name = "工具详细信息"
         verbose_name_plural = verbose_name

@@ -41,12 +41,12 @@ class salt_api_token(object):
         context = req.text
         return yaml.load(context)
 
-    def CmdRun(self):
+    def CmdRun(self, client='local'):
         """
         同步执行任务
         :return:
         """
-        self.data["client"] = "local"
+        self.data["client"] = client
         req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
         context = req.text
         return yaml.load(context)

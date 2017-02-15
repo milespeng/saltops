@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.contrib import messages
+from django.shortcuts import redirect
 
 from saltjob.tasks import execTools
 from tools_manager.models import *
@@ -21,12 +22,9 @@ class ToolsTypesAdmin(admin.ModelAdmin):
 
 @admin.register(ToolsScript)
 class ToolsScriptAdmin(admin.ModelAdmin):
-    list_display = ['name', 'tools_type', 'tool_run_type', 'comment', 'create_time', 'update_time']
+    list_display = ['name', 'tools_type', 'tool_run_type', 'comment', 'create_time', 'update_time', 'lastExecHistory']
     search_fields = ['name']
     list_filter = ['tools_type', 'tool_run_type']
-
-    # class Media:
-    #     js = ('/static/js/ToolsScriptAdmin.js',)
 
     change_form_template = 'tools_script_change_form.html'
 
@@ -38,10 +36,21 @@ class ToolsScriptAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         if request.POST['action'] == '1':
-            execTools(obj)
+            toolExecJob = execTools(obj, request.POST.getlist('sls_hosts'), request.POST['txt_param'])
             self.message_user(request, "工具执行成功")
         else:
             obj.save()
+
+    def lastExecHistory(self, obj):
+        list = ToolsExecJob.objects.filter(tools=obj).order_by('-create_time')
+        if len(list) > 0:
+            obj = list[0]
+            return '<a href="/admin/tools_manager/toolsexecjob/%s/change/">执行结果</a>' % obj.id
+        else:
+            return '-'
+
+    lastExecHistory.allow_tags = True
+    lastExecHistory.short_description = '执行结果'
 
 
 class ToolsExecDetailHistoryInline(admin.StackedInline):
@@ -60,10 +69,10 @@ class ToolsExecDetailHistoryInline(admin.StackedInline):
 
 @admin.register(ToolsExecJob)
 class ToolsExecJobAdmin(admin.ModelAdmin):
-    list_display = ['tools', 'param']
+    list_display = ['tools', 'param', 'create_time', 'update_time']
     search_fields = ['tools']
     list_filter = ['tools']
-    readonly_fields = ['tools', 'hosts', 'param', 'create_time', 'update_time']
+    readonly_fields = ['tools', 'hosts', 'param']
     inlines = [ToolsExecDetailHistoryInline]
 
     def has_add_permission(self, request):

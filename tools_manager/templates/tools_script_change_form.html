@@ -187,8 +187,8 @@
                                         <div class="controls">
                                             <div class="related-widget-wrapper">
                                                 <select multiple="multiple"
-                                                        id="id_toolsexecjob_set-0-hosts"
-                                                        name="toolsexecjob_set-0-hosts">
+                                                        id="sls_hosts"
+                                                        name="sls_hosts">
                                                     {% for obj in hostList %}
                                                         <option value="{{ obj.id }}">{{ obj.host_name }}</option>
                                                     {% endfor %}
@@ -203,8 +203,8 @@
                                         <div class="control-label"><label
                                                 for="id_toolsexecjob_set-0-param">执行参数:</label></div>
                                         <div class="controls"><textarea class="vLargeTextField" cols="40"
-                                                                        id="id_toolsexecjob_set-0-param"
-                                                                        name="toolsexecjob_set-0-param"
+                                                                        id="txt_param"
+                                                                        name="txt_param"
                                                                         rows="10"></textarea></div>
                                     </div>
                                 </div>
@@ -248,7 +248,7 @@
     <script>
 
         function setValue() {
-            if ($("#id_toolsexecjob_set-0-hosts").find('option:selected').length > 0) {
+            if ($("#sls_hosts").find('option:selected').length > 0) {
                 document.getElementById("action").value = 1;
                 return true
             } else {
