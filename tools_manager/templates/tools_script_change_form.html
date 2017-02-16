@@ -90,7 +90,9 @@
             <div class="inner-right-column">
 
                 <div class="box save-box">
-                    <button type='submit' class='btn btn-high' onclick="return setValue()">执行工具</button>
+                    {% if is_edit is True %}
+                        <button type='submit' class='btn btn-high' onclick="return setValue()">执行工具</button>
+                    {% endif %}
                     {% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
 
                 </div>
@@ -173,44 +175,46 @@
                     {# render suit_form_includes at middle position #}
                     {% include 'suit/includes/change_form_includes.html' with position='middle' %}
 
-                    <div class="inline-group " id="toolsexecjob_set-group">
-                        <h2>目标主机</h2>
-                        <div class="inline-related dynamic-toolsexecjob_set" id="toolsexecjob_set-0">
-                            <h3><b>目标主机:</b>&nbsp;
-                            </h3>
-                            <fieldset class="module aligned first ">
-                                <div class="control-group form-row field-hosts ">
-                                    <div>
-                                        <div class="control-label"><label class="required"
-                                                                          for="id_toolsexecjob_set-0-hosts">目标主机:</label>
-                                        </div>
-                                        <div class="controls">
-                                            <div class="related-widget-wrapper">
-                                                <select multiple="multiple"
-                                                        id="sls_hosts"
-                                                        name="sls_hosts">
-                                                    {% for obj in hostList %}
-                                                        <option value="{{ obj.id }}">{{ obj.host_name }}</option>
-                                                    {% endfor %}
-                                                </select>
+                    {% if is_edit is True %}
+                        <div class="inline-group " id="toolsexecjob_set-group">
+                            <h2>目标主机</h2>
+                            <div class="inline-related dynamic-toolsexecjob_set" id="toolsexecjob_set-0">
+                                <h3><b>目标主机:</b>&nbsp;
+                                </h3>
+                                <fieldset class="module aligned first ">
+                                    <div class="control-group form-row field-hosts ">
+                                        <div>
+                                            <div class="control-label"><label class="required"
+                                                                              for="id_toolsexecjob_set-0-hosts">目标主机:</label>
                                             </div>
-                                            <span class="help-inline">按住 ”Control“，或者Mac上的 “Command”，可以选择多个。</span>
+                                            <div class="controls">
+                                                <div class="related-widget-wrapper">
+                                                    <select multiple="multiple"
+                                                            id="sls_hosts"
+                                                            name="sls_hosts">
+                                                        {% for obj in hostList %}
+                                                            <option value="{{ obj.id }}">{{ obj.host_name }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <span class="help-inline">按住 ”Control“，或者Mac上的 “Command”，可以选择多个。</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="control-group form-row field-param ">
-                                    <div>
-                                        <div class="control-label"><label
-                                                for="id_toolsexecjob_set-0-param">执行参数:</label></div>
-                                        <div class="controls"><textarea class="vLargeTextField" cols="40"
-                                                                        id="txt_param"
-                                                                        name="txt_param"
-                                                                        rows="10"></textarea></div>
+                                    <div class="control-group form-row field-param ">
+                                        <div>
+                                            <div class="control-label"><label
+                                                    for="id_toolsexecjob_set-0-param">执行参数:</label></div>
+                                            <div class="controls"><textarea class="vLargeTextField" cols="40"
+                                                                            id="txt_param"
+                                                                            name="txt_param"
+                                                                            rows="10"></textarea></div>
+                                        </div>
                                     </div>
-                                </div>
-                            </fieldset>
+                                </fieldset>
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
 
                 {% block after_related_objects %}{% endblock %}
