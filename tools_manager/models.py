@@ -18,8 +18,8 @@ class ToolsTypes(BaseModel):
 TOOL_RUN_TYPE = (
     (0, 'Salt脚本'),
     (1, 'Shell'),
-    (2, 'PowerShell'),
-    (3, 'Python')
+    # (2, 'PowerShell'),
+    # (3, 'Python')
 )
 
 
