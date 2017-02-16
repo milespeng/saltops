@@ -17,7 +17,7 @@ from tools_manager.models import ToolsExecDetailHistory, ToolsExecJob
 logger = logging.getLogger(DEFAULT_LOGGER)
 
 
-def generateDynamicScript(script_content, script_type, param="", extra_param=None):
+def generateDynamicScript(script_content, script_type, param="", extra_param="", extend_dict=None):
     """
     动态生成脚本文件
     :return: 脚本文件的名称，脚本的完整路径
@@ -30,7 +30,16 @@ def generateDynamicScript(script_content, script_type, param="", extra_param=Non
     if param != "":
         yaml_params = yaml.load(param)[0]
         for key in yaml_params:
-            playbookContent = playbookContent.replace('${%s}' % key, yaml_params[key])
+            script_content = script_content.replace('${%s}' % key, yaml_params[key])
+
+    if extra_param != "":
+        yaml_params = yaml.load(extra_param)[0]
+        for key in yaml_params:
+            script_content = script_content.replace('${%s}' % key, yaml_params[key])
+
+    if extend_dict is not None:
+        for k in extend_dict:
+            script_content = script_content.replace('${%s}' % k, extend_dict[k])
 
     uid = uuid1().__str__()
     scriptPath = PACKAGE_PATH + uid + '.' + script_type
@@ -55,6 +64,13 @@ def prepareScript(script_path):
 
 
 def runSaltCommand(host, script_type, filename):
+    """
+    执行远程命令
+    :param host:
+    :param script_type:
+    :param filename:
+    :return:
+    """
     client = 'local'
     if host.enable_ssh is True:
         client = 'ssh'
@@ -63,11 +79,12 @@ def runSaltCommand(host, script_type, filename):
         result = salt_api_token({'fun': 'state.sls', 'tgt': host,
                                  'arg': filename},
                                 SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
-        logger.info("执行结果为%s", result)
+        logger.info("执行结果为:%s", result)
     else:
         result = salt_api_token({'fun': 'cmd.script', 'tgt': host,
                                  'arg': 'salt://%s.%s' % (filename, script_type)},
                                 SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
+        logger.info("执行结果为:%s", result)
     return result
 
 
@@ -98,6 +115,7 @@ def execTools(obj, hostList, ymlParam):
     toolExecJob.save()
     toolExecJob.hosts.add(*hostSet)
     toolExecJob.save()
+
     script_type = 'sls'
     if obj.tool_run_type == 1:
         script_type = "sh"
@@ -105,7 +123,8 @@ def execTools(obj, hostList, ymlParam):
         script_type = "ps"
     if obj.tool_run_type == 3:
         script_type = "py"
-    script_name, script_path = generateDynamicScript(obj.tool_script, script_type, ymlParam, None)
+    script_name, script_path = generateDynamicScript(obj.tool_script, script_type, ymlParam, "", None)
+
     prepareScript(script_path)
 
     logger.info("开始执行命令")
@@ -113,13 +132,21 @@ def execTools(obj, hostList, ymlParam):
 
     for target in hostSet:
         result = runSaltCommand(target, script_type, script_name)
-        if target.enable_ssh is False:
-            for master in result:
-                targetHost, dataResult = getHostViaResult(result, target, master)
+        for master in result:
+            targetHost, dataResult = getHostViaResult(result, target, master)
 
+            if obj.tool_run_type == 0:
+                for cmd in dataResult:
+                    execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
+                                                        host=targetHost,
+                                                        exec_result=dataResult[cmd]['changes']['stdout'],
+                                                        err_msg=dataResult[cmd]['changes']['stdout'])
+                    execDetail.save()
+            else:
                 execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                     host=targetHost,
-                                                    exec_result=dataResult['stdout'])
+                                                    exec_result=dataResult['stdout'],
+                                                    err_msg=dataResult['stderr'])
                 execDetail.save()
 
     return toolExecJob
@@ -127,100 +154,47 @@ def execTools(obj, hostList, ymlParam):
 
 @task(name='deployTask')
 def deployTask(deployJob):
-    logger.info("动态生成脚本文件")
     project = deployJob.project_version.project
     defaultVersion = project.projectversion_set.get(is_default=True)
     logger.info("使用的默认版本为%s", defaultVersion)
 
-    hosts = project.host.all()
-    logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
-
-    uid = uuid1().__str__()
-    logger.info("脚本UUID为:%s", uid)
-
     isSubScript = defaultVersion.sub_job_script_type == 100
 
-    scriptType = 0  # 默认为SLS
-
+    script_type = 'sls'
     if isSubScript is True:
-        if project.job_script_type == 0:
-            logger.info("脚本类型为sls")
-            scriptPath = PACKAGE_PATH + uid + ".sls"
         if project.job_script_type == 1:
-            logger.info("脚本类型为sh")
-            scriptPath = PACKAGE_PATH + uid + ".sh"
-            scriptType = 1
+            script_type = 'sh'
     else:
-        if defaultVersion.sub_job_script_type == 0:
-            logger.info("脚本类型为sls")
-            scriptPath = PACKAGE_PATH + uid + ".sls"
         if defaultVersion.sub_job_script_type == 1:
-            logger.info("脚本类型为sh")
-            scriptPath = PACKAGE_PATH + uid + ".sh"
-            scriptType = 1
+            script_type = 'sh'
 
-    output = open(scriptPath, 'w')
-
-    logger.info("填写动态变量")
     if isSubScript is True:
         playbookContent = project.playbook
     else:
         playbookContent = defaultVersion.subplaybook
 
-    logger.info("处理扩展参数")
-
-    if project.extra_param != "":
-        extraparam = yaml.load(project.extra_param)[0]
-        for key in extraparam:
-            playbookContent = playbookContent.replace('${%s}' % key, extraparam[key])
-
-    if defaultVersion.extra_param != '':
-        extraparam = yaml.load(defaultVersion.extra_param)[0]
-        for key in extraparam:
-            playbookContent = playbookContent.replace('${%s}' % key, extraparam[key])
-
-    playbookContent = playbookContent.replace('${version}', defaultVersion.name)
-
-    output.write(playbookContent)
-    output.close()
-    logger.info("写入文件结束，文件为%s", scriptPath)
-
-    if SALT_CONN_TYPE == 'http':
-        logger.info("当前执行模式为分离模式，发送脚本到Master节点")
-        url = SALT_HTTP_URL + '/upload'
-        files = {'file': open(scriptPath, 'rb')}
-        requests.post(url, files=files)
+    extent_dict = (
+        {'version': defaultVersion.name}
+    )
+    script_name, script_path = generateDynamicScript(playbookContent, script_type, project.extra_param,
+                                                     defaultVersion.extra_param, extent_dict)
+    prepareScript(script_path)
 
     jobList = []
+    hosts = project.host.all()
+
+    logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
 
     for target in hosts:
         logger.info("执行脚本，目标主机为:%s", target)
         hasErr = False
+        result = runSaltCommand(target, script_type, script_name)
 
         # SLS模式
-        if scriptType == 0:
-            if target.enable_ssh is False:
-                logger.info("使用Minion方式执行")
-                result = salt_api_token({'fun': 'state.sls', 'tgt': target,
-                                         'arg': uid},
-                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-                logger.info("执行结果为%s", result)
-            else:
-                logger.info("使用SaltSSH方式执行")
-                ins = salt_api_token({'fun': 'state.sls', 'tgt': target.host,
-                                      'arg': uid},
-                                     SALT_REST_URL, {'X-Auth-Token': token_id()})
-                result = ins.sshRun()['return'][0]
-                logger.info("执行结果为%s", result)
-
+        if script_type == 'sls':
             for master in result:
                 if isinstance(result[master], dict):
-                    if target.enable_ssh is False:
-                        dataResult = result[master]
-                        targetHost = Host.objects.get(host_name=master)
-                    else:
-                        dataResult = result[master]['return']
-                        targetHost = Host.objects.get(host=master)
+                    targetHost, dataResult = getHostViaResult(result, target, master)
                     for cmd in dataResult:
 
                         if not dataResult[cmd]['result']:
@@ -257,28 +231,9 @@ def deployTask(deployJob):
                         )
                         jobList.append(deployJobDetail)
 
-        if scriptType == 1:
-            if target.enable_ssh is False:
-                logger.info("使用Minion方式执行")
-                result = salt_api_token({'fun': 'cmd.script', 'tgt': target,
-                                         'arg': 'salt://%s.sh' % uid},
-                                        SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
-                logger.info("执行结果为%s", result)
-
-            else:
-                logger.info("使用SaltSSH方式执行")
-                ins = salt_api_token({'fun': 'cmd.script', 'tgt': target.host,
-                                      'arg': 'salt://%s.sh' % uid},
-                                     SALT_REST_URL, {'X-Auth-Token': token_id()})
-                result = ins.sshRun()['return'][0]
-                logger.info("执行结果为%s", result)
+        else:
             for master in result:
-                if target.enable_ssh is False:
-                    dataResult = result[master]
-                    targetHost = Host.objects.get(host_name=master)
-                else:
-                    dataResult = result[master]['return']
-                    targetHost = Host.objects.get(host=master)
+                targetHost, dataResult = getHostViaResult(result, target, master)
                 if dataResult['stderr'] != '':
                     hasErr = True
 
@@ -292,7 +247,7 @@ def deployTask(deployJob):
                 )
                 jobList.append(deployJobDetail)
 
-    os.remove(scriptPath)
+    os.remove(script_path)
     deployJob.deploy_status = 1 if hasErr is False else 2
     deployJob.save()
     for i in jobList:

@@ -37,7 +37,7 @@ class ToolsScriptAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         if request.POST['action'] == '1':
-            toolExecJob = execTools(obj, request.POST.getlist('sls_hosts'), request.POST['txt_param'])
+            execTools(obj, request.POST.getlist('sls_hosts'), request.POST['txt_param'])
             self.message_user(request, "工具执行成功")
         else:
             obj.save()
@@ -56,10 +56,10 @@ class ToolsScriptAdmin(admin.ModelAdmin):
 
 class ToolsExecDetailHistoryInline(admin.StackedInline):
     model = ToolsExecDetailHistory
-    fields = ['host', 'exec_result']
+    fields = ['host', 'exec_result', 'err_msg']
     verbose_name = "执行记录"
     verbose_name_plural = "执行记录"
-    readonly_fields = ['host', 'exec_result']
+    readonly_fields = ['host', 'exec_result', 'err_msg']
 
     def has_add_permission(self, request):
         return False
