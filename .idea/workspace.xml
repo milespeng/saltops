@@ -41,46 +41,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="304" column="0" lean-forward="true" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeployJobAdmin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/DeployJobAdmin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="18" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Project.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/Project.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ProjectVersionInline.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/ProjectVersionInline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-              <folding>
-                <marker date="1487231653000" expanded="true" signature="516:1248" ph="..." />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -876,13 +842,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00068" summary="Common代码优化">
-      <created>1486462107496</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1486462107496</updated>
-    </task>
     <task id="LOCAL-00069" summary="业务模块支持子脚本覆盖主脚本">
       <created>1486520768699</created>
       <option name="number" value="00069" />
@@ -1219,7 +1178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487230850440</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="修复业务部署默认选中的问题">
+      <created>1487231675893</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1487231675893</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1295,7 +1261,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Common代码优化" />
     <MESSAGE value="业务模块支持子脚本覆盖主脚本" />
     <MESSAGE value="把文档挪到项目里面" />
     <MESSAGE value="更新ReadMe" />
@@ -1320,7 +1285,8 @@
     <MESSAGE value="优化tasks" />
     <MESSAGE value="优化任务执行模板" />
     <MESSAGE value="优化业务发布代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化业务发布代码" />
+    <MESSAGE value="修复业务部署默认选中的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复业务部署默认选中的问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1749,11 +1715,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/ProjectVersionInline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-          <folding>
-            <marker date="1487231653000" expanded="true" signature="516:1248" ph="..." />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
