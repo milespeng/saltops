@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/wiki/工具管理.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/wiki/img/业务1.png" afterPath="$PROJECT_DIR$/doc/wiki/img/业务1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,7 +40,24 @@
     <favorites_list name="saltops" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="542">
+                <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="30" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -140,7 +156,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/doc/wiki/使用SaltSSH.md" />
         <option value="$PROJECT_DIR$/doc/sls/golang.sls" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_change_form.html" />
         <option value="$PROJECT_DIR$/salttest.py" />
         <option value="$PROJECT_DIR$/cmdb/admin.py" />
@@ -159,6 +174,7 @@
         <option value="$PROJECT_DIR$/deploy_manager/static/js/ProjectVersionInline.js" />
         <option value="$PROJECT_DIR$/tools_manager/models.py" />
         <option value="$PROJECT_DIR$/doc/wiki/工具管理.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -796,13 +812,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00071" summary="更新ReadMe">
-      <created>1486521224468</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1486521224468</updated>
-    </task>
     <task id="LOCAL-00072" summary="更新ReadMe">
       <created>1486521271180</created>
       <option name="number" value="00072" />
@@ -1139,7 +1148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487231759742</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="0.4.0">
+      <created>1487232303336</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1487232303336</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1215,7 +1231,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="把文档挪到项目里面" />
     <MESSAGE value="更新ReadMe" />
     <MESSAGE value="添加Minion状态" />
     <MESSAGE value="业务部署支持扩展参数" />
@@ -1240,7 +1255,8 @@
     <MESSAGE value="优化业务发布代码" />
     <MESSAGE value="修复业务部署默认选中的问题" />
     <MESSAGE value="准备发布0.4.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="准备发布0.4.0" />
+    <MESSAGE value="0.4.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.4.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1283,13 +1299,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/saltjob/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -1704,6 +1713,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/doc/wiki/img/业务1.png">
       <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="542">
+            <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="30" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
       </provider>
     </entry>
