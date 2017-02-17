@@ -25,6 +25,7 @@ from rest_framework import routers
 # from deploy_manager.serializer import UserViewSet
 from dashboard.sites import DashboardSite
 from deploy_manager.views import *
+from saltops import settings
 
 admin.site = DashboardSite()
 admin.sites.site = admin.site  # >= Django 1.9.5
@@ -44,6 +45,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^chaining/', include('smart_selects.urls')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
 # admin.site.site_header = 'SaltOps'
 # admin.site.site_title = 'SaltOps'
 
