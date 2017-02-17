@@ -42,6 +42,7 @@ urlpatterns = [
     # url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^chaining/', include('smart_selects.urls')),
 ]
 # admin.site.site_header = 'SaltOps'
 # admin.site.site_title = 'SaltOps'

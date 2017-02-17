@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'common',
     'cmdb',
     'saltjob',
+    'smart_selects',
     # 'jet.dashboard',
     # 'jet',
     'nested_inline',

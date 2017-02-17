@@ -1,4 +1,5 @@
 from django.db import models
+from smart_selects.db_fields import ChainedForeignKey
 
 from common.models import BaseModel
 
@@ -99,7 +100,25 @@ class Host(BaseModel):
     os = models.CharField(max_length=255, blank=True, null=True, verbose_name="操作系统")
     mem_total = models.IntegerField(blank=True, null=True, verbose_name="内存大小")
     num_cpus = models.IntegerField(blank=True, null=True, verbose_name="CPU数量")
-    rack = models.ForeignKey(Rack, verbose_name='机架', blank=True, null=True)
+    idc = models.ForeignKey(IDC, verbose_name='IDC', blank=True, null=True)
+    cabinet = ChainedForeignKey(
+        Cabinet,
+        verbose_name="机柜",
+        chained_field="idc",
+        chained_model_field="idc",
+        show_all=False,
+        auto_choose=True,
+        sort=True, blank=True, null=True
+    )
+    rack = ChainedForeignKey(
+        Rack,
+        verbose_name="机架",
+        chained_field="cabinet",
+        chained_model_field="cabinet",
+        show_all=False,
+        auto_choose=True,
+        sort=True, blank=True, null=True
+    )
     minion_status = models.IntegerField(verbose_name='Minion状态', default=0,
                                         choices=MINION_STATUS)
     enable_ssh = models.BooleanField(verbose_name='使用Salt-SSH', choices=((True, '启用'), (False, '禁用')), default=False)
