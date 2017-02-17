@@ -44,6 +44,7 @@ urlpatterns = [
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^chaining/', include('smart_selects.urls')),
+    url('^searchableselect/', include('searchableselect.urls')),
 ]
 
 if settings.DEBUG:

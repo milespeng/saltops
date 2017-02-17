@@ -39,10 +39,12 @@ class Project(BaseModel):
     host = models.ManyToManyField(Host, default="", verbose_name="主机",
                                   blank=True, through='ProjectHost')
     project_module = models.ForeignKey(ProjectModule, verbose_name='业务模块', blank=True, null=True, default="")
-    playbook = models.TextField(verbose_name='部署脚本', null=True, blank=True,
-                                help_text='${version}代表默认版本号')
     job_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
                                           verbose_name='脚本语言')
+    playbook = models.TextField(verbose_name='部署脚本', null=True, blank=True,
+                                help_text='${version}代表默认版本号')
+    anti_install_playbook = models.TextField(verbose_name='卸载脚本', null=True, blank=True,
+                                             help_text='${version}代表默认版本号')
     extra_param = models.TextField(verbose_name='扩展参数', default="", blank=True, null=True)
 
     def __str__(self):
@@ -63,6 +65,8 @@ class ProjectVersion(BaseModel):
     sub_job_script_type = models.IntegerField(default=100, choices=JOB_SCRIPT_TYPE,
                                               verbose_name='脚本语言')
     extra_param = models.TextField(verbose_name='扩展参数', default="", blank=True, null=True)
+    anti_install_playbook = models.TextField(verbose_name='卸载脚本', null=True, blank=True,
+                                             help_text='${version}代表默认版本号')
 
     def __str__(self):
         return self.project.__str__() + '---' + self.name

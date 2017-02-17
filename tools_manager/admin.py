@@ -2,6 +2,7 @@ from django import forms
 from django.contrib import admin
 from django.contrib import messages
 from django.shortcuts import redirect
+from searchableselect.widgets import SearchableSelect
 
 from saltjob.tasks import execTools
 from tools_manager.models import *
@@ -32,6 +33,7 @@ class ToolsScriptAdmin(admin.ModelAdmin):
         extra_context = extra_context or {}
         extra_context['hostList'] = Host.objects.all()
         extra_context['is_edit'] = True
+
         return super(ToolsScriptAdmin, self).change_view(request, object_id=object_id, form_url=form_url,
                                                          extra_context=extra_context)
 

@@ -40,7 +40,8 @@ class ProjectModuleAdmin(MPTTModelAdmin):
 
 class ProjectVersionInline(admin.StackedInline):
     model = ProjectVersion
-    fields = ['name', 'sub_job_script_type', 'subplaybook', 'extra_param', 'is_default', 'files', ]
+    fields = ['name', 'sub_job_script_type', 'subplaybook', 'anti_install_playbook', 'extra_param', 'is_default',
+              'files', ]
     verbose_name = '版本'
     verbose_name_plural = '版本'
     extra = 0
@@ -121,15 +122,6 @@ class ProjectAdmin(ImportExportModelAdmin):
     deployMsg.short_description = '部署状态'
     deployMsg.allow_tags = True
 
-    # def save_formset(self, request, form, formset, change):
-    #     instances = form.save(commit=False)
-    #     formset.save()
-
-    # 这里可以切换成自己的URL
-    # def view_on_site(self, obj):
-    #     url = reverse('person-detail', kwargs={'slug': obj.slug})
-    #     return 'https://example.com' + url
-
     def deploydefaultAction(self, request, queryset):
         for obj in queryset:
             version = obj.projectversion_set.get(is_default=True)
@@ -143,6 +135,9 @@ class ProjectAdmin(ImportExportModelAdmin):
     class Media:
         js = ('/static/js/Project.js',)
 
+    def delete_model(self, request, obj):
+        #TODO:删除主机后要做反安装操作
+        pass
 
 class DeployJobDetailInline(admin.StackedInline):
     model = DeployJobDetail

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'cmdb',
     'saltjob',
     'smart_selects',
+    # 'searchableselect',
     # 'jet.dashboard',
     # 'jet',
     'nested_inline',
@@ -270,4 +271,4 @@ LOGGING = {
 
 DEFAULT_LOGGER = 'default'
 
-INTERNAL_IPS=['127.0.0.1']
+INTERNAL_IPS = ['127.0.0.1']
