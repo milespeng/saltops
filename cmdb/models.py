@@ -61,7 +61,16 @@ class Cabinet(BaseModel):
 
 
 class Rack(BaseModel):
-    cabinet = models.ForeignKey(Cabinet, verbose_name='机柜')
+    idc = models.ForeignKey(IDC, verbose_name='IDC', blank=True, null=True)
+    cabinet = ChainedForeignKey(
+        Cabinet,
+        verbose_name="机柜",
+        chained_field="idc",
+        chained_model_field="idc",
+        show_all=False,
+        auto_choose=True,
+        sort=True, blank=True, null=True
+    )
     name = models.CharField(max_length=30, unique=True, verbose_name="机架名称")
 
     def __str__(self):
