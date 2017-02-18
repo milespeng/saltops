@@ -199,10 +199,14 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+#
+# SALT_REST_URL = 'http://192.168.80.133:8001/'
+# SALT_USER = 'loginsight'
+# SALT_PASSWORD = 'loginsight'
 
-SALT_REST_URL = 'http://192.168.80.133:8001/'
-SALT_USER = 'loginsight'
-SALT_PASSWORD = 'loginsight'
+SALT_REST_URL = 'http://192.168.75.128:8001/'
+SALT_USER = 'kira'
+SALT_PASSWORD = '8565'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'
@@ -272,3 +276,4 @@ LOGGING = {
 DEFAULT_LOGGER = 'default'
 
 INTERNAL_IPS = ['127.0.0.1']
+USE_DJANGO_JQUERY=True

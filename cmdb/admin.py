@@ -1,5 +1,7 @@
 import requests
+from django.conf.urls import url
 from django.contrib import admin
+from django.shortcuts import redirect
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from cmdb.models import *
 from deploy_manager.models import *
@@ -27,12 +29,29 @@ class ProjectInline(admin.TabularInline):
 
 @admin.register(Host)
 class HostAdmin(admin.ModelAdmin):
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            url(
+                r'^scan_host/$',
+                self.admin_site.admin_view(self.scan_host),
+                name='scan_host',
+            ),
+        ]
+        return custom_urls + urls
+
     list_display = ['host_name', 'kernel',
                     'host', 'idc', 'system_serialnumber',
                     'os', 'virtual', 'enable_ssh', 'minion_status', 'create_time', 'update_time']
     search_fields = ['host']
     list_filter = ['virtual', 'os_family', 'os', 'minion_status']
     inlines = [IPInline, ProjectInline]
+    change_list_template = 'cmdb_host_list.html'
+
+    def scan_host(self, request):
+        scanHostJob()
+        self.message_user(request, "主机扫描完成")
+        return super(HostAdmin, self).changelist_view(request=request)
 
     # def acceptAction(self, request, queryset):
     #     for obj in queryset:
