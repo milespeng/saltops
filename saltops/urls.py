@@ -47,12 +47,12 @@ urlpatterns = [
     url('^searchableselect/', include('searchableselect.urls')),
 ]
 
-if settings.DEBUG:
-    import debug_toolbar
-
-    urlpatterns += [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    ]
+# if settings.DEBUG:
+#     import debug_toolbar
+#
+#     urlpatterns += [
+#         url(r'^__debug__/', include(debug_toolbar.urls)),
+#     ]
 # admin.site.site_header = 'SaltOps'
 # admin.site.site_title = 'SaltOps'
 

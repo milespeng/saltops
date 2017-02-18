@@ -68,6 +68,29 @@ class ProjectResource(resources.ModelResource):
 
 @admin.register(Project)
 class ProjectAdmin(ImportExportModelAdmin):
+    def construct_change_message(self, request, form, formsets, add=False):
+        """
+        删除业务后执行卸载脚本
+        :param request:
+        :param form:
+        :param formsets:
+        :param add:
+        :return:
+        """
+        uninstall_list = []
+        if formsets:
+            for formset in formsets:
+                for deleted_object in formset.deleted_objects:
+                    uninstall_list.append(deleted_object.host)
+        if len(uninstall_list) != 0:
+            obj = form.instance
+            version = obj.projectversion_set.get(is_default=True)
+            job = DeployJob(project_version=version, job_name='卸载' + obj.name + ":" + version.name)
+            job.save()
+            deployTask.delay(job, True, uninstall_list)
+            self.message_user(request, "卸载作业成功启动")
+        return super(ProjectAdmin, self).construct_change_message(request, form, formsets, add)
+
     def get_urls(self):
         urls = super().get_urls()
         custom_urls = [
@@ -91,7 +114,7 @@ class ProjectAdmin(ImportExportModelAdmin):
 
     def extra_btn(self, obj):
         return format_html(
-            '<a class="btn" href="{}">部署默认版本</a>',
+            '<a class="btn" href="{}">部署</a>',
             reverse('admin:deploy_job', args=[obj.pk]),
         )
 
@@ -135,9 +158,6 @@ class ProjectAdmin(ImportExportModelAdmin):
     class Media:
         js = ('/static/js/Project.js',)
 
-    def delete_model(self, request, obj):
-        #TODO:删除主机后要做反安装操作
-        pass
 
 class DeployJobDetailInline(admin.StackedInline):
     model = DeployJobDetail

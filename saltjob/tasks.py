@@ -153,106 +153,129 @@ def execTools(obj, hostList, ymlParam):
 
 
 @task(name='deployTask')
-def deployTask(deployJob):
-    project = deployJob.project_version.project
-    defaultVersion = project.projectversion_set.get(is_default=True)
-    logger.info("使用的默认版本为%s", defaultVersion)
+def deployTask(deployJob, uninstall=False, uninstall_host=[]):
+    """
+    部署业务
+    :param deployJob:
+    :return:
+    """
+    try:
+        project = deployJob.project_version.project
+        defaultVersion = project.projectversion_set.get(is_default=True)
+        logger.info("使用的默认版本为%s", defaultVersion)
 
-    isSubScript = defaultVersion.sub_job_script_type == 100
+        isSubScript = defaultVersion.sub_job_script_type == 100
 
-    script_type = 'sls'
-    if isSubScript is True:
-        if project.job_script_type == 1:
-            script_type = 'sh'
-    else:
-        if defaultVersion.sub_job_script_type == 1:
-            script_type = 'sh'
-
-    if isSubScript is True:
-        playbookContent = project.playbook
-    else:
-        playbookContent = defaultVersion.subplaybook
-
-    extent_dict = (
-        {'version': defaultVersion.name}
-    )
-    script_name, script_path = generateDynamicScript(playbookContent, script_type, project.extra_param,
-                                                     defaultVersion.extra_param, extent_dict)
-    prepareScript(script_path)
-
-    jobList = []
-    hosts = project.host.all()
-
-    logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
-
-    for target in hosts:
-        logger.info("执行脚本，目标主机为:%s", target)
-        hasErr = False
-        result = runSaltCommand(target, script_type, script_name)
-
-        # SLS模式
-        if script_type == 'sls':
-            for master in result:
-                if isinstance(result[master], dict):
-                    targetHost, dataResult = getHostViaResult(result, target, master)
-                    for cmd in dataResult:
-
-                        if not dataResult[cmd]['result']:
-                            hasErr = True
-
-                        msg = ""
-                        if "stdout" in dataResult[cmd]['changes']:
-                            msg = dataResult[cmd]['changes']["stdout"]
-                        stderr = ""
-                        if "stderr" in dataResult[cmd]['changes']:
-                            stderr = dataResult[cmd]['changes']["stderr"]
-
-                        jobCmd = ""
-                        if 'name' in dataResult[cmd]:
-                            jobCmd = dataResult[cmd]['name']
-
-                        duration = 0
-                        if 'duration' in dataResult[cmd]:
-                            duration = dataResult[cmd]['duration']
-
-                        # startTime = None
-                        # if 'start_time' in dataResult[cmd]:
-                        #     startTime = dataResult[cmd]['start_time']
-                        deployJobDetail = DeployJobDetail(
-                            host=targetHost,
-                            deploy_message=msg,
-                            job=deployJob,
-                            stderr=stderr,
-                            job_cmd=jobCmd,
-                            comment=dataResult[cmd]['comment'],
-                            is_success=dataResult[cmd]['result'],
-                            # start_time=startTime,
-                            duration=duration,
-                        )
-                        jobList.append(deployJobDetail)
-
+        script_type = 'sls'
+        if isSubScript is True:
+            if project.job_script_type == 1:
+                script_type = 'sh'
         else:
-            for master in result:
-                targetHost, dataResult = getHostViaResult(result, target, master)
-                if dataResult['stderr'] != '':
-                    hasErr = True
+            if defaultVersion.sub_job_script_type == 1:
+                script_type = 'sh'
 
-                deployJobDetail = DeployJobDetail(
-                    host=targetHost,
-                    deploy_message=dataResult['stdout'],
-                    job=deployJob,
-                    stderr=dataResult['stderr'],
-                    job_cmd=playbookContent,
-                    is_success=True if dataResult['stderr'] == '' else False,
-                )
-                jobList.append(deployJobDetail)
+        if isSubScript is True:
+            if uninstall is False:
+                playbookContent = project.playbook
+            else:
+                playbookContent = project.anti_install_playbook
+        else:
+            if uninstall is False:
+                playbookContent = defaultVersion.subplaybook
+            else:
+                playbookContent = defaultVersion.anti_install_playbook
 
-    os.remove(script_path)
-    deployJob.deploy_status = 1 if hasErr is False else 2
-    deployJob.save()
-    for i in jobList:
-        i.save()
-    logger.info("执行脚本完成")
+        extent_dict = (
+            {'version': defaultVersion.name}
+        )
+        script_name, script_path = generateDynamicScript(playbookContent, script_type, project.extra_param,
+                                                         defaultVersion.extra_param, extent_dict)
+        prepareScript(script_path)
+
+        if uninstall is False:
+            prepareScript(defaultVersion.files.path)
+
+        jobList = []
+
+        if uninstall is False:
+            hosts = project.host.all()
+        else:
+            hosts = uninstall_host
+
+        logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
+        hasErr = False
+        for target in hosts:
+            logger.info("执行脚本，目标主机为:%s", target)
+
+            result = runSaltCommand(target, script_type, script_name)
+
+            # SLS模式
+            if script_type == 'sls':
+                for master in result:
+                    if isinstance(result[master], dict):
+                        targetHost, dataResult = getHostViaResult(result, target, master)
+                        for cmd in dataResult:
+
+                            if not dataResult[cmd]['result']:
+                                hasErr = True
+
+                            msg = ""
+                            if "stdout" in dataResult[cmd]['changes']:
+                                msg = dataResult[cmd]['changes']["stdout"]
+                            stderr = ""
+                            if "stderr" in dataResult[cmd]['changes']:
+                                stderr = dataResult[cmd]['changes']["stderr"]
+
+                            jobCmd = ""
+                            if 'name' in dataResult[cmd]:
+                                jobCmd = dataResult[cmd]['name']
+
+                            duration = 0
+                            if 'duration' in dataResult[cmd]:
+                                duration = dataResult[cmd]['duration']
+
+                            # startTime = None
+                            # if 'start_time' in dataResult[cmd]:
+                            #     startTime = dataResult[cmd]['start_time']
+                            deployJobDetail = DeployJobDetail(
+                                host=targetHost,
+                                deploy_message=msg,
+                                job=deployJob,
+                                stderr=stderr,
+                                job_cmd=jobCmd,
+                                comment=dataResult[cmd]['comment'],
+                                is_success=dataResult[cmd]['result'],
+                                # start_time=startTime,
+                                duration=duration,
+                            )
+                            jobList.append(deployJobDetail)
+
+            else:
+                for master in result:
+                    targetHost, dataResult = getHostViaResult(result, target, master)
+                    if dataResult['stderr'] != '':
+                        hasErr = True
+
+                    deployJobDetail = DeployJobDetail(
+                        host=targetHost,
+                        deploy_message=dataResult['stdout'],
+                        job=deployJob,
+                        stderr=dataResult['stderr'],
+                        job_cmd=playbookContent,
+                        is_success=True if dataResult['stderr'] == '' else False,
+                    )
+                    jobList.append(deployJobDetail)
+
+        os.remove(script_path)
+        deployJob.deploy_status = 1 if hasErr is False else 2
+        deployJob.save()
+        for i in jobList:
+            i.save()
+        logger.info("执行脚本完成")
+    except Exception as e:
+        deployJob.deploy_status = 2
+        deployJob.save()
+        logger.info("执行失败%s:" % e)
 
 
 @task(name='scanHostJob')

@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'djcelery',
     'kombu.transport.django',
     'suit_dashboard',
-    'debug_toolbar'
+    # 'debug_toolbar'
 ]
 
 MIDDLEWARE = [
@@ -72,7 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'saltops.urls'
@@ -147,7 +147,9 @@ CRONJOBS = [
 ]
 
 # 文件上传的路径
-PACKAGE_PATH = "/Users/kira/oschina/saltops/doc/script/"
+# PACKAGE_PATH = "/Users/kira/oschina/saltops/doc/script/"
+PACKAGE_PATH = "D:\\github\\saltops\\doc\\scripts\\"
+
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
@@ -230,7 +232,8 @@ SUIT_CONFIG = {
 }
 
 SALT_CONN_TYPE = 'http'  # http
-SALT_HTTP_URL = 'http://192.168.80.133:5000'
+# SALT_HTTP_URL = 'http://192.168.80.133:5000'
+SALT_HTTP_URL = 'http://192.168.75.128:5000'
 
 LOGGING = {
     'version': 1,
