@@ -868,13 +868,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00080" summary="更新ReadMe">
-      <created>1486522443223</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1486522443223</updated>
-    </task>
     <task id="LOCAL-00081" summary="更新ReadMe">
       <created>1486522467545</created>
       <option name="number" value="00081" />
@@ -1211,7 +1204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487409471359</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="更新文档">
+      <created>1487410004479</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1487410004495</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1265,7 +1265,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="优化SSH写入方式" />
     <MESSAGE value="添加IP类型" />
     <MESSAGE value="Minion自动注册" />
     <MESSAGE value="优化Task文件" />
@@ -1290,7 +1289,8 @@
     <MESSAGE value="开始做业务反安装" />
     <MESSAGE value="添加主机主动扫描按钮" />
     <MESSAGE value="新增业务卸载功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增业务卸载功能" />
+    <MESSAGE value="更新文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新文档" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
