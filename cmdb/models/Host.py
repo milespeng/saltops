@@ -1,84 +1,10 @@
 from django.db import models
 from smart_selects.db_fields import ChainedForeignKey
 
+from cmdb.models.Cabinet import Cabinet
+from cmdb.models.IDC import IDC
+from cmdb.models.Rack import Rack
 from common.models import BaseModel
-
-
-class ISP(BaseModel):
-    name = models.CharField(max_length=255, verbose_name='名称')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "ISP类型"
-        verbose_name_plural = verbose_name
-
-
-class IDCLevel(BaseModel):
-    name = models.CharField(max_length=255, verbose_name='名称')
-    comment = models.TextField(verbose_name='描述')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "机房等级"
-        verbose_name_plural = verbose_name
-
-
-class IDC(BaseModel):
-    name = models.CharField(max_length=255, verbose_name='机房名称')
-    bandwidth = models.CharField(max_length=255, blank=True, null=True, verbose_name='机房带宽')
-    phone = models.CharField(max_length=255, verbose_name='联系电话')
-    linkman = models.CharField(max_length=255, null=True, verbose_name='联系人')
-    address = models.CharField(max_length=255, blank=True, null=True, verbose_name="机房地址")
-    concat_email = models.EmailField(verbose_name='联系邮箱', blank=True, null=True, default="")
-    network = models.TextField(blank=True, null=True, verbose_name="IP地址段")
-    create_time = models.DateField(auto_now=True, verbose_name='创建时间')
-    operator = models.ForeignKey(ISP, verbose_name='ISP类型')
-    type = models.ForeignKey(IDCLevel, verbose_name='机房类型')
-    comment = models.TextField(blank=True, null=True, verbose_name="备注")
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "机房"
-        verbose_name_plural = verbose_name
-
-
-class Cabinet(BaseModel):
-    idc = models.ForeignKey(IDC, verbose_name='机房')
-    name = models.CharField(max_length=30, unique=True, verbose_name="机柜编号")
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "机柜"
-        verbose_name_plural = verbose_name
-
-
-class Rack(BaseModel):
-    idc = models.ForeignKey(IDC, verbose_name='IDC', blank=True, null=True)
-    cabinet = ChainedForeignKey(
-        Cabinet,
-        verbose_name="机柜",
-        chained_field="idc",
-        chained_model_field="idc",
-        show_all=False,
-        auto_choose=True,
-        sort=True, blank=True, null=True
-    )
-    name = models.CharField(max_length=30, unique=True, verbose_name="机架名称")
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "机架"
-        verbose_name_plural = verbose_name
 
 
 MINION_STATUS = (
@@ -140,27 +66,4 @@ class Host(BaseModel):
 
     class Meta:
         verbose_name = "主机"
-        verbose_name_plural = verbose_name
-
-
-IP_TYPE = (
-    (100, '----'),
-    (0, '内网'),
-    (1, '外网'),
-    (2, '管理网')
-)
-
-
-class HostIP(BaseModel):
-    ip = models.CharField(max_length=255, blank=True, null=True, verbose_name="IP地址")
-    host = models.ForeignKey(Host, default="", verbose_name="主机", blank=True, null=True, )
-    ip_type = models.IntegerField(verbose_name='IP类型', blank=True, choices=IP_TYPE, default=100)
-    create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    update_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
-
-    def __str__(self):
-        return self.ip
-
-    class Meta:
-        verbose_name = "主机IP"
         verbose_name_plural = verbose_name
