@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/ProjectConfigFile.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/ProjectHostConfigFile.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admins/DeployJobAdmin.py" afterPath="$PROJECT_DIR$/deploy_manager/admins/DeployJobAdmin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" afterPath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/models/__init__.py" afterPath="$PROJECT_DIR$/deploy_manager/models/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/常用命令.md" afterPath="$PROJECT_DIR$/doc/常用命令.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/salttest.py" afterPath="$PROJECT_DIR$/salttest.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HostAdmin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HostAdmin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmdb/admins/HostAdmin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
@@ -96,6 +89,16 @@
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="常用命令.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/常用命令.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -233,13 +236,13 @@
         <option value="$PROJECT_DIR$/deploy_manager/models/ProjectConfigFile.py" />
         <option value="$PROJECT_DIR$/deploy_manager/models/ProjectHostConfigFile.py" />
         <option value="$PROJECT_DIR$/deploy_manager/models/__init__.py" />
-        <option value="$PROJECT_DIR$/doc/常用命令.md" />
         <option value="$PROJECT_DIR$/saltops/urls.py" />
         <option value="$PROJECT_DIR$/saltops/settings.py" />
         <option value="$PROJECT_DIR$/saltjob/salt_token_id.py" />
         <option value="$PROJECT_DIR$/salttest.py" />
         <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
         <option value="$PROJECT_DIR$/cmdb/admins/HostAdmin.py" />
+        <option value="$PROJECT_DIR$/doc/常用命令.md" />
       </list>
     </option>
   </component>
@@ -284,6 +287,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools_manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -878,13 +909,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00083" summary="更新ReadMe">
-      <created>1486522874558</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1486522874558</updated>
-    </task>
     <task id="LOCAL-00084" summary="更新ReadMe">
       <created>1486523010618</created>
       <option name="number" value="00084" />
@@ -1221,7 +1245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487495520888</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="开始弄业务配置自动抓取">
+      <created>1487498839909</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1487498839909</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1275,7 +1306,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="优化Task文件" />
     <MESSAGE value="添加Salt-SSH文档" />
     <MESSAGE value="完善ReadMe" />
     <MESSAGE value="新增Golang部署模板" />
@@ -1300,7 +1330,8 @@
     <MESSAGE value="更新文档" />
     <MESSAGE value="优化代码结构，分离代码" />
     <MESSAGE value="修复文件发送部分" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复文件发送部分" />
+    <MESSAGE value="开始弄业务配置自动抓取" />
+    <option name="LAST_COMMIT_MESSAGE" value="开始弄业务配置自动抓取" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1682,14 +1713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/常用命令.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/saltops/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-135">
@@ -1800,6 +1823,14 @@
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/常用命令.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
