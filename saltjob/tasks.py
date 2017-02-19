@@ -192,8 +192,11 @@ def deployTask(deployJob, uninstall=False, uninstall_host=[]):
                                                          defaultVersion.extra_param, extent_dict)
         prepareScript(script_path)
 
-        if uninstall is False:
-            prepareScript(defaultVersion.files.path)
+        if uninstall is False and defaultVersion.files is not None:
+            try:
+                 prepareScript(defaultVersion.files.path)
+            except Exception as e:
+                logger.info("没有文件，不执行发送操作")
 
         jobList = []
 

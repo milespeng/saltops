@@ -8,6 +8,7 @@ from import_export.admin import ImportExportModelAdmin
 from mptt.admin import MPTTModelAdmin
 
 from deploy_manager.models import *
+from deploy_manager.models.DeployJob import DEPLOY_STATUS
 from saltjob.tasks import deployTask
 
 class ProjectVersionInline(admin.StackedInline):

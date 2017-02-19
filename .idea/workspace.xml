@@ -2,49 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admins/CabinetAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admins/HostAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admins/IDCAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admins/IDCLevelAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admins/ISPAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admins/RackAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admins/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/Cabinet.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/Host.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/HostIP.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/IDC.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/IDCLevel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/ISP.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/Rack.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/admins/DeployJobAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/admins/ProjectModuleAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/admins/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/DeployJob.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/DeployJobDetail.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/Project.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/ProjectHost.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/ProjectModule.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/admins/ToolsExecJobAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/admins/ToolsScriptAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/admins/ToolsTypesAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/admins/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/models/ToolsExecDetailHistory.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/models/ToolsExecJob.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/models/ToolsScript.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/models/ToolsTypes.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/models/__init__.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/models.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/admin.py" afterPath="$PROJECT_DIR$/cmdb/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admin.py" afterPath="$PROJECT_DIR$/deploy_manager/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/admin.py" afterPath="$PROJECT_DIR$/tools_manager/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" afterPath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltjob/tasks.py" afterPath="$PROJECT_DIR$/saltjob/tasks.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,11 +44,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="198" column="41" lean-forward="false" selection-start-line="198" selection-start-column="41" selection-end-line="198" selection-end-column="41" />
+              <folding>
+                <element signature="e#623#1569#0" expanded="false" />
+                <element signature="e#2806#3207#0" expanded="false" />
+                <element signature="e#3278#4992#0" expanded="false" />
+                <element signature="e#9951#17634#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools_manager/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectAdmin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="111" column="26" lean-forward="false" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
+              <folding>
+                <element signature="e#493#816#0" expanded="false" />
+                <element signature="e#862#981#0" expanded="false" />
+                <element signature="e#1036#1116#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saltjob/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,7 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>login</find>
       <find>toolsexecjob</find>
       <find>save-</find>
       <find>inline</find>
@@ -136,6 +135,7 @@
       <find>deleted_objects</find>
       <find>deployTask</find>
       <find>hasErr</find>
+      <find>部署状态</find>
     </findStrings>
     <replaceStrings>
       <replace>BaseModel</replace>
@@ -166,7 +166,6 @@
         <option value="$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html" />
         <option value="$PROJECT_DIR$/saltops/urls.py" />
         <option value="$PROJECT_DIR$/saltops/settings.py" />
-        <option value="$PROJECT_DIR$/saltjob/tasks.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/doc/wiki/发布管理.md" />
         <option value="$PROJECT_DIR$/cmdb/models/IDCLevel.py" />
@@ -202,7 +201,6 @@
         <option value="$PROJECT_DIR$/cmdb/admins/__init__.py" />
         <option value="$PROJECT_DIR$/cmdb/admin.py" />
         <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectModuleAdmin.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
         <option value="$PROJECT_DIR$/deploy_manager/admins/DeployJobAdmin.py" />
         <option value="$PROJECT_DIR$/deploy_manager/admins/__init__.py" />
         <option value="$PROJECT_DIR$/deploy_manager/admin.py" />
@@ -211,6 +209,8 @@
         <option value="$PROJECT_DIR$/tools_manager/admins/ToolsExecJobAdmin.py" />
         <option value="$PROJECT_DIR$/tools_manager/admins/__init__.py" />
         <option value="$PROJECT_DIR$/tools_manager/admin.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
+        <option value="$PROJECT_DIR$/saltjob/tasks.py" />
       </list>
     </option>
   </component>
@@ -849,13 +849,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00081" summary="更新ReadMe">
-      <created>1486522467545</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1486522467545</updated>
-    </task>
     <task id="LOCAL-00082" summary="更新ReadMe">
       <created>1486522787236</created>
       <option name="number" value="00082" />
@@ -1192,7 +1185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487410004495</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="优化代码结构，分离代码">
+      <created>1487494830350</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1487494830352</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1208,17 +1208,17 @@
     <frame x="-8" y="-8" width="1296" height="776" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17961165" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16828479" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39576548" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24727838" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47122863" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3576052" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38413686" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5085537" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41990668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5163297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1246,7 +1246,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="添加IP类型" />
     <MESSAGE value="Minion自动注册" />
     <MESSAGE value="优化Task文件" />
     <MESSAGE value="添加Salt-SSH文档" />
@@ -1271,7 +1270,8 @@
     <MESSAGE value="添加主机主动扫描按钮" />
     <MESSAGE value="新增业务卸载功能" />
     <MESSAGE value="更新文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新文档" />
+    <MESSAGE value="优化代码结构，分离代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化代码结构，分离代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1285,11 +1285,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="281" />
+      <option name="time" value="282" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
-        <watch expression="request" language="Python" />
+        <watch expression="defaultVersion.files" language="Python" />
         <watch expression="form.instance" language="Python" />
         <watch expression="formset.save()" language="Python" />
       </configuration>
@@ -1300,14 +1300,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Python34/Lib/site-packages/django/db/models/fields/files.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/options.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1320,6 +1312,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="460" column="0" lean-forward="false" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1327,20 +1320,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1647">
-          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-          <folding>
-            <element signature="e#623#1569#0" expanded="false" />
-            <element signature="e#2806#3207#0" expanded="false" />
-            <element signature="e#3278#4992#0" expanded="false" />
-            <element signature="e#6706#9442#0" expanded="false" />
-            <element signature="e#9813#17496#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1373,7 +1352,7 @@
         <state relative-caret-position="189">
           <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1383,7 +1362,7 @@
         <state relative-caret-position="-7">
           <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1393,7 +1372,7 @@
         <state relative-caret-position="999">
           <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1435,7 +1414,7 @@
         <state relative-caret-position="141">
           <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1453,7 +1432,7 @@
         <state relative-caret-position="162">
           <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1463,7 +1442,7 @@
         <state relative-caret-position="135">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1473,7 +1452,7 @@
         <state relative-caret-position="270">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1491,7 +1470,7 @@
         <state relative-caret-position="216">
           <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1501,7 +1480,7 @@
         <state relative-caret-position="81">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1519,7 +1498,7 @@
         <state relative-caret-position="135">
           <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1529,7 +1508,7 @@
         <state relative-caret-position="236">
           <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1625,7 +1604,7 @@
         <state relative-caret-position="0">
           <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="false" />
             <element signature="e#570#697#0" expanded="false" />
           </folding>
         </state>
@@ -1636,7 +1615,7 @@
         <state relative-caret-position="110">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1646,7 +1625,7 @@
         <state relative-caret-position="110">
           <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1656,7 +1635,7 @@
         <state relative-caret-position="702">
           <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1666,7 +1645,7 @@
         <state relative-caret-position="135">
           <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1691,25 +1670,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <element signature="e#435#758#0" expanded="false" />
-            <element signature="e#804#923#0" expanded="false" />
-            <element signature="e#978#1058#0" expanded="false" />
-            <element signature="e#1134#4476#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/admins/DeployJobAdmin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1296">
           <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1719,7 +1685,7 @@
         <state relative-caret-position="54">
           <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1729,7 +1695,7 @@
         <state relative-caret-position="189">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1739,7 +1705,7 @@
         <state relative-caret-position="279">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1749,7 +1715,7 @@
         <state relative-caret-position="1161">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1759,7 +1725,7 @@
         <state relative-caret-position="779">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
             <element signature="e#321#658#0" expanded="false" />
           </folding>
         </state>
@@ -1770,7 +1736,7 @@
         <state relative-caret-position="54">
           <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1780,6 +1746,39 @@
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="111" column="26" lean-forward="false" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
+          <folding>
+            <element signature="e#493#816#0" expanded="false" />
+            <element signature="e#862#981#0" expanded="false" />
+            <element signature="e#1036#1116#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltjob/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="198" column="41" lean-forward="false" selection-start-line="198" selection-start-column="41" selection-end-line="198" selection-end-column="41" />
+          <folding>
+            <element signature="e#623#1569#0" expanded="false" />
+            <element signature="e#2806#3207#0" expanded="false" />
+            <element signature="e#3278#4992#0" expanded="false" />
+            <element signature="e#9951#17634#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
