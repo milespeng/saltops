@@ -10,6 +10,7 @@ from mptt.admin import MPTTModelAdmin
 from deploy_manager.models import *
 from saltjob.tasks import deployTask
 
+
 class DeployJobDetailInline(admin.StackedInline):
     model = DeployJobDetail
     fields = ['host', 'job_cmd', 'duration', 'deploy_message', 'stderr', 'comment', 'is_success']

@@ -6,10 +6,12 @@ from django.utils.html import format_html
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 from mptt.admin import MPTTModelAdmin
+from nested_inline.admin import NestedModelAdmin, NestedStackedInline
 
 from deploy_manager.models import *
 from deploy_manager.models.DeployJob import DEPLOY_STATUS
 from saltjob.tasks import deployTask
+
 
 class ProjectVersionInline(admin.StackedInline):
     model = ProjectVersion
@@ -25,22 +27,41 @@ class ProjectVersionInline(admin.StackedInline):
         )
 
 
-class HostInline(admin.TabularInline):
-    model = Project.host.through
-    fields = ['host']
-    verbose_name = '主机'
-    verbose_name_plural = '主机'
-    extra = 0
-
-
 class ProjectResource(resources.ModelResource):
     class Meta:
         model = Project
         exclude = ('project_module', 'host')
 
 
+class ProjectHostConfigFileInline(NestedStackedInline):
+    model = ProjectHostConfigFile
+    fields = ['file_path', 'file_content']
+    verbose_name = '配置文件'
+    verbose_name_plural = '配置文件'
+    readonly_fields = ['file_path', 'file_content']
+    extra = 0
+    fk_name = 'project_host'
+
+
+class ProjectConfigFileInline(admin.StackedInline):
+    model = ProjectConfigFile
+    fields = ['config_path', ]
+    verbose_name = '业务配置'
+    verbose_name_plural = '业务配置'
+    extra = 0
+
+
+class HostInline(NestedStackedInline):
+    model = Project.host.through
+    fields = ['host']
+    verbose_name = '主机'
+    verbose_name_plural = '主机'
+    extra = 0
+    inlines = [ProjectHostConfigFileInline]
+
+
 @admin.register(Project)
-class ProjectAdmin(ImportExportModelAdmin):
+class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
     def construct_change_message(self, request, form, formsets, add=False):
         """
         删除业务后执行卸载脚本
@@ -80,7 +101,7 @@ class ProjectAdmin(ImportExportModelAdmin):
                     'deployMsg', 'extra_btn']
     search_fields = ['host']
     list_filter = ['job_script_type']
-    inlines = [ProjectVersionInline, HostInline]
+    inlines = [ProjectConfigFileInline, ProjectVersionInline, HostInline]
     list_display_links = ['project_module', 'deployMsg']
     actions = ['deploydefaultAction']
     resource_class = ProjectResource
@@ -130,4 +151,3 @@ class ProjectAdmin(ImportExportModelAdmin):
 
     class Media:
         js = ('/static/js/Project.js',)
-

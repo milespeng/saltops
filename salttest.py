@@ -3,10 +3,10 @@ import yaml
 from saltjob.salt_https_api import salt_api_token, salt_api_jobs
 from saltjob.salt_token_id import token_id
 from saltjob.tasks import scanHostJob
-from saltops.settings import SALT_REST_URL
 
-# ins = salt_api_token({'fun': 'manage.status'},
+# ins = salt_api_token({'fun': 'cp.push'},
 #                      SALT_REST_URL, {'X-Auth-Token': token_id()})
+# print(ins.CmdRun())
 # i = ins.sshRun()
 # print(i)
 # ins = salt_api_token({'fun': 'key.list_all'},
