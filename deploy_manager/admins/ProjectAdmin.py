@@ -1,3 +1,4 @@
+import requests
 from django.conf.urls import url
 from django.contrib import admin
 from django.shortcuts import redirect
@@ -10,7 +11,10 @@ from nested_inline.admin import NestedModelAdmin, NestedStackedInline
 
 from deploy_manager.models import *
 from deploy_manager.models.DeployJob import DEPLOY_STATUS
-from saltjob.tasks import deployTask
+from saltjob.salt_https_api import salt_api_token
+from saltjob.salt_token_id import token_id
+from saltjob.tasks import deployTask, loadProjectConfig
+from saltops.settings import SALT_REST_URL, SALT_CONN_TYPE, SALT_HTTP_URL
 
 
 class ProjectVersionInline(admin.StackedInline):
@@ -75,7 +79,14 @@ class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
         if formsets:
             for formset in formsets:
                 for deleted_object in formset.deleted_objects:
-                    uninstall_list.append(deleted_object.host)
+                    if isinstance(deleted_object, ProjectHost):
+                        uninstall_list.append(deleted_object.host)
+
+                    if isinstance(deleted_object, ProjectConfigFile):
+                        hostset = deleted_object.project.projecthost_set.all()
+                        for host in hostset:
+                            ProjectHostConfigFile.objects.filter(project_host=host,
+                                                                 file_path=deleted_object.config_path).delete()
         if len(uninstall_list) != 0:
             obj = form.instance
             version = obj.projectversion_set.get(is_default=True)
@@ -93,6 +104,11 @@ class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
                 self.admin_site.admin_view(self.deploy_job),
                 name='deploy_job',
             ),
+            url(
+                r'^(?P<id>.+)/pull_config_file/$',
+                self.admin_site.admin_view(self.pull_config_file),
+                name='pull_config_file',
+            ),
         ]
         return custom_urls + urls
 
@@ -108,12 +124,17 @@ class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
 
     def extra_btn(self, obj):
         return format_html(
-            '<a class="btn" href="{}">部署</a>',
+            '<a class="btn" href="{}">部署业务</a>&nbsp&nbsp<a class="btn" href="{}">获取配置</a>',
             reverse('admin:deploy_job', args=[obj.pk]),
+            reverse('admin:pull_config_file', args=[obj.pk])
         )
 
     extra_btn.short_description = '操作'
     extra_btn.allow_tags = True
+
+    def pull_config_file(self, request, id):
+        self.message_user(request, "配置获取任务成功启动")
+        return redirect('/admin/deploy_manager/project')
 
     def deploy_job(self, request, id):
         obj = Project.objects.get(pk=id)

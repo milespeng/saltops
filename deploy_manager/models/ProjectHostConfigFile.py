@@ -10,7 +10,7 @@ class ProjectHostConfigFile(BaseModel):
     file_content = models.TextField(verbose_name='配置内容', null=True, blank=True)
 
     def __str__(self):
-        return self.file_content
+        return self.file_path
 
     class Meta:
         verbose_name = "配置内容"

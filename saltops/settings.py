@@ -146,9 +146,6 @@ CRONJOBS = [
     ('*/30 * * * *', 'saltjob.cron.scanHostJob')
 ]
 
-# 文件上传的路径
-# PACKAGE_PATH = "/Users/kira/oschina/saltops/doc/script/"
-PACKAGE_PATH = "D:\\github\\saltops\\doc\\scripts\\"
 
 STATIC_ROOT = 'static/'
 
@@ -164,37 +161,6 @@ STATICFILES_DIRS = (
     # ('plugins', os.path.join(STATIC_ROOT, 'plugins').replace('\\', '/')),
 
 )
-# JET_SIDE_MENU_COMPACT = True
-
-# JET_SIDE_MENU_CUSTOM_APPS = [
-#     ('cmdb', [
-#         'IDCLevel',
-#         'ISP',
-#         'IDC',
-#         'Cabinet',
-#         'Rack',
-#         'Host'
-#     ]),
-#     ('deploy_manager', [
-#         'ProjectModule',
-#         'Project',
-#         'DeployJob'
-#     ]),
-#     # ('tools_manager', [
-#     #     'ToolsTypes',
-#     #     'ToolsScript',
-#     # ]),
-#     ('djcelery', [
-#         'IntervalSchedule',
-#         'CrontabSchedule',
-#         'PeriodicTask',
-#         'TaskState'
-#
-#     ]),
-#     # ('kombu', [
-#     #     'Message',
-#     # ]),
-# ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -202,13 +168,19 @@ REST_FRAMEWORK = {
     ]
 }
 #
-# SALT_REST_URL = 'http://192.168.80.133:8001/'
-# SALT_USER = 'loginsight'
-# SALT_PASSWORD = 'loginsight'
+SALT_REST_URL = 'http://192.168.80.133:8001/'
+SALT_USER = 'loginsight'
+SALT_PASSWORD = 'loginsight'
+# 文件上传的路径
+PACKAGE_PATH = "/Users/kira/oschina/saltops/doc/script/"
+SALT_CONN_TYPE = 'http'  # http
+SALT_HTTP_URL = 'http://192.168.80.133:5000'
+# SALT_HTTP_URL = 'http://192.168.75.128:5000'
+# PACKAGE_PATH = "D:\\github\\saltops\\doc\\scripts\\"
 
-SALT_REST_URL = 'http://192.168.75.128:8001/'
-SALT_USER = 'kira'
-SALT_PASSWORD = '8565'
+# SALT_REST_URL = 'http://192.168.75.128:8001/'
+# SALT_USER = 'kira'
+# SALT_PASSWORD = '8565'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'
@@ -231,9 +203,7 @@ SUIT_CONFIG = {
     'LIST_PER_PAGE': 15
 }
 
-SALT_CONN_TYPE = 'http'  # http
-# SALT_HTTP_URL = 'http://192.168.80.133:5000'
-SALT_HTTP_URL = 'http://192.168.75.128:5000'
+
 
 LOGGING = {
     'version': 1,
@@ -279,4 +249,4 @@ LOGGING = {
 DEFAULT_LOGGER = 'default'
 
 INTERNAL_IPS = ['127.0.0.1']
-USE_DJANGO_JQUERY=True
+USE_DJANGO_JQUERY = True

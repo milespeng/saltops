@@ -34,7 +34,7 @@
     // });
 
     $(document).ready(function () {
-        $(".extra_btn-column").attr("width", "8%");
+        $(".extra_btn-column").attr("width", "15%");
     });
 
 

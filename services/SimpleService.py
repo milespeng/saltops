@@ -15,6 +15,13 @@ def upload():
     return ''
 
 
+@app.route('/read', methods=['POST'])
+def read():
+    filename = request.form['name']
+    contents = open(filename,'rb').read()
+    return contents
+
+
 @app.route('/rouster', methods=['POST'])
 def rouster():
     content = request.form['content']

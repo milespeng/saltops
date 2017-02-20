@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from searchableselect.widgets import SearchableSelect
 
-from saltjob.tasks import execTools
+from cmdb.models import Host
+from saltjob.tasks import execTools, scanProjectConfig
 from tools_manager.models import *
 
 
@@ -25,6 +26,7 @@ class ToolsScriptAdmin(admin.ModelAdmin):
                                                          extra_context=extra_context)
 
     def save_model(self, request, obj, form, change):
+        scanProjectConfig()
         if request.POST['action'] == '1':
             execTools(obj, request.POST.getlist('sls_hosts'), request.POST['txt_param'])
             self.message_user(request, "工具执行成功")
