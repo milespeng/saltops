@@ -34,24 +34,24 @@ ALLOWED_HOSTS = []
 # CELERY_IMPORTS = ('saltjob.cron.scanHostJob',)
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 INSTALLED_APPS = [
-    'suit',
+    # 'suit',
     'import_export',
     'common',
     'cmdb',
     'saltjob',
     'smart_selects',
     # 'searchableselect',
-    # 'jet.dashboard',
-    # 'jet',
+    'jet.dashboard',
+    'jet',
     'nested_inline',
     'mptt',
     'tools_manager',
     'rest_framework',
     'deploy_manager',
     'django_crontab',
-    'dashboard',
+    # 'dashboard',
     'django.contrib.admindocs',
-    'django.contrib.admin.apps.SimpleAdminConfig',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djcelery',
     'kombu.transport.django',
-    'suit_dashboard',
+    # 'suit_dashboard',
     # 'debug_toolbar'
 ]
 
@@ -146,7 +146,6 @@ CRONJOBS = [
     ('*/30 * * * *', 'saltjob.cron.scanHostJob')
 ]
 
-
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
@@ -155,10 +154,15 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 
     # ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
+    # ('djcelery', os.path.join(STATIC_ROOT, 'djcelery').replace('\\', '/')),
+    # ('import_export', os.path.join(STATIC_ROOT, 'import_export').replace('\\', '/')),
     # ('jet', os.path.join(STATIC_ROOT, 'jet').replace('\\', '/')),
+    # ('jet.dashboard', os.path.join(STATIC_ROOT, 'jet.dashboard').replace('\\', '/')),
+    # ('js', os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
+    # ('mptt', os.path.join(STATIC_ROOT, 'mptt').replace('\\', '/')),
     # ('range_filter', os.path.join(STATIC_ROOT, 'range_filter').replace('\\', '/')),
-    # ('fonts', os.path.join(STATIC_ROOT, 'fonts').replace('\\', '/')),
-    # ('plugins', os.path.join(STATIC_ROOT, 'plugins').replace('\\', '/')),
+    # ('rest_framework', os.path.join(STATIC_ROOT, 'rest_framework').replace('\\', '/')),
+    # ('smart-selects', os.path.join(STATIC_ROOT, 'smart-selects').replace('\\', '/')),
 
 )
 
@@ -202,8 +206,6 @@ SUIT_CONFIG = {
     ),
     'LIST_PER_PAGE': 15
 }
-
-
 
 LOGGING = {
     'version': 1,
@@ -250,3 +252,36 @@ DEFAULT_LOGGER = 'default'
 
 INTERNAL_IPS = ['127.0.0.1']
 USE_DJANGO_JQUERY = True
+
+JET_SIDE_MENU_COMPACT = True
+
+JET_SIDE_MENU_CUSTOM_APPS = [
+    ('cmdb', [
+        'IDCLevel',
+        'ISP',
+        'IDC',
+        'Cabinet',
+        'Rack',
+        'Host'
+    ]),
+    ('deploy_manager', [
+        'ProjectModule',
+        'Project',
+        'DeployJob'
+    ]),
+    ('tools_manager', [
+        'ToolsTypes',
+        'ToolsScript',
+        'ToolsExecJob',
+    ]),
+    ('djcelery', [
+        'IntervalSchedule',
+        'CrontabSchedule',
+        'PeriodicTask',
+        'TaskState'
+
+    ]),
+    # ('kombu', [
+    #     'Message',
+    # ]),
+]

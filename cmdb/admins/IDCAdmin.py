@@ -12,9 +12,6 @@ from saltjob.salt_token_id import token_id
 from saltjob.tasks import scanHostJob
 from saltops.settings import SALT_CONN_TYPE, SALT_HTTP_URL, SALT_REST_URL
 
-admin.register(Host, HostAdmin)
-
-
 class RackInline(NestedStackedInline):
     model = Rack
     fields = ['name']
