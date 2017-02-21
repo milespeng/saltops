@@ -153,16 +153,16 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 
-    # ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
-    # ('djcelery', os.path.join(STATIC_ROOT, 'djcelery').replace('\\', '/')),
-    # ('import_export', os.path.join(STATIC_ROOT, 'import_export').replace('\\', '/')),
-    # ('jet', os.path.join(STATIC_ROOT, 'jet').replace('\\', '/')),
-    # ('jet.dashboard', os.path.join(STATIC_ROOT, 'jet.dashboard').replace('\\', '/')),
-    # ('js', os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
-    # ('mptt', os.path.join(STATIC_ROOT, 'mptt').replace('\\', '/')),
-    # ('range_filter', os.path.join(STATIC_ROOT, 'range_filter').replace('\\', '/')),
-    # ('rest_framework', os.path.join(STATIC_ROOT, 'rest_framework').replace('\\', '/')),
-    # ('smart-selects', os.path.join(STATIC_ROOT, 'smart-selects').replace('\\', '/')),
+    ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
+    ('djcelery', os.path.join(STATIC_ROOT, 'djcelery').replace('\\', '/')),
+    ('import_export', os.path.join(STATIC_ROOT, 'import_export').replace('\\', '/')),
+    ('jet', os.path.join(STATIC_ROOT, 'jet').replace('\\', '/')),
+    ('jet.dashboard', os.path.join(STATIC_ROOT, 'jet.dashboard').replace('\\', '/')),
+    ('js', os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
+    ('mptt', os.path.join(STATIC_ROOT, 'mptt').replace('\\', '/')),
+    ('range_filter', os.path.join(STATIC_ROOT, 'range_filter').replace('\\', '/')),
+    ('rest_framework', os.path.join(STATIC_ROOT, 'rest_framework').replace('\\', '/')),
+    ('smart-selects', os.path.join(STATIC_ROOT, 'smart-selects').replace('\\', '/')),
 
 )
 

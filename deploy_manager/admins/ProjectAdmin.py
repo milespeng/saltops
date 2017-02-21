@@ -17,7 +17,7 @@ from saltjob.tasks import deployTask, loadProjectConfig
 from saltops.settings import SALT_REST_URL, SALT_CONN_TYPE, SALT_HTTP_URL
 
 
-class ProjectVersionInline(admin.StackedInline):
+class ProjectVersionInline(NestedStackedInline):
     model = ProjectVersion
     fields = ['name', 'sub_job_script_type', 'subplaybook', 'anti_install_playbook', 'extra_param', 'is_default',
               'files', ]
@@ -47,7 +47,7 @@ class ProjectHostConfigFileInline(NestedStackedInline):
     fk_name = 'project_host'
 
 
-class ProjectConfigFileInline(admin.StackedInline):
+class ProjectConfigFileInline(NestedStackedInline):
     model = ProjectConfigFile
     fields = ['config_path', ]
     verbose_name = '业务配置'
@@ -133,6 +133,7 @@ class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
     extra_btn.allow_tags = True
 
     def pull_config_file(self, request, id):
+        loadProjectConfig(id)
         self.message_user(request, "配置获取任务成功启动")
         return redirect('/admin/deploy_manager/project')
 

@@ -2,12 +2,433 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/fonts/Roboto-Bold-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/fonts/Roboto-Light-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/fonts/Roboto-Regular-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/icons/fonts/jet-icons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/icons/fonts/jet-icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/icons/fonts/jet-icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-bg_flat_0_aaaaaa_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-bg_flat_75_ffffff_40x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-bg_glass_55_fbf9ee_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-bg_glass_65_ffffff_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-bg_glass_75_dadada_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-bg_glass_75_e6e6e6_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-bg_glass_95_fef1ec_1x400.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-icons_222222_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-icons_2e83ff_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-icons_454545_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-icons_888888_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/images/ui-icons_cd0a0a_256x240.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/mptt/arrow-move.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/mptt/disclosure-down.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/mptt/disclosure-right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/img/glyphicons-halflings-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/img/glyphicons-halflings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/img/grid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/changelists.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/dashboard.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/fonts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/forms-nested.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/forms.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/login.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/rtl.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/css/widgets.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/fonts/LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/fonts/README.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/README.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/calendar-icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/gis/move_vertex_off.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/gis/move_vertex_on.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-addlink.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-alert.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-calendar.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-changelink.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-clock.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-deletelink.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-no.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-unknown-alt.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-unknown.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/icon-yes.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/inline-delete.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/search.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/selector-icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/sorting-icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/tooltag-add.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/img/tooltag-arrowright.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/SelectBox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/SelectFilter2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/actions.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/admin/DateTimeShortcuts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/admin/RelatedObjectLookups.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/calendar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/cancel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/change_form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/collapse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/collapse.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/core.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/inlines-nested.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/inlines-nested.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/inlines.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/inlines.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/jquery.init.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/popup_response.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/prepopulate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/prepopulate.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/prepopulate_init.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/related-widget-wrapper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/timeparse.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/urlify.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/LICENSE-JQUERY.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/LICENSE-XREGEXP.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/vendor/xregexp/xregexp.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/djcelery/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/import_export/action_formats.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet.dashboard/dashboard_modules/google_analytics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet.dashboard/dashboard_modules/yandex_metrika.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet.dashboard/vendor/chart.js/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet.dashboard/vendor/chart.js/Chart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet.dashboard/vendor/chart.js/Chart.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet.dashboard/vendor/chart.js/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet.dashboard/vendor/chart.js/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_base.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_breadcrumbs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_changeform.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_changelist.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_content.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_dashboard.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_delete-confirmation.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_forms.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_globals.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_header.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_helpers.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_login.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_messages.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_modules.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_object-tools.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_relatedpopup.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_sidebar.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_tables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/icons/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/icons/fonts/jet-icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/icons/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/jquery-ui/_jquery-ui.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/select2/_layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/select2/_multiple.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/select2/_single.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/base.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/base.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/jquery-ui.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/jquery-ui.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/jquery-ui.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/select2.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/select2.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/default/select2.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/base.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/base.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/jquery-ui.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/jquery-ui.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/jquery-ui.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/select2.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/select2.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/green/select2.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/base.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/base.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/jquery-ui.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/jquery-ui.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/jquery-ui.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/select2.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/select2.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-blue/select2.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/base.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/base.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/jquery-ui.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/jquery-ui.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/jquery-ui.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/select2.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/select2.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-gray/select2.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/base.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/base.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/jquery-ui.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/jquery-ui.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/jquery-ui.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/select2.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/select2.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-green/select2.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/base.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/base.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/jquery-ui.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/jquery-ui.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/jquery-ui.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/select2.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/select2.theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/themes/light-violet/select2.theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/css/vendor.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/build/bundle.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-sl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui-timepicker/jquery.ui.timepicker-tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-af.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ar-DZ.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-az.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-be.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-bs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-cy-GB.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-en-AU.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-en-GB.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-en-NZ.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-eo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-fo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-fr-CA.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-fr-CH.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-hi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-hy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-it-CH.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ka.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-kk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-km.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ky.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-lb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-nl-BE.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-nn.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-no.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-rm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-sl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-sq.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-sr-SR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-ta.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-tj.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-zh-HK.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/jquery-ui/datepicker-zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/az.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/hi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/i18n/select2/zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/changeform-tabs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/changeform.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/changelist.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/checkboxes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/compact-inline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/dashboard.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/date-time-widgets.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/filters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/inlines.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/related-popups.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/scroll-to-bottom-detector.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/selects.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/siblings.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/sidebar/application-pinning.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/sidebar/bookmarks.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/sidebar/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/sidebar/popup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/themes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/tooltips.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/features/touchmove-non-scrollable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/branding.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/breadcrumbs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/changeform-tabs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/delete-confirmation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/icons.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/object-tools.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/paginator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/related-widget-wrapper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/stacked-inline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/tabular-inline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/toolbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/layout-updaters/user-tools.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/utils/jquery-icontains.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/utils/jquery-slidefade.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/utils/translate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jet/js/src/utils/window-storage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/DeployJobAdmin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/Project.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/ProjectVersionInline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/ToolsExecJob.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/ToolsScriptAdmin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/mptt/draggable-admin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/mptt/draggable-admin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/range_filter/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/css/bootstrap-tweaks.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/css/default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/css/prettify.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/js/ajax-form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/js/csrf.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/js/default.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/js/jquery-1.12.4.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/rest_framework/js/prettify-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/smart-selects/admin/js/chainedfk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/smart-selects/admin/js/chainedm2m.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/404.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/500.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/actions.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/app_index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/auth/user/add_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/auth/user/change_password.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/base.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/base_site.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/change_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/change_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/change_list_results.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/date_hierarchy.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/delete_confirmation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/delete_selected_confirmation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/edit_inline/compact.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/edit_inline/stacked-nested.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/edit_inline/stacked.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/edit_inline/tabular-nested.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/edit_inline/tabular.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/filter.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/base.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/change_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/change_list_export.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/change_list_export_item.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/change_list_import.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/change_list_import_export.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/change_list_import_item.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/export.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/import_export/import.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/includes/fieldset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/includes/object_delete_summary.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/invalid_setup.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/object_history.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/pagination.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/popup_response.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/prepopulated_fields_js.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/related_widget_wrapper.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/search_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/submit_line.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/jet/related_field_ajax_list_filter.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/rangefilter/date_filter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/admins/IDCAdmin.py" afterPath="$PROJECT_DIR$/cmdb/admins/IDCAdmin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" afterPath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/settings.py" afterPath="$PROJECT_DIR$/saltops/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/urls.py" afterPath="$PROJECT_DIR$/saltops/urls.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,39 +467,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cmdb_host_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html">
+      <file leaf-file-name="tabular.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/tabular.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="46" column="79" lean-forward="false" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
-              <folding>
-                <element signature="e#979#987#0#HTML" expanded="true" />
-                <element signature="e#1095#1103#0#HTML" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_content.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/jet/static/jet/css/_content.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="220" column="2" lean-forward="false" selection-start-line="220" selection-start-column="2" selection-end-line="220" selection-end-column="25" />
+            <state relative-caret-position="228">
+              <caret line="66" column="38" lean-forward="false" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="38" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/saltops/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="164" column="87" lean-forward="false" selection-start-line="155" selection-start-column="3" selection-end-line="164" selection-end-column="87" />
-              <folding>
-                <element signature="e#335#344#0" expanded="true" />
-                <element signature="e#5644#6293#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -96,9 +490,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>http</find>
-      <find>DJANGO_SETTINGS_MODULE</find>
-      <find>USE_DJANGO_JQUERY</find>
       <find>tools_script_change_form.html</find>
       <find>rever</find>
       <find>deploy_job</find>
@@ -108,7 +499,6 @@
       <find>debug</find>
       <find>response_post_save_change</find>
       <find>delete_</find>
-      <find>delete</find>
       <find>save_formset</find>
       <find>deleted_objects</find>
       <find>deployTask</find>
@@ -126,6 +516,10 @@
       <find>add</find>
       <find>addlink</find>
       <find>import_link</find>
+      <find>object-tools-items</find>
+      <find>ProjectConfigFileInline</find>
+      <find>class=&quot;delete&quot;</find>
+      <find>delete</find>
     </findStrings>
     <replaceStrings>
       <replace>BaseModel</replace>
@@ -138,6 +532,7 @@
       <dir>$PROJECT_DIR$/../envs/saltops/lib/python3.4/site-packages/django/contrib/admin</dir>
       <dir>$USER_HOME$/envs/ops/lib/python3.5/site-packages/jet/static/jet/css</dir>
       <dir>$PROJECT_DIR$/static</dir>
+      <dir>$PROJECT_DIR$/templates/admin/edit_inline</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -152,16 +547,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cmdb/models/__init__.py" />
-        <option value="$PROJECT_DIR$/cmdb/models/ISP.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/models/ProjectModule.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/models/Project.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/models/ProjectHost.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/models/DeployJob.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/models.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/models/DeployJobDetail.py" />
-        <option value="$PROJECT_DIR$/tools_manager/models/ToolsTypes.py" />
         <option value="$PROJECT_DIR$/tools_manager/models/ToolsScript.py" />
         <option value="$PROJECT_DIR$/tools_manager/models/ToolsExecJob.py" />
         <option value="$PROJECT_DIR$/tools_manager/models.py" />
@@ -195,14 +580,24 @@
         <option value="$PROJECT_DIR$/doc/常用命令.md" />
         <option value="$PROJECT_DIR$/tools_manager/admins/ToolsScriptAdmin.py" />
         <option value="$PROJECT_DIR$/saltjob/tasks.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
         <option value="$PROJECT_DIR$/cmdb/admins/IDCAdmin.py" />
         <option value="$PROJECT_DIR$/saltops/urls.py" />
-        <option value="$PROJECT_DIR$/templates/admin/import_export/change_list_import_item.html" />
-        <option value="$PROJECT_DIR$/templates/admin/import_export/change_list_export_item.html" />
         <option value="$PROJECT_DIR$/templates/admin/change_list.html" />
-        <option value="$PROJECT_DIR$/saltops/settings.py" />
         <option value="$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html" />
+        <option value="$PROJECT_DIR$/templates/admin/import_export/change_list.html" />
+        <option value="$PROJECT_DIR$/templates/admin/import_export/change_list_export.html" />
+        <option value="$PROJECT_DIR$/templates/admin/import_export/change_list_import_export.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
+        <option value="$PROJECT_DIR$/saltops/settings.py" />
+        <option value="$PROJECT_DIR$/static/admin/js/jquery.js" />
+        <option value="$PROJECT_DIR$/templates/admin/import_export/change_list_export_item.html" />
+        <option value="$PROJECT_DIR$/templates/admin/import_export/change_list_import_item.html" />
+        <option value="$PROJECT_DIR$/static/admin/css/forms-nested.css" />
+        <option value="$PROJECT_DIR$/templates/admin/edit_inline/stacked.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit_inline/tabular.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit_inline/tabular-nested.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit_inline/compact.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit_inline/stacked-nested.html" />
       </list>
     </option>
   </component>
@@ -243,6 +638,94 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.5.2 virtualenv at ~/envs/ops &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.5.2 virtualenv at ~/envs/ops &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.5.2 virtualenv at ~/envs/ops &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nested_inline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.5.2 virtualenv at ~/envs/ops &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nested_inline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="edit_inline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="saltops" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -266,19 +749,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/static/admin/js" />
+      <recent name="$PROJECT_DIR$/deploy_manager/templates" />
+      <recent name="$PROJECT_DIR$/tools_manager/templates" />
+      <recent name="$PROJECT_DIR$/doc/sls" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/doc/wiki/img" />
       <recent name="$PROJECT_DIR$/tools_manager/templates/tools_manager" />
       <recent name="$PROJECT_DIR$/doc/img" />
       <recent name="$PROJECT_DIR$/templates/admin/templates" />
       <recent name="$PROJECT_DIR$/doc/script/orch" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/deploy_manager/templates" />
-      <recent name="$PROJECT_DIR$/tools_manager/templates" />
-      <recent name="$PROJECT_DIR$/doc/sls" />
-      <recent name="$PROJECT_DIR$/doc/wiki" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -840,13 +1323,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00084" summary="更新ReadMe">
-      <created>1486523010618</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1486523010618</updated>
-    </task>
     <task id="LOCAL-00085" summary="更新ReadMe">
       <created>1486523995513</created>
       <option name="number" value="00085" />
@@ -1183,7 +1659,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487498839909</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="切换主题，开始修整样式">
+      <created>1487587086689</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1487587086689</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1199,14 +1682,14 @@
     <frame x="0" y="23" width="1920" height="1097" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20713525" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20926517" sideWeight="0.49436393" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37910447" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3074627" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10117146" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22885571" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5085537" order="2" side_tool="true" content_ui="tabs" />
@@ -1237,7 +1720,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="添加Salt-SSH文档" />
     <MESSAGE value="完善ReadMe" />
     <MESSAGE value="新增Golang部署模板" />
     <MESSAGE value="添加Golang模板" />
@@ -1262,7 +1744,8 @@
     <MESSAGE value="优化代码结构，分离代码" />
     <MESSAGE value="修复文件发送部分" />
     <MESSAGE value="开始弄业务配置自动抓取" />
-    <option name="LAST_COMMIT_MESSAGE" value="开始弄业务配置自动抓取" />
+    <MESSAGE value="切换主题，开始修整样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="切换主题，开始修整样式" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1276,7 +1759,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="293" />
+      <option name="time" value="294" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
@@ -1292,117 +1775,11 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools_manager/admins/ToolsTypesAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/admins/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/DeployJob.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/admins/DeployJobAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/models/Rack.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-243">
-          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/admins/RackAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/admins/ISPAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/menu.py" />
-    <entry file="file://$PROJECT_DIR$/saltjob/salt_https_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/salt_token_id.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/admins/HostAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="66" column="6" lean-forward="false" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="92" column="108" lean-forward="true" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/templates/project_change_form.html" />
     <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/Project.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1411,7 +1788,6 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="-170">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1427,21 +1803,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/contrib/admin/sites.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/SimpleService.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="21" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1481,7 +1846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,9 +1853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#321#658#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1499,7 +1860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1511,40 +1871,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="132" column="31" lean-forward="false" selection-start-line="132" selection-start-column="31" selection-end-line="132" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#1144#1224#0" expanded="false" />
-            <element signature="e#2084#3358#0" expanded="false" />
-            <element signature="e#3392#3849#0" expanded="false" />
-            <element signature="e#3870#4011#0" expanded="false" />
-            <element signature="e#4835#5178#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
-          <caret line="476" column="26" lean-forward="false" selection-start-line="476" selection-start-column="26" selection-end-line="476" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#2792#3193#0" expanded="false" />
-            <element signature="e#3264#4978#0" expanded="false" />
-            <element signature="e#5073#9884#0" expanded="false" />
-            <element signature="e#9936#17619#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmdb/admins/CabinetAdmin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1552,7 +1882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1560,20 +1889,18 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="59" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/saltops/urls.py">
@@ -1588,7 +1915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1596,7 +1922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1604,7 +1929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1612,7 +1936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-270">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1620,7 +1943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="6" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1634,24 +1956,122 @@
     </entry>
     <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/jet/static/jet/css/_content.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="3300">
           <caret line="220" column="2" lean-forward="false" selection-start-line="220" selection-start-column="2" selection-end-line="220" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/change_list_import_item.html">
+    <entry file="file://$PROJECT_DIR$/static/import_export/action_formats.js" />
+    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+        <state relative-caret-position="15">
+          <caret line="1" column="27" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="27" />
+          <folding>
+            <element signature="e#112#142#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/change_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/sls/elasticsearch-master.sls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/nested_inline/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/contrib/admin/sites.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="209" column="17" lean-forward="false" selection-start-line="209" selection-start-column="17" selection-end-line="209" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="135" column="28" lean-forward="false" selection-start-line="135" selection-start-column="28" selection-end-line="135" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#1144#1224#0" expanded="false" />
+            <element signature="e#3392#3849#0" expanded="false" />
+            <element signature="e#3870#4011#0" expanded="false" />
+            <element signature="e#4865#5208#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="440" column="0" lean-forward="false" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
+          <folding>
+            <element signature="e#2792#3193#0" expanded="false" />
+            <element signature="e#3264#4978#0" expanded="false" />
+            <element signature="e#5073#9884#0" expanded="false" />
+            <element signature="e#9936#17619#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="9209" column="4" lean-forward="false" selection-start-line="9209" selection-start-column="4" selection-end-line="9209" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="151" column="32" lean-forward="true" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
+          <folding>
+            <element signature="e#5624#6273#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/change_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="59" lean-forward="true" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/import_export/change_list_export.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1659,20 +2079,36 @@
     <entry file="file://$PROJECT_DIR$/templates/admin/import_export/change_list_export_item.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="90" lean-forward="false" selection-start-line="3" selection-start-column="71" selection-end-line="3" selection-end-column="90" />
+          <caret line="3" column="73" lean-forward="false" selection-start-line="3" selection-start-column="73" selection-end-line="3" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/import_export/action_formats.js">
+    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/change_list_import.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        <state relative-caret-position="45">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/import.html">
+    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/change_list_import_export.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/change_list_import_item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="48" lean-forward="false" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/export.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1680,50 +2116,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/base.html">
+    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/import.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="-1050">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/import_export/change_list.html">
+    <entry file="file://$PROJECT_DIR$/static/admin/css/forms-nested.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="134">
+          <caret line="344" column="23" lean-forward="true" selection-start-line="344" selection-start-column="23" selection-end-line="344" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/change_list.html">
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/stacked.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        <state relative-caret-position="210">
+          <caret line="14" column="106" lean-forward="false" selection-start-line="14" selection-start-column="106" selection-end-line="14" selection-end-column="106" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saltops/settings.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/jet/static/jet/css/themes/default/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="164" column="87" lean-forward="false" selection-start-line="155" selection-start-column="3" selection-end-line="164" selection-end-column="87" />
-          <folding>
-            <element signature="e#335#344#0" expanded="true" />
-            <element signature="e#5644#6293#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="0" column="106497" lean-forward="false" selection-start-line="0" selection-start-column="106497" selection-end-line="0" selection-end-column="106497" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html">
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/compact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="46" column="79" lean-forward="false" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
-          <folding>
-            <element signature="e#979#987#0#HTML" expanded="true" />
-            <element signature="e#1095#1103#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="183">
+          <caret line="43" column="125" lean-forward="false" selection-start-line="43" selection-start-column="125" selection-end-line="43" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/jet/static/jet/css/_changeform.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="594" column="20" lean-forward="true" selection-start-line="594" selection-start-column="20" selection-end-line="594" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/stacked-nested.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="103" lean-forward="false" selection-start-line="10" selection-start-column="103" selection-end-line="10" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/tabular-nested.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="62" column="14" lean-forward="false" selection-start-line="62" selection-start-column="14" selection-end-line="62" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/tabular.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="66" column="38" lean-forward="false" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
