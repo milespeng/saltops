@@ -56,7 +56,7 @@ class ProjectConfigFileInline(NestedStackedInline):
     extra = 0
 
 
-class HostInline(CompactInline, NestedStackedInline):
+class HostInline(NestedStackedInline):
     model = Project.host.through
     fields = ['host']
     verbose_name = '主机'
