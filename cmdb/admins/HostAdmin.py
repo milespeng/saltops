@@ -44,7 +44,7 @@ class HostAdmin(admin.ModelAdmin):
                     'host', 'idc', 'system_serialnumber',
                     'os', 'virtual', 'enable_ssh', 'minion_status', 'create_time', 'update_time']
     search_fields = ['host']
-    list_filter = ['virtual', 'os_family', 'os', 'minion_status']
+    list_filter = ['virtual', 'os_family',  'minion_status']
     inlines = [IPInline, ProjectInline]
     change_list_template = 'cmdb_host_list.html'
 

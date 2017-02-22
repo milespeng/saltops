@@ -23,6 +23,8 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 
 # 文档
 
+> 由于界面变动比较频繁，部分文档截图可能会比较旧
+
 - [SaltOps的定位与目标](doc/wiki/SaltOps的定位与目标.md)
 - [架构概览](doc/wiki/架构概览.md)
 - [安装前准备](doc/wiki/安装前准备.md)
