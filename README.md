@@ -1,5 +1,9 @@
-#saltops
+<div align="center">
+  <img src="http://git.oschina.net/uploads/images/2017/0222/194111_62523ae9_8819.png"><br><br>
+</div>
 
+
+#saltops
 
 #目标
 SaltOps是一个基于SaltStack和Django开发的运维平台，
