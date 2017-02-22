@@ -108,7 +108,6 @@ class BoxMachineBasicInfo(Box):
             html_id='SysInfo', name='主机系统信息',
             display=Item.AS_TABLE,
             value=(
-                ('主机名', platform.node()),
                 ('系统', '%s, %s, %s' % (
                     platform.system(),
                     ' '.join(platform.linux_distribution()),

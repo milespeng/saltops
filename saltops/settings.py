@@ -285,3 +285,4 @@ JET_SIDE_MENU_CUSTOM_APPS = [
     #     'Message',
     # ]),
 ]
+JET_INDEX_DASHBOARD = 'common.dashboard.CustomIndexDashboard'

@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils.html import format_html
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
+from jet.admin import CompactInline
 from mptt.admin import MPTTModelAdmin
 from nested_inline.admin import NestedModelAdmin, NestedStackedInline
 
@@ -55,7 +56,7 @@ class ProjectConfigFileInline(NestedStackedInline):
     extra = 0
 
 
-class HostInline(NestedStackedInline):
+class HostInline(CompactInline, NestedStackedInline):
     model = Project.host.through
     fields = ['host']
     verbose_name = '主机'
