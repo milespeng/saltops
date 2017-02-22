@@ -27,9 +27,6 @@ from dashboard.sites import DashboardSite
 from deploy_manager.views import *
 from saltops import settings
 
-# admin.site = DashboardSite()
-# admin.sites.site = admin.site  # >= Django 1.9.5
-# admin.autodiscover()
 
 router = routers.DefaultRouter()
 router.register(r'projectversionViewSet', ProjectVersionViewSet)
@@ -53,14 +50,5 @@ urlpatterns = [
 #     urlpatterns += [
 #         url(r'^__debug__/', include(debug_toolbar.urls)),
 #     ]
-# admin.site.site_header = 'SaltOps'
-# admin.site.site_title = 'SaltOps'
-
-
-# def export_selected_objects(modeladmin, request, queryset):
-#     selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
-#     ct = ContentType.objects.get_for_model(queryset.model)
-#     return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
-
-
-# admin.site.add_action(export_selected_objects, '导出选定内容')
+admin.site.site_header = 'SaltOps'
+admin.site.site_title = 'SaltOps'
