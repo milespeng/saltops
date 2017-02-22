@@ -1,7 +1,5 @@
 #saltops
-<div align=center>
-![输入图片说明](http://git.oschina.net/uploads/images/2017/0222/142600_a0e6b7e1_8819.png "在这里输入图片标题")
-</div>
+
 
 #目标
 SaltOps是一个基于SaltStack和Django开发的运维平台，
