@@ -1,5 +1,6 @@
 import json
 
+from django.db.models import Count
 from jet.dashboard.modules import DashboardModule
 import platform
 import psutil
@@ -60,3 +61,23 @@ class HostResourceOverView(DashboardModule):
 
     class Media:
         js = ('admin/js/jquery.js', 'js/highcharts.js',)
+
+
+class HostTypeOverView(DashboardModule):
+    title = '操作系统分布'
+    title_url = '#'
+    template = 'host_type_overview.html'
+
+    def init_with_context(self, context):
+        result = Host.objects.values('os').annotate(total=Count('os'))
+
+        os = []
+        total = []
+        for obj in result:
+            os.append(obj['os'])
+            total.append(obj['total'])
+        self.os = os
+        self.total = total
+
+        class Media:
+            js = ('admin/js/jquery.js', 'js/highcharts.js',)
