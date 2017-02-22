@@ -131,23 +131,31 @@ def execTools(obj, hostList, ymlParam):
     logger.info("获取目标主机信息,目标部署主机共%s台", hostSet.count())
 
     for target in hostSet:
-        result = runSaltCommand(target, script_type, script_name)
-        for master in result:
-            targetHost, dataResult = getHostViaResult(result, target, master)
+        try:
+            result = runSaltCommand(target, script_type, script_name)
 
-            if obj.tool_run_type == 0:
-                for cmd in dataResult:
+            for master in result:
+                targetHost, dataResult = getHostViaResult(result, target, master)
+
+                if obj.tool_run_type == 0:
+                    for cmd in dataResult:
+                        execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
+                                                            host=targetHost,
+                                                            exec_result=dataResult[cmd]['changes']['stdout'],
+                                                            err_msg=dataResult[cmd]['changes']['stdout'])
+                        execDetail.save()
+                else:
                     execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                         host=targetHost,
-                                                        exec_result=dataResult[cmd]['changes']['stdout'],
-                                                        err_msg=dataResult[cmd]['changes']['stdout'])
+                                                        exec_result=dataResult['stdout'],
+                                                        err_msg=dataResult['stderr'])
                     execDetail.save()
-            else:
-                execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
-                                                    host=targetHost,
-                                                    exec_result=dataResult['stdout'],
-                                                    err_msg=dataResult['stderr'])
-                execDetail.save()
+        except Exception as e:
+            execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
+                                                host=target,
+                                                exec_result='执行失败',
+                                                err_msg='执行失败')
+            execDetail.save()
 
     return toolExecJob
 
