@@ -44,7 +44,7 @@ class IDCFilter(admin.SimpleListFilter):
 
 @admin.register(Cabinet)
 class CabinetAdmin(admin.ModelAdmin):
-    list_display = ['idc', 'name', 'rack_count', 'create_time', 'update_time']
+    list_display = ['name', 'idc', 'rack_count', 'create_time', 'update_time']
     search_fields = ['name']
     fk_name = 'cabinet'
     list_filter = [IDCFilter]
