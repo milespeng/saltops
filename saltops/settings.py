@@ -294,10 +294,10 @@ JET_SIDE_MENU_CUSTOM_APPS = [
 ]
 JET_INDEX_DASHBOARD = 'common.dashboard.CustomIndexDashboard'
 
-EMAIL_HOST = ' smtp.163.com'                   #SMTP地址
-EMAIL_PORT = 25                                 #SMTP端口
-EMAIL_HOST_USER = 'wwh8565@163.com'       #我自己的邮箱
-EMAIL_HOST_PASSWORD = 'wwh85650550'                  #我的邮箱密码
-EMAIL_SUBJECT_PREFIX = 'SaltOps'            #为邮件Subject-line前缀,默认是'[django]'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_SUBJECT_PREFIX = 'SaltOps'
 # EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'post_office.EmailBackend'
