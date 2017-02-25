@@ -344,6 +344,7 @@ def scanHostJob():
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                             SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
     logger.info("扫描Minion数量为[%s]", len(result))
+    Host.objects.update(minion_status=0)
 
     for host in result:
         try:

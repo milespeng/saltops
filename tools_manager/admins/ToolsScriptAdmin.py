@@ -26,11 +26,10 @@ class ToolsScriptAdmin(admin.ModelAdmin):
                                                          extra_context=extra_context)
 
     def save_model(self, request, obj, form, change):
+        obj.save()
         if request.POST['action'] == '1':
             execTools(obj, request.POST.getlist('sls_hosts'), request.POST['txt_param'])
             self.message_user(request, "工具执行成功")
-        else:
-            obj.save()
 
     def lastExecHistory(self, obj):
         list = ToolsExecJob.objects.filter(tools=obj).order_by('-create_time')
