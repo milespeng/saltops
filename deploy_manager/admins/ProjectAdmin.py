@@ -113,7 +113,7 @@ class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
         ]
         return custom_urls + urls
 
-    list_display = ['project_module', 'name', 'job_script_type',
+    list_display = ['project_module', 'name', 'job_script_type','dev_monitor','ops_monitor','backup_monitor',
                     'create_time', 'update_time',
                     'deployMsg', 'extra_btn']
     search_fields = ['host']

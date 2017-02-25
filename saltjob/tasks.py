@@ -6,6 +6,7 @@ import logging
 import requests
 import yaml
 from celery import task
+from post_office import mail
 
 from cmdb.models import Host, HostIP
 from deploy_manager.models import *
@@ -287,6 +288,13 @@ def deployTask(deployJob, uninstall=False, uninstall_host=[]):
         deployJob.deploy_status = 2
         deployJob.save()
         logger.info("执行失败%s:" % e)
+
+        mail.send(
+            '529280602@qq.com',  # List of email addresses also accepted
+            subject='My email',
+            message='Hi there!',
+            html_message='Hi <strong>there</strong>!',
+        )
 
 
 @task(name='scanHostJob')
