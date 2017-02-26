@@ -5,7 +5,7 @@ from common.models import BaseModel
 from tools_manager.models.ToolsTypes import ToolsTypes
 
 TOOL_RUN_TYPE = (
-    (0, 'Salt脚本'),
+    (0, 'SaltState'),
     (1, 'Shell'),
     # (2, 'PowerShell'),
     # (3, 'Python')

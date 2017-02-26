@@ -140,10 +140,13 @@ def execTools(obj, hostList, ymlParam):
 
                 if obj.tool_run_type == 0:
                     for cmd in dataResult:
+                        rs_msg = dataResult[cmd]['comment']
+                        for key in dataResult[cmd]['data']:
+                            rs_msg = rs_msg + '\n' + key + ':' + dataResult[cmd]['data'][key]
                         execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                             host=targetHost,
-                                                            exec_result=dataResult[cmd]['changes']['stdout'],
-                                                            err_msg=dataResult[cmd]['changes']['stdout'])
+                                                            exec_result=rs_msg,
+                                                            err_msg='')
                         execDetail.save()
                 else:
                     execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
@@ -155,7 +158,7 @@ def execTools(obj, hostList, ymlParam):
             execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                 host=target,
                                                 exec_result='执行失败',
-                                                err_msg='执行失败')
+                                                err_msg=dataResult[0])
             execDetail.save()
 
     return toolExecJob
