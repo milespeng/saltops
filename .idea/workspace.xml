@@ -65,10 +65,10 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/saltops/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+            <state relative-caret-position="390">
+              <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
               <folding>
-                <element signature="e#5659#6308#0" expanded="false" />
+                <element signature="e#5671#6320#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -846,13 +846,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00098" summary="添加IP类型">
-      <created>1486809671127</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1486809671127</updated>
-    </task>
     <task id="LOCAL-00099" summary="Minion自动注册">
       <created>1486820060698</created>
       <option name="number" value="00099" />
@@ -1189,7 +1182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488354520454</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="添加Allowed_hosts">
+      <created>1488360495552</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1488360495552</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1205,7 +1205,7 @@
     <frame x="0" y="23" width="1920" height="1097" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11608094" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11608094" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1265,7 +1265,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="优化任务执行模板" />
     <MESSAGE value="优化业务发布代码" />
     <MESSAGE value="修复业务部署默认选中的问题" />
     <MESSAGE value="准备发布0.4.0" />
@@ -1290,7 +1289,8 @@
     <MESSAGE value="调整机柜列表顺序" />
     <MESSAGE value="修复主机状态扫描问题" />
     <MESSAGE value="新增Maven部署模板，调整部署页面显示顺序" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增Maven部署模板，调整部署页面显示顺序" />
+    <MESSAGE value="添加Allowed_hosts" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加Allowed_hosts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1613,10 +1613,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/saltops/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        <state relative-caret-position="390">
+          <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
           <folding>
-            <element signature="e#5659#6308#0" expanded="false" />
+            <element signature="e#5671#6320#0" expanded="false" />
           </folding>
         </state>
       </provider>
