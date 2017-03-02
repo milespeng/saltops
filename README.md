@@ -44,4 +44,5 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 - [JDK](doc/sls/jdk8.sls)
 - [ElasticSearch](doc/sls/elasticsearch-master.sls)
 - [Golang](doc/sls/golang.sls)
+- [Golang_Uninstall](doc/sls/golang_uninstall.sls)
 - [Maven](doc/sls/maven.sls)

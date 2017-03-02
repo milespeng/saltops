@@ -29,7 +29,7 @@ make_gopath:
 
 change_env:
   cmd.run:
-      - name: echo 'GO_HOME=/opt/go \n PATH=$GO_HOME/bin:$PATH \n export GO_HOME \n GO_PATH=/opt/gopath \n export PATH' >> /etc/profile
+      - name: echo 'GO_HOME=/opt/go \n GOROOT=/opt/go \n PATH=$GO_HOME/bin:$PATH \n export GO_HOME \n  export GOROOT \n GO_PATH=/opt/gopath \n export PATH' >> /etc/profile
       - user: root
       - unless: cat /etc/profile|grep GO_HOME
       - require:
