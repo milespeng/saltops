@@ -159,7 +159,7 @@ def execTools(obj, hostList, ymlParam):
             execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                 host=target,
                                                 exec_result='执行失败',
-                                                err_msg=dataResult[0])
+                                                err_msg=dataResult[cmd]['comment'])
             execDetail.save()
 
     return toolExecJob

@@ -9,6 +9,7 @@ TOOL_RUN_TYPE = (
     (1, 'Shell'),
     # (2, 'PowerShell'),
     # (3, 'Python')
+    (4, 'Salt命令')
 )
 
 
@@ -25,4 +26,3 @@ class ToolsScript(BaseModel):
     class Meta:
         verbose_name = "工具"
         verbose_name_plural = verbose_name
-

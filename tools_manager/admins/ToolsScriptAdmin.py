@@ -42,7 +42,11 @@ class ToolsScriptAdmin(admin.ModelAdmin):
             self.toolExecJob = toolExecJob
 
     def response_post_save_change(self, request, obj):
-        return HttpResponseRedirect('/admin/tools_manager/toolsexecjob/%s/change/#/tab/inline_0/' % self.toolExecJob.id)
+        if request.POST['action'] == '1':
+            return HttpResponseRedirect(
+                '/admin/tools_manager/toolsexecjob/%s/change/#/tab/inline_0/' % self.toolExecJob.id)
+        else:
+            return super(ToolsScriptAdmin, self).changelist_view(request)
 
     def lastExecHistory(self, obj):
         list = ToolsExecJob.objects.filter(tools=obj).order_by('-create_time')
