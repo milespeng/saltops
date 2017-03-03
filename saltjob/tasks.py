@@ -64,7 +64,7 @@ def prepareScript(script_path):
         logger.info("发送远程文件结束")
 
 
-def runSaltCommand(host, script_type, filename):
+def runSaltCommand(host, script_type, filename, func=None, func_args=None):
     """
     执行远程命令
     :param host:
@@ -75,15 +75,20 @@ def runSaltCommand(host, script_type, filename):
     client = 'local'
     if host.enable_ssh is True:
         client = 'ssh'
-
-    if script_type == 'sls':
-        result = salt_api_token({'fun': 'state.sls', 'tgt': host,
-                                 'arg': filename},
-                                SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
-        logger.info("执行结果为:%s", result)
+    if func is None:
+        if script_type == 'sls':
+            result = salt_api_token({'fun': 'state.sls', 'tgt': host,
+                                     'arg': filename},
+                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
+            logger.info("执行结果为:%s", result)
+        else:
+            result = salt_api_token({'fun': 'cmd.script', 'tgt': host,
+                                     'arg': 'salt://%s.%s' % (filename, script_type)},
+                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
+            logger.info("执行结果为:%s", result)
     else:
-        result = salt_api_token({'fun': 'cmd.script', 'tgt': host,
-                                 'arg': 'salt://%s.%s' % (filename, script_type)},
+        result = salt_api_token({'fun': func, 'tgt': host,
+                                 'arg': func_args},
                                 SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
         logger.info("执行结果为:%s", result)
     return result
@@ -124,23 +129,30 @@ def execTools(obj, hostList, ymlParam):
         script_type = "ps"
     if obj.tool_run_type == 3:
         script_type = "py"
-    script_name, script_path = generateDynamicScript(obj.tool_script, script_type, ymlParam, "", None)
+    if obj.tool_run_type == 4:
+        func = obj.tool_script.split(' ')[0]
+        func_args = obj.tool_script[len(func):]
 
-    prepareScript(script_path)
+    script_name = ""
+    script_path = ""
+    if func is None:
+        script_name, script_path = generateDynamicScript(obj.tool_script, script_type, ymlParam, "", None)
+        prepareScript(script_path)
 
     logger.info("开始执行命令")
     logger.info("获取目标主机信息,目标部署主机共%s台", hostSet.count())
 
     for target in hostSet:
         try:
-            result = runSaltCommand(target, script_type, script_name)
+            result = runSaltCommand(target, script_type, script_name, func, func_args)
 
             for master in result:
                 targetHost, dataResult = getHostViaResult(result, target, master)
 
                 if obj.tool_run_type == 0:
                     for cmd in dataResult:
-                        rs_msg = dataResult[cmd]['comment']
+                        if 'comment' in dataResult[cmd]:
+                            rs_msg = dataResult[cmd]['comment']
                         if 'data' in dataResult[cmd]:
                             for key in dataResult[cmd]['data']:
                                 rs_msg = rs_msg + '\n' + key + ':' + str(dataResult[cmd]['data'][key])
@@ -149,6 +161,21 @@ def execTools(obj, hostList, ymlParam):
                                                             exec_result=rs_msg,
                                                             err_msg='')
                         execDetail.save()
+                elif obj.tool_run_type == 4:
+                    rs_msg = ""
+                    for cmd in dataResult:
+                        rs_msg += cmd + '\n--------\n'
+                        for key in dataResult[cmd]:
+                            rs_msg = rs_msg + '\n' + key + ':' + str(dataResult[cmd][key])
+                        rs_msg += '\n'
+                        rs_msg += '-' * 20
+                        rs_msg += '\n' * 3
+
+                    execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
+                                                        host=targetHost,
+                                                        exec_result=rs_msg,
+                                                        err_msg='')
+                    execDetail.save()
                 else:
                     execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                         host=targetHost,
@@ -156,10 +183,14 @@ def execTools(obj, hostList, ymlParam):
                                                         err_msg=dataResult['stderr'])
                     execDetail.save()
         except Exception as e:
+            errmsg = "执行失败"
+            if 'comment' in dataResult[cmd]:
+                errmsg = dataResult[cmd]['comment']
+
             execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                 host=target,
                                                 exec_result='执行失败',
-                                                err_msg=dataResult[cmd]['comment'])
+                                                err_msg=errmsg)
             execDetail.save()
 
     return toolExecJob
