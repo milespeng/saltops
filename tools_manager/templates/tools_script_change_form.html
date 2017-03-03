@@ -34,7 +34,7 @@
                             <div class="controls"><textarea class="vLargeTextField" cols="40"
                                                             id="txt_param"
                                                             name="txt_param"
-                                                            rows="10"></textarea></div>
+                                                            rows="10">{{ param }}</textarea></div>
                         </div>
                     </div>
                 </fieldset>
@@ -48,11 +48,13 @@
     {{ block.super }}
     <script>
         {% if is_edit is True %}
+
             var jq;
             (function ($) {
                 $(document).ready(function ($) {
                     $('.submit-row').append("<button type='submit' class='button' onclick='return setValue()'>执行工具</button>")
-                    jq = $
+                    jq = $;
+
                 });
             })(django.jQuery);
 

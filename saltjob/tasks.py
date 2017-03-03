@@ -141,8 +141,9 @@ def execTools(obj, hostList, ymlParam):
                 if obj.tool_run_type == 0:
                     for cmd in dataResult:
                         rs_msg = dataResult[cmd]['comment']
-                        for key in dataResult[cmd]['data']:
-                            rs_msg = rs_msg + '\n' + key + ':' + dataResult[cmd]['data'][key]
+                        if 'data' in dataResult[cmd]:
+                            for key in dataResult[cmd]['data']:
+                                rs_msg = rs_msg + '\n' + key + ':' + str(dataResult[cmd]['data'][key])
                         execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                             host=targetHost,
                                                             exec_result=rs_msg,
