@@ -52,11 +52,11 @@
       <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="168" column="37" lean-forward="false" selection-start-line="168" selection-start-column="37" selection-end-line="168" selection-end-column="37" />
+            <state relative-caret-position="165">
+              <caret line="172" column="51" lean-forward="false" selection-start-line="172" selection-start-column="51" selection-end-line="172" selection-end-column="51" />
               <folding>
-                <element signature="e#7275#12309#0" expanded="false" />
-                <element signature="e#7348#11963#0" expanded="false" />
+                <element signature="e#7556#12590#0" expanded="false" />
+                <element signature="e#7629#12244#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -75,7 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>save_formset</find>
       <find>deleted_objects</find>
       <find>deployTask</find>
       <find>hasErr</find>
@@ -105,6 +104,7 @@
       <find>salt</find>
       <find>project_module</find>
       <find>all</find>
+      <find>for key in dataResult[cmd]:</find>
     </findStrings>
     <replaceStrings>
       <replace>BaseModel</replace>
@@ -821,13 +821,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00103" summary="完善ReadMe">
-      <created>1486823655637</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1486823655638</updated>
-    </task>
     <task id="LOCAL-00104" summary="新增Golang部署模板">
       <created>1486867292958</created>
       <option name="number" value="00104" />
@@ -1164,7 +1157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488533819871</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="新增执行Salt命令功能">
+      <created>1488535542580</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1488535542580</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1187,11 +1187,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.407465" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.407465" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53965783" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39657855" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43701398" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1201,6 +1201,28 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.407465" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53965783" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14644013" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39657855" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1218,7 +1240,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="0.4.0" />
     <MESSAGE value="更新ReadMe&#10;" />
     <MESSAGE value="引入`django-smart-selects`，解决级联查询和新增的问题" />
     <MESSAGE value="引入Django Debug Toolbar" />
@@ -1243,7 +1264,8 @@
     <MESSAGE value="更新设置" />
     <MESSAGE value="工具执行成功后跳转至执行结果，减少多次点击的麻烦" />
     <MESSAGE value="修复保存的时候没有判断是执行工具还是单独保存的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复保存的时候没有判断是执行工具还是单独保存的问题" />
+    <MESSAGE value="新增执行Salt命令功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增执行Salt命令功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1257,18 +1279,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="325" />
+      <option name="time" value="335" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
-        <watch expression="result[0]" language="Python" />
-        <watch expression="form.instance" language="Python" />
-        <watch expression="formset.save()" language="Python" />
-        <watch expression="project.project.id" language="Python" />
-        <watch expression="self.children" language="Python" />
-        <watch expression="obj['total']" language="Python" />
-        <watch expression="dataResult[0]" language="Python" />
-        <watch expression="dataResult" language="Python" />
+        <watch expression="func_args!=&quot;&quot;" language="Python" />
       </configuration>
       <configuration name="PythonConfigurationType">
         <watch expression="content" language="Python" />
@@ -1277,11 +1292,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/doc/wiki/img/业务4.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doc/wiki/img/业务5.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1511,14 +1521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/celery/app/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/options.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1527,13 +1529,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.3/system/python_stubs/-1442825926/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="3522" column="6" lean-forward="false" selection-start-line="3522" selection-start-column="6" selection-end-line="3522" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/celery/app/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2547">
+          <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="168" column="37" lean-forward="false" selection-start-line="168" selection-start-column="37" selection-end-line="168" selection-end-column="37" />
+        <state relative-caret-position="165">
+          <caret line="172" column="51" lean-forward="false" selection-start-line="172" selection-start-column="51" selection-end-line="172" selection-end-column="51" />
           <folding>
-            <element signature="e#7275#12309#0" expanded="false" />
-            <element signature="e#7348#11963#0" expanded="false" />
+            <element signature="e#7556#12590#0" expanded="false" />
+            <element signature="e#7629#12244#0" expanded="false" />
           </folding>
         </state>
       </provider>

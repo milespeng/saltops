@@ -87,11 +87,16 @@ def runSaltCommand(host, script_type, filename, func=None, func_args=None):
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
             logger.info("执行结果为:%s", result)
     else:
-        result = salt_api_token({'fun': func, 'tgt': host,
-                                 'arg': func_args},
-                                SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
+        if func_args != "":
+            result = salt_api_token({'fun': func, 'tgt': host,
+                                     'arg': func_args},
+                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return']
+        else:
+            result = salt_api_token({'fun': func, 'tgt': host},
+                                    SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return']
+
         logger.info("执行结果为:%s", result)
-    return result
+    return result[0]
 
 
 def getHostViaResult(result, host, hostname):
@@ -163,13 +168,15 @@ def execTools(obj, hostList, ymlParam):
                         execDetail.save()
                 elif obj.tool_run_type == 4:
                     rs_msg = ""
-                    for cmd in dataResult:
-                        rs_msg += cmd + '\n--------\n'
-                        for key in dataResult[cmd]:
-                            rs_msg = rs_msg + '\n' + key + ':' + str(dataResult[cmd][key])
-                        rs_msg += '\n'
-                        rs_msg += '-' * 20
-                        rs_msg += '\n' * 3
+                    rs_msg += targetHost.host_name + '\n--------\n'
+
+                    # Salt-API返回的结果一会是list一会是dict。。
+                    if isinstance(dataResult, list):
+                        rs_msg += "\n".join(dataResult)
+                    else:
+                        for cmd in dataResult:
+                            rs_msg = rs_msg + '\n' + cmd + ':' + str(dataResult[cmd])
+                            rs_msg += '\n'
 
                     execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                         host=targetHost,
@@ -184,8 +191,8 @@ def execTools(obj, hostList, ymlParam):
                     execDetail.save()
         except Exception as e:
             errmsg = "执行失败"
-            if 'comment' in dataResult[cmd]:
-                errmsg = dataResult[cmd]['comment']
+            if isinstance(dataResult, str):
+                errmsg = dataResult
 
             execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                 host=target,
