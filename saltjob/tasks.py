@@ -173,6 +173,8 @@ def execTools(obj, hostList, ymlParam):
                     # Salt-API返回的结果一会是list一会是dict。。
                     if isinstance(dataResult, list):
                         rs_msg += "\n".join(dataResult)
+                    if isinstance(dataResult, str):
+                        rs_msg = dataResult
                     else:
                         for cmd in dataResult:
                             rs_msg = rs_msg + '\n' + cmd + ':' + str(dataResult[cmd])
