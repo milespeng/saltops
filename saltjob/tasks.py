@@ -169,11 +169,12 @@ def execTools(obj, hostList, ymlParam):
                 elif obj.tool_run_type == 4:
                     rs_msg = ""
                     rs_msg += targetHost.host_name + '\n--------\n'
-
+                    if dataResult is None:
+                        rs_msg = '执行完成'
                     # Salt-API返回的结果一会是list一会是dict。。
-                    if isinstance(dataResult, list):
+                    elif isinstance(dataResult, list):
                         rs_msg += "\n".join(dataResult)
-                    if isinstance(dataResult, str):
+                    elif isinstance(dataResult, str):
                         rs_msg = dataResult
                     else:
                         for cmd in dataResult:
