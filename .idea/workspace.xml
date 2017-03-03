@@ -2,10 +2,172 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/sls/golang_uninstall.sls" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/manage/base_library.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0002_auto_20170119_0717.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0003_auto_20170119_0731.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0004_hostip.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0005_hostip_host.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0006_host_num_cpus.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0007_auto_20170121_1257.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0008_auto_20170121_1258.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0009_auto_20170121_1300.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0010_auto_20170121_1301.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0011_cabinet.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0012_auto_20170122_0819.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0013_auto_20170122_0819.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0014_rack.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0015_host_rack.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0016_auto_20170125_1019.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0017_auto_20170125_1029.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0018_idc_concat_email.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0019_auto_20170128_0328.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0020_auto_20170128_0923.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0021_auto_20170130_2042.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0022_host_minion_status.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0023_auto_20170209_1509.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0024_hostip_ip_type.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0025_auto_20170211_2105.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0026_auto_20170217_1138.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0027_auto_20170217_1140.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0028_host_cabinet.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0029_auto_20170217_1147.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0030_auto_20170217_1151.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0031_auto_20170217_1153.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0032_host_cabinet.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0033_host_rack.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0034_auto_20170217_1155.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0035_auto_20170217_1208.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/common/migrations/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dashboard/migrations/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0002_auto_20170120_0715.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0003_auto_20170120_0715.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0004_auto_20170120_0723.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0005_auto_20170120_0725.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0006_auto_20170120_0725.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0007_deployjob_deployjobdetail.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0008_auto_20170121_1257.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0009_auto_20170122_0811.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0010_auto_20170122_0836.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0011_auto_20170122_0921.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0012_projectversion_is_default.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0013_auto_20170123_0737.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0013_auto_20170125_0936.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0014_deployjob_job_script_type.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0015_auto_20170128_0558.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0016_auto_20170128_0600.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0017_auto_20170128_0612.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0018_auto_20170128_0923.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0019_auto_20170129_0633.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0020_auto_20170129_1441.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0021_auto_20170201_1750.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0022_remove_deployjobdetail_run_num.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0023_deployjobdetail_is_success.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0024_merge_20170208_1010.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0025_projectversion_subplaybook.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0026_projectversion_sub_job_script_type.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0027_auto_20170208_1013.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0028_auto_20170209_1108.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0029_auto_20170209_1317.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0030_auto_20170209_1509.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0031_auto_20170212_1649.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0032_auto_20170214_1323.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0033_auto_20170217_1658.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0034_auto_20170217_1659.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0035_auto_20170217_1700.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0036_auto_20170217_1746.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0037_auto_20170219_1615.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0038_auto_20170219_1615.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0039_remove_project_project_config_path.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0040_projectconfigpath_project.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0041_auto_20170219_1619.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0042_auto_20170220_1744.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0042_projectconfigfile.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0043_auto_20170219_1716.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0043_auto_20170224_1551.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0044_projecthostconfigfile.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/saltjob/migrations/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0001_initial.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0002_auto_20170128_0330.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0003_auto_20170128_0335.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0004_auto_20170128_0338.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0005_auto_20170128_0339.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0006_auto_20170128_0341.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0007_auto_20170128_0555.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0008_auto_20170128_0558.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0009_auto_20170128_0600.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0010_auto_20170128_0612.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0011_auto_20170128_0923.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0012_auto_20170129_0633.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0013_auto_20170129_1441.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0014_auto_20170130_2041.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0015_auto_20170130_2042.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0016_auto_20170201_1750.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0017_auto_20170201_1752.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0018_auto_20170201_1754.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0019_auto_20170208_1010.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0020_auto_20170208_1012.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0021_auto_20170208_1013.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0022_auto_20170209_1108.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0023_auto_20170209_1317.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0024_auto_20170209_1509.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0025_auto_20170211_1840.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0026_auto_20170211_2105.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0027_auto_20170211_2127.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0028_auto_20170212_1649.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0029_auto_20170212_1651.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0030_auto_20170212_1656.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0031_auto_20170212_1703.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0032_auto_20170212_1709.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0033_auto_20170212_1740.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0034_auto_20170212_1741.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0035_auto_20170212_1855.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0036_auto_20170214_1323.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0037_auto_20170216_1505.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0038_auto_20170216_1555.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0039_auto_20170217_1138.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0040_auto_20170217_1140.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0041_auto_20170217_1143.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0042_auto_20170217_1147.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0043_auto_20170217_1151.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0044_auto_20170217_1153.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0045_auto_20170217_1153.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0046_auto_20170217_1154.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0047_auto_20170217_1155.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0048_auto_20170217_1208.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0049_auto_20170217_1658.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0050_auto_20170217_1658.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0051_auto_20170217_1659.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0052_auto_20170217_1700.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0053_auto_20170217_1746.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0054_auto_20170219_1615.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0055_auto_20170219_1615.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0056_auto_20170219_1616.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0057_auto_20170219_1617.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0058_auto_20170219_1619.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0059_auto_20170219_1619.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0060_auto_20170219_1635.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0061_auto_20170219_1635.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0062_auto_20170219_1714.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0062_auto_20170220_1744.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0063_auto_20170219_1716.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0063_auto_20170220_1744.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0064_auto_20170219_1721.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0064_auto_20170220_1744.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0065_auto_20170219_1731.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0065_auto_20170220_1813.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0066_auto_20170219_1743.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0066_auto_20170224_1551.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/0067_auto_20170224_1609.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/migrations/__init__.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/saltops.iml" afterPath="$PROJECT_DIR$/.idea/saltops.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/sls/golang.sls" afterPath="$PROJECT_DIR$/doc/sls/golang.sls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/settings.py" afterPath="$PROJECT_DIR$/saltops/settings.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,13 +178,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/saltops$SimpleService.coverage" NAME="SimpleService Coverage Results" MODIFIED="1486432039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/services" />
-    <SUITE FILE_PATH="coverage/saltops$cron.coverage" NAME="cron Coverage Results" MODIFIED="1485427998447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saltjob" />
-    <SUITE FILE_PATH="coverage/saltops$salttest.coverage" NAME="salttest Coverage Results" MODIFIED="1487498212174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/saltops$SimpleServiceClientTest.coverage" NAME="SimpleServiceClientTest Coverage Results" MODIFIED="1486433365009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/services" />
     <SUITE FILE_PATH="coverage/saltops$salt_api.coverage" NAME="salt_api Coverage Results" MODIFIED="1486609219676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saltjob" />
     <SUITE FILE_PATH="coverage/saltops$localrun.coverage" NAME="localrun Coverage Results" MODIFIED="1487389037490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/saltops$salttest.coverage" NAME="salttest Coverage Results" MODIFIED="1487498212174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/saltops$SimpleService.coverage" NAME="SimpleService Coverage Results" MODIFIED="1486432039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/services" />
+    <SUITE FILE_PATH="coverage/saltops$cron.coverage" NAME="cron Coverage Results" MODIFIED="1485427998447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saltjob" />
     <SUITE FILE_PATH="coverage/saltops$simple_rwhttpserver.coverage" NAME="simple_rwhttpserver Coverage Results" MODIFIED="1486288333506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/saltops$SimpleServiceClientTest.coverage" NAME="SimpleServiceClientTest Coverage Results" MODIFIED="1486433365009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/services" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="$PROJECT_DIR$" />
@@ -47,7 +209,7 @@
       <file leaf-file-name="ProjectAdmin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
+            <state relative-caret-position="2808">
               <caret line="121" column="32" lean-forward="false" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
               <folding />
             </state>
@@ -57,7 +219,7 @@
       <file leaf-file-name="golang.sls" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doc/sls/golang.sls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="945">
               <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
               <folding />
             </state>
@@ -67,36 +229,30 @@
       <file leaf-file-name="golang_uninstall.sls" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doc/sls/golang_uninstall.sls">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="405">
               <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="690">
-                <caret line="46" column="49" lean-forward="false" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
-                <folding />
-              </first_editor>
-              <second_editor />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
-          </provider>
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/saltops/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            <state relative-caret-position="297">
+              <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
               <folding>
-                <element signature="e#5671#6320#0" expanded="false" />
+                <element signature="e#5449#6098#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -219,10 +375,10 @@
         <option value="$PROJECT_DIR$/doc/wiki/安装前准备.md" />
         <option value="$PROJECT_DIR$/doc/sls/maven.sls" />
         <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
-        <option value="$PROJECT_DIR$/saltops/settings.py" />
         <option value="$PROJECT_DIR$/doc/sls/golang.sls" />
         <option value="$PROJECT_DIR$/doc/sls/golang_uninstall.sls" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/saltops/settings.py" />
       </list>
     </option>
   </component>
@@ -233,9 +389,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1097" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="776" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -278,25 +435,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sls" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1248,29 +1387,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1097" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="776" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1171459" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15048544" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.407465" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25505444" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54121304" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2557214" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40895522" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2557214" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1283,16 +1422,16 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40895522" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25505444" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17518637" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.407465" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54121304" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15048544" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6278607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2557214" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1532,47 +1671,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/contrib/admin/sites.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="210" column="0" lean-forward="false" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/views/decorators/cache.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/utils/decorators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/celery/app/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/wiki/安装前准备.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="90">
-            <caret line="51" column="18" lean-forward="true" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/contrib/admin/sites.py" />
+    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/views/decorators/cache.py" />
+    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/django/utils/decorators.py" />
+    <entry file="file://$USER_HOME$/envs/ops/lib/python3.5/site-packages/celery/app/task.py" />
+    <entry file="file://$PROJECT_DIR$/doc/wiki/安装前准备.md" />
     <entry file="file://$PROJECT_DIR$/doc/sls/jdk8.sls">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1597,7 +1700,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
+        <state relative-caret-position="2808">
           <caret line="121" column="32" lean-forward="false" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
           <folding />
         </state>
@@ -1610,19 +1713,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saltops/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-          <folding>
-            <element signature="e#5671#6320#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doc/sls/golang.sls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
+        <state relative-caret-position="945">
           <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
           <folding />
         </state>
@@ -1630,29 +1723,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/doc/sls/golang_uninstall.sls">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="405">
           <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="690">
-            <caret line="46" column="49" lean-forward="false" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+          <folding>
+            <element signature="e#5449#6098#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

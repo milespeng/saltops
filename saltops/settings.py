@@ -173,19 +173,13 @@ REST_FRAMEWORK = {
     ]
 }
 #
-SALT_REST_URL = 'http://192.168.80.172:8001/'
-SALT_USER = 'loginsight'
-SALT_PASSWORD = 'loginsight'
-# 文件上传的路径
-PACKAGE_PATH = "/Users/kira/oschina/saltops/doc/script/"
 SALT_CONN_TYPE = 'http'  # http
-SALT_HTTP_URL = 'http://192.168.80.172:5000'
-# SALT_HTTP_URL = 'http://192.168.75.128:5000'
-# PACKAGE_PATH = "D:\\github\\saltops\\doc\\scripts\\"
+SALT_HTTP_URL = 'http://192.168.75.128:5000'
+PACKAGE_PATH = "D:\\github\\saltops\\doc\\scripts\\"
 
-# SALT_REST_URL = 'http://192.168.75.128:8001/'
-# SALT_USER = 'kira'
-# SALT_PASSWORD = '8565'
+SALT_REST_URL = 'http://192.168.75.128:8001/'
+SALT_USER = 'kira'
+SALT_PASSWORD = '8565'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'
