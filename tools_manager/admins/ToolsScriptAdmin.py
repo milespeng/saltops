@@ -1,4 +1,6 @@
 import re
+
+import yaml
 from django import forms
 from django.contrib import admin
 from django.contrib import messages
@@ -25,19 +27,26 @@ class ToolsScriptAdmin(admin.ModelAdmin):
         extra_context['hostList'] = Host.objects.all()
         extra_context['is_edit'] = True
         obj = ToolsScript.objects.get(pk=object_id)
-        params = re.findall('\${(.*)}', obj.tool_script)
-
-        param_str = ""
-        for param in params:
-            param_str += '- %s: [请填写参数]\n' % param
-        extra_context['param'] = param_str
+        params = re.findall('\${(.*?)}', obj.tool_script)
+        param_list = []
+        for obj in params:
+            if len(obj.split(':')) == 2:
+                param_dict = (obj.split(':')[0], obj.split(':')[1])
+                param_list.append(param_dict)
+        extra_context['param'] = param_list
         return super(ToolsScriptAdmin, self).change_view(request, object_id=object_id, form_url=form_url,
                                                          extra_context=extra_context)
 
     def save_model(self, request, obj, form, change):
         obj.save()
         if request.POST['action'] == '1':
-            toolExecJob = execTools(obj, request.POST.getlist('sls_hosts'), request.POST['txt_param'])
+            params = re.findall('\${(.*)}', obj.tool_script)
+            param_obj={}
+            for entity in params:
+                param_obj[entity.split(':')[1]]=request.POST[entity.split(':')[1]]
+            if param_obj!="":
+                yaml_str=yaml.dump(param_obj)
+            toolExecJob = execTools(obj, request.POST.getlist('sls_hosts'), yaml_str)
             self.message_user(request, "工具执行成功")
             self.toolExecJob = toolExecJob
 

@@ -1,4 +1,5 @@
 import os
+import re
 import traceback
 from uuid import uuid1
 
@@ -137,6 +138,11 @@ def execTools(obj, hostList, ymlParam):
     if obj.tool_run_type == 4:
         func = obj.tool_script.split(' ')[0]
         func_args = obj.tool_script[len(func):]
+        params = re.findall('\${(.*)}', func_args)
+        if params != "":
+            yaml_param = yaml.load(ymlParam)
+            for cmd_param in params:
+                func_args=func_args.replace('${%s}' % cmd_param, yaml_param.get(cmd_param.split(":")[1]))
 
     script_name = ""
     script_path = ""

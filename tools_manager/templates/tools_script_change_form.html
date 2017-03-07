@@ -27,16 +27,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="control-group form-row field-param ">
-                        <div>
-                            <div class="control-label"><label
-                                    for="id_toolsexecjob_set-0-param">执行参数:</label></div>
-                            <div class="controls"><textarea class="vLargeTextField" cols="40"
-                                                            id="txt_param"
-                                                            name="txt_param"
-                                                            rows="10">{{ param }}</textarea></div>
+                    {% for k,v in param %}
+                        <div class="control-group form-row field-param ">
+                            <div>
+                                <div class="control-label"><label
+                                        for="id_toolsexecjob_set-0-param">{{ k }}:</label></div>
+                                <div class="controls">
+
+                                    <input class="vTextField" name="{{ v }}" required value="{{ v }}">
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </fieldset>
             </div>
         </div>
