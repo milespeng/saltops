@@ -29,15 +29,17 @@ def generateDynamicScript(script_content, script_type, param="", extra_param="",
     script_content = script_content.replace('\r', '')
 
     logger.info("填写动态变量")
-    if param != "":
-        yaml_params = yaml.load(param)[0]
-        for key in yaml_params:
-            script_content = script_content.replace('${%s}' % key, yaml_params[key])
+
+    params = re.findall('\${(.*)}', script_content)
+    if param != "" and params != "":
+        yaml_params = yaml.load(param)
+        for cmd_param in params:
+            script_content = script_content.replace('${%s}' % cmd_param, yaml_params.get(cmd_param.split(":")[1]))
 
     if extra_param != "":
-        yaml_params = yaml.load(extra_param)[0]
-        for key in yaml_params:
-            script_content = script_content.replace('${%s}' % key, yaml_params[key])
+        yaml_params = yaml.load(extra_param)
+        for cmd_param in params:
+            script_content = script_content.replace('${%s}' % cmd_param, yaml_params.get(cmd_param.split(":")[1]))
 
     if extend_dict is not None:
         for k in extend_dict:
@@ -97,7 +99,10 @@ def runSaltCommand(host, script_type, filename, func=None, func_args=None):
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return']
 
         logger.info("执行结果为:%s", result)
-    return result[0]
+    if isinstance(result,dict):
+        return result
+    else:
+        return result[0]
 
 
 def getHostViaResult(result, host, hostname):
@@ -128,6 +133,8 @@ def execTools(obj, hostList, ymlParam):
     toolExecJob.hosts.add(*hostSet)
     toolExecJob.save()
 
+    func = None
+    func_args = None
     script_type = 'sls'
     if obj.tool_run_type == 1:
         script_type = "sh"
@@ -142,11 +149,11 @@ def execTools(obj, hostList, ymlParam):
         if params != "":
             yaml_param = yaml.load(ymlParam)
             for cmd_param in params:
-                func_args=func_args.replace('${%s}' % cmd_param, yaml_param.get(cmd_param.split(":")[1]))
+                func_args = func_args.replace('${%s}' % cmd_param, yaml_param.get(cmd_param.split(":")[1]))
 
     script_name = ""
     script_path = ""
-    if func is None:
+    if obj.tool_run_type != 4:
         script_name, script_path = generateDynamicScript(obj.tool_script, script_type, ymlParam, "", None)
         prepareScript(script_path)
 
@@ -156,7 +163,7 @@ def execTools(obj, hostList, ymlParam):
     for target in hostSet:
         try:
             result = runSaltCommand(target, script_type, script_name, func, func_args)
-
+            print(result)
             for master in result:
                 targetHost, dataResult = getHostViaResult(result, target, master)
 
@@ -410,6 +417,13 @@ def scanHostJob():
             rs = Host.objects.filter(host_name=host, host=result[host]["host"])
             if len(rs) == 0:
                 logger.info("新增主机:%s", result[host]["host"])
+                system_serialnumber = ""
+                if "system_serialnumber" in result[host]:
+                    system_serialnumber = result[host]['system_serialnumber']
+                productname = ""
+                if "productname" in result[host]:
+                    productname = result[host]['productname']
+
                 device = Host(host_name=host,
                               kernel=result[host]["kernel"],
                               kernel_release=result[host]["kernelrelease"],
@@ -420,10 +434,9 @@ def scanHostJob():
                               osfinger=result[host]["osfinger"],
                               os_family=result[host]["os_family"],
                               num_gpus=result[host]["num_gpus"],
-                              system_serialnumber=result[host]["system_serialnumber"]
-                              if 'system_serialnumber' in result[host] else result[host]["serialnumber"],
+                              system_serialnumber=system_serialnumber,
                               cpu_model=result[host]["cpu_model"],
-                              productname=result[host]["productname"],
+                              productname=productname,
                               osarch=result[host]["osarch"],
                               cpuarch=result[host]["osarch"],
                               os=result[host]["os"],

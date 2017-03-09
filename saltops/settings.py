@@ -172,14 +172,18 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-#
-SALT_CONN_TYPE = 'http'  # http
-SALT_HTTP_URL = 'http://192.168.75.128:5000'
-PACKAGE_PATH = "D:\\github\\saltops\\doc\\scripts\\"
 
-SALT_REST_URL = 'http://192.168.75.128:8001/'
-SALT_USER = 'kira'
-SALT_PASSWORD = '8565'
+SALT_HTTP_URL = 'http://127.0.0.1:32769'
+PACKAGE_PATH = "/Users/kira/oschina/saltops/scripts/files/"
+SALT_REST_URL = 'http://127.0.0.1:32768/'
+SALT_USER = 'ops'
+SALT_PASSWORD = '123456'
+SALT_CONN_TYPE = 'http'  # http
+# SALT_HTTP_URL = 'http://192.168.75.128:5000'
+# PACKAGE_PATH = "D:\\github\\saltops\\doc\\scripts\\"
+# SALT_REST_URL = 'http://192.168.75.128:8001/'
+# SALT_USER = 'kira'
+# SALT_PASSWORD = '8565'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'
