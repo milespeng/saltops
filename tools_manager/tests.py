@@ -4,7 +4,8 @@ from cmdb.models import Host
 from saltjob.tasks import execTools
 from tools_manager.models import *
 
-TARGET_HOST = "e8e39f7d599c"
+# TARGET_HOST = "e8e39f7d599c"
+TARGET_HOST = "ubuntu"
 
 
 def execJob(script_name, ymlParam=""):
@@ -28,12 +29,31 @@ def init_tool(list):
 
 class ApacheModuleTest(TestCase):
     def setUp(self):
-        init_tool(list=(
-            {'tool_script': 'apache.version', 'name': 'demo', 'tool_run_type': 4}
-        ))
+        init_tool(list=[
+            # 列出Apache的版本号
+            {'tool_script': 'apache.version', 'name': 'apache.version', 'tool_run_type': 4},
+            # 列出Apache的虚拟主机列表
+            {'tool_script': 'apache.vhosts', 'name': 'apache.vhosts', 'tool_run_type': 4},
+            # 使用htpasswd 命令添加用户
+            {'tool_script': 'apache.useradd /etc/httpd/htpasswd larry badpassword',
+             'name': 'apache.useradd', 'tool_run_type': 4},
+            # 删除用户
+            {'tool_script': 'apache.userdel /etc/httpd/htpasswd larry',
+             'name': 'apache.userdel', 'tool_run_type': 4},
+
+        ])
+
+    def test_apache_useradd(self):
+        execJob('apache.useradd')
+
+    def test_apache_userdel(self):
+        execJob('apache.userdel')
 
     def test_apache_version(self):
-        execJob('demo')
+        execJob('apache.version')
+
+    def test_apache_vhost(self):
+        execJob('apache.vhosts')
 
 
 class ShellModuleTest(TestCase):

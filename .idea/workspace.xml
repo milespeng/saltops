@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Changelog.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/saltops.iml" afterPath="$PROJECT_DIR$/.idea/saltops.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltjob/tasks.py" afterPath="$PROJECT_DIR$/saltjob/tasks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/cmdb/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/migrations/__init__.py" afterPath="$PROJECT_DIR$/cmdb/migrations/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/deploy_manager/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/migrations/__init__.py" afterPath="$PROJECT_DIR$/deploy_manager/migrations/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/settings.py" afterPath="$PROJECT_DIR$/saltops/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/tools_manager/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/migrations/__init__.py" afterPath="$PROJECT_DIR$/tools_manager/migrations/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/tests.py" afterPath="$PROJECT_DIR$/tools_manager/tests.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -19,18 +24,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/saltops$Test__tools_manager_tests_ShellModuleTest_test_apache_version.coverage" NAME="Test: tools_manager.tests.ShellModuleTest.test_apache_version Coverage Results" MODIFIED="1489048543857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/saltops$Test__tools_manager_tests_ApacheModuleTest.coverage" NAME="Test: tools_manager.tests.ApacheModuleTest Coverage Results" MODIFIED="1489047239091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/saltops$SimpleService.coverage" NAME="SimpleService Coverage Results" MODIFIED="1486432039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/services" />
-    <SUITE FILE_PATH="coverage/saltops$cron.coverage" NAME="cron Coverage Results" MODIFIED="1485427998447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saltjob" />
-    <SUITE FILE_PATH="coverage/saltops$salttest.coverage" NAME="salttest Coverage Results" MODIFIED="1487498212174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/saltops$Test__tools_manager_tests_ApacheModuleTest_setUp.coverage" NAME="Test: tools_manager.tests.ApacheModuleTest.setUp Coverage Results" MODIFIED="1489047152490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/saltops$SimpleServiceClientTest.coverage" NAME="SimpleServiceClientTest Coverage Results" MODIFIED="1486433365009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/services" />
     <SUITE FILE_PATH="coverage/saltops$salt_api.coverage" NAME="salt_api Coverage Results" MODIFIED="1486609219676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saltjob" />
     <SUITE FILE_PATH="coverage/saltops$localrun.coverage" NAME="localrun Coverage Results" MODIFIED="1487389037490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/saltops$simple_rwhttpserver.coverage" NAME="simple_rwhttpserver Coverage Results" MODIFIED="1486288333506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/saltops$SimpleServiceClientTest.coverage" NAME="SimpleServiceClientTest Coverage Results" MODIFIED="1486433365009" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/services" />
+    <SUITE FILE_PATH="coverage/saltops$salttest.coverage" NAME="salttest Coverage Results" MODIFIED="1487498212174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/saltops$Test__tools_manager_tests_ApacheModuleTest.coverage" NAME="Test: tools_manager.tests.ApacheModuleTest Coverage Results" MODIFIED="1489591530884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/saltops$Test__tools_manager_tests_ApacheModuleTest_test_apache_version.coverage" NAME="Test: tools_manager.tests.ApacheModuleTest.test_apache_version Coverage Results" MODIFIED="1489047064792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/saltops$SimpleService.coverage" NAME="SimpleService Coverage Results" MODIFIED="1486432039404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/services" />
+    <SUITE FILE_PATH="coverage/saltops$Test__tools_manager_tests_ShellModuleTest_test_apache_version.coverage" NAME="Test: tools_manager.tests.ShellModuleTest.test_apache_version Coverage Results" MODIFIED="1489048543857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/saltops$cron.coverage" NAME="cron Coverage Results" MODIFIED="1485427998447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saltjob" />
     <SUITE FILE_PATH="coverage/saltops$Test__tools_manager_tests_ShellModuleTest.coverage" NAME="Test: tools_manager.tests.ShellModuleTest Coverage Results" MODIFIED="1489049129931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/saltops$simple_rwhttpserver.coverage" NAME="simple_rwhttpserver Coverage Results" MODIFIED="1486288333506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="$PROJECT_DIR$" />
@@ -52,29 +57,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tools_script_change_form.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html">
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="36" column="115" lean-forward="false" selection-start-line="36" selection-start-column="115" selection-end-line="36" selection-end-column="115" />
+            <state relative-caret-position="136">
+              <caret line="94" column="53" lean-forward="false" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Changelog.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Changelog.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="30">
-                <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="salt_https_api.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saltjob/salt_https_api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tools_manager/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -194,11 +205,11 @@
         <option value="$PROJECT_DIR$/tools_manager/admins/ToolsScriptAdmin.py" />
         <option value="$PROJECT_DIR$/doc/wiki/工具管理.md" />
         <option value="$PROJECT_DIR$/tools_manager/models/ToolsScript.py" />
+        <option value="$PROJECT_DIR$/Changelog.md" />
+        <option value="$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html" />
         <option value="$PROJECT_DIR$/saltops/settings.py" />
         <option value="$PROJECT_DIR$/saltjob/tasks.py" />
         <option value="$PROJECT_DIR$/tools_manager/tests.py" />
-        <option value="$PROJECT_DIR$/Changelog.md" />
-        <option value="$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html" />
       </list>
     </option>
   </component>
@@ -209,9 +220,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="797" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="776" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -232,6 +244,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -258,23 +271,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,7 +460,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.saltops">
+  <component name="RunManager" selected="Django tests.Test: tools_manager.tests.ApacheModuleTest">
     <configuration default="false" name="Test: tools_manager.tests.ApacheModuleTest.setUp" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -852,9 +850,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Django tests.Test: tools_manager.tests.ShellModuleTest" />
-        <item index="1" class="java.lang.String" itemvalue="Django tests.Test: tools_manager.tests.ShellModuleTest.test_apache_version" />
-        <item index="2" class="java.lang.String" itemvalue="Django tests.Test: tools_manager.tests.ApacheModuleTest" />
+        <item index="0" class="java.lang.String" itemvalue="Django tests.Test: tools_manager.tests.ApacheModuleTest" />
+        <item index="1" class="java.lang.String" itemvalue="Django tests.Test: tools_manager.tests.ShellModuleTest" />
+        <item index="2" class="java.lang.String" itemvalue="Django tests.Test: tools_manager.tests.ShellModuleTest.test_apache_version" />
         <item index="3" class="java.lang.String" itemvalue="Django tests.Test: tools_manager.tests.ApacheModuleTest.setUp" />
         <item index="4" class="java.lang.String" itemvalue="Django tests.Test: tools_manager.tests.ApacheModuleTest.test_apache_version" />
       </list>
@@ -1221,35 +1219,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.09 at 16h 13m 31s.xml">
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 12m 32s.xml">
       <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.09 at 16h 14m 01s.xml">
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 13m 00s.xml">
       <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ShellModuleTest - 2017.03.09 at 16h 35m 08s.xml">
-      <configuration name="Test: tools_manager.tests.ShellModuleTest" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 13m 15s.xml">
+      <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ShellModuleTest - 2017.03.09 at 16h 36m 44s.xml">
-      <configuration name="Test: tools_manager.tests.ShellModuleTest" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 15m 55s.xml">
+      <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ShellModuleTest - 2017.03.09 at 16h 39m 10s.xml">
-      <configuration name="Test: tools_manager.tests.ShellModuleTest" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 16m 59s.xml">
+      <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ShellModuleTest - 2017.03.09 at 16h 43m 42s.xml">
-      <configuration name="Test: tools_manager.tests.ShellModuleTest" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 21m 13s.xml">
+      <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ShellModuleTest - 2017.03.09 at 16h 44m 23s.xml">
-      <configuration name="Test: tools_manager.tests.ShellModuleTest" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 21m 56s.xml">
+      <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ShellModuleTest - 2017.03.09 at 16h 45m 28s.xml">
-      <configuration name="Test: tools_manager.tests.ShellModuleTest" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 24m 07s.xml">
+      <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ShellModuleTest - 2017.03.09 at 16h 45m 38s.xml">
-      <configuration name="Test: tools_manager.tests.ShellModuleTest" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 25m 00s.xml">
+      <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__tools_manager_tests_ShellModuleTest_test_apache_version - 2017.03.09 at 16h 35m 46s.xml">
-      <configuration name="Test: tools_manager.tests.ShellModuleTest.test_apache_version" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__tools_manager_tests_ApacheModuleTest - 2017.03.15 at 23h 25m 36s.xml">
+      <configuration name="Test: tools_manager.tests.ApacheModuleTest" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -1262,29 +1260,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1795422" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13754046" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44634527" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2539007" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3934681" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60342145" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44680852" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32056737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1297,16 +1295,16 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44680852" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2539007" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17739628" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44634527" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3934681" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13754046" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32056737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60342145" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1364,7 +1362,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="370" />
+      <option name="time" value="377" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
@@ -1468,14 +1466,6 @@
     </entry>
     <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/options.py" />
     <entry file="file://$USER_HOME$/.PyCharm2016.3/system/python_stubs/-1442825926/builtins.py" />
-    <entry file="file://C:/Python34/Lib/site-packages/celery/app/task.py" />
-    <entry file="file://$PROJECT_DIR$/tools_manager/admins/ToolsExecJobAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/SimpleServiceClientTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1490,19 +1480,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/wiki/工具管理.md">
-      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="285">
-            <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/wiki/工具管理.md" />
     <entry file="file://$PROJECT_DIR$/tools_manager/admins/ToolsScriptAdmin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -1524,13 +1502,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="597" column="0" lean-forward="false" selection-start-line="597" selection-start-column="0" selection-end-line="597" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/unittest/case.py" />
     <entry file="file://$PROJECT_DIR$/cmdb/models/Host.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90">
@@ -1546,19 +1518,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/wiki/安装前准备.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="300">
-            <caret line="49" column="13" lean-forward="true" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/wiki/安装前准备.md" />
     <entry file="file://$PROJECT_DIR$/services/SimpleService.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1573,13 +1533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/salt_https_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doc/sls/golang.sls">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1587,36 +1540,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/django/test/testcases.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1466">
-          <caret line="976" column="6" lean-forward="false" selection-start-line="976" selection-start-column="6" selection-end-line="976" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/celery/app/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="176" column="58" lean-forward="false" selection-start-line="176" selection-start-column="58" selection-end-line="176" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="125" column="37" lean-forward="false" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/django/test/testcases.py" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/celery/app/task.py" />
     <entry file="file://$PROJECT_DIR$/tools_manager/models/ToolsScript.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1624,18 +1549,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/change_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
           <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1661,24 +1578,68 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Changelog.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-            <folding />
-          </first_editor>
-          <second_editor />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="972">
           <caret line="36" column="115" lean-forward="false" selection-start-line="36" selection-start-column="115" selection-end-line="36" selection-end-column="115" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/admins/ToolsExecJobAdmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="178" column="19" lean-forward="true" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/celery/app/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="422" column="0" lean-forward="false" selection-start-line="422" selection-start-column="0" selection-end-line="422" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="94" column="53" lean-forward="false" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltjob/salt_https_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
