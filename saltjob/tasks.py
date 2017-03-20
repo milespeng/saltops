@@ -91,9 +91,8 @@ def runSaltCommand(host, script_type, filename, func=None, func_args=None):
             logger.info("执行结果为:%s", result)
     else:
         if func_args != "":
-            # 用Tuple应该能解决
             result = salt_api_token({'fun': func, 'tgt': host,
-                                     'arg': func_args},
+                                     'arg': tuple(func_args.strip().split(' '))},
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return']
         else:
             result = salt_api_token({'fun': func, 'tgt': host},
