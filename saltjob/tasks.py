@@ -16,6 +16,8 @@ from saltjob.salt_token_id import token_id
 from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL, DEFAULT_LOGGER
 from tools_manager.models import ToolsExecDetailHistory, ToolsExecJob
 
+import shlex
+
 logger = logging.getLogger(DEFAULT_LOGGER)
 
 
@@ -91,8 +93,16 @@ def runSaltCommand(host, script_type, filename, func=None, func_args=None):
             logger.info("执行结果为:%s", result)
     else:
         if func_args != "":
+            lex = shlex.shlex(func_args.strip())
+            lex.quotes = '"'
+            lex.whitespace_split = True
+            b = list(lex)
+            l = []
+            for i in b:
+                s = i.replace('"', '')
+                l.append(s)
             result = salt_api_token({'fun': func, 'tgt': host,
-                                     'arg': tuple(func_args.strip().split(' '))},
+                                     'arg': tuple(l)},
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return']
         else:
             result = salt_api_token({'fun': func, 'tgt': host},
@@ -189,6 +199,9 @@ def execTools(obj, hostList, ymlParam):
                         rs_msg += "\n".join(dataResult)
                     elif isinstance(dataResult, str):
                         rs_msg = dataResult
+                    # elif isinstance(dataResult,dict):
+                    #     for k in dataResult:
+                    #
                     else:
                         for cmd in dataResult:
                             rs_msg = rs_msg + '\n' + cmd + ':' + str(dataResult[cmd])
