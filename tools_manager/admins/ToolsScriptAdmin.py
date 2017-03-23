@@ -40,7 +40,7 @@ class ToolsScriptAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.save()
         if request.POST['action'] == '1':
-            params = re.findall('\${(.*)}', obj.tool_script)
+            params = re.findall('\${(.+?)}', obj.tool_script)
             param_obj={}
             for entity in params:
                 param_obj[entity.split(':')[1]]=request.POST[entity.split(':')[1]]

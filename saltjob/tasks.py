@@ -155,7 +155,7 @@ def execTools(obj, hostList, ymlParam):
     if obj.tool_run_type == 4:
         func = obj.tool_script.split(' ')[0]
         func_args = obj.tool_script[len(func):]
-        params = re.findall('\${(.*)}', func_args)
+        params = re.findall('\${(.+?)}', func_args)
         if params != "":
             yaml_param = yaml.load(ymlParam)
             for cmd_param in params:
