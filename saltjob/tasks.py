@@ -174,6 +174,14 @@ def execTools(obj, hostList, ymlParam):
         try:
             result = runSaltCommand(target, script_type, script_name, func, func_args)
             print(result)
+
+            if len(result) == 0:
+                execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
+                                                    host=target,
+                                                    exec_result='无返回结果，请检查Minion是否连通',
+                                                    err_msg='')
+                execDetail.save()
+
             for master in result:
                 targetHost, dataResult = getHostViaResult(result, target, master)
 
@@ -202,6 +210,8 @@ def execTools(obj, hostList, ymlParam):
                     # elif isinstance(dataResult,dict):
                     #     for k in dataResult:
                     #
+                    elif isinstance(dataResult, bool):
+                        rs_msg = str(dataResult)
                     else:
                         for cmd in dataResult:
                             rs_msg = rs_msg + '\n' + cmd + ':' + str(dataResult[cmd])
