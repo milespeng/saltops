@@ -440,31 +440,29 @@ def scanHostJob():
             rs = Host.objects.filter(host_name=host, host=result[host]["host"])
             if len(rs) == 0:
                 logger.info("新增主机:%s", result[host]["host"])
-                system_serialnumber = ""
-                if "system_serialnumber" in result[host]:
-                    system_serialnumber = result[host]['system_serialnumber']
                 productname = ""
                 if "productname" in result[host]:
                     productname = result[host]['productname']
 
                 device = Host(host_name=host,
-                              kernel=result[host]["kernel"],
-                              kernel_release=result[host]["kernelrelease"],
-                              virtual=result[host]["virtual"],
-                              host=result[host]["host"],
-                              osrelease=result[host]["osrelease"],
-                              saltversion=result[host]["saltversion"],
-                              osfinger=result[host]["osfinger"],
-                              os_family=result[host]["os_family"],
-                              num_gpus=result[host]["num_gpus"],
-                              system_serialnumber=system_serialnumber,
-                              cpu_model=result[host]["cpu_model"],
-                              productname=productname,
-                              osarch=result[host]["osarch"],
-                              cpuarch=result[host]["osarch"],
-                              os=result[host]["os"],
+                              kernel=result[host]["kernel"] if 'kernel' in result[host] else "",
+                              kernel_release=result[host]["kernelrelease"] if 'kernelrelease' in result[host] else "",
+                              virtual=result[host]["virtual"] if 'virtual' in result[host] else "",
+                              host=result[host]["host"] if 'host' in result[host] else "",
+                              osrelease=result[host]["osrelease"] if 'osrelease' in result[host] else "",
+                              saltversion=result[host]["saltversion"] if 'saltversion' in result[host] else "",
+                              osfinger=result[host]["osfinger"] if 'osfinger' in result[host] else "",
+                              os_family=result[host]["os_family"] if 'os_family' in result[host] else "",
+                              num_gpus=result[host]["num_gpus"] if 'num_gpus' in result[host] else 0,
+                              system_serialnumber=result[host]['system_serialnumber'] if 'system_serialnumber' in
+                                                                                         result[host] else "",
+                              cpu_model=result[host]["cpu_model"] if 'cpu_model' in result[host] else "",
+                              productname=result[host]['productname'] if "productname" in result[host]else"",
+                              osarch=result[host]["osarch"] if 'osarch' in result[host] else "",
+                              cpuarch=result[host]["cpuarch"] if 'cpuarch' in result[host] else "",
+                              os=result[host]["os"] if 'os' in result[host] else "",
                               # num_cpus=int(result[host]["num_cpus"]),
-                              mem_total=result[host]["mem_total"],
+                              mem_total=result[host]["mem_total"] if 'mem_total' in result[host] else 0,
                               minion_status=minionstatus
                               )
                 device.save()
@@ -474,23 +472,23 @@ def scanHostJob():
             else:
                 entity = rs[0]
                 logger.info("更新主机:%s", entity)
-                entity.kernel = result[host]["kernel"]
+                entity.kernel = result[host]["kernel"] if 'kernel' in result[host] else ""
                 # entity.num_cpus = result[host]["num_cpus"],
-                entity.kernel_release = result[host]["kernelrelease"]
-                entity.virtual = result[host]["virtual"]
-                entity.osrelease = result[host]["osrelease"],
-                entity.saltversion = result[host]["saltversion"]
-                entity.osfinger = result[host]["osfinger"]
-                entity.os_family = result[host]["os_family"]
-                entity.num_gpus = result[host]["num_gpus"]
+                entity.kernel_release = result[host]["kernelrelease"] if 'kernelrelease' in result[host] else ""
+                entity.virtual = result[host]["virtual"] if 'virtual' in result[host] else ""
+                entity.osrelease = result[host]["osrelease"] if 'osrelease' in result[host] else "",
+                entity.saltversion = result[host]["saltversion"] if 'saltversion' in result[host] else ""
+                entity.osfinger = result[host]["osfinger"] if 'osfinger' in result[host] else ""
+                entity.os_family = result[host]["os_family"] if 'os_family' in result[host] else ""
+                entity.num_gpus = result[host]["num_gpus"] if 'num_gpus' in result[host] else 0
                 entity.system_serialnumber = result[host]["system_serialnumber"] \
-                    if 'system_serialnumber' in result[host] else result[host]["serialnumber"]
-                entity.cpu_model = result[host]["cpu_model"]
-                entity.productname = result[host]["productname"]
-                entity.osarch = result[host]["osarch"]
-                entity.cpuarch = result[host]["osarch"]
-                entity.os = result[host]["os"]
-                entity.mem_total = result[host]["mem_total"]
+                    if 'system_serialnumber' in result[host] else ""
+                entity.cpu_model = result[host]["cpu_model"] if 'cpu_model' in result[host] else ""
+                entity.productname = result[host]["productname"] if 'productname' in result[host] else ""
+                entity.osarch = result[host]["osarch"] if 'osarch' in result[host] else ""
+                entity.cpuarch = result[host]["cpuarch"] if 'cpuarch' in result[host] else ""
+                entity.os = result[host]["os"] if 'os' in result[host] else ""
+                entity.mem_total = result[host]["mem_total"] if 'mem_total' in result[host] else 0
                 entity.minion_status = minionstatus
                 entity.save()
 
