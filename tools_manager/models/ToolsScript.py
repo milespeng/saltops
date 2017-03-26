@@ -7,9 +7,10 @@ from tools_manager.models.ToolsTypes import ToolsTypes
 TOOL_RUN_TYPE = (
     (0, 'SaltState'),
     (1, 'Shell'),
-    # (2, 'PowerShell'),
-    # (3, 'Python')
-    (4, 'Salt命令')
+    (2, 'PowerShell'),
+    (3, 'Python'),
+    (4, 'Salt命令'),
+    (5, 'Windows批处理')
 )
 
 

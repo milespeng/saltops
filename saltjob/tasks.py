@@ -134,6 +134,15 @@ def getHostViaResult(result, host, hostname):
 
 @task(name='execTools')
 def execTools(obj, hostList, ymlParam):
+    """
+    执行工具
+    :param obj:  工具实体
+    :param hostList: 主机ID列表
+    :param ymlParam: yml格式的参数
+    :return: ToolsExecJob
+    """
+
+    # 新增执行记录
     hostSet = Host.objects.filter(pk__in=hostList).all()
     toolExecJob = ToolsExecJob(
         param=ymlParam,
@@ -143,18 +152,26 @@ def execTools(obj, hostList, ymlParam):
     toolExecJob.hosts.add(*hostSet)
     toolExecJob.save()
 
+    # Salt命令模块名
     func = None
+    # Salt命令参数
     func_args = None
+
     script_type = 'sls'
     if obj.tool_run_type == 1:
         script_type = "sh"
     if obj.tool_run_type == 2:
-        script_type = "ps"
+        script_type = "ps1"
     if obj.tool_run_type == 3:
         script_type = "py"
+    if obj.tool_run_type == 5:
+        script_type = "bat"
     if obj.tool_run_type == 4:
+        # 命令格式为cmd.run xxx xxx
         func = obj.tool_script.split(' ')[0]
         func_args = obj.tool_script[len(func):]
+
+        # 提取需要替换的参数内容，参数为${xxxx:xxxx}
         params = re.findall('\${(.+?)}', func_args)
         if params != "":
             yaml_param = yaml.load(ymlParam)
@@ -163,6 +180,8 @@ def execTools(obj, hostList, ymlParam):
 
     script_name = ""
     script_path = ""
+
+    # 非Salt命令，需要把脚本送到Master的BasePath里面
     if obj.tool_run_type != 4:
         script_name, script_path = generateDynamicScript(obj.tool_script, script_type, ymlParam, "", None)
         prepareScript(script_path)
@@ -172,8 +191,26 @@ def execTools(obj, hostList, ymlParam):
 
     for target in hostSet:
         try:
+            if obj.tool_run_type == 1:
+                salt_api_token({'fun': 'file.set_mode', 'tgt': target,
+                                'arg': tuple(['/srv/salt/' + script_name + '.sh', '777'])},
+                               SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client='local')['return'][0]
+                func = "cmd.run"
+                func_args = '/srv/salt/' + script_name + '.sh'
+
+            if obj.tool_run_type == 3:
+                func = "cmd.run"
+                func_args = '"python /srv/salt/' + script_name + '.py"'
+
+            if obj.tool_run_type == 2:
+                func = "cmd.run"
+                func_args = '"powershell /srv/salt/' + script_name + '.ps"'
+
+            if obj.tool_run_type == 5:
+                func = "cmd.run"
+                func_args = '/srv/salt/' + script_name + '.bat'
+
             result = runSaltCommand(target, script_type, script_name, func, func_args)
-            print(result)
 
             if len(result) == 0:
                 execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
@@ -220,6 +257,12 @@ def execTools(obj, hostList, ymlParam):
                     execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                         host=targetHost,
                                                         exec_result=rs_msg,
+                                                        err_msg='')
+                    execDetail.save()
+                elif obj.tool_run_type == 1 or obj.tool_run_type == 3:
+                    execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
+                                                        host=targetHost,
+                                                        exec_result=dataResult,
                                                         err_msg='')
                     execDetail.save()
                 else:
