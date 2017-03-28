@@ -41,11 +41,12 @@ class ToolsScriptAdmin(admin.ModelAdmin):
         obj.save()
         if request.POST['action'] == '1':
             params = re.findall('\${(.+?)}', obj.tool_script)
-            param_obj={}
+            param_obj = {}
             for entity in params:
-                param_obj[entity.split(':')[1]]=request.POST[entity.split(':')[1]]
-            if param_obj!="":
-                yaml_str=yaml.dump(param_obj)
+                if ':' in entity:
+                    param_obj[entity.split(':')[1]] = request.POST[entity.split(':')[1]]
+            if param_obj != "":
+                yaml_str = yaml.dump(param_obj)
             toolExecJob = execTools(obj, request.POST.getlist('sls_hosts'), yaml_str)
             self.message_user(request, "工具执行成功")
             self.toolExecJob = toolExecJob

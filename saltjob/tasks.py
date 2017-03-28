@@ -36,12 +36,14 @@ def generateDynamicScript(script_content, script_type, param="", extra_param="",
     if param != "" and params != "":
         yaml_params = yaml.load(param)
         for cmd_param in params:
-            script_content = script_content.replace('${%s}' % cmd_param, yaml_params.get(cmd_param.split(":")[1]))
+            if ':' in cmd_param:
+                script_content = script_content.replace('${%s}' % cmd_param, yaml_params.get(cmd_param.split(":")[1]))
 
     if extra_param != "":
         yaml_params = yaml.load(extra_param)
         for cmd_param in params:
-            script_content = script_content.replace('${%s}' % cmd_param, yaml_params.get(cmd_param.split(":")[1]))
+            if ':' in cmd_param:
+                script_content = script_content.replace('${%s}' % cmd_param, yaml_params.get(cmd_param.split(":")[1]))
 
     if extend_dict is not None:
         for k in extend_dict:
