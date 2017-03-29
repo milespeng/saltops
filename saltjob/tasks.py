@@ -64,11 +64,17 @@ def prepareScript(script_path):
     :return:
     """
     if SALT_CONN_TYPE == 'http':
-        logger.info("当前执行模式为分离模式，发送脚本到Master节点")
-        url = SALT_HTTP_URL + '/upload'
-        files = {'file': open(script_path, 'rb')}
-        requests.post(url, files=files)
-        logger.info("发送远程文件结束")
+        try:
+            logger.info("当前执行模式为分离模式，发送脚本到Master节点")
+            url = SALT_HTTP_URL + '/upload'
+            files = {'file': open(script_path, 'rb')}
+            requests.post(url, files=files)
+            logger.info("发送远程文件结束")
+            return True
+        except Exception as  e:
+            logger.error(e)
+            return False
+    return True
 
 
 def runSaltCommand(host, script_type, filename, func=None, func_args=None):
@@ -182,17 +188,26 @@ def execTools(obj, hostList, ymlParam):
 
     script_name = ""
     script_path = ""
-
+    prepare_script_result = True
     # 非Salt命令，需要把脚本送到Master的BasePath里面
     if obj.tool_run_type != 4:
         script_name, script_path = generateDynamicScript(obj.tool_script, script_type, ymlParam, "", None)
-        prepareScript(script_path)
+        prepare_script_result = prepareScript(script_path)
 
     logger.info("开始执行命令")
     logger.info("获取目标主机信息,目标部署主机共%s台", hostSet.count())
 
     for target in hostSet:
         try:
+            if prepare_script_result is False:
+                errmsg = "执行失败：发送文件到远端服务器失败，请检查SimpleService是否启动成功"
+                execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
+                                                    host=target,
+                                                    exec_result='执行失败',
+                                                    err_msg=errmsg)
+                execDetail.save()
+                continue
+
             if obj.tool_run_type == 1:
                 salt_api_token({'fun': 'file.set_mode', 'tgt': target,
                                 'arg': tuple(['/srv/salt/' + script_name + '.sh', '777'])},
@@ -325,7 +340,12 @@ def deployTask(deployJob, uninstall=False, uninstall_host=[]):
         )
         script_name, script_path = generateDynamicScript(playbookContent, script_type, project.extra_param,
                                                          defaultVersion.extra_param, extent_dict)
-        prepareScript(script_path)
+        prepare_result = prepareScript(script_path)
+        if prepare_result is False:
+            deployJob.deploy_status = 2
+            deployJob.save()
+            logger.info("执行失败，请检查SimpleService是否启动")
+            return
 
         if uninstall is False and defaultVersion.files is not None:
             try:
@@ -343,6 +363,7 @@ def deployTask(deployJob, uninstall=False, uninstall_host=[]):
         logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
         hasErr = False
         for target in hosts:
+
             logger.info("执行脚本，目标主机为:%s", target)
 
             result = runSaltCommand(target, script_type, script_name)

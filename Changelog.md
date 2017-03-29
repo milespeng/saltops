@@ -7,3 +7,4 @@
 * 修复扫描主机有win的机器无法扫描Windows主机的情况
 * 工具模块新增PowerShell、Bat、Python支持
 * 工具模块的Shell执行模式优化，从State模式改为cmd.run模式
+* 修复SaltOps分离部署模式下，假如没有生成对应的文件，会出现业务执行成功的情况
