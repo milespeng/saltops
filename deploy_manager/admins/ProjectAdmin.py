@@ -67,6 +67,8 @@ class HostInline(NestedStackedInline):
 
 @admin.register(Project)
 class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
+    change_form_template = 'project_change_form.html'
+
     def construct_change_message(self, request, form, formsets, add=False):
         """
         删除业务后执行卸载脚本
