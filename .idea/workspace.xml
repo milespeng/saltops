@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Changelog.md" afterPath="$PROJECT_DIR$/Changelog.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" afterPath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -970,13 +969,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00119" summary="准备发布0.4.0">
-      <created>1487231759742</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1487231759742</updated>
-    </task>
     <task id="LOCAL-00120" summary="0.4.0">
       <created>1487232303336</created>
       <option name="number" value="00120" />
@@ -1313,7 +1305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490886095760</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="#50 业务部署需要校验是否选择了默认版本">
+      <created>1490886136419</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1490886136419</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TestHistory">
