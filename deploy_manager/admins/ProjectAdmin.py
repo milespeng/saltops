@@ -26,11 +26,6 @@ class ProjectVersionInline(NestedStackedInline):
     verbose_name_plural = '版本'
     extra = 0
 
-    class Media:
-        js = (
-            '/static/js/ProjectVersionInline.js',
-        )
-
 
 class ProjectResource(resources.ModelResource):
     class Meta:
