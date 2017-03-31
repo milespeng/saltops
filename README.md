@@ -23,26 +23,4 @@ DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因�
 
 # 文档
 
-> 由于界面变动比较频繁，部分文档截图可能会比较旧
-
-- [SaltOps的定位与目标](doc/wiki/SaltOps的定位与目标.md)
-- [架构概览](doc/wiki/架构概览.md)
-- [安装前准备](doc/wiki/安装前准备.md)
-- [集中部署](doc/wiki/集中部署.md)
-- [分离部署](doc/wiki/分离部署.md)
-- [功能简介:首页](doc/wiki/首页.md)
-- [功能简介:资产管理](doc/wiki/资产管理.md)
-- [功能简介:发布管理](doc/wiki/发布管理.md)
-- [功能简介:工具管理](doc/wiki/工具管理.md)
-- [对外接口](doc/wiki/对外接口.md)
-- [使用SaltSSH](doc/wiki/使用SaltSSH.md)
-- [系统配置与可用参数列表](doc/wiki/系统配置与可用参数列表.md)
-- [常见问题](doc/wiki/常见问题.md)
-
-#常用部署模板
-
-- [JDK](doc/sls/jdk8.sls)
-- [ElasticSearch](doc/sls/elasticsearch-master.sls)
-- [Golang](doc/sls/golang.sls)
-- [Golang_Uninstall](doc/sls/golang_uninstall.sls)
-- [Maven](doc/sls/maven.sls)
+采用OSC Team里面提供的文档功能，传送门 http://saltops.mydoc.io/
