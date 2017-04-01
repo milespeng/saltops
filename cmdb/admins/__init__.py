@@ -4,3 +4,4 @@ from .IDCAdmin import IDCAdmin
 from .IDCLevelAdmin import IDCLevelAdmin
 from .ISPAdmin import ISPAdmin
 from .RackAdmin import RackAdmin
+from .HostGroupAdmin import HostGroupAdmin
