@@ -40,11 +40,11 @@ class HostAdmin(admin.ModelAdmin):
         ]
         return custom_urls + urls
 
-    list_display = ['host_name', 'kernel',
+    list_display = ['host_name', 'host_group', 'kernel',
                     'host', 'idc', 'system_serialnumber',
                     'os', 'virtual', 'enable_ssh', 'minion_status', 'create_time', 'update_time']
     search_fields = ['host']
-    list_filter = ['virtual', 'os_family',  'minion_status']
+    list_filter = ['host_group', 'virtual', 'os_family', 'minion_status']
     inlines = [IPInline, ProjectInline]
     change_list_template = 'cmdb_host_list.html'
 

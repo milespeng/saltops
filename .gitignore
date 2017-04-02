@@ -8,3 +8,4 @@ doc/script/files/*
 db.sqlite3
 /doc/script
 /doc/scripts
+.idea/workspace.xml

@@ -1,11 +1,11 @@
 from django.db import models
 from smart_selects.db_fields import ChainedForeignKey
 
+from cmdb.models.HostGroup import HostGroup
 from cmdb.models.Cabinet import Cabinet
 from cmdb.models.IDC import IDC
 from cmdb.models.Rack import Rack
 from common.models import BaseModel
-
 
 MINION_STATUS = (
     (0, '未启动'),
@@ -17,6 +17,7 @@ MINION_STATUS = (
 
 
 class Host(BaseModel):
+    host_group = models.ForeignKey(HostGroup, verbose_name='主机组', blank=True, null=True)
     host_name = models.CharField(max_length=255, blank=True, null=True, verbose_name="主机DNS名称")
     kernel = models.CharField(max_length=255, blank=True, null=True, verbose_name="系统内核")
     kernel_release = models.CharField(max_length=255, blank=True, null=True, verbose_name="系统内核版本")
@@ -36,6 +37,7 @@ class Host(BaseModel):
     mem_total = models.IntegerField(blank=True, null=True, verbose_name="内存大小")
     num_cpus = models.IntegerField(blank=True, null=True, verbose_name="CPU数量")
     idc = models.ForeignKey(IDC, verbose_name='IDC', blank=True, null=True)
+
     cabinet = ChainedForeignKey(
         Cabinet,
         verbose_name="机柜",
