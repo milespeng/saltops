@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from libsaas.services.basecamp.projects import Project
 
 from cmdb.models import Host
 from common.models import BaseModel
@@ -27,6 +28,7 @@ class Project(BaseModel):
     dev_monitor = models.ForeignKey(User, verbose_name='开发负责人', blank=True, null=True, related_name='dev_monitor')
     ops_monitor = models.ForeignKey(User, verbose_name='运维负责人', blank=True, null=True, related_name='ops_monitor')
     backup_monitor = models.ForeignKey(User, verbose_name='备份负责人', blank=True, null=True, related_name='backup_monitor')
+    pre_project = models.ManyToManyField('self', verbose_name='前置业务', blank=True, null=True)
 
     def __str__(self):
         return self.name
