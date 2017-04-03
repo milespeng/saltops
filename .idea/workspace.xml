@@ -5,12 +5,376 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/templates/project_host_inline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/patterns/header-profile-skin-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/patterns/header-profile-skin-3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/patterns/header-profile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/patterns/shattered.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/blueimp/img/error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/blueimp/img/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/blueimp/img/play-pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/blueimp/img/video-play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/chosen/chosen-sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/chosen/chosen-sprite@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/colorpicker/img/bootstrap-colorpicker/alpha-horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/colorpicker/img/bootstrap-colorpicker/alpha.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/colorpicker/img/bootstrap-colorpicker/hue-horizontal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/colorpicker/img/bootstrap-colorpicker/hue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/colorpicker/img/bootstrap-colorpicker/saturation.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/footable/fonts/footable.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/footable/fonts/footable.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/footable/fonts/footable.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/footable/fonts/footabled41d.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/iCheck/green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/iCheck/green@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/images/sort_asc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/images/sort_desc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/images/sprite-skin-flat.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/images/spritemap.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/images/spritemap@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/fontawesome-webfont93e3.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/fontawesome-webfont93e3.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/fontawesome-webfont93e3.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/fontawesome-webfont93e3.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/fontawesome-webfontd41d.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/glyphicons-halflings-regulard41d.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/a9.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/iconfont-logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/icons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/index.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/index_4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/loading-upload.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/locked.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/login-background.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/p1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/p2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/p3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/p_big1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/p_big2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/p_big3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/pay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/profile.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/profile_big.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/profile_small.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/progress.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/qr_code.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/success.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/user.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/img/wenku_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fancybox/blank.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fancybox/fancybox_loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fancybox/fancybox_loading@2x.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fancybox/fancybox_overlay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fancybox/fancybox_sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fancybox/fancybox_sprite@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/gritter/images/gritter-light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/gritter/images/gritter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/gritter/images/ie-spacer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/laydate/skins/dahong/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/laydate/skins/default/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/laydate/skins/molv/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate/skins/dahong/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate/skins/default/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate/skins/molv/icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/layim/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/models/PreProject.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/templates/pre_project.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/404.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/500.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/GET" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/agile_board.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/article.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/badges_labels.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/basic_gallery.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/blog.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/blueimp.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/buttons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/calendar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/carousel.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/chat_view.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/clients.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/code_editor.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/contacts.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/animate.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/bootstrap.min14ed.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/demo/webuploader-demo.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/font-awesome.min93e3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/login.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/blueimp/css/blueimp-gallery.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/blueimp/img/error.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/blueimp/img/play-pause.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/blueimp/img/video-play.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/bootstrap-table/bootstrap-table.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/chosen/chosen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/clockpicker/clockpicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/codemirror/ambiance.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/codemirror/codemirror.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/colorpicker/css/bootstrap-colorpicker.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/cropper/cropper.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/dataTables/dataTables.bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/datapicker/datepicker3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/dropzone/basic.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/dropzone/dropzone.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/footable/fonts/footable.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/footable/footable.core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/fullcalendar/fullcalendar.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/fullcalendar/fullcalendar.print.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/iCheck/custom.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/ionRangeSlider/ion.rangeSlider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/jasny/jasny-bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/jqgrid/ui.jqgridffe4.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/jsTree/style.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/markdown/bootstrap-markdown.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/morris/morris-0.4.3.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/nouslider/jquery.nouislider.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/plyr/plyr.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/plyr/sprite.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/simditor/simditor.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/steps/jquery.steps.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/summernote/summernote-bs3.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/summernote/summernote.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/sweetalert/sweetalert.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/switchery/switchery.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/toastr/toastr.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/treeview/bootstrap-treeview.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/plugins/webuploader/webuploader.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/style.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css/style.min862f.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/css_animation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/diff.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/draggable_panels.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/empty_page.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/faq.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/file_manager.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fontawesome.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/fontawesome-webfont93e3.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_advanced.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_avatar.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_basic.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_builder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_editors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_file_upload.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_markdown.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_simditor.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_validate.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_webuploader.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/form_wizard.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/forum_main.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/forum_post.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/glyphicons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/graph_echarts.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/graph_flot.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/graph_metrics.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/graph_morris.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/graph_peity.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/graph_rickshaw.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/graph_sparkline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/grid_options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/iconfont.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/icons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index-2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index_3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index_4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index_v1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index_v148b2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index_v2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index_v3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index_v4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/index_v5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/invoice.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/invoice_print.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/javascript;.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/contabs.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/content.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/bootstrap-table-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/echarts-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/flot-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/form-advanced-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/form-validate-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/layer-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/morris-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/peity-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/rickshaw-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/sparkline-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/treeview-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/demo/webuploader-demo.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/hplus.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/jquery-ui-1.10.4.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/jquery-ui.custom.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/beautifyhtml/beautifyhtml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/blueimp/jquery.blueimp-gallery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/bootstrap-table/bootstrap-table.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/chartJs/Chart.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/chosen/chosen.jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/clockpicker/clockpicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/codemirror/codemirror.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/codemirror/mode/javascript/javascript.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/colorpicker/bootstrap-colorpicker.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/cropper/cropper.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/dataTables/dataTables.bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/dataTables/jquery.dataTables.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/datapicker/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/diff_match_patch/diff_match_patch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/dropzone/dropzone.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/easypiechart/jquery.easypiechart.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/echarts/echarts-all.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fancybox/jquery.fancybox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fancybox/jquery.fancybox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/flot/curvedLines.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/flot/jquery.flot.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/flot/jquery.flot.pie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/flot/jquery.flot.resize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/flot/jquery.flot.spline.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/flot/jquery.flot.symbol.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/flot/jquery.flot.tooltip.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/footable/footable.all.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/fullcalendar/fullcalendar.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/gritter/jquery.gritter.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/gritter/jquery.gritter.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/iCheck/icheck.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/ionRangeSlider/ion.rangeSlider.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jasny/jasny-bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jeditable/jquery.jeditable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jqgrid/i18n/grid.locale-cnffe4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jqgrid/jquery.jqGrid.minffe4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jquery-ui/jquery-ui.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jsKnob/jquery.knob.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jsTree/jstree.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/extend/layer.ext.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/demo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/layDate官网.url" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/laydate/laydate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/laydate/need/laydate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/laydate/skins/dahong/laydate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/laydate/skins/default/laydate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/laydate/skins/molv/laydate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate-v1.1/更新日志.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate/laydate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate/need/laydate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate/skins/dahong/laydate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate/skins/default/laydate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/laydate/skins/molv/laydate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/layer.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/layim/layim.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/layim/layim.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/skin/layer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/skin/layer.ext.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/layer/skin/moon/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/markdown/bootstrap-markdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/markdown/bootstrap-markdown.zh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/markdown/markdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/markdown/to-markdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/metisMenu/jquery.metisMenu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/morris/morris.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/morris/raphael-2.1.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/nestable/jquery.nestable.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/nouslider/jquery.nouislider.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/pace/pace.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/peity/jquery.peity.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/plyr/plyr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/preetyTextDiff/jquery.pretty-text-diff.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/prettyfile/bootstrap-prettyfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/rickshaw/rickshaw.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/rickshaw/vendor/d3.v3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/simditor/hotkeys.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/simditor/module.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/simditor/simditor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/simditor/uploader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/sparkline/jquery.sparkline.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/staps/jquery.steps.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/suggest/bootstrap-suggest.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/summernote/summernote-zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/summernote/summernote.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/sweetalert/sweetalert.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/switchery/switchery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/toastr/toastr.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/treeview/bootstrap-treeview.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/validate/jquery.validate.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/validate/messages_zh.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/webuploader/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/plugins/webuploader/webuploader.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/js/welcome.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/jstree.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/layer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/layerdate.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/layouts.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/lockscreen.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/login_v2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/mail_compose.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/mail_detail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/mailbox.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/modal_window.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/nestable_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/notifications.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/pin_board.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/plugins/fullavatareditor/scripts/fullAvatarEditor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/plugins/fullavatareditor/scripts/jQuery.Cookie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/plugins/fullavatareditor/scripts/swfobject.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/plugins/fullavatareditor/scripts/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/plyr.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/profile.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/project_detail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/projects.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/register.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/search_results.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/social_feed.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/spinners.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/suggest.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/sweetalert.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/table_basic.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/table_bootstrap.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/table_data_tables.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/table_foo_table.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/table_jqgrid.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/tabs_panels.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/teams_board.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/timeline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/timeline_v2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/toastr_notifications.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/tree_view.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/tree_view_v2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/typography.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/validation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/webim.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/hplus/widgets.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/frontend/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/frontend/mainform.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/migrations/0002_auto_20170303_1732.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/models/Project.py" afterPath="$PROJECT_DIR$/deploy_manager/models/Project.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/project_change_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/project_change_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/views.py" afterPath="$PROJECT_DIR$/common/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" afterPath="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/models/__init__.py" afterPath="$PROJECT_DIR$/deploy_manager/models/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/settings.py" afterPath="$PROJECT_DIR$/saltops/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/urls.py" afterPath="$PROJECT_DIR$/saltops/urls.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,6 +418,20 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="db.sqlite3" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="deploy_manager_preproject" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -64,23 +442,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProjectAdmin.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
+      <file leaf-file-name="mainform.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/frontend/mainform.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-189">
-              <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Project.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="15" />
+            <state relative-caret-position="27">
+              <caret line="31" column="166" lean-forward="false" selection-start-line="31" selection-start-column="166" selection-end-line="31" selection-end-column="166" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,8 +467,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>object-tools-items</find>
-      <find>class=&quot;delete&quot;</find>
       <find>delete</find>
       <find>submit_row</find>
       <find>submit_buttons_bottom</find>
@@ -129,6 +495,8 @@
       <find>没有文件，不执行发送操作</find>
       <find>prepareScript</find>
       <find>inline_field_sets</find>
+      <find>login</find>
+      <find>退出</find>
     </findStrings>
     <replaceStrings>
       <replace>BaseModel</replace>
@@ -156,17 +524,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/admin/edit_inline/stacked.html" />
-        <option value="$PROJECT_DIR$/templates/admin/edit_inline/tabular.html" />
-        <option value="$PROJECT_DIR$/templates/admin/edit_inline/tabular-nested.html" />
-        <option value="$PROJECT_DIR$/templates/admin/edit_inline/compact.html" />
-        <option value="$PROJECT_DIR$/templates/admin/edit_inline/stacked-nested.html" />
-        <option value="$PROJECT_DIR$/saltops/dashboard.py" />
-        <option value="$PROJECT_DIR$/dashboard/dashboard.py" />
-        <option value="$PROJECT_DIR$/dashboard/boxes.py" />
-        <option value="$PROJECT_DIR$/common/templates/overview.html" />
-        <option value="$PROJECT_DIR$/common/templates/host_resource_overview.html" />
-        <option value="$PROJECT_DIR$/common/dashboard_modules.py" />
         <option value="$PROJECT_DIR$/common/templates/host_type_overview.html" />
         <option value="$PROJECT_DIR$/common/dashboard.py" />
         <option value="$PROJECT_DIR$/doc/wiki/首页.md" />
@@ -189,7 +546,6 @@
         <option value="$PROJECT_DIR$/tools_manager/models/ToolsScript.py" />
         <option value="$PROJECT_DIR$/tools_manager/admins/ToolsScriptAdmin.py" />
         <option value="$PROJECT_DIR$/saltjob/tasks.py" />
-        <option value="$PROJECT_DIR$/saltops/urls.py" />
         <option value="$PROJECT_DIR$/deploy_manager/static/js/Project.js" />
         <option value="$PROJECT_DIR$/Changelog.md" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -203,10 +559,22 @@
         <option value="$PROJECT_DIR$/cmdb/admins/HostAdmin.py" />
         <option value="$PROJECT_DIR$/deploy_manager/templates/project_change_form.html" />
         <option value="$PROJECT_DIR$/deploy_manager/templates/project_host_inline.html" />
-        <option value="$PROJECT_DIR$/saltops/settings.py" />
         <option value="$PROJECT_DIR$/deploy_manager/serializers.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
         <option value="$PROJECT_DIR$/deploy_manager/models/Project.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/models/PreProject.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/models/__init__.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/pre_project.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py" />
+        <option value="$PROJECT_DIR$/frontend_basic/urls.py" />
+        <option value="$PROJECT_DIR$/frontend_basic/views.py" />
+        <option value="$PROJECT_DIR$/static/hplus/css/style.min862f.css" />
+        <option value="$PROJECT_DIR$/common/models.py" />
+        <option value="$PROJECT_DIR$/common/urls.py" />
+        <option value="$PROJECT_DIR$/templates/frontend/index.html" />
+        <option value="$PROJECT_DIR$/common/views.py" />
+        <option value="$PROJECT_DIR$/saltops/settings.py" />
+        <option value="$PROJECT_DIR$/saltops/urls.py" />
+        <option value="$PROJECT_DIR$/templates/frontend/mainform.html" />
       </list>
     </option>
   </component>
@@ -254,7 +622,177 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.4.4 (C:\Python34\python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.4.4 (C:\Python34\python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.4.4 (C:\Python34\python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="django" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.4.4 (C:\Python34\python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="django" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contrib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.4.4 (C:\Python34\python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="django" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contrib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -277,19 +815,19 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/cmdb/admins" />
-      <recent name="$PROJECT_DIR$/cmdb/models" />
-      <recent name="D:\github\saltops\deploy_manager" />
-      <recent name="$PROJECT_DIR$/static/admin" />
-      <recent name="$PROJECT_DIR$/templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/doc/wiki/img" />
       <recent name="$PROJECT_DIR$/tools_manager/templates/tools_manager" />
       <recent name="$PROJECT_DIR$/doc/img" />
       <recent name="$PROJECT_DIR$/templates/admin/templates" />
       <recent name="$PROJECT_DIR$/doc/script/orch" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\saltops\common" />
+      <recent name="D:\github\saltops\static" />
+      <recent name="$PROJECT_DIR$/cmdb/admins" />
+      <recent name="$PROJECT_DIR$/cmdb/models" />
+      <recent name="D:\github\saltops\deploy_manager" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -1249,19 +1787,19 @@
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19093852" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18365696" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43079317" sideWeight="0.50323623" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40124416" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40124416" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.280597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39813375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1281,16 +1819,16 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32765958" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1866252" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40124416" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.49676377" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19093852" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18365696" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48358208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.280597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39813375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1338,6 +1876,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/common/views.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="420" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1348,7 +1893,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="410" />
+      <option name="time" value="422" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
@@ -1364,118 +1909,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools_manager/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/emailsender.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/salt_https_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/models/ToolsExecJob.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/admins/ToolsExecJobAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/models/ToolsScript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="e#4117#4518#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/templates/dashboard/main.html" />
-    <entry file="file://$PROJECT_DIR$/dashboard/boxes.py" />
-    <entry file="file://$PROJECT_DIR$/dashboard/views.py" />
-    <entry file="file://$PROJECT_DIR$/saltops/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/host_resource_overview.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/dashboard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/dashboard_modules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/ProjectVersionInline.js" />
-    <entry file="file://$PROJECT_DIR$/deploy_manager/static/js/Project.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops/dashboard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/admins/ToolsScriptAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/wiki/架构概览.md" />
-    <entry file="file://$PROJECT_DIR$/doc/wiki/安装前准备.md" />
-    <entry file="file://$PROJECT_DIR$/doc/wiki/集中部署.md" />
-    <entry file="file://$PROJECT_DIR$/doc/wiki/分离部署.md" />
-    <entry file="file://$PROJECT_DIR$/doc/wiki/首页.md" />
-    <entry file="file://$PROJECT_DIR$/doc/wiki/资产管理.md" />
-    <entry file="file://$PROJECT_DIR$/doc/wiki/发布管理.md" />
     <entry file="file://$PROJECT_DIR$/doc/wiki/工具管理.md" />
     <entry file="file://$PROJECT_DIR$/doc/wiki/对外接口.md" />
     <entry file="file://$PROJECT_DIR$/doc/wiki/使用SaltSSH.md" />
@@ -1552,23 +1985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1674">
           <caret line="62" column="12" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="62" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/templates/admin/edit_inline/stacked.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/stacked.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1576,25 +1992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="7" column="63" lean-forward="true" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/options.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6268">
-          <caret line="1819" column="6" lean-forward="false" selection-start-line="1819" selection-start-column="6" selection-end-line="1819" selection-end-column="6" />
-          <folding>
-            <element signature="e#66439#66838#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-321">
-          <caret line="258" column="19" lean-forward="true" selection-start-line="258" selection-start-column="19" selection-end-line="258" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1602,7 +1999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1610,7 +2006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1618,25 +2013,274 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/PreProject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/admins/DeployJobAdmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-729">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/templates/admin/edit_inline/stacked.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/stacked.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/pre_project.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/forms/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4833">
+          <caret line="197" column="6" lean-forward="false" selection-start-line="197" selection-start-column="6" selection-end-line="197" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="15" />
+        <state relative-caret-position="243">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/admins/ProjectAdmin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-189">
-          <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        <state relative-caret-position="-1884">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+            <element signature="e#2249#3523#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend_basic/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend_basic/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/hplus/css/style.min862f.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="4183" column="1" lean-forward="false" selection-start-line="4183" selection-start-column="1" selection-end-line="4183" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/auth/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="63" column="4" lean-forward="false" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#32#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/options.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="859" column="8" lean-forward="false" selection-start-line="859" selection-start-column="8" selection-end-line="859" selection-end-column="8" />
+          <folding>
+            <element signature="e#66439#66838#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/templates/admin/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/core/handlers/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/shortcuts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/auth/password_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="71" column="4" lean-forward="true" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/auth/validators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/auth/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="181" column="51" lean-forward="false" selection-start-line="181" selection-start-column="51" selection-end-line="181" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/auth/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="79" column="61" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="27" column="71" lean-forward="false" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/http/response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="433" column="6" lean-forward="false" selection-start-line="433" selection-start-column="6" selection-end-line="433" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="45" column="38" lean-forward="false" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+          <folding>
+            <element signature="e#665#706#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/mainform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="31" column="166" lean-forward="false" selection-start-line="31" selection-start-column="166" selection-end-line="31" selection-end-column="166" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

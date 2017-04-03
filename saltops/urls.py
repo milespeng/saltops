@@ -23,9 +23,9 @@ from django.http import HttpResponseRedirect
 from rest_framework import routers
 
 # from deploy_manager.serializer import UserViewSet
+from common import views
 from deploy_manager.views import *
 from saltops import settings
-
 
 router = routers.DefaultRouter()
 router.register(r'projectversionViewSet', ProjectVersionViewSet)
@@ -41,6 +41,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^chaining/', include('smart_selects.urls')),
     url('^searchableselect/', include('searchableselect.urls')),
+    url(r'^$', views.index, name='index'),
+    url(r'^checkLogin/$', views.checkLogin, name='checkLogin'),
+    url(r'^mainform/$', views.mainform, name='mainform')
 ]
 
 # if settings.DEBUG:

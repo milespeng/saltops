@@ -6,3 +6,4 @@ from .ProjectModule import ProjectModule
 from .ProjectVersion import ProjectVersion
 from .ProjectConfigFile import ProjectConfigFile
 from .ProjectHostConfigFile import ProjectHostConfigFile
+from .PreProject import PreProject

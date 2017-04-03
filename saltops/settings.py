@@ -30,7 +30,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['192.168.80.172', '127.0.0.1']
 
 # Application definition
-
 # CELERY_IMPORTS = ('saltjob.cron.scanHostJob',)
 # CELERY_TIMEZONE = 'Asia/Shanghai'
 INSTALLED_APPS = [
@@ -153,7 +152,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-
+    ('hplus', os.path.join(STATIC_ROOT, 'hplus').replace('\\', '/')),
     ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
     ('djcelery', os.path.join(STATIC_ROOT, 'djcelery').replace('\\', '/')),
     ('import_export', os.path.join(STATIC_ROOT, 'import_export').replace('\\', '/')),

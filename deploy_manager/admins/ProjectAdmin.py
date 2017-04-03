@@ -1,6 +1,7 @@
 import requests
 from django.conf.urls import url
 from django.contrib import admin
+from django.forms import BaseModelForm, forms, ModelForm
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.html import format_html
@@ -18,7 +19,7 @@ from saltjob.tasks import deployTask, loadProjectConfig
 from saltops.settings import SALT_REST_URL, SALT_CONN_TYPE, SALT_HTTP_URL
 
 
-class ProjectVersionInline(NestedStackedInline):
+class ProjectVersionInline(admin.StackedInline):
     model = ProjectVersion
     fields = ['name', 'sub_job_script_type', 'subplaybook', 'anti_install_playbook', 'extra_param', 'is_default',
               'files', ]
@@ -33,35 +34,42 @@ class ProjectResource(resources.ModelResource):
         exclude = ('project_module', 'host')
 
 
-class ProjectHostConfigFileInline(NestedStackedInline):
-    model = ProjectHostConfigFile
-    fields = ['file_path', 'file_content']
-    verbose_name = '配置文件'
-    verbose_name_plural = '配置文件'
-    readonly_fields = ['file_path', 'file_content']
-    extra = 0
-    fk_name = 'project_host'
+# class ProjectHostConfigFileInline(NestedStackedInline):
+#     model = ProjectHostConfigFile
+#     fields = ['file_path', 'file_content']
+#     verbose_name = '配置文件'
+#     verbose_name_plural = '配置文件'
+#     readonly_fields = ['file_path', 'file_content']
+#     extra = 0
+#     fk_name = 'project_host'
 
 
-class ProjectConfigFileInline(NestedStackedInline):
-    model = ProjectConfigFile
-    fields = ['config_path', ]
-    verbose_name = '业务配置'
-    verbose_name_plural = '业务配置'
-    extra = 0
+# class ProjectConfigFileInline(NestedStackedInline):
+#     model = ProjectConfigFile
+#     fields = ['config_path', ]
+#     verbose_name = '业务配置'
+#     verbose_name_plural = '业务配置'
+#     extra = 0
 
 
-class HostInline(NestedStackedInline):
+class HostInline(admin.StackedInline):
     model = Project.host.through
     fields = ['host']
     verbose_name = '主机'
     verbose_name_plural = '主机'
     extra = 0
-    inlines = [ProjectHostConfigFileInline]
+
+
+class PreProjectInline(admin.StackedInline):
+    model = PreProject
+    verbose_name = '前置业务'
+    verbose_name_plural = '前置业务'
+    extra = 1
+
 
 
 @admin.register(Project)
-class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
+class ProjectAdmin(ImportExportModelAdmin):
     change_form_template = 'project_change_form.html'
 
     def construct_change_message(self, request, form, formsets, add=False):
@@ -115,7 +123,7 @@ class ProjectAdmin(NestedModelAdmin, ImportExportModelAdmin):
                     'deployMsg', 'extra_btn']
     search_fields = ['host']
     list_filter = ['job_script_type']
-    inlines = [ProjectConfigFileInline, ProjectVersionInline, HostInline]
+    inlines = [ProjectVersionInline, HostInline, PreProjectInline]
     list_display_links = ['name', 'deployMsg']
     actions = ['deploydefaultAction']
     resource_class = ProjectResource
