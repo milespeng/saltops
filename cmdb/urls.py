@@ -19,4 +19,7 @@ urlpatterns = [
     url(r'^isp_list/isp_add', isp_add),
     url(r'^isp_list/delete_entity', isp_delete_entity),
     url(r'^isp_list/$', isp_list),
+
+    # IDC
+    url(r'^idc_list/$', idc_list),
 ]

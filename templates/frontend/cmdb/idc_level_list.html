@@ -29,6 +29,8 @@
         <tr>
             <th style="width: 10%;">机房名称</th>
             <th>描述</th>
+            <th style="width: 10%;">创建时间</th>
+            <th style="width: 10%;">更新时间</th>
             <th style="width:15%;">操作</th>
         </tr>
         </thead>
@@ -37,6 +39,8 @@
             <tr>
                 <td>{{ o.name }}</td>
                 <td>{{ o.comment }}</td>
+                <td>{{ o.create_time }}</td>
+                <td>{{ o.update_time }}</td>
                 <td>
                     <a href="/frontend/cmdb/idc_level_list/{{ o.id }}/idc_level_edit/"
                        class="btn  btn-sm btn-info">编辑</a>

@@ -28,13 +28,17 @@
         <thead>
         <tr>
             <th style="width: 10%;">ISP名称</th>
-            <th style="width:2%;">操作</th>
+            <th style="width: 10%;">创建时间</th>
+            <th style="width: 10%;">更新时间</th>
+            <th style="width:10%;">操作</th>
         </tr>
         </thead>
         <tbody>
         {% for o in result_list %}
             <tr>
                 <td>{{ o.name }}</td>
+                <td>{{ o.create_time }}</td>
+                <td>{{ o.update_time }}</td>
                 <td>
                     <a href="/frontend/cmdb/isp_list/{{ o.id }}/isp_edit/"
                        class="btn  btn-sm btn-info">编辑</a>

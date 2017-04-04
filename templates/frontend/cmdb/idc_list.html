@@ -1,0 +1,79 @@
+{% extends 'frontend/common/basic_list.html' %}
+
+{% block list_title %}
+    机房
+{% endblock %}
+
+{% block list_filter %}
+    <div class="col-sm-3">
+        <div class="input-group">
+            <select class="form-control m-b" name="isp">
+                <option value="" {% ifequal '' isp %}
+                        selected="selected"
+                {% endifequal %}
+                >----
+                </option>
+                {% for o in isp_type %}
+                    <option value="{{ o.id }}" {% ifequal o.id isp %}
+                            selected="selected"
+                    {% endifequal %}
+
+                    >{{ o.name }}</option>
+                {% endfor %}
+
+            </select>
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-sm btn-primary"> 搜索</button>
+            </span>
+
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="input-group">
+            <a href="/frontend/cmdb/idc_list/idc_add"
+               class="btn btn-sm btn-success"> 新增</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block list_content %}
+    <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
+        <thead>
+        <tr>
+            <th style="width: 8%;">机房名称</th>
+            <th style="width: 8%;">机房类型</th>
+            <th style="width: 8%;">联系电话</th>
+            <th style="width: 8%;">联系人</th>
+            <th style="width: 8%;">机房地址</th>
+            <th style="width: 8%;">ISP类型</th>
+            <th style="width: 8%;">联系邮箱</th>
+            <th style="width: 8%;">机柜数量</th>
+            <th style="width: 12%;">创建时间</th>
+            <th style="width: 12%;">更新时间</th>
+            <th style="width:13%;">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for o in result_list %}
+            <tr>
+                <td>{{ o.name }}</td>
+                <td>{{ o.type }}</td>
+                <td>{{ o.phone }}</td>
+                <td>{{ o.linkman }}</td>
+                <td>{{ o.address }}</td>
+                <td>{{ o.operator }}</td>
+                <td>{{ o.concat_email }}</td>
+                <td>{{ o.id|cabinet_count }}</td>
+                <td>{{ o.create_time }}</td>
+                <td>{{ o.update_time }}</td>
+                <td>
+                    <a href="/frontend/cmdb/isp_list/{{ o.id }}/isp_edit/"
+                       class="btn  btn-sm btn-info">编辑</a>
+                    <a href="/frontend/cmdb/isp_list/delete_entity?id={{ o.id }}"
+                       class="btn  btn-sm btn-danger">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
