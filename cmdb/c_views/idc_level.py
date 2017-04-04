@@ -40,3 +40,19 @@ def idc_level_add_action(request):
     obj.save()
 
     return redirect('/frontend/cmdb/idc_level_list/')
+
+
+def idc_level_edit(request, pk):
+    title = '编辑机房等级'
+    action = '/frontend/cmdb/idc_level_list/%s/idc_level_edit_action/' % pk
+    entity = IDCLevel.objects.get(pk=pk)
+    return render(request, 'frontend/cmdb/idc_level_form.html', locals())
+
+
+def idc_level_edit_action(request, pk):
+    obj = IDCLevel.objects.get(pk=pk)
+    obj.name = request.POST.get('name', '')
+    obj.comment = request.POST.get('comment', '')
+    obj.save()
+
+    return redirect('/frontend/cmdb/idc_level_list/')

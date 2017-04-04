@@ -4,6 +4,9 @@ from cmdb.c_views import *
 from common import views
 
 urlpatterns = [
+
+    url(r'^idc_level_list/(?P<pk>\d+)/idc_level_edit_action', idc_level_edit_action),
+    url(r'^idc_level_list/(?P<pk>\d+)/idc_level_edit', idc_level_edit),
     url(r'^idc_level_list/idc_level_add_action', idc_level_add_action),
     url(r'^idc_level_list/idc_level_add', idc_level_add),
     url(r'^idc_level_list/delete_entity', idc_level_delete_entity),

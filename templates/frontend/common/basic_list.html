@@ -1,0 +1,67 @@
+{% extends 'frontend/common/basic_layout.html' %}
+{% block content %}
+    <style>
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        tr {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        function checktb(obj, id) {
+            if (obj.name == 'pmenu' && obj.checked == true) {
+                $($("input[type='checkbox']")).each(function () {
+                    $(this).prop('checked', true);
+                });
+            }
+            if (obj.name == 'pmenu' && obj.checked == false) {
+                $($("input[type='checkbox']")).each(function () {
+                    $(this).removeAttr("checked");
+                });
+            }
+
+            var uids = "";
+            $($("input[type='checkbox']")).each(function () {
+                if (this.checked == true && this.name != 'pmenu') {
+                    uids += this.id + ",";
+                }
+            });
+            $("#" + id).val(uids);
+        }
+    </script>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{% block list_title %}{% endblock %}</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="get">
+                            <div class="row">
+                                {% block list_filter %}
+                                {% endblock %}
+                            </div>
+                        </form>
+                        <div class="dataTables_wrapper form-inline">
+                            {% block list_content %}
+                            {% endblock %}
+                        </div>
+                        {% include 'frontend/common/pagination.html' %}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
