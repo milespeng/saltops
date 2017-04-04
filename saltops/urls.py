@@ -43,7 +43,8 @@ urlpatterns = [
     url('^searchableselect/', include('searchableselect.urls')),
     url(r'^$', views.index, name='index'),
     url(r'^checkLogin/$', views.checkLogin, name='checkLogin'),
-    url(r'^mainform/$', views.mainform, name='mainform')
+    url(r'^mainform/$', views.mainform, name='mainform'),
+    url(r'^dashboard/$', views.dashboard, name='mainform')
 ]
 
 # if settings.DEBUG:

@@ -1,0 +1,169 @@
+{% extends 'frontend/common/basic_layout.html' %}
+{% block content %}
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>基础信息</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-hover  no-margins">
+                            <tbody>
+                            <tr>
+                                <td>主机名称</td>
+                                <td>{{ module.hostname }}</td>
+                            </tr>
+                            <tr>
+                                <td>系统信息</td>
+                                <td>{{ module.system_info }}</td>
+                            </tr>
+                            <tr>
+                                <td>CPU架构</td>
+                                <td>{{ module.arch }}</td>
+                            </tr>
+                            <tr>
+                                <td>CPU信息</td>
+                                <td>{{ module.procesor }}</td>
+                            </tr>
+                            <tr>
+                                <td>Python版本</td>
+                                <td>{{ module.py_version }}</td>
+                            </tr>
+                            <tr>
+                                <td>主机数量</td>
+                                <td>{{ module.host_count }}</td>
+                            </tr>
+                            <tr>
+                                <td>业务数量</td>
+                                <td>{{ module.buss_count }}</td>
+                            </tr>
+                            <tr>
+                                <td>Minion状态</td>
+                                <td>{{ module.minions_status }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>资源使用率</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="host_resource_overview"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>主机分布</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div id="host_type_overview"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $('#host_type_overview').highcharts({
+                title: {
+                    text: '操作系统分布',
+                    x: -20
+                },
+                xAxis: {
+                    categories: [{% for o in module.os %}
+                        '{{ o }}',
+                    {% endfor %}]
+                },
+                series: [
+                    {
+                        'type': 'column',
+                        'data': [{% for o in module.total %}
+                            {{ o }},
+                        {% endfor %}
+                        ]
+                    }],
+
+            });
+
+            $('#host_resource_overview').highcharts({
+                title: {
+                    text: '资源使用率',
+                    x: -20
+                },
+                chart: {
+                    type: 'bar',
+                    height: 243,
+                },
+                xAxis: {
+                    categories: ['CPU使用率', '内存使用率']
+                },
+                yAxis: {
+                    min: 0,
+                    max: 100,
+                    title: {
+                        text: '百分比'
+                    }
+                },
+                tooltip: {
+                    percentageDecimals: 1
+                },
+                legend: {
+                    enabled: 'False'
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    }
+                },
+                series: [{
+                    name: 'CPU idle',
+                    data: [{'y': {{ module.cpu_idel }}, 'color': '#EBEBEB'}, {'y': 0}],
+                }, {
+                    name: 'CPU used',
+                    data: [{'y': {{ module.cpu }}, 'color': '{{ module.cpu_color }}'}, {'y': 0}],
+                }, {
+                    name: 'RAM free',
+                    data: [{'y': 0}, {'y': {{ module.ram }}, 'color': '#EBEBEB'}],
+                }, {
+                    name: 'RAM used',
+                    data: [{'y': 0}, {'y': {{ module.ram_used }}, 'color': '{{module.ram_color}}'}],
+                }]
+
+            });
+        });
+    </script>
+{% endblock %}

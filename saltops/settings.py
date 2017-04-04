@@ -152,6 +152,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    ('asserts', os.path.join(STATIC_ROOT, 'asserts').replace('\\', '/')),
     ('hplus', os.path.join(STATIC_ROOT, 'hplus').replace('\\', '/')),
     ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
     ('djcelery', os.path.join(STATIC_ROOT, 'djcelery').replace('\\', '/')),
