@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/frontend/common/basic_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/c_views/isp.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/frontend/cmdb/isp_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/frontend/cmdb/isp_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/c_views/idc_level.py" afterPath="$PROJECT_DIR$/cmdb/c_views/idc_level.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/c_views/__init__.py" afterPath="$PROJECT_DIR$/cmdb/c_views/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/urls.py" afterPath="$PROJECT_DIR$/cmdb/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/idc_level_form.html" afterPath="$PROJECT_DIR$/templates/frontend/cmdb/idc_level_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/idc_level_list.html" afterPath="$PROJECT_DIR$/templates/frontend/cmdb/idc_level_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/frontend/mainform.html" afterPath="$PROJECT_DIR$/templates/frontend/mainform.html" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,42 +80,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="idc_level.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cmdb/c_views/idc_level.py">
+      <file leaf-file-name="isp_list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/frontend/cmdb/isp_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-817">
-              <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="idc_level_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/frontend/cmdb/idc_level_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmdb/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="7" column="83" lean-forward="false" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="idc_level_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/frontend/cmdb/idc_level_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="40" column="69" lean-forward="false" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
-              <folding />
+            <state relative-caret-position="65">
+              <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+              <folding>
+                <element signature="e#944#961#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,7 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ProjectConfigFileInline</find>
       <find>False</find>
       <find>cpu_color</find>
       <find>smart</find>
@@ -162,6 +134,7 @@
       <find>tran</find>
       <find>page_obj</find>
       <find>list</find>
+      <find>idc_level</find>
     </findStrings>
     <replaceStrings>
       <replace>BaseModel</replace>
@@ -169,6 +142,7 @@
       <replace>dataResult</replace>
       <replace>list</replace>
       <replace>listresult_list</replace>
+      <replace>isp</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/templates/admin</dir>
@@ -191,9 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/doc/sls/golang_uninstall.sls" />
-        <option value="$PROJECT_DIR$/doc/wiki/工具管理.md" />
-        <option value="$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html" />
         <option value="$PROJECT_DIR$/tools_manager/tests.py" />
         <option value="$PROJECT_DIR$/services/emailsender.py" />
         <option value="$PROJECT_DIR$/tools_manager/models/ToolsScript.py" />
@@ -230,8 +201,6 @@
         <option value="$PROJECT_DIR$/templates/frontend/dashboard.html" />
         <option value="$PROJECT_DIR$/cmdb/views.py" />
         <option value="$PROJECT_DIR$/templates/frontend/cmdb/idc_level.html" />
-        <option value="$PROJECT_DIR$/cmdb/c_views/__init__.py" />
-        <option value="$PROJECT_DIR$/templates/frontend/mainform.html" />
         <option value="$PROJECT_DIR$/saltops/urls.py" />
         <option value="$PROJECT_DIR$/templates/frontend/common/pagenation.html" />
         <option value="$PROJECT_DIR$/common/pageutil.py" />
@@ -239,9 +208,14 @@
         <option value="$PROJECT_DIR$/common/views.py" />
         <option value="$PROJECT_DIR$/templates/frontend/common/basic_list.html" />
         <option value="$PROJECT_DIR$/templates/frontend/cmdb/idc_level_list.html" />
-        <option value="$PROJECT_DIR$/cmdb/urls.py" />
         <option value="$PROJECT_DIR$/templates/frontend/cmdb/idc_level_form.html" />
         <option value="$PROJECT_DIR$/cmdb/c_views/idc_level.py" />
+        <option value="$PROJECT_DIR$/templates/frontend/cmdb/isp_form.html" />
+        <option value="$PROJECT_DIR$/cmdb/urls.py" />
+        <option value="$PROJECT_DIR$/cmdb/c_views/__init__.py" />
+        <option value="$PROJECT_DIR$/cmdb/c_views/isp.py" />
+        <option value="$PROJECT_DIR$/templates/frontend/mainform.html" />
+        <option value="$PROJECT_DIR$/templates/frontend/cmdb/isp_list.html" />
       </list>
     </option>
   </component>
@@ -407,7 +381,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="c_views" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,19 +404,19 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\github\saltops\cmdb" />
-      <recent name="D:\github\saltops\static\asserts\highcharts" />
-      <recent name="D:\github\saltops\common" />
-      <recent name="D:\github\saltops\static" />
-      <recent name="$PROJECT_DIR$/cmdb/admins" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/doc/wiki/img" />
       <recent name="$PROJECT_DIR$/tools_manager/templates/tools_manager" />
       <recent name="$PROJECT_DIR$/doc/img" />
       <recent name="$PROJECT_DIR$/templates/admin/templates" />
       <recent name="$PROJECT_DIR$/doc/script/orch" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\saltops\cmdb\c_views" />
+      <recent name="D:\github\saltops\templates\frontend\cmdb" />
+      <recent name="D:\github\saltops\cmdb" />
+      <recent name="D:\github\saltops\static\asserts\highcharts" />
+      <recent name="D:\github\saltops\common" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -1011,13 +985,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00126" summary="开始做业务反安装">
-      <created>1487325174287</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1487325174287</updated>
-    </task>
     <task id="LOCAL-00127" summary="添加主机主动扫描按钮">
       <created>1487389300179</created>
       <option name="number" value="00127" />
@@ -1354,7 +1321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491283711211</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="机房等级">
+      <created>1491297420593</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1491297420594</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1462,7 +1436,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="修复主机状态扫描问题" />
     <MESSAGE value="新增Maven部署模板，调整部署页面显示顺序" />
     <MESSAGE value="添加Allowed_hosts" />
     <MESSAGE value="更新设置" />
@@ -1487,7 +1460,8 @@
     <MESSAGE value="首页" />
     <MESSAGE value="机房级别" />
     <MESSAGE value="IDC等级新建页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="IDC等级新建页面" />
+    <MESSAGE value="机房等级" />
+    <option name="LAST_COMMIT_MESSAGE" value="机房等级" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1520,34 +1494,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/PreProject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/admins/DeployJobAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-729">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/admin/templates/admin/edit_inline/stacked.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/edit_inline/stacked.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/templates/pre_project.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1811,20 +1757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/frontend/mainform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="59" column="56" lean-forward="false" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python34/Lib/site-packages/django/db/models/query.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1864,10 +1796,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/c_views/idc_level.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/models/ISP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/cmdb/idc_level_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/cmdb/isp_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/c_views/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/c_views/isp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cmdb/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="7" column="83" lean-forward="false" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
+        <state relative-caret-position="128">
+          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/mainform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="62" column="74" lean-forward="false" selection-start-line="62" selection-start-column="74" selection-end-line="62" selection-end-column="74" />
           <folding />
         </state>
       </provider>
@@ -1880,19 +1874,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/frontend/cmdb/idc_level_form.html">
+    <entry file="file://$PROJECT_DIR$/templates/frontend/cmdb/isp_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/idc_level.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-817">
-          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="65">
+          <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+          <folding>
+            <element signature="e#944#961#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
