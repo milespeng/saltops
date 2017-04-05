@@ -35,12 +35,6 @@ def idc_add(request):
 
 
 def idc_add_action(request):
-    obj = get_entity(request)
-    obj.save()
-    return redirect('/frontend/cmdb/idc_list/')
-
-
-def get_entity(request):
     obj = IDC(
         name=request.POST.get('name', ''),
         bandwidth=request.POST.get('bandwidth', ''),
@@ -53,7 +47,8 @@ def get_entity(request):
         type=IDCLevel.objects.get(pk=request.POST.get('type', '')),
         comment=request.POST.get('comment', '')
     )
-    return obj
+    obj.save()
+    return redirect('/frontend/cmdb/idc_list/')
 
 
 def idc_delete_entity(request):
@@ -75,7 +70,16 @@ def idc_edit(request, pk):
 
 
 def idc_edit_action(request, pk):
-    obj = get_entity(request)
-    obj.id = pk
+    obj = IDC.objects.get(pk=pk)
+    obj.name = request.POST.get('name', '')
+    obj.bandwidth = request.POST.get('bandwidth', '')
+    obj.phone = request.POST.get('phone', '')
+    obj.linkman = request.POST.get('linkman', '')
+    obj.address = request.POST.get('address', '')
+    obj.concat_email = request.POST.get('concat_email', '')
+    obj.network = request.POST.get('network', '')
+    obj.operator = ISP.objects.get(pk=request.POST.get('operator', ''))
+    obj.type = IDCLevel.objects.get(pk=request.POST.get('type', ''))
+    obj.comment = request.POST.get('comment', '')
     obj.save()
     return redirect('/frontend/cmdb/idc_list/')

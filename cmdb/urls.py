@@ -27,4 +27,12 @@ urlpatterns = [
     url(r'^idc_list/delete_entity/', idc_delete_entity),
     url(r'^idc_list/(?P<pk>\d+)/idc_edit/', idc_edit),
     url(r'^idc_list/(?P<pk>\d+)/idc_edit_action/', idc_edit_action),
+
+    # 机柜
+    url(r'^cabinet_list/$', cabinet_list),
+    url(r'^cabinet_list/cabinet_add/', cabinet_add),
+    url(r'^cabinet_list/cabinet_add_action/', cabinet_add_action),
+    url(r'^cabinet_list/delete_entity/', cabinet_delete_entity),
+    url(r'^cabinet_list/(?P<pk>\d+)/cabinet_edit/', cabinet_edit),
+    url(r'^cabinet_list/(?P<pk>\d+)/cabinet_edit_action/', cabinet_edit_action),
 ]
