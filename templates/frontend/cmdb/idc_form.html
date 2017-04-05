@@ -1,0 +1,103 @@
+{% extends 'frontend/common/basic_layout.html' %}
+
+{% block content %}
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{{ title }}
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" action="{{ action }}" class="form-horizontal">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">机房名称</label>
+                                <div class="col-sm-10">
+                                    <input aria-required="true" type="text" class="form-control"
+                                           name="name" required="required" value="{{ entity.name }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">机房带宽</label>
+                                <div class="col-sm-10">
+                                    <input aria-required="true" type="text" class="form-control"
+                                           name="bandwidth" value="{{ entity.bandwidth }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">联系人</label>
+                                <div class="col-sm-10">
+                                    <input aria-required="true" type="text" class="form-control"
+                                           name="linkman" required="required" value="{{ entity.linkman }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">联系电话</label>
+                                <div class="col-sm-10">
+                                    <input aria-required="true" type="text" class="form-control"
+                                           name="phone" required="required" value="{{ entity.phone }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">机房地址</label>
+                                <div class="col-sm-10">
+                                    <input aria-required="true" type="text" class="form-control"
+                                           name="address" value="{{ entity.address }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">IP地址段</label>
+                                <div class="col-sm-10">
+                                    <input aria-required="true" type="text" class="form-control"
+                                           name="network" value="{{ entity.network }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">ISP类型</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b" name="operator">
+                                        {% for o in isp_type %}
+                                            <option value="{{ o.id }}" {% ifequal o.id entity.operator %}
+                                                    selected="selected"
+                                            {% endifequal %}
+                                            >{{ o.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">机房类型</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b" name="type">
+                                        {% for o in idc_level %}
+                                            <option value="{{ o.id }}" {% ifequal o.id entity.type %}
+                                                    selected="selected"
+                                            {% endifequal %}
+                                            >{{ o.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">备注</label>
+                                <div class="col-sm-10">
+                                    <input aria-required="true" type="text" class="form-control"
+                                           name="comment" value="{{ entity.comment }}">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存</button>
+                                    <a class="btn btn-white" href="javascript:history.go(-1)">取消</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

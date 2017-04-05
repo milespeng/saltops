@@ -22,4 +22,7 @@ urlpatterns = [
 
     # IDC
     url(r'^idc_list/$', idc_list),
+    url(r'^idc_list/idc_add', idc_add),
+    url(r'^idc_list/idc_add_action', idc_add_action),
+    url(r'^idc_list/delete_entity', idc_delete_entity),
 ]
