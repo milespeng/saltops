@@ -63,3 +63,19 @@ def idc_delete_entity(request):
         return redirect('/frontend/cmdb/idc_list/')
     else:
         return redirect('/frontend/cmdb/idc_list/')
+
+
+def idc_edit(request, pk):
+    title = '编辑机房'
+    action = '/frontend/cmdb/idc_list/%s/idc_edit_action/' % pk
+    entity = IDC.objects.get(pk=pk)
+    isp_type = ISP.objects.all()
+    idc_level = IDCLevel.objects.all()
+    return render(request, 'frontend/cmdb/idc_form.html', locals())
+
+
+def idc_edit_action(request, pk):
+    obj = get_entity(request)
+    obj.id = pk
+    obj.save()
+    return redirect('/frontend/cmdb/idc_list/')
