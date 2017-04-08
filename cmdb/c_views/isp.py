@@ -13,7 +13,7 @@ from common.pageutil import preparePage
 class ISPForm(ModelForm):
     class Meta:
         model = ISP
-        fields = ('__all__')
+        fields = '__all__'
         widgets = {
             'name': TextInput({'class': 'form-control'})
         }
@@ -47,8 +47,11 @@ def isp_add(request):
 
 def isp_add_action(request):
     form = ISPForm(request.POST)
-    form.save()
-    return redirect('/frontend/cmdb/isp_list/')
+    if form.is_valid():
+        form.save()
+        return redirect('/frontend/cmdb/isp_list/')
+    else:
+        return render(request, 'frontend/cmdb/isp_form.html', locals())
 
 
 def isp_edit(request, pk):
@@ -60,5 +63,8 @@ def isp_edit(request, pk):
 
 def isp_edit_action(request, pk):
     form = ISPForm(request.POST, instance=ISP.objects.get(pk=pk))
-    form.save()
-    return redirect('/frontend/cmdb/isp_list/')
+    if form.is_valid():
+        form.save()
+        return redirect('/frontend/cmdb/isp_list/')
+    else:
+        return render(request, 'frontend/cmdb/isp_form.html', locals())
