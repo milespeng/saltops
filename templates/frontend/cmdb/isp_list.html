@@ -6,13 +6,17 @@
 
 {% block list_filter %}
     <div class="col-sm-3">
-        <div class="input-group">
+        <div class="">
             <input type="text" name="name" placeholder="ISP名称"
                    value="{{ name }}"
-                   class="input-sm form-control"> <span
-                class="input-group-btn">
+                   class="input-sm form-control">
+        </div>
+    </div>
+    <div class="col-sm-1">
+        <div class="input-group">
+            <span
+                    class="input-group-btn">
                                         <button type="submit" class="btn btn-sm btn-primary"> 搜索</button> </span>
-
         </div>
     </div>
     <div class="col-sm-2">
