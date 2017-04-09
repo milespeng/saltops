@@ -18,9 +18,6 @@ SaltOps是一个基于SaltStack和Django开发的运维平台，
 sls文件，然后调用salt进行发布的动作，发布完后应用与主机的信息自然就对接起来了
 * 工具平台：既然都接上了Salt，把工具平台做了也是很自然的事情啦～
 
-#为什么使用DjangoAdmin
-DjangoAdmin大多作为后台管理员使用的，这里用DjangoAdmin的原因是：没资源。。且每天写的时间也有限，用它的话大多数界面都不用自己做，还是挺省事的
-
 # 文档
 
 采用OSC Team里面提供的文档功能，传送门 http://saltops.mydoc.io/
