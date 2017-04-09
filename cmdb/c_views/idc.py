@@ -1,3 +1,4 @@
+from django.forms import *
 from django.shortcuts import render, redirect
 from django.template import RequestContext
 from django.template.defaultfilters import register
@@ -7,6 +8,24 @@ from cmdb.models import IDC
 from cmdb.models import IDCLevel
 from cmdb.models import ISP
 from common.pageutil import preparePage
+
+
+class IDCForm(ModelForm):
+    class Meta:
+        model = IDC
+        fields = '__all__'
+        widgets = {
+            'name': TextInput({'class': 'form-control'}),
+            'bandwidth': TextInput({'class': 'form-control'}),
+            'phone': TextInput({'class': 'form-control'}),
+            'linkman': TextInput({'class': 'form-control'}),
+            'address': TextInput({'class': 'form-control'}),
+            'concat_email': TextInput({'class': 'form-control'}),
+            'network': TextInput({'class': 'form-control'}),
+            'operator': Select({'class': 'form-control'}),
+            'type': Select({'class': 'form-control'}),
+            'comment': Textarea({'class': 'form-control'}),
+        }
 
 
 def idc_list(request):
@@ -28,27 +47,18 @@ def idc_list(request):
 
 def idc_add(request):
     title = '新增机房'
-    action = '/frontend/cmdb/isp_list/idc_add_action/'
-    isp_type = ISP.objects.all()
-    idc_level = IDCLevel.objects.all()
+    action = '/frontend/cmdb/idc_list/idc_add_action/'
+    form = IDCForm()
     return render(request, 'frontend/cmdb/idc_form.html', locals())
 
 
 def idc_add_action(request):
-    obj = IDC(
-        name=request.POST.get('name', ''),
-        bandwidth=request.POST.get('bandwidth', ''),
-        phone=request.POST.get('phone', ''),
-        linkman=request.POST.get('linkman', ''),
-        address=request.POST.get('address', ''),
-        concat_email=request.POST.get('concat_email', ''),
-        network=request.POST.get('network', ''),
-        operator=ISP.objects.get(pk=request.POST.get('operator', '')),
-        type=IDCLevel.objects.get(pk=request.POST.get('type', '')),
-        comment=request.POST.get('comment', '')
-    )
-    obj.save()
-    return redirect('/frontend/cmdb/idc_list/')
+    form = IDCForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('/frontend/cmdb/idc_list/')
+    else:
+        return render(request, 'frontend/cmdb/idc_form.html', locals())
 
 
 def idc_delete_entity(request):
@@ -63,23 +73,14 @@ def idc_delete_entity(request):
 def idc_edit(request, pk):
     title = '编辑机房'
     action = '/frontend/cmdb/idc_list/%s/idc_edit_action/' % pk
-    entity = IDC.objects.get(pk=pk)
-    isp_type = ISP.objects.all()
-    idc_level = IDCLevel.objects.all()
+    form = IDCForm(instance=IDC.objects.get(pk=pk))
     return render(request, 'frontend/cmdb/idc_form.html', locals())
 
 
 def idc_edit_action(request, pk):
-    obj = IDC.objects.get(pk=pk)
-    obj.name = request.POST.get('name', '')
-    obj.bandwidth = request.POST.get('bandwidth', '')
-    obj.phone = request.POST.get('phone', '')
-    obj.linkman = request.POST.get('linkman', '')
-    obj.address = request.POST.get('address', '')
-    obj.concat_email = request.POST.get('concat_email', '')
-    obj.network = request.POST.get('network', '')
-    obj.operator = ISP.objects.get(pk=request.POST.get('operator', ''))
-    obj.type = IDCLevel.objects.get(pk=request.POST.get('type', ''))
-    obj.comment = request.POST.get('comment', '')
-    obj.save()
-    return redirect('/frontend/cmdb/idc_list/')
+    form = IDCForm(request.POST, instance=IDC.objects.get(pk=pk))
+    if form.is_valid():
+        form.save()
+        return redirect('/frontend/cmdb/idc_list/')
+    else:
+        return render(request, 'frontend/cmdb/idc_form.html', locals())
