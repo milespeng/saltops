@@ -7,7 +7,7 @@ from common.models import BaseModel
 
 
 class Rack(BaseModel):
-    idc = models.ForeignKey(IDC, verbose_name='IDC', blank=True, null=True)
+    idc = models.ForeignKey(IDC, verbose_name='机房', blank=True, null=True)
     cabinet = ChainedForeignKey(
         Cabinet,
         verbose_name="机柜",

@@ -1,0 +1,80 @@
+import json
+
+from django.core import serializers
+from django.db.models import Model
+from django.forms import ModelForm
+from django.http import HttpResponse
+from django.shortcuts import render, render_to_response, redirect
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.template import RequestContext
+
+from cmdb.models import *
+from common.pageutil import preparePage
+from django.forms import *
+
+
+class RackForm(ModelForm):
+    class Meta:
+        model = Rack
+        fields = '__all__'
+        widgets = {
+            'idc': Select({'class': 'form-control'}),
+            'cabinet': Select({'class': 'form-control'}),
+            'name': TextInput({'class': 'form-control'}),
+        }
+
+
+def load_cabinet_list(request, pk):
+    data = serializers.serialize("json", Cabinet.objects.filter(idc=int(pk)))
+    return HttpResponse(data)
+
+
+def rack_list(request):
+    cabinet = request.GET.get('cabinet', '')
+    obj = Rack.objects.all()
+    if cabinet != '':
+        obj = obj.filter(cabinet=int(cabinet))
+    result_list = preparePage(request, obj)
+    cabinet_list = Cabinet.objects.all()
+    return render(request, 'frontend/cmdb/rack_list.html', locals(), RequestContext(request))
+
+
+def rack_delete_entity(request):
+    pk = request.GET.get('id', '')
+    if id != '':
+        Rack.objects.filter(pk=pk).delete()
+        return redirect('/frontend/cmdb/rack_list/')
+    else:
+        return redirect('/frontend/cmdb/rack_list/')
+
+
+def rack_add(request):
+    title = '新增机架'
+    action = '/frontend/cmdb/rack_list/rack_add_action/'
+    form = RackForm()
+    return render(request, 'frontend/cmdb/rack_form.html', locals())
+
+
+def rack_add_action(request):
+    form = RackForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('/frontend/cmdb/rack_list/')
+    else:
+        return render(request, 'frontend/cmdb/rack_form.html', locals())
+
+
+def rack_edit(request, pk):
+    title = '编辑机架'
+    action = '/frontend/cmdb/rack_list/%s/rack_edit_action/' % pk
+    form = RackForm(instance=Rack.objects.get(pk=pk))
+    return render(request, 'frontend/cmdb/rack_form.html', locals())
+
+
+def rack_edit_action(request, pk):
+    form = RackForm(request.POST, instance=Rack.objects.get(pk=int(pk)))
+    if form.is_valid():
+        form.save()
+        return redirect('/frontend/cmdb/rack_list/')
+    else:
+        return render(request, 'frontend/cmdb/rack_form.html', locals())
