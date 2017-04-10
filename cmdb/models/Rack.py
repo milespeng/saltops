@@ -25,4 +25,4 @@ class Rack(BaseModel):
     class Meta:
         verbose_name = "机架"
         verbose_name_plural = verbose_name
-
+        unique_together = (('idc', 'cabinet', 'name'),)

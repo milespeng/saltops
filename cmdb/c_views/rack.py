@@ -49,6 +49,7 @@ def rack_delete_entity(request):
 
 
 def rack_add(request):
+    is_add = True
     title = '新增机架'
     action = '/frontend/cmdb/rack_list/rack_add_action/'
     form = RackForm()
@@ -67,7 +68,10 @@ def rack_add_action(request):
 def rack_edit(request, pk):
     title = '编辑机架'
     action = '/frontend/cmdb/rack_list/%s/rack_edit_action/' % pk
-    form = RackForm(instance=Rack.objects.get(pk=pk))
+    obj = Rack.objects.get(pk=pk)
+    form = RackForm(instance=obj)
+    cabinet_list = Cabinet.objects.filter(idc=obj.idc)
+    is_add = False
     return render(request, 'frontend/cmdb/rack_form.html', locals())
 
 
