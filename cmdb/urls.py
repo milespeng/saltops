@@ -45,4 +45,11 @@ urlpatterns = [
     url(r'^rack_list/(?P<pk>\d+)/rack_edit_action/', rack_edit_action),
     url(r'^rack_list/(?P<pk>\d+)/load_cabinet_list/', load_cabinet_list),
 
+    # 主机组
+    url(r'^hostgroup_list/$', hostgroup_list),
+    url(r'^hostgroup_list/hostgroup_add/', hostgroup_add),
+    url(r'^hostgroup_list/hostgroup_add_action/', hostgroup_add_action),
+    url(r'^hostgroup_list/delete_entity/', hostgroup_delete_entity),
+    url(r'^hostgroup_list/(?P<pk>\d+)/hostgroup_edit/', hostgroup_edit),
+    url(r'^hostgroup_list/(?P<pk>\d+)/hostgroup_edit_action/', hostgroup_edit_action),
 ]
