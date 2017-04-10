@@ -39,13 +39,9 @@ def rack_list(request):
     return render(request, 'frontend/cmdb/rack_list.html', locals(), RequestContext(request))
 
 
-def rack_delete_entity(request):
-    pk = request.GET.get('id', '')
-    if id != '':
-        Rack.objects.filter(pk=pk).delete()
-        return redirect('/frontend/cmdb/rack_list/')
-    else:
-        return redirect('/frontend/cmdb/rack_list/')
+def rack_delete_entity(request, pk):
+    Rack.objects.filter(pk=pk).delete()
+    return redirect('/frontend/cmdb/rack_list/')
 
 
 def rack_add(request):

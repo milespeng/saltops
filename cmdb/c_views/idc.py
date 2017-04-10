@@ -61,13 +61,9 @@ def idc_add_action(request):
         return render(request, 'frontend/cmdb/idc_form.html', locals())
 
 
-def idc_delete_entity(request):
-    pk = request.GET.get('id', '')
-    if id != '':
-        IDC.objects.filter(pk=pk).delete()
-        return redirect('/frontend/cmdb/idc_list/')
-    else:
-        return redirect('/frontend/cmdb/idc_list/')
+def idc_delete_entity(request, pk):
+    IDC.objects.filter(pk=pk).delete()
+    return redirect('/frontend/cmdb/idc_list/')
 
 
 def idc_edit(request, pk):

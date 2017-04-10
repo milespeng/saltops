@@ -29,13 +29,9 @@ def isp_list(request):
     return render(request, 'frontend/cmdb/isp_list.html', locals(), RequestContext(request))
 
 
-def isp_delete_entity(request):
-    pk = request.GET.get('id', '')
-    if id != '':
-        ISP.objects.filter(pk=pk).delete()
-        return redirect('/frontend/cmdb/isp_list/')
-    else:
-        return redirect('/frontend/cmdb/isp_list/')
+def isp_delete_entity(request, pk):
+    ISP.objects.filter(pk=pk).delete()
+    return redirect('/frontend/cmdb/isp_list/')
 
 
 def isp_add(request):

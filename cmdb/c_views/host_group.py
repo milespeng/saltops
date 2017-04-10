@@ -1,10 +1,14 @@
 from http.client import HTTPResponse
+
+from django.contrib.auth.decorators import login_required
 from django.template.defaultfilters import register
 from django.db.models import Model
 from django.forms import *
 from django.shortcuts import render, render_to_response, redirect
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.template import RequestContext
+from django.views.decorators.gzip import gzip_page
+from django.views.decorators.http import require_http_methods
 
 from cmdb.models import *
 from common.pageutil import preparePage
@@ -20,6 +24,9 @@ class HostGroupForm(ModelForm):
         }
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def hostgroup_list(request):
     @register.filter()
     def hostgroup_parent_filter(value):
@@ -33,15 +40,17 @@ def hostgroup_list(request):
     return render(request, 'frontend/cmdb/hostgroup_list.html', locals(), RequestContext(request))
 
 
-def hostgroup_delete_entity(request):
-    pk = request.GET.get('id', '')
-    if id != '':
-        HostGroup.objects.filter(pk=pk).delete()
-        return redirect('/frontend/cmdb/hostgroup_list/')
-    else:
-        return redirect('/frontend/cmdb/hostgroup_list/')
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
+def hostgroup_delete_entity(request, pk):
+    HostGroup.objects.filter(pk=pk).delete()
+    return redirect('/frontend/cmdb/hostgroup_list/')
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def hostgroup_add(request):
     title = '新增ISP'
     action = '/frontend/cmdb/hostgroup_list/hostgroup_add_action/'
@@ -49,6 +58,9 @@ def hostgroup_add(request):
     return render(request, 'frontend/cmdb/hostgroup_form.html', locals())
 
 
+@require_http_methods(["POST"])
+@gzip_page
+@login_required
 def hostgroup_add_action(request):
     form = HostGroupForm(request.POST)
     if form.is_valid():
@@ -58,6 +70,9 @@ def hostgroup_add_action(request):
         return render(request, 'frontend/cmdb/hostgroup_form.html', locals())
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def hostgroup_edit(request, pk):
     title = '编辑ISP'
     action = '/frontend/cmdb/hostgroup_list/%s/hostgroup_edit_action/' % pk
@@ -65,6 +80,9 @@ def hostgroup_edit(request, pk):
     return render(request, 'frontend/cmdb/hostgroup_form.html', locals())
 
 
+@require_http_methods(["POST"])
+@gzip_page
+@login_required
 def hostgroup_edit_action(request, pk):
     form = HostGroupForm(request.POST, instance=HostGroup.objects.get(pk=pk))
     if form.is_valid():

@@ -28,13 +28,9 @@ def idc_level_list(request):
     return render(request, 'frontend/cmdb/idc_level_list.html', locals(), RequestContext(request))
 
 
-def idc_level_delete_entity(request):
-    pk = request.GET.get('id', '')
-    if id != '':
-        IDCLevel.objects.filter(pk=pk).delete()
-        return redirect('/frontend/cmdb/idc_level_list/')
-    else:
-        return redirect('/frontend/cmdb/idc_level_list/')
+def idc_level_delete_entity(request, pk):
+    IDCLevel.objects.filter(pk=pk).delete()
+    return redirect('/frontend/cmdb/idc_level_list/')
 
 
 def idc_level_add(request):
