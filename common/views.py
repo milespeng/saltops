@@ -1,6 +1,7 @@
 import platform
 
 import psutil
+from django.contrib import auth
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
@@ -27,18 +28,26 @@ def index(request):
     return render(request, 'frontend/index.html', context)
 
 
-def checkLogin(request, authentication_form=AuthenticationForm):
+def checkLogin(request):
     """
     登录校验，使用Django默认的用户权限模块
     :param request:
     :param authentication_form:
     :return:
     """
-    form = authentication_form(request, data=request.POST)
-    if form.is_valid():
+    user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
+    if user and user.is_active:
+        auth.login(request, user)
         return redirect('/mainform/')
     else:
         return redirect('/?type=1')
+
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'login/login.html', context={
+        'info': "登出成功"
+    })
 
 
 def mainform(request):

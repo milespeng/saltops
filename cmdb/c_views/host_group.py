@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.template.defaultfilters import register
 from django.db.models import Model
 from django.forms import *
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.template import RequestContext
 from django.views.decorators.gzip import gzip_page
@@ -76,7 +76,8 @@ def hostgroup_add_action(request):
 def hostgroup_edit(request, pk):
     title = '编辑ISP'
     action = '/frontend/cmdb/hostgroup_list/%s/hostgroup_edit_action/' % pk
-    form = HostGroupForm(instance=HostGroup.objects.get(pk=pk))
+    entity = get_object_or_404(HostGroup, pk=pk)
+    form = HostGroupForm(instance=entity)
     return render(request, 'frontend/cmdb/hostgroup_form.html', locals())
 
 
@@ -84,7 +85,8 @@ def hostgroup_edit(request, pk):
 @gzip_page
 @login_required
 def hostgroup_edit_action(request, pk):
-    form = HostGroupForm(request.POST, instance=HostGroup.objects.get(pk=pk))
+    entity = get_object_or_404(HostGroup, pk=pk)
+    form = HostGroupForm(request.POST, instance=entity)
     if form.is_valid():
         form.save()
         return redirect('/frontend/cmdb/hostgroup_list/')

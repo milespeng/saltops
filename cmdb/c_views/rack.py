@@ -1,12 +1,15 @@
 import json
 
+from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.db.models import Model
 from django.forms import ModelForm
 from django.http import HttpResponse
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.template import RequestContext
+from django.views.decorators.gzip import gzip_page
+from django.views.decorators.http import require_http_methods
 
 from cmdb.models import *
 from common.pageutil import preparePage
@@ -24,11 +27,17 @@ class RackForm(ModelForm):
         }
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def load_cabinet_list(request, pk):
     data = serializers.serialize("json", Cabinet.objects.filter(idc=int(pk)))
     return HttpResponse(data)
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def rack_list(request):
     cabinet = request.GET.get('cabinet', '')
     obj = Rack.objects.all()
@@ -39,11 +48,17 @@ def rack_list(request):
     return render(request, 'frontend/cmdb/rack_list.html', locals(), RequestContext(request))
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def rack_delete_entity(request, pk):
     Rack.objects.filter(pk=pk).delete()
     return redirect('/frontend/cmdb/rack_list/')
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def rack_add(request):
     is_add = True
     title = '新增机架'
@@ -52,6 +67,9 @@ def rack_add(request):
     return render(request, 'frontend/cmdb/rack_form.html', locals())
 
 
+@require_http_methods(["POST"])
+@gzip_page
+@login_required
 def rack_add_action(request):
     form = RackForm(request.POST)
     if form.is_valid():
@@ -61,18 +79,25 @@ def rack_add_action(request):
         return render(request, 'frontend/cmdb/rack_form.html', locals())
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def rack_edit(request, pk):
     title = '编辑机架'
     action = '/frontend/cmdb/rack_list/%s/rack_edit_action/' % pk
-    obj = Rack.objects.get(pk=pk)
+    obj = get_object_or_404(Rack, pk=pk)
     form = RackForm(instance=obj)
     cabinet_list = Cabinet.objects.filter(idc=obj.idc)
     is_add = False
     return render(request, 'frontend/cmdb/rack_form.html', locals())
 
 
+@require_http_methods(["POST"])
+@gzip_page
+@login_required
 def rack_edit_action(request, pk):
-    form = RackForm(request.POST, instance=Rack.objects.get(pk=int(pk)))
+    entity = get_object_or_404(Rack, pk=pk)
+    form = RackForm(request.POST, instance=entity)
     if form.is_valid():
         form.save()
         return redirect('/frontend/cmdb/rack_list/')

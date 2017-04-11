@@ -1,8 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.forms import *
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.template import RequestContext
 from django.template.defaultfilters import register
 from django.utils.safestring import mark_safe
+from django.views.decorators.gzip import gzip_page
+from django.views.decorators.http import require_http_methods
 
 from cmdb.models import IDC
 from cmdb.models import IDCLevel
@@ -28,6 +31,9 @@ class IDCForm(ModelForm):
         }
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def idc_list(request):
     @register.filter()
     def cabinet_count(value):
@@ -45,6 +51,9 @@ def idc_list(request):
     return render(request, 'frontend/cmdb/idc_list.html', locals(), RequestContext(request))
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def idc_add(request):
     title = '新增机房'
     action = '/frontend/cmdb/idc_list/idc_add_action/'
@@ -52,6 +61,9 @@ def idc_add(request):
     return render(request, 'frontend/cmdb/idc_form.html', locals())
 
 
+@require_http_methods(["POST"])
+@gzip_page
+@login_required
 def idc_add_action(request):
     form = IDCForm(request.POST)
     if form.is_valid():
@@ -61,20 +73,31 @@ def idc_add_action(request):
         return render(request, 'frontend/cmdb/idc_form.html', locals())
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def idc_delete_entity(request, pk):
     IDC.objects.filter(pk=pk).delete()
     return redirect('/frontend/cmdb/idc_list/')
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def idc_edit(request, pk):
     title = '编辑机房'
     action = '/frontend/cmdb/idc_list/%s/idc_edit_action/' % pk
-    form = IDCForm(instance=IDC.objects.get(pk=pk))
+    entity = get_object_or_404(IDC, pk=pk)
+    form = IDCForm(instance=entity)
     return render(request, 'frontend/cmdb/idc_form.html', locals())
 
 
+@require_http_methods(["POST"])
+@gzip_page
+@login_required
 def idc_edit_action(request, pk):
-    form = IDCForm(request.POST, instance=IDC.objects.get(pk=pk))
+    entity = get_object_or_404(IDC, pk=pk)
+    form = IDCForm(request.POST, instance=entity)
     if form.is_valid():
         form.save()
         return redirect('/frontend/cmdb/idc_list/')
