@@ -1,4 +1,6 @@
 from http.client import HTTPResponse
+
+from django.http import HttpResponse
 from django.template.defaultfilters import register
 from django.contrib.auth.decorators import login_required
 from django.db.models import Model
@@ -15,6 +17,8 @@ from cmdb.models import ISP
 from cmdb.models.Host import MINION_STATUS
 from common.pageutil import preparePage
 from django.forms import *
+
+from saltjob.tasks import scanHostJob
 
 
 class HostForm(ModelForm):
@@ -85,6 +89,14 @@ def host_list(request):
 def host_delete_entity(request, pk):
     Host.objects.filter(pk=pk).delete()
     return redirect('/frontend/cmdb/host_list/')
+
+
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
+def scan_host_job(request):
+    scanHostJob()
+    return HttpResponse("")
 
 
 @require_http_methods(["GET"])

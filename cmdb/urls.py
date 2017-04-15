@@ -68,6 +68,7 @@ urlpatterns = [
 
     # 主机
     url('^host_list/', include([
+        url(r'scan_host_job/', scan_host_job),
         url(r'host_add/', host_add),
         url(r'host_add_action/', host_add_action),
         url(r'(?P<pk>\d+)/delete_entity/', host_delete_entity),
