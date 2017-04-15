@@ -94,6 +94,7 @@ def host_add(request):
     title = '新增主机'
     action = '/frontend/cmdb/host_list/host_add_action/'
     form = HostForm()
+    is_add = True
     return render(request, 'frontend/cmdb/host_form.html', locals())
 
 

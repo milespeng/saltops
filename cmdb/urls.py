@@ -52,6 +52,7 @@ urlpatterns = [
         url(r'(?P<pk>\d+)/rack_edit/', rack_edit),
         url(r'(?P<pk>\d+)/rack_edit_action/', rack_edit_action),
         url(r'(?P<pk>\d+)/load_cabinet_list/', load_cabinet_list),
+        url(r'(?P<idc_id>\d+)/(?P<cabinet_id>\d+)/load_rack_list/', load_rack_list),
         url(r'$', rack_list),
     ])),
 

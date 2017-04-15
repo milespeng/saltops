@@ -38,6 +38,14 @@ def load_cabinet_list(request, pk):
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
+def load_rack_list(request, idc_id, cabinet_id):
+    data = serializers.serialize("json", Rack.objects.filter(idc=int(idc_id), cabinet=int(cabinet_id)))
+    return HttpResponse(data)
+
+
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def rack_list(request):
     cabinet = request.GET.get('cabinet', '')
     obj = Rack.objects.all()
