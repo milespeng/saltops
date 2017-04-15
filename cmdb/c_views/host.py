@@ -1,5 +1,5 @@
 from http.client import HTTPResponse
-
+from django.template.defaultfilters import register
 from django.contrib.auth.decorators import login_required
 from django.db.models import Model
 from django.forms import ModelForm
@@ -40,15 +40,15 @@ class HostForm(ModelForm):
             'cpuarch': TextInput({'class': 'form-control'}),
             'os': TextInput({'class': 'form-control'}),
             'mem_total': TextInput({'class': 'form-control'}),
-            'num_cpus': IntegerField({'class': 'form-control'}),
+            'num_cpus': TextInput({'class': 'form-control'}),
             'idc': Select({'class': 'form-control'}),
             'cabinet': Select({'class': 'form-control'}),
             'rack': Select({'class': 'form-control'}),
-            'minion_status': ChoiceField({'class': 'form-control'}, choices=MINION_STATUS),
-            'enable_ssh': BooleanField({'class': 'form-control'}),
+            'minion_status': Select({'class': 'form-control'}),
+            'enable_ssh': Select({'class': 'form-control'}),
             'ssh_username': TextInput({'class': 'form-control'}),
             'ssh_password': TextInput({'class': 'form-control'}),
-            'enable_sudo': BooleanField({'class': 'form-control'}),
+            'enable_sudo': Select({'class': 'form-control'}),
 
         }
 
@@ -57,6 +57,19 @@ class HostForm(ModelForm):
 @gzip_page
 @login_required
 def host_list(request):
+    @register.filter()
+    def minion_status_filter(value):
+        for k in MINION_STATUS:
+            if k[0] == value:
+                return k[1]
+
+    @register.filter()
+    def enablessh_status_filter(value):
+        if value is True:
+            return '启用'
+        else:
+            return '禁用'
+
     idc = request.GET.get('idc', '')
     obj = Host.objects.all()
     if idc != '':

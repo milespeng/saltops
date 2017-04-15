@@ -65,4 +65,13 @@ urlpatterns = [
         url(r'$', hostgroup_list),
     ])),
 
+    # 主机
+    url('^host_list/', include([
+        url(r'host_add/', host_add),
+        url(r'host_add_action/', host_add_action),
+        url(r'(?P<pk>\d+)/delete_entity/', host_delete_entity),
+        url(r'(?P<pk>\d+)/host_edit/', host_edit),
+        url(r'(?P<pk>\d+)/host_edit_action/', host_edit_action),
+        url(r'$', host_list),
+    ])),
 ]

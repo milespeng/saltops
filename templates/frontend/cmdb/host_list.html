@@ -1,0 +1,75 @@
+{% extends 'frontend/common/basic_list.html' %}
+
+{% block list_title %}
+    主机
+{% endblock %}
+
+{% block list_filter %}
+    <div class="col-sm-3">
+        <div class="input-group">
+            <input type="text" name="idclevel" placeholder="机房等级"
+                   value="{{ idc_level }}"
+                   class="input-sm form-control"> <span
+                class="input-group-btn">
+                                        <button type="submit" class="btn btn-sm btn-primary"> 搜索</button> </span>
+
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="input-group">
+            <a href="/frontend/cmdb/host_list/host_add/"
+               class="btn btn-sm btn-success"> 新增</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block list_content %}
+    <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
+        <thead>
+        <tr>
+            <th style="width: 8%;">主机组</th>
+            <th style="width: 8%;">主机DNS名称</th>
+            <th style="width: 8%;">主机名</th>
+            <th style="width: 8%;">机房</th>
+            <th style="width: 8%;">系统内核</th>
+            <th style="width: 8%;">操作系统</th>
+            <th style="width: 8%;">使用SaltSSH</th>
+            <th style="width: 8%;">Minion状态</th>
+            <th style="width: 8%;">创建时间</th>
+            <th style="width: 8%;">更新时间</th>
+            <th style="width:15%;">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for o in result_list %}
+            <tr>
+                <td>{% ifequal o.host_group None %}
+                    无
+                {% else %}
+                    {{ o.host_group }}
+                {% endifequal %}
+                </td>
+                <td>{{ o.host_name }}</td>
+                <td>{{ o.host }}</td>
+                <td>{% ifequal o.idc None %}
+                    无
+                {% else %}
+                    {{ o.idc }}
+                {% endifequal %}</td>
+                <td>{{ o.kernel }}</td>
+                <td>{{ o.os }}</td>
+                <td>{{ o.enable_ssh|enablessh_status_filter }}</td>
+                <td>{{ o.minion_status|minion_status_filter }}</td>
+                <td>{{ o.create_time }}</td>
+                <td>{{ o.update_time }}</td>
+                <td>
+                    <a href="/frontend/cmdb/host_list/{{ o.id }}/host_edit/"
+                       class="btn  btn-sm btn-info">编辑</a>
+                    <a href="/frontend/cmdb/host_list/{{ o.id }}/delete_entity/"
+                       class="btn  btn-sm btn-danger">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
