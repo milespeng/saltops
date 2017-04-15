@@ -17,13 +17,14 @@ from django.forms import *
 
 
 class CabinetForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(CabinetForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
     class Meta:
         model = Cabinet
         fields = '__all__'
-        widgets = {
-            'idc': Select({'class': 'form-control'}),
-            'name': TextInput({'class': 'form-control'}),
-        }
 
 
 @require_http_methods(["GET"])

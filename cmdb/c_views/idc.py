@@ -14,21 +14,14 @@ from common.pageutil import preparePage
 
 
 class IDCForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(IDCForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
     class Meta:
         model = IDC
         fields = '__all__'
-        widgets = {
-            'name': TextInput({'class': 'form-control'}),
-            'bandwidth': TextInput({'class': 'form-control'}),
-            'phone': TextInput({'class': 'form-control'}),
-            'linkman': TextInput({'class': 'form-control'}),
-            'address': TextInput({'class': 'form-control'}),
-            'concat_email': TextInput({'class': 'form-control'}),
-            'network': TextInput({'class': 'form-control'}),
-            'operator': Select({'class': 'form-control'}),
-            'type': Select({'class': 'form-control'}),
-            'comment': Textarea({'class': 'form-control'}),
-        }
 
 
 @require_http_methods(["GET"])

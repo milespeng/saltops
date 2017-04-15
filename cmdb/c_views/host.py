@@ -22,39 +22,14 @@ from saltjob.tasks import scanHostJob
 
 
 class HostForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ModelForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
     class Meta:
         model = Host
         fields = '__all__'
-        widgets = {
-            'host_group': Select({'class': 'form-control'}),
-            'host_name': TextInput({'class': 'form-control'}),
-            'kernel': TextInput({'class': 'form-control'}),
-            'kernel_release': TextInput({'class': 'form-control'}),
-            'virtual': TextInput({'class': 'form-control'}),
-            'host': TextInput({'class': 'form-control'}),
-            'osrelease': TextInput({'class': 'form-control'}),
-            'saltversion': TextInput({'class': 'form-control'}),
-            'osfinger': TextInput({'class': 'form-control'}),
-            'os_family': TextInput({'class': 'form-control'}),
-            'num_gpus': TextInput({'class': 'form-control'}),
-            'system_serialnumber': TextInput({'class': 'form-control'}),
-            'cpu_model': TextInput({'class': 'form-control'}),
-            'productname': TextInput({'class': 'form-control'}),
-            'osarch': TextInput({'class': 'form-control'}),
-            'cpuarch': TextInput({'class': 'form-control'}),
-            'os': TextInput({'class': 'form-control'}),
-            'mem_total': TextInput({'class': 'form-control'}),
-            'num_cpus': TextInput({'class': 'form-control'}),
-            'idc': Select({'class': 'form-control'}),
-            'cabinet': Select({'class': 'form-control'}),
-            'rack': Select({'class': 'form-control'}),
-            'minion_status': Select({'class': 'form-control'}),
-            'enable_ssh': Select({'class': 'form-control'}),
-            'ssh_username': TextInput({'class': 'form-control'}),
-            'ssh_password': TextInput({'class': 'form-control'}),
-            'enable_sudo': Select({'class': 'form-control'}),
-
-        }
 
 
 @require_http_methods(["GET"])

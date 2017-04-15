@@ -13,13 +13,14 @@ from common.pageutil import preparePage
 
 
 class IDCLevelForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(IDCLevelForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
     class Meta:
         model = IDCLevel
         fields = '__all__'
-        widgets = {
-            'name': TextInput({'class': 'form-control'}),
-            'comment': Textarea({'class': 'form-control'})
-        }
 
 
 @require_http_methods(["GET"])

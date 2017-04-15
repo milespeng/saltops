@@ -17,14 +17,14 @@ from django.forms import *
 
 
 class RackForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(RackForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
     class Meta:
         model = Rack
         fields = '__all__'
-        widgets = {
-            'idc': Select({'class': 'form-control'}),
-            'cabinet': Select({'class': 'form-control'}),
-            'name': TextInput({'class': 'form-control'}),
-        }
 
 
 @require_http_methods(["GET"])

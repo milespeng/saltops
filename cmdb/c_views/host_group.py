@@ -15,13 +15,14 @@ from common.pageutil import preparePage
 
 
 class HostGroupForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(HostGroupForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
     class Meta:
         model = HostGroup
         fields = '__all__'
-        widgets = {
-            'parent': Select({'class': 'form-control'}),
-            'name': TextInput({'class': 'form-control'})
-        }
 
 
 @require_http_methods(["GET"])
