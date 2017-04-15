@@ -1,7 +1,8 @@
 from http.client import HTTPResponse
 
 from django.contrib.auth.decorators import login_required
-from django.forms import *
+from django import forms
+from django.forms import ModelForm
 from django.shortcuts import render, render_to_response, redirect, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.template import RequestContext
@@ -27,10 +28,8 @@ class IDCLevelForm(ModelForm):
 @gzip_page
 @login_required
 def idc_level_list(request):
-    idc_level = request.GET.get('idclevel', '')
-    obj = IDCLevel.objects.all()
-    if idc_level != '':
-        obj = obj.filter(name=idc_level)
+    kwargs = request.GET.dict()
+    obj = IDCLevel.objects.filter(**kwargs)
     result_list = preparePage(request, obj)
     return render(request, 'frontend/cmdb/idc_level_list.html', locals(), RequestContext(request))
 

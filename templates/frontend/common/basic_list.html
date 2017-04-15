@@ -18,6 +18,17 @@
         }
     </style>
     <script>
+        function getChecked(name) {
+            var str = document.getElementsByName("input[]");
+            var objarray = str.length;
+            var chestr = "";
+            for (i = 0; i < objarray; i++) {
+                if (str[i].checked == true) {
+                    chestr += str[i].id + ",";
+                }
+            }
+            return chestr;
+        }
         function checktb(obj, id) {
             if (obj.name == 'pmenu' && obj.checked == true) {
                 $($("input[type='checkbox']")).each(function () {
