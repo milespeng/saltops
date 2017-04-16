@@ -12,7 +12,11 @@ from common.pageutil import preparePage
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
-def simple_list(request, modulename, modelname, template_path):
+def simple_list(request,
+                modulename, modelname, list_url,
+                form_template_path, template_path, add_fields,
+                add_title, add_action, edit_fields, edit_title, edit_action
+                ):
     kwargs = request.GET.dict()
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
@@ -24,7 +28,11 @@ def simple_list(request, modulename, modelname, template_path):
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
-def simple_delete_entity(request, pk, modulename, modelname, list_url):
+def simple_delete_entity(request, pk,
+                         modulename, modelname, list_url,
+                         form_template_path, template_path, add_fields,
+                         add_title, add_action, edit_fields, edit_title, edit_action
+                         ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
     instance.objects.filter(pk=pk).delete()
@@ -34,7 +42,11 @@ def simple_delete_entity(request, pk, modulename, modelname, list_url):
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
-def simple_batch_delete_entity(request, modulename, modelname, list_url):
+def simple_batch_delete_entity(request,
+                               modulename, modelname, list_url,
+                               form_template_path, template_path, add_fields,
+                               add_title, add_action, edit_fields, edit_title, edit_action
+                               ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
     ids = request.GET['id'][:-1].split(',')
@@ -45,59 +57,78 @@ def simple_batch_delete_entity(request, modulename, modelname, list_url):
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
-def simple_add(request, modulename, modelname, fields, title, action, template_path):
+def simple_add(request,
+               modulename, modelname, list_url,
+               form_template_path, template_path, add_fields,
+               add_title, add_action, edit_fields, edit_title, edit_action
+               ):
+    action = add_action
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
-    if fields == '__all__':
+    if add_fields == '__all__':
         form = modelform_factory(instance, fields='__all__')
     else:
-        form = modelform_factory(instance, fields=(fields.split(',')))
-    return render(request, template_path, locals(), RequestContext(request))
+        form = modelform_factory(instance, fields=(add_fields.split(',')))
+    title = add_title
+    return render(request, form_template_path, locals(), RequestContext(request))
 
 
 @require_http_methods(["POST"])
 @gzip_page
 @login_required
-def simple_add_action(request, modulename, modelname, list_url, template_path):
+def simple_add_action(request,
+                      modulename, modelname, list_url,
+                      form_template_path, template_path, add_fields,
+                      add_title, add_action, edit_fields, edit_title, edit_action
+                      ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
     form = modelform_factory(instance, fields='__all__')
     form = form(request.POST)
+
     if form.is_valid():
         form.save()
         return redirect(list_url)
     else:
-        return render(request, template_path, locals())
+        return render(request, form_template_path, locals())
 
 
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
-def simple_edit(request, pk, modulename, modelname, fields, title, action, template_path):
+def simple_edit(request, pk,
+                modulename, modelname, list_url,
+                form_template_path, template_path, add_fields,
+                add_title, add_action, edit_fields, edit_title, edit_action
+                ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
-    if fields == '__all__':
+    if edit_fields == '__all__':
         form = modelform_factory(instance, fields='__all__')
     else:
-        form = modelform_factory(instance, fields=(fields.split(',')))
-
-    action = action % pk
+        form = modelform_factory(instance, fields=(edit_fields.split(',')))
+    title = edit_title
+    action = edit_action % pk
     entity = get_object_or_404(instance, pk=pk)
     form = form(instance=entity)
-    return render(request, template_path, locals())
+    return render(request, form_template_path, locals())
 
 
 @require_http_methods(["POST"])
 @gzip_page
 @login_required
-def simple_edit_action(request, pk, modulename, modelname, template_path, list_url):
+def simple_edit_action(request, pk,
+                       modulename, modelname, list_url,
+                       form_template_path, template_path, add_fields,
+                       add_title, add_action, edit_fields, edit_title, edit_action):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
     entity = get_object_or_404(instance, pk=pk)
     form = modelform_factory(instance, fields='__all__')
     form = form(request.POST, instance=entity)
+
     if form.is_valid():
         form.save()
         return redirect(list_url)
     else:
-        return render(request, template_path, locals())
+        return render(request, form_template_path, locals())

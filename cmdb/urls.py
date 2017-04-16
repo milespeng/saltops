@@ -7,60 +7,49 @@ from common.common_views import *
 urlpatterns = [
     # 机房等级
     url(r'^idc_level_list/', include([
-        url(r'(?P<pk>\d+)/idc_level_edit_action/', simple_edit_action, {
+        url(r'(?P<pk>\d+)/idc_level_edit_action/', simple_edit_action),
+        url(r'(?P<pk>\d+)/idc_level_edit/', simple_edit),
+        url(r'idc_level_add_action/', simple_add_action),
+        url(r'idc_level_add/', simple_add),
+        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
+        url(r'batch_delete_entity/', simple_batch_delete_entity),
+        url(r'$', simple_list),
+    ]), {
             'modulename': 'cmdb.models',
             'modelname': 'IDCLevel',
+            'list_url': '/frontend/cmdb/idc_level_list/',
+            'form_template_path': 'frontend/common/basic_form.html',
             'template_path': 'frontend/cmdb/idc_level_list.html',
-            'list_url': '/frontend/cmdb/idc_level_list/',
+            'add_fields': '__all__',
+            'add_title': '新增机房等级',
+            'add_action': '/frontend/cmdb/idc_level_list/idc_level_add_action/',
+            'edit_fields': '__all__',
+            'edit_title': '编辑机房等级',
+            'edit_action': '/frontend/cmdb/idc_level_list/%s/idc_level_edit_action/',
         }),
-        url(r'(?P<pk>\d+)/idc_level_edit/', simple_edit, {
-            'modulename': 'cmdb.models',
-            'modelname': 'IDCLevel',
-            'fields': '__all__',
-            'title': '编辑机房等级',
-            'action': '/frontend/cmdb/idc_level_list/%s/idc_level_edit_action/',
-            'template_path': 'frontend/cmdb/idc_level_form.html',
-        }),
-        url(r'idc_level_add_action/', simple_add_action, {
-            'modulename': 'cmdb.models',
-            'modelname': 'IDCLevel',
-            'template_path': 'frontend/cmdb/idc_level_list.html',
-            'list_url': '/frontend/cmdb/idc_level_list/',
-        }),
-        url(r'idc_level_add/', simple_add, {
-            'modulename': 'cmdb.models',
-            'modelname': 'IDCLevel',
-            'fields': '__all__',
-            'title': '新增机房等级',
-            'action': '/frontend/cmdb/idc_level_list/idc_level_add_action/',
-            'template_path': 'frontend/cmdb/idc_level_form.html',
-        }),
-        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity, {
-            'modulename': 'cmdb.models',
-            'modelname': 'IDCLevel',
-            'list_url': '/frontend/cmdb/idc_level_list/',
-        }),
-        url(r'batch_delete_entity/', simple_batch_delete_entity, {
-            'modulename': 'cmdb.models',
-            'modelname': 'IDCLevel',
-            'list_url': '/frontend/cmdb/idc_level_list/',
-        }),
-        url(r'$', simple_list, {
-            'modulename': 'cmdb.models',
-            'modelname': 'IDCLevel',
-            'template_path': 'frontend/cmdb/idc_level_list.html',
-        }),
-    ])),
 
     # ISP
     url(r'^isp_list/', include([
-        url(r'(?P<pk>\d+)/isp_edit_action/', isp_edit_action),
-        url(r'(?P<pk>\d+)/isp_edit/', isp_edit),
-        url(r'isp_add_action/', isp_add_action),
-        url(r'isp_add/', isp_add),
-        url(r'(?P<pk>\d+)/delete_entity/', isp_delete_entity),
-        url(r'$', isp_list),
-    ])),
+        url(r'(?P<pk>\d+)/isp_edit_action/', simple_edit_action),
+        url(r'(?P<pk>\d+)/isp_edit/', simple_edit),
+        url(r'isp_add_action/', simple_add_action),
+        url(r'isp_add/', simple_add),
+        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
+        url(r'batch_delete_entity/', simple_batch_delete_entity),
+        url(r'$', simple_list),
+    ]), {
+            'modulename': 'cmdb.models',
+            'modelname': 'ISP',
+            'list_url': '/frontend/cmdb/isp_list/',
+            'form_template_path': 'frontend/common/basic_form.html',
+            'template_path': 'frontend/cmdb/isp_list.html',
+            'add_fields': '__all__',
+            'add_title': '新增ISP',
+            'add_action': '/frontend/cmdb/isp_list/isp_add_action/',
+            'edit_fields': '__all__',
+            'edit_title': '编辑ISP',
+            'edit_action': '/frontend/cmdb/isp_list/%s/isp_edit_action/',
+        }),
 
     # IDC
     url(r'^idc_list/', include([
