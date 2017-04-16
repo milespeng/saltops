@@ -2,16 +2,49 @@ from django.conf.urls import include, url
 
 from cmdb.c_views import *
 from common import views
+from common.common_views import *
 
 urlpatterns = [
     # 机房等级
     url(r'^idc_level_list/', include([
-        url(r'(?P<pk>\d+)/idc_level_edit_action/', idc_level_edit_action),
-        url(r'(?P<pk>\d+)/idc_level_edit/', idc_level_edit),
-        url(r'idc_level_add_action/', idc_level_add_action),
-        url(r'idc_level_add/', idc_level_add),
-        url(r'(?P<pk>\d+)/delete_entity/', idc_level_delete_entity),
-        url(r'$', idc_level_list, name='idc_level_list'),
+        url(r'(?P<pk>\d+)/idc_level_edit_action/', simple_edit_action, {
+            'modulename': 'cmdb.models',
+            'modelname': 'IDCLevel',
+            'template_path': 'frontend/cmdb/idc_level_list.html',
+            'list_url': '/frontend/cmdb/idc_level_list/',
+        }),
+        url(r'(?P<pk>\d+)/idc_level_edit/', simple_edit, {
+            'modulename': 'cmdb.models',
+            'modelname': 'IDCLevel',
+            'fields': '__all__',
+            'title': '编辑机房等级',
+            'action': '/frontend/cmdb/idc_level_list/%s/idc_level_edit_action/',
+            'template_path': 'frontend/cmdb/idc_level_form.html',
+        }),
+        url(r'idc_level_add_action/', simple_add_action, {
+            'modulename': 'cmdb.models',
+            'modelname': 'IDCLevel',
+            'template_path': 'frontend/cmdb/idc_level_list.html',
+            'list_url': '/frontend/cmdb/idc_level_list/',
+        }),
+        url(r'idc_level_add/', simple_add, {
+            'modulename': 'cmdb.models',
+            'modelname': 'IDCLevel',
+            'fields': '__all__',
+            'title': '新增机房等级',
+            'action': '/frontend/cmdb/idc_level_list/idc_level_add_action/',
+            'template_path': 'frontend/cmdb/idc_level_form.html',
+        }),
+        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity, {
+            'modulename': 'cmdb.models',
+            'modelname': 'IDCLevel',
+            'list_url': '/frontend/cmdb/idc_level_list/',
+        }),
+        url(r'$', simple_list, {
+            'modulename': 'cmdb.models',
+            'modelname': 'IDCLevel',
+            'template_path': 'frontend/cmdb/idc_level_list.html',
+        }),
     ])),
 
     # ISP
