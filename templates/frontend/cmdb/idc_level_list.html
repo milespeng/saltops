@@ -21,7 +21,7 @@
                class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
             &nbsp;
             <a href="javascript:void(0)"
-               onclick="delete_batch()"
+               onclick="deleteBatch()"
                class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
         </div>
     </div>
@@ -59,20 +59,4 @@
         {% endfor %}
         </tbody>
     </table>
-    <script>
-        $(document).ready(function () {
-            $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
-            $('#checkall').on('ifChecked', function (event) {
-                $('.icheck').iCheck('check');
-            });
-            $('#checkall').on('ifUnchecked', function (event) {
-                $('.icheck').iCheck('uncheck');
-            });
-        });
-        function delete_batch() {
-            alert(getChecked())
-            //TODO:批量删除
-        }
-
-    </script>
 {% endblock %}

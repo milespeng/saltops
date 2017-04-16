@@ -40,6 +40,11 @@ urlpatterns = [
             'modelname': 'IDCLevel',
             'list_url': '/frontend/cmdb/idc_level_list/',
         }),
+        url(r'batch_delete_entity/', simple_batch_delete_entity, {
+            'modulename': 'cmdb.models',
+            'modelname': 'IDCLevel',
+            'list_url': '/frontend/cmdb/idc_level_list/',
+        }),
         url(r'$', simple_list, {
             'modulename': 'cmdb.models',
             'modelname': 'IDCLevel',

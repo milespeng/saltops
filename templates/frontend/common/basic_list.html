@@ -18,7 +18,26 @@
         }
     </style>
     <script>
-        function getChecked(name) {
+        $(document).ready(function () {
+            $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
+            $('#checkall').on('ifChecked', function (event) {
+                $('.icheck').iCheck('check');
+            });
+            $('#checkall').on('ifUnchecked', function (event) {
+                $('.icheck').iCheck('uncheck');
+            });
+        });
+        function deleteBatch() {
+            var obj = getChecked()
+            if (obj == "") {
+                alert('请选择至少一条记录进行删除');
+            } else {
+                $.get('batch_delete_entity/?id=' + obj, function () {
+                    location.reload();
+                })
+            }
+        }
+        function getChecked() {
             var str = document.getElementsByName("input[]");
             var objarray = str.length;
             var chestr = "";
