@@ -53,13 +53,27 @@ urlpatterns = [
 
     # IDC
     url(r'^idc_list/', include([
-        url(r'idc_add/', idc_add),
-        url(r'idc_add_action/', idc_add_action),
-        url(r'(?P<pk>\d+)/elete_entity/', idc_delete_entity),
-        url(r'(?P<pk>\d+)/idc_edit/', idc_edit),
-        url(r'(?P<pk>\d+)/idc_edit_action/', idc_edit_action),
-        url(r'$', idc_list),
-    ])),
+        url(r'idc_add/', simple_add),
+        url(r'idc_add_action/', simple_add_action),
+        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
+        url(r'(?P<pk>\d+)/idc_edit/', simple_edit),
+        url(r'(?P<pk>\d+)/idc_edit_action/', simple_edit_action),
+        url(r'batch_delete_entity/', simple_batch_delete_entity),
+        url(r'$', simple_list),
+    ]), {
+            'modulename': 'cmdb.models',
+            'modelname': 'IDC',
+            'list_url': '/frontend/cmdb/idc_list/',
+            'form_template_path': 'frontend/common/basic_form.html',
+            'template_path': 'frontend/cmdb/idc_list.html',
+            'add_fields': '__all__',
+            'add_title': '新增ISP',
+            'add_action': '/frontend/cmdb/idc_list/idc_add_action/',
+            'edit_fields': '__all__',
+            'edit_title': '编辑ISP',
+            'edit_action': '/frontend/cmdb/idc_list/%s/idc_edit_action/',
+            'plugin_name': 'idc_list_plugin'
+        }),
 
     # 机柜
     url(r'^cabinet_list/', include([

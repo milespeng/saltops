@@ -7,14 +7,14 @@
 {% block list_filter %}
     <div class="col-sm-3">
         <div class="input-group">
-            <select class="form-control m-b" name="isp">
-                <option value="" {% ifequal '' isp %}
+            <select class="form-control m-b" name="operator">
+                <option value="" {% ifequal '' kwargs.operator %}
                         selected="selected"
                 {% endifequal %}
-                >----
+                >ISP类型
                 </option>
-                {% for o in isp_type %}
-                    <option value="{{ o.id }}" {% ifequal o.id isp %}
+                {% for o in plugin_result.isp_type %}
+                    <option value="{{ o.id }}" {% ifequal o.id kwargs.operator|str_to_int %}
                             selected="selected"
                     {% endifequal %}
 
@@ -28,10 +28,14 @@
 
         </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <div class="input-group">
-            <a href="/frontend/cmdb/idc_list/idc_add"
+            <a href="idc_add"
                class="btn btn-sm btn-success"> 新增</a>
+            &nbsp;
+            <a href="javascript:void(0)"
+               onclick="deleteBatch()"
+               class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
         </div>
     </div>
 {% endblock %}
@@ -67,9 +71,9 @@
                 <td>{{ o.create_time }}</td>
                 <td>{{ o.update_time }}</td>
                 <td>
-                    <a href="/frontend/cmdb/idc_list/{{ o.id }}/idc_edit/"
+                    <a href="{{ o.id }}/idc_edit/"
                        class="btn  btn-sm btn-info">编辑</a>
-                    <a href="/frontend/cmdb/idc_list/delete_entity?id={{ o.id }}"
+                    <a href="{{ o.id }}/delete_entity/"
                        class="btn  btn-sm btn-danger">删除</a>
                 </td>
             </tr>
