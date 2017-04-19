@@ -77,13 +77,26 @@ urlpatterns = [
 
     # 机柜
     url(r'^cabinet_list/', include([
-        url(r'cabinet_add/', cabinet_add),
-        url(r'cabinet_add_action/', cabinet_add_action),
-        url(r'(?P<pk>\d+)/delete_entity/', cabinet_delete_entity),
-        url(r'(?P<pk>\d+)/cabinet_edit/', cabinet_edit),
-        url(r'(?P<pk>\d+)/cabinet_edit_action/', cabinet_edit_action),
-        url(r'$', cabinet_list),
-    ])),
+        url(r'cabinet_add/', simple_add),
+        url(r'cabinet_add_action/', simple_add_action),
+        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
+        url(r'(?P<pk>\d+)/cabinet_edit/', simple_edit),
+        url(r'(?P<pk>\d+)/cabinet_edit_action/', simple_edit_action),
+        url(r'$', simple_list),
+    ]), {
+            'modulename': 'cmdb.models',
+            'modelname': 'Cabinet',
+            'list_url': '/frontend/cmdb/cabinet_list/',
+            'form_template_path': 'frontend/common/basic_form.html',
+            'template_path': 'frontend/cmdb/cabinet_list.html',
+            'add_fields': '__all__',
+            'add_title': '新增机柜',
+            'add_action': '/frontend/cmdb/cabinet_list/cabinet_add_action/',
+            'edit_fields': '__all__',
+            'edit_title': '编辑机柜P',
+            'edit_action': '/frontend/cmdb/cabinet_list/%s/cabinet_edit_action/',
+            'plugin_name': 'idc_list_plugin'
+        }),
 
     # 机架
     url('^rack_list/', include([
