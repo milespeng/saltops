@@ -21,8 +21,8 @@
     </div>
     <div class="col-sm-3">
         <div class="input-group">
-            <a href="isp_add"
-               class="btn btn-sm btn-success"> 新增</a>
+            <a href="isp_add/"
+               class="btn btn-sm btn-success"><i class="fa fa-plus"></i>  新增</a>
             &nbsp;
             <a href="javascript:void(0)"
                onclick="deleteBatch()"
@@ -54,7 +54,7 @@
                 <td>
                     <a href="{{ o.id }}/isp_edit/"
                        class="btn  btn-sm btn-info">编辑</a>
-                    <a href="delete_entity/?id={{ o.id }}"
+                    <a href="{{ o.id }}/delete_entity/"
                        class="btn  btn-sm btn-danger">删除</a>
                 </td>
             </tr>
