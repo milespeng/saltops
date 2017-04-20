@@ -14,9 +14,10 @@ from common.pageutil import preparePage
 @login_required
 def simple_list(request,
                 modulename, modelname, list_url,
-                form_template_path, template_path, add_fields,
-                add_title, add_action, edit_fields, edit_title, edit_action,
-                plugin_name=None, add_form_plugin=None, edit_form_plugin=None
+                form_template_path, template_path,
+                add_title, add_action, edit_title, edit_action,
+                plugin_name=None, add_form_plugin=None, edit_form_plugin=None,
+                add_fields='__all__', edit_fields='__all__',
                 ):
     kwargs = dict(filter(lambda x: x[1] != '', request.GET.dict().items()))
     module = __import__(modulename)
@@ -34,9 +35,10 @@ def simple_list(request,
 @login_required
 def simple_delete_entity(request, pk,
                          modulename, modelname, list_url,
-                         form_template_path, template_path, add_fields,
-                         add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None,
-                         add_form_plugin=None, edit_form_plugin=None
+                         form_template_path, template_path,
+                         add_title, add_action, edit_title, edit_action, plugin_name=None,
+                         add_form_plugin=None, edit_form_plugin=None,
+                         add_fields='__all__', edit_fields='__all__',
                          ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
@@ -52,10 +54,11 @@ def simple_delete_entity(request, pk,
 @login_required
 def simple_batch_delete_entity(request,
                                modulename, modelname, list_url,
-                               form_template_path, template_path, add_fields,
+                               form_template_path, template_path,
                                add_title, add_action,
-                               edit_fields, edit_title,
-                               edit_action, plugin_name=None, add_form_plugin=None, edit_form_plugin=None
+                               edit_title,
+                               edit_action, plugin_name=None, add_form_plugin=None,
+                               edit_form_plugin=None, add_fields='__all__', edit_fields='__all__',
                                ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
@@ -72,10 +75,11 @@ def simple_batch_delete_entity(request,
 @login_required
 def simple_add(request,
                modulename, modelname, list_url,
-               form_template_path, template_path, add_fields,
+               form_template_path, template_path,
                add_title, add_action,
-               edit_fields, edit_title,
-               edit_action, plugin_name=None, add_form_plugin=None, edit_form_plugin=None
+               edit_title,
+               edit_action, plugin_name=None, add_form_plugin=None, edit_form_plugin=None,
+               add_fields='__all__', edit_fields='__all__',
                ):
     action = add_action
     module = __import__(modulename)
@@ -96,11 +100,10 @@ def simple_add(request,
 @login_required
 def simple_add_action(request,
                       modulename, modelname, list_url,
-                      form_template_path, template_path, add_fields,
-                      add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None,
-                      add_form_plugin=None, edit_form_plugin=None
-
-                      ):
+                      form_template_path, template_path,
+                      add_title, add_action, edit_title, edit_action, plugin_name=None,
+                      add_form_plugin=None, edit_form_plugin=None,
+                      add_fields='__all__', edit_fields='__all__', ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
     form = modelform_factory(instance, fields='__all__')
@@ -120,9 +123,10 @@ def simple_add_action(request,
 @login_required
 def simple_edit(request, pk,
                 modulename, modelname, list_url,
-                form_template_path, template_path, add_fields,
-                add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None,
-                add_form_plugin=None, edit_form_plugin=None
+                form_template_path, template_path,
+                add_title, add_action, edit_title, edit_action, plugin_name=None,
+                add_form_plugin=None, edit_form_plugin=None,
+                add_fields='__all__', edit_fields='__all__',
                 ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
@@ -145,9 +149,10 @@ def simple_edit(request, pk,
 @login_required
 def simple_edit_action(request, pk,
                        modulename, modelname, list_url,
-                       form_template_path, template_path, add_fields,
-                       add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None,
-                       add_form_plugin=None, edit_form_plugin=None):
+                       form_template_path, template_path,
+                       add_title, add_action, edit_title, edit_action, plugin_name=None,
+                       add_form_plugin=None, edit_form_plugin=None,
+                       add_fields='__all__', edit_fields='__all__', ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
     entity = get_object_or_404(instance, pk=pk)

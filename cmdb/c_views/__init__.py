@@ -11,3 +11,11 @@ from .cabinet import *
 def cabinet_count(value):
     obj = IDC.objects.get(pk=value)
     return mark_safe('<a href="/frontend/cmdb/cabinet_list/?idc=&idc=%s">%s</a>' % (obj.id, obj.cabinet_set.count()))
+
+
+@register.filter()
+def hostgroup_parent_filter(value):
+    if value is None:
+        return '无'
+    else:
+        return value
