@@ -67,10 +67,10 @@ urlpatterns = [
             'form_template_path': 'frontend/common/basic_form.html',
             'template_path': 'frontend/cmdb/idc_list.html',
             'add_fields': '__all__',
-            'add_title': '新增ISP',
+            'add_title': '新增机房',
             'add_action': '/frontend/cmdb/idc_list/idc_add_action/',
             'edit_fields': '__all__',
-            'edit_title': '编辑ISP',
+            'edit_title': '编辑机房',
             'edit_action': '/frontend/cmdb/idc_list/%s/idc_edit_action/',
             'plugin_name': 'idc_list_plugin'
         }),
@@ -93,7 +93,7 @@ urlpatterns = [
             'add_title': '新增机柜',
             'add_action': '/frontend/cmdb/cabinet_list/cabinet_add_action/',
             'edit_fields': '__all__',
-            'edit_title': '编辑机柜P',
+            'edit_title': '编辑机柜',
             'edit_action': '/frontend/cmdb/cabinet_list/%s/cabinet_edit_action/',
             'plugin_name': 'idc_list_plugin'
         }),
