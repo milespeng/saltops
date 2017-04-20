@@ -8,14 +8,10 @@ from common.models import BaseModel
 
 class Rack(BaseModel):
     idc = models.ForeignKey(IDC, verbose_name='机房', blank=True, null=True)
-    cabinet = ChainedForeignKey(
+    cabinet = models.ForeignKey(
         Cabinet,
         verbose_name="机柜",
-        chained_field="idc",
-        chained_model_field="idc",
-        show_all=False,
-        auto_choose=True,
-        sort=True, blank=True, null=True
+        blank=True, null=True
     )
     name = models.CharField(max_length=30, unique=True, verbose_name="机架名称")
 

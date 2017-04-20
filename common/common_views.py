@@ -16,7 +16,7 @@ def simple_list(request,
                 modulename, modelname, list_url,
                 form_template_path, template_path, add_fields,
                 add_title, add_action, edit_fields, edit_title, edit_action,
-                plugin_name=None
+                plugin_name=None, add_form_plugin=None, edit_form_plugin=None
                 ):
     kwargs = dict(filter(lambda x: x[1] != '', request.GET.dict().items()))
     module = __import__(modulename)
@@ -35,7 +35,8 @@ def simple_list(request,
 def simple_delete_entity(request, pk,
                          modulename, modelname, list_url,
                          form_template_path, template_path, add_fields,
-                         add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None
+                         add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None,
+                         add_form_plugin=None, edit_form_plugin=None
                          ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
@@ -52,7 +53,9 @@ def simple_delete_entity(request, pk,
 def simple_batch_delete_entity(request,
                                modulename, modelname, list_url,
                                form_template_path, template_path, add_fields,
-                               add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None
+                               add_title, add_action,
+                               edit_fields, edit_title,
+                               edit_action, plugin_name=None, add_form_plugin=None, edit_form_plugin=None
                                ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
@@ -70,7 +73,9 @@ def simple_batch_delete_entity(request,
 def simple_add(request,
                modulename, modelname, list_url,
                form_template_path, template_path, add_fields,
-               add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None
+               add_title, add_action,
+               edit_fields, edit_title,
+               edit_action, plugin_name=None, add_form_plugin=None, edit_form_plugin=None
                ):
     action = add_action
     module = __import__(modulename)
@@ -80,9 +85,9 @@ def simple_add(request,
     else:
         form = modelform_factory(instance, fields=(add_fields.split(',')))
     title = add_title
-    if plugin_name is not None:
-        plugin = getattr(getattr(module, 'c_views'), plugin_name)
-        plugin_result = plugin()
+    if add_form_plugin is not None:
+        plugin = getattr(getattr(module, 'c_views'), add_form_plugin)
+        plugin_result = plugin(locals())
     return render(request, form_template_path, locals(), RequestContext(request))
 
 
@@ -92,7 +97,8 @@ def simple_add(request,
 def simple_add_action(request,
                       modulename, modelname, list_url,
                       form_template_path, template_path, add_fields,
-                      add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None
+                      add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None,
+                      add_form_plugin=None, edit_form_plugin=None
 
                       ):
     module = __import__(modulename)
@@ -115,7 +121,8 @@ def simple_add_action(request,
 def simple_edit(request, pk,
                 modulename, modelname, list_url,
                 form_template_path, template_path, add_fields,
-                add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None
+                add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None,
+                add_form_plugin=None, edit_form_plugin=None
                 ):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
@@ -127,9 +134,9 @@ def simple_edit(request, pk,
     action = edit_action % pk
     entity = get_object_or_404(instance, pk=pk)
     form = form(instance=entity)
-    if plugin_name is not None:
-        plugin = getattr(getattr(module, 'c_views'), plugin_name)
-        plugin_result = plugin()
+    if edit_form_plugin is not None:
+        plugin = getattr(getattr(module, 'c_views'), edit_form_plugin)
+        plugin_result = plugin(locals())
     return render(request, form_template_path, locals())
 
 
@@ -139,7 +146,8 @@ def simple_edit(request, pk,
 def simple_edit_action(request, pk,
                        modulename, modelname, list_url,
                        form_template_path, template_path, add_fields,
-                       add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None):
+                       add_title, add_action, edit_fields, edit_title, edit_action, plugin_name=None,
+                       add_form_plugin=None, edit_form_plugin=None):
     module = __import__(modulename)
     instance = getattr(getattr(module, 'models'), modelname)
     entity = get_object_or_404(instance, pk=pk)

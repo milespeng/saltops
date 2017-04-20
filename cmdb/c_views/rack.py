@@ -16,17 +16,6 @@ from common.pageutil import preparePage
 from django.forms import *
 
 
-class RackForm(ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(RackForm, self).__init__(*args, **kwargs)
-        for field in self.fields:
-            self.fields[field].widget.attrs['class'] = 'form-control'
-
-    class Meta:
-        model = Rack
-        fields = '__all__'
-
-
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
@@ -43,71 +32,18 @@ def load_rack_list(request, idc_id, cabinet_id):
     return HttpResponse(data)
 
 
-@require_http_methods(["GET"])
-@gzip_page
-@login_required
-def rack_list(request):
-    cabinet = request.GET.get('cabinet', '')
-    obj = Rack.objects.all()
-    if cabinet != '':
-        obj = obj.filter(cabinet=int(cabinet))
-    result_list = preparePage(request, obj)
-    cabinet_list = Cabinet.objects.all()
-    return render(request, 'frontend/cmdb/rack_list.html', locals(), RequestContext(request))
+def idc_list_plugin():
+    idc = IDC.objects.all()
+    return {'idc': idc}
 
 
-@require_http_methods(["GET"])
-@gzip_page
-@login_required
-def rack_delete_entity(request, pk):
-    Rack.objects.filter(pk=pk).delete()
-    return redirect('/frontend/cmdb/rack_list/')
-
-
-@require_http_methods(["GET"])
-@gzip_page
-@login_required
-def rack_add(request):
-    is_add = True
-    title = '新增机架'
-    action = '/frontend/cmdb/rack_list/rack_add_action/'
-    form = RackForm()
-    return render(request, 'frontend/cmdb/rack_form.html', locals())
-
-
-@require_http_methods(["POST"])
-@gzip_page
-@login_required
-def rack_add_action(request):
-    form = RackForm(request.POST)
-    if form.is_valid():
-        form.save()
-        return redirect('/frontend/cmdb/rack_list/')
-    else:
-        return render(request, 'frontend/cmdb/rack_form.html', locals())
-
-
-@require_http_methods(["GET"])
-@gzip_page
-@login_required
-def rack_edit(request, pk):
-    title = '编辑机架'
-    action = '/frontend/cmdb/rack_list/%s/rack_edit_action/' % pk
-    obj = get_object_or_404(Rack, pk=pk)
-    form = RackForm(instance=obj)
-    cabinet_list = Cabinet.objects.filter(idc=obj.idc)
+def rack_edit_form_plugin(kwargs):
     is_add = False
-    return render(request, 'frontend/cmdb/rack_form.html', locals())
+    obj = Rack.objects.get(pk=int(kwargs['pk']))
+    cabinet_list = Cabinet.objects.filter(idc=obj.idc)
+    return {'cabinet_list': cabinet_list, 'is_add': is_add}
 
 
-@require_http_methods(["POST"])
-@gzip_page
-@login_required
-def rack_edit_action(request, pk):
-    entity = get_object_or_404(Rack, pk=pk)
-    form = RackForm(request.POST, instance=entity)
-    if form.is_valid():
-        form.save()
-        return redirect('/frontend/cmdb/rack_list/')
-    else:
-        return render(request, 'frontend/cmdb/rack_form.html', locals())
+def rack_add_form_plugin(kwargs):
+    is_add = True
+    return {'is_add': is_add}

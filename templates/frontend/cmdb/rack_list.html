@@ -7,14 +7,14 @@
 {% block list_filter %}
     <div class="col-sm-3">
         <div class="input-group">
-            <select class="form-control m-b" name="cabinet">
-                <option value="" {% ifequal '' cabinet %}
+            <select class="form-control m-b" name="idc">
+                <option value="" {% ifequal '' kwargs.idc %}
                         selected="selected"
                 {% endifequal %}
                 >----
                 </option>
-                {% for o in cabinet_list %}
-                    <option value="{{ o.id }}" {% ifequal o.id cabinet %}
+                {% for o in plugin_result.idc %}
+                    <option value="{{ o.id }}" {% ifequal o.id kwargs.idc|str_to_int %}
                             selected="selected"
                     {% endifequal %}
 
@@ -28,10 +28,14 @@
 
         </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <div class="input-group">
-            <a href="/frontend/cmdb/rack_list/rack_add"
-               class="btn btn-sm btn-success"> 新增</a>
+            <a href="rack_add/"
+               class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
+            &nbsp;
+            <a href="javascript:void(0)"
+               onclick="deleteBatch()"
+               class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
         </div>
     </div>
 {% endblock %}
@@ -40,6 +44,7 @@
     <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
         <thead>
         <tr>
+            <th style="width: 3%;"><input id="checkall" type="checkbox" class="i-checks"></th>
             <th style="width: 10%;">机房</th>
             <th style="width: 10%;">机柜</th>
             <th style="width: 10%;">机架</th>
@@ -51,15 +56,18 @@
         <tbody>
         {% for o in result_list %}
             <tr>
+                <td>
+                    <input type="checkbox" class="i-checks icheck" id="{{ o.id }}" name="input[]">
+                </td>
                 <td>{{ o.idc }}</td>
                 <td>{{ o.cabinet }}</td>
                 <td>{{ o.name }}</td>
                 <td>{{ o.create_time }}</td>
                 <td>{{ o.update_time }}</td>
                 <td>
-                    <a href="/frontend/cmdb/rack_list/{{ o.id }}/rack_edit/"
+                    <a href="{{ o.id }}/rack_edit/"
                        class="btn  btn-sm btn-info">编辑</a>
-                    <a href="/frontend/cmdb/rack_list/delete_entity?id={{ o.id }}"
+                    <a href="{{ o.id }}/delete_entity/"
                        class="btn  btn-sm btn-danger">删除</a>
                 </td>
             </tr>
