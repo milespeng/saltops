@@ -19,3 +19,18 @@ def hostgroup_parent_filter(value):
         return '无'
     else:
         return value
+
+
+@register.filter()
+def enablessh_status_filter(value):
+    if value is True:
+        return '启用'
+    else:
+        return '禁用'
+
+
+@register.filter()
+def minion_status_filter(value):
+    for k in MINION_STATUS:
+        if k[0] == value:
+            return k[1]

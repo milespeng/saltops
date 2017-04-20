@@ -10,7 +10,6 @@
         {% ifequal plugin_result.is_add False%}
             $('#id_cabinet').empty();
             {% for cabinet in plugin_result.cabinet_list %}
-                debugger;
                 {% ifequal cabinet entity.cabinet.id %}
                     $("#id_cabinet").append("<option selected='selected' value='{{ cabinet.id }}'>{{ cabinet.name }}</option>");
                 {% endifequal %}

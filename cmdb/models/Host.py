@@ -38,23 +38,15 @@ class Host(BaseModel):
     num_cpus = models.IntegerField(blank=True, null=True, verbose_name="CPU数量")
     idc = models.ForeignKey(IDC, verbose_name='IDC', blank=True, null=True)
 
-    cabinet = ChainedForeignKey(
+    cabinet = models.ForeignKey(
         Cabinet,
         verbose_name="机柜",
-        chained_field="idc",
-        chained_model_field="idc",
-        show_all=False,
-        auto_choose=True,
-        sort=True, blank=True, null=True
+        blank=True, null=True
     )
-    rack = ChainedForeignKey(
+    rack = models.ForeignKey(
         Rack,
         verbose_name="机架",
-        chained_field="cabinet",
-        chained_model_field="cabinet",
-        show_all=False,
-        auto_choose=True,
-        sort=True, blank=True, null=True
+        blank=True, null=True
     )
     minion_status = models.IntegerField(verbose_name='Minion状态', default=0,
                                         choices=MINION_STATUS)

@@ -138,14 +138,26 @@ urlpatterns = [
             'edit_action': '/frontend/cmdb/hostgroup_list/%s/hostgroup_edit_action/',
         }),
 
+    url(r'host_list/scan_host_job/', scan_host_job),
     # 主机
     url('^host_list/', include([
-        url(r'scan_host_job/', scan_host_job),
-        url(r'host_add/', host_add),
-        url(r'host_add_action/', host_add_action),
-        url(r'(?P<pk>\d+)/delete_entity/', host_delete_entity),
-        url(r'(?P<pk>\d+)/host_edit/', host_edit),
-        url(r'(?P<pk>\d+)/host_edit_action/', host_edit_action),
-        url(r'$', host_list),
-    ])),
+        url(r'host_add/', simple_add),
+        url(r'host_add_action/', simple_add_action),
+        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
+        url(r'(?P<pk>\d+)/host_edit/', simple_edit),
+        url(r'(?P<pk>\d+)/host_edit_action/', simple_edit_action),
+        url(r'$', simple_list),
+    ]), {
+            'modulename': 'cmdb.models',
+            'modelname': 'Host',
+            'list_url': '/frontend/cmdb/host_list/',
+            'form_template_path': 'frontend/cmdb/host_form.html',
+            'template_path': 'frontend/cmdb/host_list.html',
+            'add_title': '新增主机',
+            'add_action': '/frontend/cmdb/host_list/host_add_action/',
+            'edit_title': '编辑主机',
+            'edit_action': '/frontend/cmdb/host_list/%s/host_edit_action/',
+            'edit_form_plugin': 'host_edit_form_plugin',
+            'add_form_plugin': 'host_add_form_plugin'
+        }),
 ]
