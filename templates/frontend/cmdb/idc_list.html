@@ -5,31 +5,26 @@
 {% endblock %}
 
 {% block list_filter %}
-    <div class="col-sm-3">
-        <div class="input-group">
-            <select class="form-control m-b" name="operator">
-                <option value="" {% ifequal '' kwargs.operator %}
+    <div class="col-sm-2">
+        <select class="form-control m-b" name="operator">
+            <option value="" {% ifequal '' kwargs.operator %}
+                    selected="selected"
+            {% endifequal %}
+            >ISP类型
+            </option>
+            {% for o in plugin_result.isp_type %}
+                <option value="{{ o.id }}" {% ifequal o.id kwargs.operator|str_to_int %}
                         selected="selected"
                 {% endifequal %}
-                >ISP类型
-                </option>
-                {% for o in plugin_result.isp_type %}
-                    <option value="{{ o.id }}" {% ifequal o.id kwargs.operator|str_to_int %}
-                            selected="selected"
-                    {% endifequal %}
 
-                    >{{ o.name }}</option>
-                {% endfor %}
-
-            </select>
-            <span class="input-group-btn">
-                <button type="submit" class="btn btn-sm btn-primary"> 搜索</button>
-            </span>
-
-        </div>
+                >{{ o.name }}</option>
+            {% endfor %}
+        </select>
     </div>
     <div class="col-sm-4">
         <div class="input-group">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>
+            &nbsp;
             <a href="idc_add/"
                class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
             &nbsp;

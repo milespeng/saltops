@@ -10,13 +10,12 @@
             <input type="text" name="name__contains" placeholder="机房等级"
                    value="{{ kwargs.name__contains }}"
                    class="input-sm form-control">
-            <span class="input-group-btn">
-                <button type="submit" class="btn btn-sm btn-primary"> 搜索</button>
-            </span>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <div class="input-group">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>
+            &nbsp;
             <a href="/frontend/cmdb/idc_level_list/idc_level_add/"
                class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
             &nbsp;
