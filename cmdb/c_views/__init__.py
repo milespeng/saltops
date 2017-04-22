@@ -5,6 +5,7 @@ from .rack import *
 from .host_group import *
 from .host import *
 from .cabinet import *
+from .assert_import import *
 
 
 @register.filter()

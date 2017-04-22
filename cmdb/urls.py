@@ -169,4 +169,7 @@ urlpatterns = [
                 'edit_form_plugin': 'host_edit_form_plugin',
                 'add_form_plugin': 'host_add_form_plugin'
             }}),
+
+    # 资产导入
+    url(r'assert_import/$', assert_import_index),
 ]

@@ -1,0 +1,27 @@
+{% extends 'frontend/common/basic_layout.html' %}
+{% block content %}
+    <link href="/static/hplus/css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="/static/hplus/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>资产导入</h5>
+            </div>
+            <div class="ibox-content">
+                <form id="my-awesome-dropzone" class="dropzone"
+                      action="http://www.zi-han.net/theme/hplus/form_file_upload.html#">
+                    <div class="dropzone-previews"></div>
+                    <button type="submit" class="btn btn-primary pull-right">提交</button>
+                </form>
+                <div>
+                    <div class="m">
+                        使用资产导入功能可以实现对资产进行本地快速导入，点击链接：
+                        <a href="http://fex.baidu.com/webuploader/" target="_blank">下载导入模板</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/hplus/js/content.min.js?v=1.0.0"></script>
+    <script src="/static/hplus/js/plugins/dropzone/dropzone.js"></script>
+{% endblock %}
