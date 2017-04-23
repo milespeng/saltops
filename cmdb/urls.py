@@ -171,5 +171,7 @@ urlpatterns = [
             }}),
 
     # 资产导入
+    url(r'assert_import/upload_file/', upload_file),
     url(r'assert_import/$', assert_import_index),
+
 ]

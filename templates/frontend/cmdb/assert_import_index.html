@@ -8,15 +8,16 @@
                 <h5>资产导入</h5>
             </div>
             <div class="ibox-content">
-                <form id="my-awesome-dropzone" class="dropzone"
-                      action="http://www.zi-han.net/theme/hplus/form_file_upload.html#">
+                <form id="my-awesome-dropzone" class="dropzone" method="post"
+                      action="upload_file/">
+                    {% csrf_token %}
                     <div class="dropzone-previews"></div>
                     <button type="submit" class="btn btn-primary pull-right">提交</button>
                 </form>
                 <div>
                     <div class="m">
                         使用资产导入功能可以实现对资产进行本地快速导入，点击链接：
-                        <a href="http://fex.baidu.com/webuploader/" target="_blank">下载导入模板</a>
+                        <a href="/static/asserts/资产模板.xlsx" target="_blank">下载导入模板</a>
                     </div>
                 </div>
             </div>
