@@ -12,7 +12,6 @@
                       action="upload_file/">
                     {% csrf_token %}
                     <div class="dropzone-previews"></div>
-                    <button type="submit" class="btn btn-primary pull-right">提交</button>
                 </form>
                 <div>
                     <div class="m">
@@ -25,4 +24,13 @@
     </div>
     <script src="/static/hplus/js/content.min.js?v=1.0.0"></script>
     <script src="/static/hplus/js/plugins/dropzone/dropzone.js"></script>
+    <script>
+        $(".dropzone").dropzone({
+            init: function () {
+                this.on("complete", function (file) {
+                    debugger;
+                });
+            }
+        });
+    </script>
 {% endblock %}
