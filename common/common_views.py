@@ -18,6 +18,9 @@ def simple_list(request, args):
         del kwargs['page']
     module = __import__(args['modulename'])
     instance = getattr(getattr(module, 'models'), args['modelname'])
+    if 'kwargs_filter' in args:
+        plugin = getattr(getattr(module, 'c_views'), args['kwargs_filter'])
+        kwargs = plugin(kwargs)
     if 'plugin_name' in args:
         plugin = getattr(getattr(module, 'c_views'), args['plugin_name'])
         plugin_result = plugin()

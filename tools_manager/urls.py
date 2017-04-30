@@ -27,5 +27,15 @@ urlpatterns = [
                 'edit_action': '/frontend/tools_manager/tools_types_list/%s/tools_types_edit_action/',
             }
         }),
-
+    url(r'^tools_script_list/', include([
+        url(r'batch_delete_entity/', simple_batch_delete_entity),
+        url(r'$', simple_list),
+    ]), {
+            'args': {
+                'modulename': 'tools_manager.models',
+                'modelname': 'ToolsScript',
+                'list_url': '/frontend/tools_manager/tools_script_list/',
+                'template_path': 'frontend/tools_manager/tools_script_list.html',
+            }
+        }),
 ]
