@@ -99,8 +99,9 @@ def upload_file(request):
                 enable_sudo = True
         except Exception as e:
             pass
-
-        if len(Host.objects.filter(host=row[0])) == 0:
+        if len(Host.objects.filter(host_name=row[1])) != 0:
+            continue
+        if row[0] != '' and len(Host.objects.filter(host_group=HostGroup.objects.get(name=row[0]))) == 0:
             try:
                 Host(host_group=HostGroup.objects.get(name=row[0]),
                      host=row[1],
@@ -110,7 +111,7 @@ def upload_file(request):
                      enable_ssh=True,
                      ssh_username=row[5],
                      ssh_password=row[6],
-                     enable_sudo=enable_sudo)
+                     enable_sudo=enable_sudo).save()
             except Exception as e:
                 pass
         else:
@@ -122,7 +123,7 @@ def upload_file(request):
                      enable_ssh=True,
                      ssh_username=row[5],
                      ssh_password=row[6],
-                     enable_sudo=enable_sudo)
+                     enable_sudo=enable_sudo).save()
             except Exception as e:
                 pass
     return HttpResponse("")
