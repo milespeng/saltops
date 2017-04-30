@@ -1,8 +1,9 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import better_exceptions
 
+
 def preparePage(request, dataList):
-    page = 0
+    page = 1
     if 'page' in request.GET:
         page = int(request.GET['page'])
     paginator = Paginator(dataList, 10)

@@ -14,6 +14,8 @@ from common.pageutil import preparePage
 @login_required
 def simple_list(request, args):
     kwargs = dict(filter(lambda x: x[1] != '', request.GET.dict().items()))
+    if 'page' in kwargs:
+        del kwargs['page']
     module = __import__(args['modulename'])
     instance = getattr(getattr(module, 'models'), args['modelname'])
     if 'plugin_name' in args:
