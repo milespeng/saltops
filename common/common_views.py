@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.template import RequestContext
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.http import require_http_methods
-
+import better_exceptions
 from common.pageutil import preparePage
 
 

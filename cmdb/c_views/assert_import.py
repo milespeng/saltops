@@ -1,5 +1,6 @@
 import os
 from cmdb.models import *
+import better_exceptions
 from django.contrib.auth.decorators import login_required
 from django.core.files.base import ContentFile
 from django.forms import ModelForm, modelform_factory
@@ -44,8 +45,8 @@ def upload_file(request):
 
     # 读取机房信息
     idc_table = wb.sheets()[2]
-    for i in range(1, idc_table):
-        row = isp_table.row_values(i)
+    for i in range(1, idc_table.nrows):
+        row = idc_table.row_values(i)
         if len(IDC.objects.filter(name=row[0])) == 0:
             try:
                 IDC(name=row[0], bandwidth=row[1],
@@ -57,7 +58,7 @@ def upload_file(request):
                 pass
 
     # 机柜
-    for i in range(1, wb.sheets()[3]):
+    for i in range(1, wb.sheets()[3].nrows):
         row = wb.sheets()[3].row_values(i)
         if len(Cabinet.objects.filter(name=row[1])) == 0:
             try:
@@ -66,7 +67,7 @@ def upload_file(request):
                 pass
 
     # 机架
-    for i in range(1, wb.sheets()[4]):
+    for i in range(1, wb.sheets()[4].nrows):
         row = wb.sheets()[4].row_values(i)
         if len(Rack.objects.filter(name=row[1])) == 0:
             try:
@@ -77,27 +78,44 @@ def upload_file(request):
                 pass
 
     # 主机组
-    for i in range(1, wb.sheets()[5]):
+    for i in range(1, wb.sheets()[5].nrows):
         row = wb.sheets()[5].row_values(i)
-        if len(HostGroup.objects.filter(name=row[0])) == 0:
-            try:
-                if row[0] == "":
-                    HostGroup(name=row[1]).save()
-                else:
-                    HostGroup(parent=HostGroup.objects.get(name=row[0]), name=row[1]).save()
-            except Exception as e:
-                pass
+        if len(HostGroup.objects.filter(name=row[1])) != 0:
+            continue
+        try:
+            if row[0] == "":
+                HostGroup(name=row[1]).save()
+            else:
+                HostGroup(parent=HostGroup.objects.get(name=row[0]), name=row[1]).save()
+        except Exception as e:
+            pass
 
     # 主机
-    for i in range(1, wb.sheets()[6]):
+    for i in range(1, wb.sheets()[6].nrows):
         row = wb.sheets()[6].row_values(i)
-        if len(Host.objects.filter(name=row[0])) == 0:
+        try:
+            enable_sudo = False
+            if row[7] != '0':
+                enable_sudo = True
+        except Exception as e:
+            pass
+
+        if len(Host.objects.filter(host=row[0])) == 0:
             try:
-                enable_sudo = False
-                if row[7] != '0':
-                    enable_sudo = True
                 Host(host_group=HostGroup.objects.get(name=row[0]),
                      host=row[1],
+                     idc=IDC.objects.get(name=row[2]),
+                     cabinet=Cabinet.objects.get(name=row[3]),
+                     rack=Rack.objects.get(name=row[4]),
+                     enable_ssh=True,
+                     ssh_username=row[5],
+                     ssh_password=row[6],
+                     enable_sudo=enable_sudo)
+            except Exception as e:
+                pass
+        else:
+            try:
+                Host(host=row[1],
                      idc=IDC.objects.get(name=row[2]),
                      cabinet=Cabinet.objects.get(name=row[3]),
                      rack=Rack.objects.get(name=row[4]),

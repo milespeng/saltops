@@ -1,5 +1,5 @@
 from http.client import HTTPResponse
-
+import better_exceptions
 from django.http import HttpResponse
 from django.template.defaultfilters import register
 from django.contrib.auth.decorators import login_required

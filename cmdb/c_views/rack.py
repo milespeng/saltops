@@ -1,5 +1,5 @@
 import json
-
+import better_exceptions
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.db.models import Model
