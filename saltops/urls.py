@@ -45,7 +45,8 @@ urlpatterns = [
     url(r'^checkLogin/$', views.checkLogin, name='checkLogin'),
     url(r'^mainform/$', views.mainform, name='mainform'),
     url(r'^dashboard/$', views.dashboard, name='mainform'),
-    url(r'^frontend/cmdb/', include('cmdb.urls'))
+    url(r'^frontend/cmdb/', include('cmdb.urls')),
+    url(r'^frontend/tools_manager/', include('tools_manager.urls'))
 ]
 
 # if settings.DEBUG:
