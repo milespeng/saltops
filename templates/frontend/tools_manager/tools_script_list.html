@@ -6,11 +6,26 @@
 
 {% block list_filter %}
     <div class="col-sm-2">
+        <select class="form-control m-b" name="tools_type">
+            <option value="" {% ifequal '' kwargs.tools_type %}
+                    selected="selected"
+            {% endifequal %}
+            >工具类型
+            </option>
+            {% for o in plugin_result.tools_types %}
+                <option value="{{ o.id }}" {% ifequal o.id kwargs.tools_type|str_to_int %}
+                        selected="selected"
+                {% endifequal %}
+
+                >{{ o.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-sm-2">
         <div class="input-group">
             <input type="text" name="name__contains" placeholder="工具名称"
                    value="{{ kwargs.name__contains }}"
                    class="input-sm form-control">
-
         </div>
     </div>
     <div class="col-sm-2">
@@ -18,7 +33,7 @@
             <option value="" {% ifequal '' kwargs.tool_run_type %}
                     selected="selected"
             {% endifequal %}
-            >工具类型
+            >脚本类型
             </option>
             <option value="0" {% ifequal kwargs.tool_run_type|str_to_int  0 %}
                     selected="selected"
@@ -57,7 +72,7 @@
             &nbsp;
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>
             &nbsp;
-            <a href="/frontend/tools_manager/tools_script_list/tools_script_add/"
+            <a href="tools_script_add/"
                class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
             &nbsp;
             <a href="javascript:void(0)"
@@ -74,7 +89,7 @@
             <th style="width: 2%;"><input id="checkall" type="checkbox" class="i-checks"></th>
             <th style="width: 10%;">工具类型</th>
             <th style="width: 10%;">名称</th>
-            <th style="width: 7%;">工具类型</th>
+            <th style="width: 7%;">脚本类型</th>
             <th style="width: 20%;">工具说明</th>
             <th style="width: 10%;">创建时间</th>
             <th style="width: 10%;">更新时间</th>
@@ -95,13 +110,13 @@
                 <td>{{ o.update_time }}</td>
                 <td>
 
-                    <a href="/frontend/tools_manager/tools_script_list/{{ o.id }}/tools_script_edit/"
+                    <a href="{{ o.id }}/tools_script_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
-                    <a href="/frontend/tools_manager/tools_script_list/{{ o.id }}/delete_entity/"
+                    <a href="{{ o.id }}/delete_execute/"
                        class="btn  btn-sm btn-primary"><i class="fa fa-play"></i>执行</a>
-                    <a href="/frontend/tools_manager/tools_script_list/{{ o.id }}/delete_entity/"
+                    <a href="{{ o.id }}/delete_history/"
                        class="btn  btn-sm btn-success"><i class="fa fa-play"></i>历史</a>
-                    <a href="/frontend/tools_manager/tools_script_list/{{ o.id }}/delete_entity/"
+                    <a href="{{ o.id }}/delete_entity/"
                        class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
                 </td>
             </tr>

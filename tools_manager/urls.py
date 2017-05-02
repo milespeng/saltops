@@ -28,7 +28,12 @@ urlpatterns = [
             }
         }),
     url(r'^tools_script_list/', include([
+        url(r'(?P<pk>\d+)/tools_script_edit_action/', simple_edit_action),
+        url(r'(?P<pk>\d+)/tools_script_edit/', simple_edit),
+        url(r'tools_script_add_action/', simple_add_action),
+        url(r'tools_script_add/', simple_add),
         url(r'batch_delete_entity/', simple_batch_delete_entity),
+        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
         url(r'$', simple_list),
     ]), {
             'args': {
@@ -36,6 +41,12 @@ urlpatterns = [
                 'modelname': 'ToolsScript',
                 'list_url': '/frontend/tools_manager/tools_script_list/',
                 'template_path': 'frontend/tools_manager/tools_script_list.html',
+                'plugin_name': 'tool_script_list_plugin',
+                'form_template_path': 'frontend/common/basic_form.html',
+                'add_title': '新增工具',
+                'add_action': '/frontend/tools_manager/tools_script_list/tools_script_add_action/',
+                'edit_title': '编辑工具',
+                'edit_action': '/frontend/tools_manager/tools_script_list/%s/tools_script_edit_action/',
             }
         }),
 ]
