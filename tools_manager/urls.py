@@ -27,6 +27,7 @@ urlpatterns = [
                 'edit_action': '/frontend/tools_manager/tools_types_list/%s/tools_types_edit_action/',
             }
         }),
+    url(r'^tools_script_list/(?P<pk>\d+)/tool_execute/', tool_execute),
     url(r'^tools_script_list/', include([
         url(r'(?P<pk>\d+)/tools_script_edit_action/', simple_edit_action),
         url(r'(?P<pk>\d+)/tools_script_edit/', simple_edit),
@@ -49,4 +50,5 @@ urlpatterns = [
                 'edit_action': '/frontend/tools_manager/tools_script_list/%s/tools_script_edit_action/',
             }
         }),
+
 ]
