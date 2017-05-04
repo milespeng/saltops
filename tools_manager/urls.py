@@ -42,7 +42,7 @@ urlpatterns = [
                 'list_url': '/frontend/tools_manager/tools_script_list/',
                 'template_path': 'frontend/tools_manager/tools_script_list.html',
                 'plugin_name': 'tool_script_list_plugin',
-                'form_template_path': 'frontend/common/basic_form.html',
+                'form_template_path': 'frontend/tools_manager/tools_script_form.html',
                 'add_title': '新增工具',
                 'add_action': '/frontend/tools_manager/tools_script_list/tools_script_add_action/',
                 'edit_title': '编辑工具',

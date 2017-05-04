@@ -15,8 +15,8 @@
                             {% csrf_token %}
                             <input type="hidden" id="id" name="id" value="{{ pk }}"/>
                             {% for field in form %}
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label"> {{ field.label_tag }}</label>
+                                <div class="form-group" >
+                                    <label class="col-sm-2 control-label"> {{ field.label_tag }}</label>
                                     <div class="col-sm-10">
                                         {{ field }}
                                         {{ field.errors }}
@@ -39,7 +39,6 @@
 
     <script>
         $(document).ready(function () {
-            debugger;
             var fieldObj = $('.form-horizontal input')
             for (var i = 0; i < fieldObj.length; i++) {
                 $(fieldObj[i]).addClass('form-control')
