@@ -196,7 +196,7 @@ def execTools(obj, hostList, ymlParam):
 
     logger.info("开始执行命令")
     logger.info("获取目标主机信息,目标部署主机共%s台", hostSet.count())
-
+    exec_detail_list = []
     for target in hostSet:
         try:
             if prepare_script_result is False:
@@ -206,6 +206,7 @@ def execTools(obj, hostList, ymlParam):
                                                     exec_result='执行失败',
                                                     err_msg=errmsg)
                 execDetail.save()
+                exec_detail_list.append(execDetail)
                 continue
 
             if obj.tool_run_type == 1:
@@ -235,7 +236,7 @@ def execTools(obj, hostList, ymlParam):
                                                     exec_result='无返回结果，请检查Minion是否连通',
                                                     err_msg='')
                 execDetail.save()
-
+                exec_detail_list.append(execDetail)
             for master in result:
                 targetHost, dataResult = getHostViaResult(result, target, master)
 
@@ -251,6 +252,7 @@ def execTools(obj, hostList, ymlParam):
                                                             exec_result=rs_msg,
                                                             err_msg='')
                         execDetail.save()
+                        exec_detail_list.append(execDetail)
                 elif obj.tool_run_type == 4:
                     rs_msg = ""
                     rs_msg += targetHost.host_name + '\n--------\n'
@@ -276,18 +278,21 @@ def execTools(obj, hostList, ymlParam):
                                                         exec_result=rs_msg,
                                                         err_msg='')
                     execDetail.save()
+                    exec_detail_list.append(execDetail)
                 elif obj.tool_run_type == 1 or obj.tool_run_type == 3:
                     execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                         host=targetHost,
                                                         exec_result=dataResult,
                                                         err_msg='')
                     execDetail.save()
+                    exec_detail_list.append(execDetail)
                 else:
                     execDetail = ToolsExecDetailHistory(tool_exec_history=toolExecJob,
                                                         host=targetHost,
                                                         exec_result=dataResult['stdout'],
                                                         err_msg=dataResult['stderr'])
                     execDetail.save()
+                    exec_detail_list.append(execDetail)
         except Exception as e:
             errmsg = "执行失败"
             if isinstance(dataResult, str):
@@ -298,8 +303,9 @@ def execTools(obj, hostList, ymlParam):
                                                 exec_result='执行失败',
                                                 err_msg=errmsg)
             execDetail.save()
+            exec_detail_list.append(execDetail)
 
-    return toolExecJob
+    return toolExecJob, exec_detail_list
 
 
 @task(name='deployTask')

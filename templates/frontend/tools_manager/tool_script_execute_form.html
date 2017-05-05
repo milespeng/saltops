@@ -1,6 +1,8 @@
 {% extends 'frontend/common/basic_layout.html' %}
 
 {% block content %}
+    <link href="/static/hplus/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <script src="/static/hplus/js/plugins/chosen/chosen.jquery.js"></script>
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-sm-12">
@@ -16,23 +18,45 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> 主机组</label>
                                 <div class="col-sm-10">
+                                    <select data-placeholder="选择主机组"
+                                            multiple class="form-control chosen-select"
+                                            tabindex="4">
+                                        {% for o in hostgroup %}
+                                            <option value="{{ o.id }}">{{ o.name }}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> 主机</label>
                                 <div class="col-sm-10">
+                                    <select data-placeholder="选择主机"
+                                            multiple class="form-control chosen-select"
+                                            tabindex="4">
+                                        {% for o in hosts %}
+                                            <option value="{{ o.id }}">{{ o.host_name }}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> 执行命令</label>
                                 <div class="col-sm-10">
+                                    <div class="col-sm-10" style="height: 300px" name="tool_script_editor"
+                                         id="id_tool_script_editor" class="form-control"></div>
+                                    <textarea id="id_tool_script" name="tool_script"
+                                              style="display: none">{{ entity.tool_script|default_if_none:"" }}</textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> 执行参数</label>
-                                <div class="col-sm-10">
+                            <hr/>
+                            {% for k,v in param_list %}
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"> {{ k }}</label>
+                                    <div class="col-sm-10">
+                                        <input id="{{ v }}" name="{{ v }}" placeholder="{{ v }}" class="form-control"/>
+                                    </div>
                                 </div>
-                            </div>
+                            {% endfor %}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -46,4 +70,24 @@
             </div>
         </div>
     </div>
+    <script src="/static/asserts/require.js"></script>
+    <script>
+        var editor;
+        $(document).ready(function () {
+            $('.chosen-select').chosen();
+            require.config({paths: {ace: "/static/asserts/ace/lib/ace"}})
+            define('editor', ['ace/ace'],
+                function (ace, langtools) {
+                    editor = ace.edit("id_tool_script_editor");
+                    editor.setTheme("ace/theme/xcode");
+                    editor.session.setMode("ace/mode/yaml");
+                    editor.setReadOnly(true);
+                    require(["ace/requirejs/text!src/ace"], function (e) {
+                        editor.setValue($('#id_tool_script').val());
+                    })
+                }
+            );
+            require(['editor'])
+        });
+    </script>
 {% endblock %}
