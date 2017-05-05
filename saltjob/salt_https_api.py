@@ -52,7 +52,7 @@ class salt_api_token(object):
         return yaml.load(context)
 
     def wheelRun(self):
-        self.data["client"] = "ssh"
+        self.data["client"] = "wheel"
         req = requests.post(self.url, headers=self.headers, data=self.data, verify=False)
         context = req.text
         return yaml.load(context)
