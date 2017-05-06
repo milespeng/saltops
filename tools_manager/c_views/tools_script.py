@@ -61,15 +61,15 @@ def tool_execute_action(request):
     if hostgroup_ids != "":
         hosts = Host.objects.filter(host_group_id__in=hostgroup_ids.split(','))
         for k in hosts:
-            hostlist.extend(k.id)
+            hostlist.append(k.id)
     hostlist = list(set(hostlist))
     toolExecJob, exec_detail_list = execTools(obj, hostlist, yaml_str)
     # 把结果返回给前端展示
-    result = {}
+    result = []
     for k in exec_detail_list:
-        result[k.host.host_name] = {
+        result.append({
             'exec_result': k.exec_result,
             'err_msg': k.err_msg,
             'host': k.host.host_name,
-        }
+        })
     return HttpResponse(json.dumps(result))

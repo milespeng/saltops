@@ -61,7 +61,9 @@
                                 </div>
                             {% endfor %}
                             <div class="hr-line-dashed" id="result_line"></div>
-                            <div id="result"></div>
+                            <div id="result">
+
+                            </div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
                                     <a href="javascript:void(0)" class="btn btn-primary"
@@ -100,20 +102,23 @@
                 'hostids': hosts_str,
                 'hostgroup_ids': hostsgroup_str,
                 'id': '{{ pk }}',
-                'csrfmiddlewaretoken': '{{ csrf_token }}'
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                {% for k,v in param_list %}
+                    '{{ v }}': $('#{{ v }}').val()
+                {% endfor %}
             }, function (rs) {
-                debugger
                 $('#result').empty()
-                obj = eval(rs)
-                var content = ""
+                debugger;
+                var obj = JSON.parse(rs)
+                var content = "<h3>执行结果</h3>"
                 for (var i = 0; i < obj.length; i++) {
-                    content += '"<div class="form-group">' +
+                    content += '<div class="form-group">' +
                         ' <label class="col-sm-2 control-label"> ' + obj[i].host + '</label>' +
                         '<div class="col-sm-10">' +
                         '<div class="col-sm-10" class="form-control"></div>' +
-                        obj[i].exec_result +
-                        '<hr/>错误信息:<br/>' +
-                        obj[i].err_msg +
+                        obj[i].exec_result.replace(/\n/g, "<br/>") +
+                        '<br/><p>其他信息:</p>' +
+                        obj[i].err_msg.replace(/\n/g, "<br/>") +
                         '</div> </div>'
                 }
                 $('#result').append(content)
