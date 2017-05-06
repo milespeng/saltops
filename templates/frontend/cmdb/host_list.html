@@ -30,11 +30,12 @@
     </div>
     <script>
         function scan_host() {
-            $('#loading_div').show()
-            $('#tb').hide()
+            layer.load();
             $.get('/frontend/cmdb/host_list/scan_host_job/', function () {
                 location.reload()
+                layer.closeAll('loading');
             })
+
         }
     </script>
 {% endblock %}
