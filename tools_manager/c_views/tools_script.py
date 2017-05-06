@@ -1,3 +1,4 @@
+import json
 import re
 
 import yaml
@@ -53,6 +54,22 @@ def tool_execute_action(request):
             param_obj[entity.split(':')[1]] = request.POST[entity.split(':')[1]]
     if param_obj != "":
         yaml_str = yaml.dump(param_obj)
-    toolExecJob, exec_detail_list = execTools(obj, request.POST.getlist('sls_hosts'), yaml_str)
+    hostlist = []
+    if hostids != "":
+        hostlist.extend(hostids.split(','))
+
+    if hostgroup_ids != "":
+        hosts = Host.objects.filter(host_group_id__in=hostgroup_ids.split(','))
+        for k in hosts:
+            hostlist.extend(k.id)
+    hostlist = list(set(hostlist))
+    toolExecJob, exec_detail_list = execTools(obj, hostlist, yaml_str)
     # 把结果返回给前端展示
-    return HttpResponse("")
+    result = {}
+    for k in exec_detail_list:
+        result[k.host.host_name] = {
+            'exec_result': k.exec_result,
+            'err_msg': k.err_msg,
+            'host': k.host.host_name,
+        }
+    return HttpResponse(json.dumps(result))

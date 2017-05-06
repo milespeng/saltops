@@ -21,7 +21,7 @@
                                 <label class="col-sm-2 control-label"> 主机组</label>
                                 <div class="col-sm-10">
                                     <select data-placeholder="选择主机组"
-                                            multiple class="form-control chosen-select"
+                                            multiple class="form-control chosen-select" id="hostgroup"
                                             tabindex="4">
                                         {% for o in hostgroup %}
                                             <option value="{{ o.id }}">{{ o.name }}</option>
@@ -34,6 +34,7 @@
                                 <div class="col-sm-10">
                                     <select data-placeholder="选择主机"
                                             multiple class="form-control chosen-select"
+                                            id="hosts"
                                             tabindex="4">
                                         {% for o in hosts %}
                                             <option value="{{ o.id }}">{{ o.host_name }}</option>
@@ -59,7 +60,8 @@
                                     </div>
                                 </div>
                             {% endfor %}
-                            <div class="hr-line-dashed"></div>
+                            <div class="hr-line-dashed" id="result_line"></div>
+                            <div id="result"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
                                     <a href="javascript:void(0)" class="btn btn-primary"
@@ -77,7 +79,46 @@
     <script>
         function execute() {
             layer.load();
-            layer.closeAll('loading');
+            var hosts_id = $('#hosts').val();
+            hosts_str = "";
+            if (hosts_id != null) {
+                for (var i = 0; i < hosts_id.length; i++) {
+                    hosts_str += hosts_id[i] + ',';
+                }
+                hosts_str = hosts_str.substr(0, hosts_str.length - 1)
+            }
+
+            var hostsgroup_id = $('#hostgroup').val();
+            hostsgroup_str = "";
+            if (hostsgroup_id != null) {
+                for (var i = 0; i < hostsgroup_id.length; i++) {
+                    hostsgroup_str += hostsgroup_id[i] + ',';
+                }
+                hostsgroup_str = hostsgroup_str.substr(0, hostsgroup_str.length - 1)
+            }
+            $.post('/frontend/tools_manager/tools_script_list/tool_execute_action/', {
+                'hostids': hosts_str,
+                'hostgroup_ids': hostsgroup_str,
+                'id': '{{ pk }}',
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            }, function (rs) {
+                debugger
+                $('#result').empty()
+                obj = eval(rs)
+                var content = ""
+                for (var i = 0; i < obj.length; i++) {
+                    content += '"<div class="form-group">' +
+                        ' <label class="col-sm-2 control-label"> ' + obj[i].host + '</label>' +
+                        '<div class="col-sm-10">' +
+                        '<div class="col-sm-10" class="form-control"></div>' +
+                        obj[i].exec_result +
+                        '<hr/>错误信息:<br/>' +
+                        obj[i].err_msg +
+                        '</div> </div>'
+                }
+                $('#result').append(content)
+                layer.closeAll('loading');
+            })
         }
         var editor;
         $(document).ready(function () {
