@@ -29,6 +29,7 @@ urlpatterns = [
         }),
     url(r'^tools_script_list/tool_execute_action/', tool_execute_action),
     url(r'^tools_script_list/(?P<pk>\d+)/tool_execute/', tool_execute),
+    url(r'^tools_script_list/(?P<pk>\d+)/tool_execute_history/', tool_execute_history),
     url(r'^tools_script_list/', include([
         url(r'(?P<pk>\d+)/tools_script_edit_action/', simple_edit_action),
         url(r'(?P<pk>\d+)/tools_script_edit/', simple_edit),

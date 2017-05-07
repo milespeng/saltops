@@ -2,6 +2,7 @@ import json
 import re
 
 import yaml
+from django.utils.safestring import mark_safe
 
 from cmdb.models import *
 from saltjob.tasks import execTools
@@ -17,11 +18,38 @@ from django.views.decorators.gzip import gzip_page
 from django.views.decorators.http import require_http_methods
 import better_exceptions
 from common.pageutil import preparePage
+import arrow
 
 
 def tool_script_list_plugin():
     tools_types = ToolsTypes.objects.all()
     return {'tools_types': tools_types}
+
+
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
+def tool_execute_history(request, pk):
+    result = []
+    obj = ToolsExecJob.objects.order_by('-create_time').filter(tools=pk)
+    for k in obj:
+        host = ""
+        for h in k.hosts.all():
+            host += h.host_name + "<br/>"
+
+        history = ToolsExecDetailHistory.objects.filter(tool_exec_history=k)
+        result.append({
+            "id": k.id,
+            "hosts_count": k.hosts.count(),
+            "create_time": k.create_time,
+            "human_time": arrow.get(k.create_time).humanize(locale="zh"),
+            "hosts": mark_safe(host),
+            "result_hist": history,
+            "success_count": len([x for x in history if x.err_msg == '']),
+            "err_count": len([x for x in history if x.err_msg != ''])
+        })
+        result_list = preparePage(request, result)
+    return render(request, 'frontend/tools_manager/tool_script_execute_history.html', locals(), RequestContext(request))
 
 
 @require_http_methods(["GET"])
