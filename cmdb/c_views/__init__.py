@@ -15,7 +15,7 @@ def cabinet_count(value):
 
 
 @register.filter()
-def hostgroup_parent_filter(value):
+def parent_filter(value):
     if value is None:
         return '无'
     else:

@@ -1,13 +1,32 @@
 {% extends 'frontend/common/basic_list.html' %}
 
 {% block list_title %}
-    主机组
+    业务模块
 {% endblock %}
 
 {% block list_filter %}
+    <div class="col-sm-2">
+        <select class="form-control m-b" name="parent">
+            <option value="" {% ifequal '' kwargs.parent %}
+                    selected="selected"
+            {% endifequal %}
+            >上级业务模块
+            </option>
+            {% for o in plugin_result.project_module %}
+                <option value="{{ o.id }}" {% ifequal o.id kwargs.parent|str_to_int %}
+                        selected="selected"
+                {% endifequal %}
+
+                >{{ o.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
     <div class="col-sm-4">
         <div class="input-group">
-            <a href="hostgroup_add/"
+            &nbsp;
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>
+            &nbsp;
+            <a href="project_module_add/"
                class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
             &nbsp;
             <a href="javascript:void(0)"
@@ -21,9 +40,9 @@
     <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
         <thead>
         <tr>
-            <th style="width: 3%;"><input id="checkall" type="checkbox" class="i-checks"></th>
-            <th style="width: 10%;">上级分组</th>
-            <th style="width: 10%;">主机组</th>
+            <th style="width: 2%;"><input id="checkall" type="checkbox" class="i-checks"></th>
+            <th style="width: 10%;">上级业务模块</th>
+            <th style="width: 10%;">名称</th>
             <th style="width: 10%;">创建时间</th>
             <th style="width: 10%;">更新时间</th>
             <th style="width:10%;">操作</th>
@@ -40,10 +59,11 @@
                 <td>{{ o.create_time }}</td>
                 <td>{{ o.update_time }}</td>
                 <td>
-                    <a href="{{ o.id }}/hostgroup_edit/"
-                       class="btn  btn-sm btn-info">编辑</a>
+
+                    <a href="{{ o.id }}/project_module_edit/"
+                       class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
                     <a href="{{ o.id }}/delete_entity/"
-                       class="btn  btn-sm btn-danger">删除</a>
+                       class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
                 </td>
             </tr>
         {% endfor %}
