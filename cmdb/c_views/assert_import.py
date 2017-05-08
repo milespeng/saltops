@@ -101,29 +101,24 @@ def upload_file(request):
             pass
         if len(Host.objects.filter(host_name=row[1])) != 0:
             continue
-        if row[0] != '' and len(Host.objects.filter(host_group=HostGroup.objects.get(name=row[0]))) == 0:
+        if row[1] != '' and Host.objects.filter(host=row[1]).count() == 0:
             try:
-                Host(host_group=HostGroup.objects.get(name=row[0]),
-                     host=row[1],
-                     idc=IDC.objects.get(name=row[2]),
-                     cabinet=Cabinet.objects.get(name=row[3]),
-                     rack=Rack.objects.get(name=row[4]),
-                     enable_ssh=True,
-                     ssh_username=row[5],
-                     ssh_password=row[6],
-                     enable_sudo=enable_sudo).save()
+                host = Host(
+                    host=row[1],
+                    enable_ssh=True,
+                    ssh_username=row[5],
+                    ssh_password=row[6],
+                    enable_sudo=enable_sudo)
+                if row[0] != '' and HostGroup.objects.get(name=row[0]) is not None:
+                    host.host_group = HostGroup.objects.get(name=row[0])
+                if row[2] != '' and IDC.objects.get(name=row[2]) is not None:
+                    host.idc = IDC.objects.get(name=row[2])
+                if row[3] != '' and Cabinet.objects.get(name=row[3]) is not None:
+                    host.cabinet = Cabinet.objects.get(name=row[3])
+                if row[4] != '' and Rack.objects.get(name=row[4]) is not None:
+                    host.rack = Rack.objects.get(name=row[4])
+                host.save()
+
             except Exception as e:
-                pass
-        else:
-            try:
-                Host(host=row[1],
-                     idc=IDC.objects.get(name=row[2]),
-                     cabinet=Cabinet.objects.get(name=row[3]),
-                     rack=Rack.objects.get(name=row[4]),
-                     enable_ssh=True,
-                     ssh_username=row[5],
-                     ssh_password=row[6],
-                     enable_sudo=enable_sudo).save()
-            except Exception as e:
-                pass
+                print('导入主机失败', e)
     return HttpResponse("")
