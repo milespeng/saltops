@@ -1,4 +1,7 @@
 import os
+
+from django.contrib.sites import requests
+
 from cmdb.models import *
 import better_exceptions
 from django.contrib.auth.decorators import login_required
@@ -14,6 +17,7 @@ from common.pageutil import preparePage
 from django.core.files.storage import default_storage
 
 from saltops import settings
+from saltops.settings import SALT_CONN_TYPE, SALT_HTTP_URL
 
 
 @require_http_methods(["GET"])
@@ -121,4 +125,28 @@ def upload_file(request):
 
             except Exception as e:
                 print('导入主机失败', e)
+
+        # 更新一遍Rouster信息
+        hosts = Host.objects.all()
+
+        rosterString = ""
+        for host in hosts:
+            if host.enable_ssh is True:
+                rosterString += """
+
+        %s:
+            host: %s
+            user: %s
+            passwd: %s
+            sudo: %s
+            tty: True
+
+                        """ % (host.host, host.host, host.ssh_username, host.ssh_password,
+                               host.enable_ssh)
+
+        if SALT_CONN_TYPE == 'http':
+            requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})
+        else:
+            with open('/etc/salt/roster', 'w') as content:
+                content.write(rosterString)
     return HttpResponse("")
