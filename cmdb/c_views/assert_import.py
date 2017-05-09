@@ -111,12 +111,12 @@ def upload_file(request):
                     enable_sudo=enable_sudo)
                 if row[0] != '' and HostGroup.objects.get(name=row[0]) is not None:
                     host.host_group = HostGroup.objects.get(name=row[0])
-                if row[2] != '' and IDC.objects.get(name=row[2]) is not None:
-                    host.idc = IDC.objects.get(name=row[2])
-                if row[3] != '' and Cabinet.objects.get(name=row[3]) is not None:
-                    host.cabinet = Cabinet.objects.get(name=row[3])
-                if row[4] != '' and Rack.objects.get(name=row[4]) is not None:
-                    host.rack = Rack.objects.get(name=row[4])
+                if row[3] != '' and IDC.objects.get(name=row[3]) is not None:
+                    host.idc = IDC.objects.get(name=row[3])
+                if row[4] != '' and Cabinet.objects.get(name=row[4]) is not None:
+                    host.cabinet = Cabinet.objects.get(name=row[4])
+                if row[5] != '' and Rack.objects.get(name=row[5]) is not None:
+                    host.rack = Rack.objects.get(name=row[5])
                 host.save()
 
             except Exception as e:
