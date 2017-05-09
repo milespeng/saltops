@@ -109,14 +109,14 @@ def upload_file(request):
                     ssh_username=row[5],
                     ssh_password=row[6],
                     enable_sudo=enable_sudo)
-                if row[0] != '' and HostGroup.objects.get(name=row[0]) is not None:
-                    host.host_group = HostGroup.objects.get(name=row[0])
-                if row[3] != '' and IDC.objects.get(name=row[3]) is not None:
-                    host.idc = IDC.objects.get(name=row[3])
-                if row[4] != '' and Cabinet.objects.get(name=row[4]) is not None:
-                    host.cabinet = Cabinet.objects.get(name=row[4])
-                if row[5] != '' and Rack.objects.get(name=row[5]) is not None:
-                    host.rack = Rack.objects.get(name=row[5])
+                if str(row[0]) != '' and HostGroup.objects.filter(name=str(row[0])).count() != 0:
+                    host.host_group = HostGroup.objects.get(name=str(row[0]))
+                if str(row[3]) != '' and IDC.objects.filter(name=str(row[3])).count() != 0:
+                    host.idc = IDC.objects.get(name=str(row[3]))
+                if str(row[4]) != '' and Cabinet.objects.filter(name=str(row[4])).count() != 0:
+                    host.cabinet = Cabinet.objects.get(name=str(row[4]))
+                if str(row[5]) != '' and Rack.objects.filter(name=str(row[5])).count() != 0:
+                    host.rack = Rack.objects.get(name=str(row[5]))
                 host.save()
 
             except Exception as e:
