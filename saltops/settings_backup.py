@@ -27,7 +27,7 @@ SECRET_KEY = '7(9#4oty&&)!8==#p+*cpr9=3q_k_r@n%kti&k39smwtf)qrh$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 # CELERY_IMPORTS = ('saltjob.cron.scanHostJob',)
@@ -180,7 +180,7 @@ REST_FRAMEWORK = {
 # SALT_PASSWORD = '123456'
 SALT_CONN_TYPE = ''  # http
 SALT_HTTP_URL = 'http://127.0.0.1:5000'
-PACKAGE_PATH = "/srv/salt"
+PACKAGE_PATH = "/srv/salt/"
 SALT_REST_URL = 'http://127.0.0.1:8001/'
 SALT_USER = 'saltops'
 SALT_PASSWORD = 'saltops'
