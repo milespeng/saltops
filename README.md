@@ -18,6 +18,15 @@ SaltOps是一个基于SaltStack和Django开发的运维平台，
 sls文件，然后调用salt进行发布的动作，发布完后应用与主机的信息自然就对接起来了
 * 工具平台：既然都接上了Salt，把工具平台做了也是很自然的事情啦～
 
+# 使用Docker部署
+
+    docker pull hub.c.163.com/cc8565/saltops
+    docker run -i -t -d -p 8001:8000 -p 4505:4505 -p 4506:4506 hub.c.163.com/cc8565/saltops
+
+docker-enter进去容器，然后执行
+
+     /opt/saltops/docker_start.sh
+
 # 文档
 
 采用OSC Team里面提供的文档功能，传送门 http://saltops.mydoc.io/
