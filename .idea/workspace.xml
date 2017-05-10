@@ -7,7 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/settings_backup.py" afterPath="$PROJECT_DIR$/saltops/settings_backup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Back.md" afterPath="$PROJECT_DIR$/Back.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker_start.sh" afterPath="$PROJECT_DIR$/docker_start.sh" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,7 +62,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings_backup.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings_backup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/saltops/settings_backup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="735">
@@ -86,7 +87,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="0">
-                <caret line="0" column="116" lean-forward="false" selection-start-line="0" selection-start-column="88" selection-end-line="0" selection-end-column="116" />
+                <caret line="0" column="88" lean-forward="false" selection-start-line="0" selection-start-column="88" selection-end-line="0" selection-end-column="88" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -97,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docker_start.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="docker_start.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker_start.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="3" column="53" lean-forward="false" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -240,10 +241,10 @@
         <option value="$PROJECT_DIR$/cmdb/models/HostGroup.py" />
         <option value="$PROJECT_DIR$/cmdb/c_views/assert_import.py" />
         <option value="$PROJECT_DIR$/saltjob/tasks.py" />
-        <option value="$PROJECT_DIR$/docker_start.sh" />
-        <option value="$PROJECT_DIR$/Back.md" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/saltops/settings_backup.py" />
+        <option value="$PROJECT_DIR$/Back.md" />
+        <option value="$PROJECT_DIR$/docker_start.sh" />
       </list>
     </option>
   </component>
@@ -894,20 +895,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00184" summary="主机组">
-      <created>1491831970064</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1491831970070</updated>
-    </task>
-    <task id="LOCAL-00185" summary="代码优化">
-      <created>1491834475544</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1491834475544</updated>
-    </task>
     <task id="LOCAL-00186" summary="修改登录校验，优化部分代码">
       <created>1491887266558</created>
       <option name="number" value="00186" />
@@ -1237,7 +1224,21 @@
       <option name="project" value="LOCAL" />
       <updated>1494399775447</updated>
     </task>
-    <option name="localTasksCounter" value="233" />
+    <task id="LOCAL-00233" summary="Dockerfile">
+      <created>1494401487059</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1494401487059</updated>
+    </task>
+    <task id="LOCAL-00234" summary="Dockerfile">
+      <created>1494401510481</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1494401510481</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1740,26 +1741,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker_start.sh">
+    <entry file="file://$PROJECT_DIR$/saltops/settings_backup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="735">
+          <caret line="182" column="26" lean-forward="false" selection-start-line="182" selection-start-column="26" selection-end-line="182" selection-end-column="26" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Back.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="116" lean-forward="false" selection-start-line="0" selection-start-column="88" selection-end-line="0" selection-end-column="116" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
@@ -1770,10 +1757,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saltops/settings_backup.py">
+    <entry file="file://$PROJECT_DIR$/Back.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="88" lean-forward="false" selection-start-line="0" selection-start-column="88" selection-end-line="0" selection-end-column="88" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker_start.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="182" column="26" lean-forward="false" selection-start-line="182" selection-start-column="26" selection-end-line="182" selection-end-column="26" />
+        <state relative-caret-position="45">
+          <caret line="3" column="53" lean-forward="false" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
           <folding />
         </state>
       </provider>
