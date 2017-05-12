@@ -49,10 +49,10 @@
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> {{ form.anti_install_playbook.label_tag }}</label>
-                                <div class="col-sm-10">
-                                    {{ form.anti_install_playbook }}
-                                    {{ form.anti_install_playbook.errors }}
-                                </div>
+                                <div class="col-sm-10" style="height: 200px" name="anti_install_playbook_editor"
+                                     id="id_anti_install_playbook_editor"></div>
+                                <textarea id="id_anti_install_playbook" name="anti_install_playbook"
+                                          style="display: none">{{ form.anti_install_playbook.value|default_if_none:"" }}</textarea>
                             </div>
 
                             <div class="form-group">
@@ -116,23 +116,25 @@
 
         require.config({paths: {ace: "/static/asserts/ace/lib/ace"}})
 
-
         define('editor', ['ace/ace'],
             function (ace, langtools) {
-                {#                console.log("This is the testace module");#}
-                editor = ace.edit("id_playbook_editor");
-                editor.setTheme("ace/theme/xcode");
-                editor.session.setMode("ace/mode/yaml");
-                editor.setOptions({
-                    enableBasicAutocompletion: true,
-                    enableSnippets: true,
-                    enableLiveAutocompletion: true
-                });
-                require(["ace/requirejs/text!src/ace"], function (e) {
-                    editor.setValue($('#id_playbook').val());
-                })
+                initEditor(ace, "id_playbook_editor", 'id_playbook')
+                initEditor(ace, "id_anti_install_playbook_editor", 'id_anti_install_playbook')
             }
         );
+        function initEditor(ace, id, editorid) {
+            editor = ace.edit(id);
+            editor.setTheme("ace/theme/xcode");
+            editor.session.setMode("ace/mode/yaml");
+            editor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true
+            });
+            require(["ace/requirejs/text!src/ace"], function (e) {
+                editor.setValue($('#' + editorid).val());
+            })
+        }
         require(['editor'])
 
         {#        $('#id_tool_run_type').change(function (e) {#}

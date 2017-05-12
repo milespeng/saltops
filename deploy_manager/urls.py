@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^project_list/', include([
         url(r'(?P<pk>\d+)/project_edit_action/', simple_edit_action),
         url(r'(?P<pk>\d+)/project_edit/', simple_edit),
-        url(r'project_add_action/', simple_add_action),
+        url(r'project_add_action/', project_add_action),
         url(r'project_add/', simple_add),
         url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
         url(r'batch_delete_entity/', simple_batch_delete_entity),

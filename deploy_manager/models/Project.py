@@ -15,8 +15,6 @@ JOB_SCRIPT_TYPE = (
 
 class Project(BaseModel):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="业务名称")
-    host = models.ManyToManyField(Host, default="", verbose_name="主机",
-                                  blank=True, through='ProjectHost')
     project_module = models.ForeignKey(ProjectModule, verbose_name='业务模块', blank=True, null=True, default="")
     job_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
                                           verbose_name='脚本语言')
@@ -28,7 +26,6 @@ class Project(BaseModel):
     dev_monitor = models.ForeignKey(User, verbose_name='开发负责人', blank=True, null=True, related_name='dev_monitor')
     ops_monitor = models.ForeignKey(User, verbose_name='运维负责人', blank=True, null=True, related_name='ops_monitor')
     backup_monitor = models.ForeignKey(User, verbose_name='备份负责人', blank=True, null=True, related_name='backup_monitor')
-    pre_project = models.ManyToManyField('self', verbose_name='前置业务', blank=True, null=True)
 
     def __str__(self):
         return self.name
