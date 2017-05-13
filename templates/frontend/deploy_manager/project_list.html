@@ -33,14 +33,14 @@
         <thead>
         <tr>
             <th style="width: 2%;"><input id="checkall" type="checkbox" class="i-checks"></th>
-            <th style="width: 10%;">业务模块</th>
-            <th style="width: 10%;">名称</th>
-            <th style="width: 10%;">脚本语言</th>
-            <th style="width: 10%;">开发负责人</th>
-            <th style="width: 10%;">运维负责人</th>
-            <th style="width: 10%;">备份负责人</th>
-            <th style="width: 10%;">创建时间</th>
-            <th style="width: 10%;">更新时间</th>
+            <th style="width: 7%;">业务模块</th>
+            <th style="width: 7%;">名称</th>
+            <th style="width: 7%;">脚本语言</th>
+            <th style="width: 7%;">开发负责人</th>
+            <th style="width: 7%;">运维负责人</th>
+            <th style="width: 7%;">备份负责人</th>
+            <th style="width: 7%;">创建时间</th>
+            <th style="width: 7%;">更新时间</th>
             <th style="width:15%;">操作</th>
         </tr>
         </thead>
@@ -52,14 +52,15 @@
                 </td>
                 <td>{{ o.project_module|parent_filter }}</td>
                 <td>{{ o.name }}</td>
-                <td>{{ o.job_script_type }}</td>
-                <td>{{ o.dev_monitor }}</td>
-                <td>{{ o.ops_monitor }}</td>
-                <td>{{ o.backup_monitor }}</td>
+                <td>{{ o.job_script_type|jobscript_filter }}</td>
+                <td>{{ o.dev_monitor|parent_filter }}</td>
+                <td>{{ o.ops_monitor|parent_filter }}</td>
+                <td>{{ o.backup_monitor|parent_filter }}</td>
                 <td>{{ o.create_time }}</td>
                 <td>{{ o.update_time }}</td>
                 <td>
-
+                    <a href="{{ o.id }}/project_edit/"
+                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>部署</a>
                     <a href="{{ o.id }}/project_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
                     <a href="{{ o.id }}/delete_entity/"

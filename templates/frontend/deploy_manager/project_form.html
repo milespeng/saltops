@@ -94,8 +94,10 @@
     </div>
     <script>
         var editor;
+        var anti_editor;
         function preSubmit() {
-            $('#id_tool_script').val(editor.getValue())
+            $('#id_playbook').val(editor.getValue())
+            $('#id_anti_install_playbook').val(editor.getValue())
             return true;
         }
         $(document).ready(function () {
@@ -118,12 +120,13 @@
 
         define('editor', ['ace/ace'],
             function (ace, langtools) {
-                initEditor(ace, "id_playbook_editor", 'id_playbook')
-                initEditor(ace, "id_anti_install_playbook_editor", 'id_anti_install_playbook')
+                editor = ace.edit('id_playbook_editor');
+                anti_editor = ace.edit('id_anti_install_playbook_editor');
+                initEditor(editor, 'id_playbook')
+                initEditor(anti_editor, 'id_anti_install_playbook')
             }
         );
-        function initEditor(ace, id, editorid) {
-            editor = ace.edit(id);
+        function initEditor(editor, editorid) {
             editor.setTheme("ace/theme/xcode");
             editor.session.setMode("ace/mode/yaml");
             editor.setOptions({

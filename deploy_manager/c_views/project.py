@@ -14,6 +14,7 @@ def project_add_action(request, args):
     form = modelform_factory(Project, fields='__all__')
     form = form(request.POST)
     if form.is_valid():
+        form.save()
         return redirect(args['list_url'])
     else:
         return render(request, args['form_template_path'], locals())
