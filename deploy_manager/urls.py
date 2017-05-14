@@ -49,6 +49,7 @@ urlpatterns = [
                 'add_action': '/frontend/deploy_manager/project_list/project_add_action/',
                 'edit_title': '编辑业务',
                 'edit_action': '/frontend/deploy_manager/project_list/%s/project_edit_action/',
+                'add_form_plugin': 'add_form_plugin'
                 # 'plugin_name': 'project_list_plugin'
             }
         }),

@@ -9,6 +9,7 @@ from deploy_manager.models.ProjectModule import ProjectModule
 
 class PreProject(BaseModel):
     project = models.ForeignKey(Project, null=True, blank=True, verbose_name='前置业务')
+    current_project_id = models.IntegerField(null=True)
 
     def __str__(self):
         return self.project.name

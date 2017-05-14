@@ -2,6 +2,8 @@
 
 {% block content %}
     <script src="/static/asserts/require.js"></script>
+    <link href="/static/hplus/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <script src="/static/hplus/js/plugins/chosen/chosen.jquery.js"></script>
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-sm-12">
@@ -14,6 +16,19 @@
                         <form method="post" action="{{ action }}" onsubmit="return preSubmit()" class="form-horizontal">
                             {% csrf_token %}
                             <input type="hidden" id="id" name="id" value="{{ pk }}"/>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> 前置业务</label>
+                                <div class="col-sm-10">
+                                    <select data-placeholder="选择前置业务"
+                                            multiple class="form-control chosen-select" id="pre_project"
+                                            name="pre_project"
+                                            tabindex="4">
+                                        {% for o in plugin_result.pre_project %}
+                                            <option value="{{ o.id }}">{{ o.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> {{ form.project_module.label_tag }}</label>
                                 <div class="col-sm-10">
@@ -139,7 +154,7 @@
             })
         }
         require(['editor'])
-
+        $('.chosen-select').chosen();
         {#        $('#id_tool_run_type').change(function (e) {#}
         {#            if ($('#id_tool_run_type').val() == "0") {#}
         {#                editor.session.setMode("ace/mode/yaml");#}
