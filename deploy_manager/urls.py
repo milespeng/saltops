@@ -29,6 +29,7 @@ urlpatterns = [
             }
         }),
 
+    url(r'^project_list/(?P<pk>\d+)/project_version', project_version),
     # 业务
     url(r'^project_list/', include([
         url(r'(?P<pk>\d+)/project_edit_action/', simple_edit_action),

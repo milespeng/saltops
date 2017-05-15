@@ -1,0 +1,134 @@
+{% extends 'frontend/common/basic_layout.html' %}
+
+{% block content %}
+    <script src="/static/asserts/require.js"></script>
+    <link href="/static/hplus/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <script src="/static/hplus/js/plugins/chosen/chosen.jquery.js"></script>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>版本
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" action="{{ action }}" onsubmit="return preSubmit()" class="form-horizontal">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.name.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.name }}
+                                    {{ form.name.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.files.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.files }}
+                                    {{ form.files.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.is_default.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.is_default }}
+                                    {{ form.is_default.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.sub_job_script_type.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.sub_job_script_type }}
+                                    {{ form.sub_job_script_type.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.subplaybook.label_tag }}</label>
+                                <div class="col-sm-10" style="height: 200px" name="subplaybook_editor"
+                                     id="id_subplaybook_editor"></div>
+                                <textarea id="id_subplaybook" name="subplaybook"
+                                          style="display: none">{{ form.subplaybook.value|default_if_none:"" }}</textarea>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.anti_install_playbook.label_tag }}</label>
+                                <div class="col-sm-10" style="height: 200px" name="anti_install_playbook_editor"
+                                     id="id_anti_install_playbook_editor"></div>
+                                <textarea id="id_anti_install_playbook" name="anti_install_playbook"
+                                          style="display: none">{{ form.anti_install_playbook.value|default_if_none:"" }}</textarea>
+                            </div>
+                        </form>
+                        <hr/>
+                        <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
+                            <thead>
+                            <tr>
+                                <th style="width: 7%;">版本名称</th>
+                                <th style="width: 7%;">版本</th>
+                                <th style="width: 5%;">默认版本</th>
+                                <th style="width: 5%;">脚本语言</th>
+                                <th style="width:5%;">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var editor;
+        var anti_editor;
+        function preSubmit() {
+            $('#id_subplaybook_editor').val(editor.getValue())
+            $('#id_anti_install_playbook').val(editor.getValue())
+            return true;
+        }
+        $(document).ready(function () {
+            var fieldObj = $('.form-horizontal input')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+            fieldObj = $('.form-horizontal textarea')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+
+            fieldObj = $('.form-horizontal select')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+            $('#id_is_default').removeClass('form-control')
+            $('#id_files').removeClass('form-control')
+
+        })
+        require.config({paths: {ace: "/static/asserts/ace/lib/ace"}})
+
+        define('editor', ['ace/ace'],
+            function (ace, langtools) {
+                editor = ace.edit('id_subplaybook_editor');
+                anti_editor = ace.edit('id_anti_install_playbook_editor');
+                initEditor(editor, 'id_subplaybook')
+                initEditor(anti_editor, 'id_anti_install_playbook')
+            }
+        );
+        function initEditor(editor, editorid) {
+            editor.setTheme("ace/theme/xcode");
+            editor.session.setMode("ace/mode/yaml");
+            editor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true
+            });
+            require(["ace/requirejs/text!src/ace"], function (e) {
+                editor.setValue($('#' + editorid).val());
+            })
+        }
+        require(['editor'])
+    </script>
+
+{% endblock %}

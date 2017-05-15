@@ -12,6 +12,19 @@ def add_form_plugin(args):
     return {'pre_project': pre_project}
 
 
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
+def project_version(request, pk):
+    project_versions = ProjectVersion.objects.filter(project=Project.objects.get(pk=int(pk)))
+    module = __import__('deploy_manager')
+    instance = getattr(getattr(module, 'models'), 'ProjectVersion')
+    form = modelform_factory(instance, fields='__all__')
+    return render(request=request,
+                  template_name='frontend/deploy_manager/project_version_form.html',
+                  context=locals())
+
+
 @require_http_methods(["POST"])
 @gzip_page
 @login_required
