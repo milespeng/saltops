@@ -35,3 +35,12 @@ def minion_status_filter(value):
     for k in MINION_STATUS:
         if k[0] == value:
             return k[1]
+
+
+@register.filter()
+def host_ip_filter(value):
+    host_ips = HostIP.objects.filter(host=Host.objects.get(pk=value))
+    content = ''
+    for o in host_ips:
+        content += o.ip + '<br/>'
+    return mark_safe(content)

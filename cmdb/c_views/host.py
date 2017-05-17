@@ -11,7 +11,7 @@ from django.template import RequestContext
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.http import require_http_methods
 
-from cmdb.models import Cabinet
+from cmdb.models import Cabinet, HostIP
 from cmdb.models import Host
 from cmdb.models import IDC
 from cmdb.models import ISP
@@ -40,4 +40,9 @@ def host_edit_form_plugin(kwargs):
     obj = Host.objects.get(pk=int(kwargs['pk']))
     cabinet_list = Cabinet.objects.filter(idc=obj.idc)
     rack_list = Rack.objects.filter(cabinet__in=cabinet_list)
-    return {'rack_list': rack_list, 'cabinet_list': cabinet_list, 'is_add': is_add}
+    host_ip_list = HostIP.objects.filter(host=obj)
+    return {'rack_list': rack_list,
+            'cabinet_list': cabinet_list,
+            'is_add': is_add,
+            'host_ip_list': host_ip_list
+            }

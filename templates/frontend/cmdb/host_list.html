@@ -57,9 +57,9 @@
             <th style="width: 8%;">主机组</th>
             <th style="width: 8%;">主机DNS名称</th>
             <th style="width: 8%;">主机名</th>
+            <th style="width: 8%;">IP</th>
             <th style="width: 8%;">机房</th>
             <th style="width: 8%;">系统内核</th>
-            <th style="width: 8%;">操作系统</th>
             <th style="width: 8%;">使用SaltSSH</th>
             <th style="width: 8%;">Minion状态</th>
             <th style="width: 8%;">创建时间</th>
@@ -81,12 +81,12 @@
                 </td>
                 <td>{{ o.host_name }}</td>
                 <td>{{ o.host }}</td>
+                <td>{{ o.id|host_ip_filter }}</td>
                 <td>{% ifequal o.idc None %}
                     无
                 {% else %}
                     {{ o.idc }}
                 {% endifequal %}</td>
-                <td>{{ o.kernel }}</td>
                 <td>{{ o.os }}</td>
                 <td>{{ o.enable_ssh|enablessh_status_filter }}</td>
                 <td>{{ o.minion_status|minion_status_filter }}</td>
