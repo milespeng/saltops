@@ -89,13 +89,14 @@
                                             <th style="width:10%;">操作</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="tb">
                                         {#TODO 添加IP动作未完成#}
                                         {% ifequal plugin_result.is_add False %}
                                             {% for o in plugin_result.host_ip_list %}
                                                 <tr>
-                                                    <td>{{ o.ip }}</td>
-                                                    <td>{{ o.ip_type }}</td>
+                                                    <td><input readonly="readonly" name="ip" value="{{ o.ip }}"></td>
+                                                    <td><input readonly="readonly" value="{{ o.ip_type }}"
+                                                               name="ip_type"></td>
                                                     <td>
                                                         <a href="{{ o.id }}/delete_ip_entity/"
                                                            class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
@@ -104,9 +105,9 @@
                                             {% endfor %}
                                         {% endifequal %}
                                         <tr>
-                                            <td><input name="ip" placeholder="IP地址"></td>
+                                            <td><input name="ip_add" id="ip_add" i placeholder="IP地址"></td>
                                             <td>
-                                                <select name="ip_type">
+                                                <select name="ip_type_add" id="ip_type_add">
                                                     <option value="100">请选择</option>
                                                     <option value="0">内网</option>
                                                     <option value="1">外网</option>
@@ -114,9 +115,27 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <a href="{{ o.id }}/add_ip_entity/"
+                                                <a href="javascript:void(0)"
+                                                   onclick="addRow()"
                                                    class="btn  btn-sm btn-success"><i class="fa fa-trash"></i>增加</a>
                                             </td>
+                                            <script>
+                                                function addRow() {
+                                                    var ip = $('#ip_add').val()
+                                                    var ip_type = $("#ip_type_add").find("option:selected").text();
+                                                    $('#ip_add').val("")
+                                                    $('#ip_type_add').val("")
+{#                                                    TODO:文本框换成下拉框select#}
+                                                    content = '<tr>';
+                                                    content += '<td><input class="form-control" name="ip" value="' + ip + '"></td>'
+                                                    content += '<td><input class="form-control" value="' + ip_type + '" name="ip_type"></td>';
+                                                    content += '<td>';
+                                                    content += '<a href="javascript:void(0)" '
+                                                    content += 'class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>'
+                                                    content += '</td></tr>'
+                                                    $('#tb').prepend(content);
+                                                }
+                                            </script>
                                         </tr>
                                         </tbody>
                                     </table>

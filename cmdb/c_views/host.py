@@ -46,3 +46,18 @@ def host_edit_form_plugin(kwargs):
             'is_add': is_add,
             'host_ip_list': host_ip_list
             }
+
+
+# @require_http_methods(["POST"])
+# @gzip_page
+# @login_required
+# def host_add_action(request, args):
+#     module = __import__(args['modulename'])
+#     instance = getattr(getattr(module, 'models'), args['modelname'])
+#     form = modelform_factory(instance, fields='__all__')
+#     form = form(request.POST)
+#     if form.is_valid():
+#         form.save()
+#         return redirect(args['list_url'])
+#     else:
+#         return render(request, args['form_template_path'], locals())
