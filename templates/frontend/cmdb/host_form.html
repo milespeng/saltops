@@ -94,9 +94,22 @@
                                         {% ifequal plugin_result.is_add False %}
                                             {% for o in plugin_result.host_ip_list %}
                                                 <tr>
-                                                    <td><input readonly="readonly" name="ip" value="{{ o.ip }}"></td>
-                                                    <td><input readonly="readonly" value="{{ o.ip_type }}"
-                                                               name="ip_type"></td>
+                                                    <td><input name="ip" id="ip" i value="{{ o.ip }}">
+                                                    </td>
+                                                    <td>
+                                                        <select name="ip_type" id="ip_type">
+                                                            <option {% ifequal o.ip_type 0 %}selected="selected"{% endifequal %}
+                                                                    value="0">内网
+                                                            </option>
+                                                            <option
+                                                                    {% ifequal o.ip_type 1 %}selected="selected"{% endifequal %}
+                                                                    value="1">外网
+                                                            </option>
+                                                            <option
+                                                                    {% ifequal o.ip_type 2 %}selected="selected"{% endifequal %}
+                                                                    value="2">管理网
+                                                            </option>
+                                                        </select>
                                                     <td>
                                                         <a href="{{ o.id }}/delete_ip_entity/"
                                                            class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
@@ -125,10 +138,13 @@
                                                     var ip_type = $("#ip_type_add").find("option:selected").text();
                                                     $('#ip_add').val("")
                                                     $('#ip_type_add').val("")
-{#                                                    TODO:文本框换成下拉框select#}
                                                     content = '<tr>';
                                                     content += '<td><input class="form-control" name="ip" value="' + ip + '"></td>'
-                                                    content += '<td><input class="form-control" value="' + ip_type + '" name="ip_type"></td>';
+                                                    content += '<td> <select class="form-control"  name="ip_type" id="ip_type">'
+                                                    select_str = ' selected="selected" '
+                                                    content += ('<option ' + (ip_type == '内网' ? select_str : ' ') + ' value="0">内网</option>')
+                                                    content += ('<option ' + (ip_type == '外网' ? select_str : ' ') + ' value="1">外网</option>')
+                                                    content += ('<option ' + (ip_type == '管理网' ? select_str : ' ') + ' value="2">管理网</option></select></td>')
                                                     content += '<td>';
                                                     content += '<a href="javascript:void(0)" '
                                                     content += 'class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>'

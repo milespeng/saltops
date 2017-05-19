@@ -48,16 +48,39 @@ def host_edit_form_plugin(kwargs):
             }
 
 
-# @require_http_methods(["POST"])
-# @gzip_page
-# @login_required
-# def host_add_action(request, args):
-#     module = __import__(args['modulename'])
-#     instance = getattr(getattr(module, 'models'), args['modelname'])
-#     form = modelform_factory(instance, fields='__all__')
-#     form = form(request.POST)
-#     if form.is_valid():
-#         form.save()
-#         return redirect(args['list_url'])
-#     else:
-#         return render(request, args['form_template_path'], locals())
+@require_http_methods(["POST"])
+@gzip_page
+@login_required
+def host_add_action(request, args):
+    module = __import__(args['modulename'])
+    instance = getattr(getattr(module, 'models'), args['modelname'])
+    form = modelform_factory(instance, fields='__all__')
+    form = form(request.POST)
+    if form.is_valid():
+        obj = form.save()
+        host_ips = zip(request.POST.getlist('ip'), request.POST.getlist('ip_type'))
+        for o in list(host_ips):
+            HostIP(ip=o[0], ip_type=o[1], host=obj).save()
+        return redirect(args['list_url'])
+    else:
+        return render(request, args['form_template_path'], locals())
+
+
+@require_http_methods(["POST"])
+@gzip_page
+@login_required
+def host_edit_action(request, pk, args):
+    module = __import__(args['modulename'])
+    instance = getattr(getattr(module, 'models'), args['modelname'])
+    entity = get_object_or_404(instance, pk=pk)
+    form = modelform_factory(instance, fields='__all__')
+    form = form(request.POST, instance=entity)
+    if form.is_valid():
+        obj = form.save()
+        HostIP.objects.filter(host=obj).delete()
+        host_ips = zip(request.POST.getlist('ip'), request.POST.getlist('ip_type'))
+        for o in list(host_ips):
+            HostIP(ip=o[0], ip_type=o[1], host=obj).save()
+        return redirect(args['list_url'])
+    else:
+        return render(request, args['form_template_path'], locals())

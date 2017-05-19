@@ -1,5 +1,6 @@
 from django.utils.safestring import mark_safe
 
+from cmdb.models.HostIP import IP_TYPE
 from .idc import *
 from .rack import *
 from .host_group import *
@@ -38,9 +39,19 @@ def minion_status_filter(value):
 
 
 @register.filter()
+def iptype_filter(value):
+    for k in IP_TYPE:
+        if k[0] == value:
+            return k[1]
+
+
+@register.filter()
 def host_ip_filter(value):
     host_ips = HostIP.objects.filter(host=Host.objects.get(pk=value))
     content = ''
     for o in host_ips:
-        content += o.ip + '<br/>'
+        for k in IP_TYPE:
+            if k[0] == o.ip_type:
+                content += '%s:%s<br/>' % (o.ip, k[1])
+
     return mark_safe(content)
