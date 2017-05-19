@@ -154,7 +154,7 @@ urlpatterns = [
         url(r'(?P<pk>\d+)/host_edit/', simple_edit),
         url(r'(?P<pk>\d+)/host_edit_action/', host_edit_action),
         url(r'batch_delete_entity/', simple_batch_delete_entity),
-        url(r'$', simple_list),
+        url(r'$', host_list),
     ]), {
             'args': {
                 'modulename': 'cmdb.models',

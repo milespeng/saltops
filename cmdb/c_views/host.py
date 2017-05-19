@@ -26,6 +26,29 @@ from saltjob.tasks import scanHostJob
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
+def host_list(request, args):
+    kwargs = dict(filter(lambda x: x[1] != '', request.GET.dict().items()))
+    if 'page' in kwargs:
+        del kwargs['page']
+
+    ip_filter = ''
+    if 'ip_filter' in kwargs:
+        ip_filter = kwargs['ip_filter']
+        del kwargs['ip_filter']
+    obj = Host.objects.filter(**kwargs)
+    if ip_filter != '':
+        host_ip_lists = HostIP.objects.filter(ip__contains=ip_filter)
+        host_filter_list = []
+        for k in host_ip_lists:
+            host_filter_list.append(k.host)
+        obj = obj.filter(host__in=host_filter_list)
+    result_list = preparePage(request, obj)
+    return render(request, args['template_path'], locals(), RequestContext(request))
+
+
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def scan_host_job(request):
     scanHostJob()
     return HttpResponse("")
