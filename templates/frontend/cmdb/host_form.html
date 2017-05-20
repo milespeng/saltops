@@ -111,9 +111,17 @@
                                                             </option>
                                                         </select>
                                                     <td>
-                                                        <a href="{{ o.id }}/delete_ip_entity/"
+                                                        <a href="javascript:void(0)"
+                                                           onclick="removeIp(this)"
                                                            class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
                                                     </td>
+                                                    <script>
+                                                        function removeIp(obj) {
+                                                            debugger;
+                                                            var obj = $($(obj).parent()[0]).parent()[0]
+                                                            obj.remove()
+                                                        }
+                                                    </script>
                                                 </tr>
                                             {% endfor %}
                                         {% endifequal %}
