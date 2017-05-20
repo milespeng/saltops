@@ -6,12 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/frontend/deploy_manager/project_deploy_form.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/c_views/project.py" afterPath="$PROJECT_DIR$/deploy_manager/c_views/project.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/urls.py" afterPath="$PROJECT_DIR$/deploy_manager/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/frontend/deploy_manager/project_list.html" afterPath="$PROJECT_DIR$/templates/frontend/deploy_manager/project_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/hplus/js/contabs.min.js" afterPath="$PROJECT_DIR$/static/hplus/js/contabs.min.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,13 +72,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="project.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="146">
               <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/frontend/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainform.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/frontend/mainform.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="192" column="55" lean-forward="false" selection-start-line="192" selection-start-column="55" selection-end-line="192" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contabs.min.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/hplus/js/contabs.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="117" column="25" lean-forward="false" selection-start-line="117" selection-start-column="25" selection-end-line="117" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.metisMenu.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/hplus/js/plugins/metisMenu/jquery.metisMenu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,12 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>开始</find>
-      <find>whell</find>
-      <find>saf</find>
-      <find>savf</find>
-      <find>idc_level</find>
-      <find>hostgroup_parent_filter</find>
       <find>tools_script</find>
       <find>plug</find>
       <find>cmdb</find>
@@ -125,11 +158,17 @@
       <find>static</find>
       <find>id</find>
       <find>package</find>
-      <find>/srv/salt/</find>
       <find>获取目标主机信息,目标部署主机共1台</find>
       <find>获取目标主机信息,目标部署主机共</find>
       <find>/sr</find>
       <find>PACKAGE_PATH</find>
+      <find>metisMenu</find>
+      <find>/srv/salt/</find>
+      <find>J_menuItem</find>
+      <find>J</find>
+      <find>click</find>
+      <find>close</find>
+      <find>debugg</find>
     </findStrings>
     <replaceStrings>
       <replace>BaseModel</replace>
@@ -175,7 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cmdb/c_views/rack.py" />
         <option value="$PROJECT_DIR$/common/views.py" />
         <option value="$PROJECT_DIR$/templates/frontend/common/pagination.html" />
         <option value="$PROJECT_DIR$/common/pageutil.py" />
@@ -226,6 +264,7 @@
         <option value="$PROJECT_DIR$/templates/frontend/deploy_manager/project_list.html" />
         <option value="$PROJECT_DIR$/templates/frontend/deploy_manager/project_deploy_form.html" />
         <option value="$PROJECT_DIR$/deploy_manager/c_views/project.py" />
+        <option value="$PROJECT_DIR$/static/hplus/js/contabs.min.js" />
       </list>
     </option>
   </component>
@@ -372,6 +411,9 @@
     <property name="GO_FMT" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -955,13 +997,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00200" summary="#59">
-      <created>1492762552099</created>
-      <option name="number" value="00200" />
-      <option name="presentableId" value="LOCAL-00200" />
-      <option name="project" value="LOCAL" />
-      <updated>1492762552099</updated>
-    </task>
     <task id="LOCAL-00201" summary="基础模块改造">
       <created>1492873934997</created>
       <option name="number" value="00201" />
@@ -1298,7 +1333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495289826757</updated>
     </task>
-    <option name="localTasksCounter" value="249" />
+    <task id="LOCAL-00249" summary="部署页面进行中">
+      <created>1495291369875</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL-00249" />
+      <option name="project" value="LOCAL" />
+      <updated>1495291369875</updated>
+    </task>
+    <option name="localTasksCounter" value="250" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1353,7 +1395,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.592126" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20678514" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27635783" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4821151" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48188975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43464568" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
@@ -1383,7 +1425,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20678514" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27635783" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4821151" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48188975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
@@ -1407,7 +1449,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="工具类型" />
     <MESSAGE value="工具CRUD" />
     <MESSAGE value="66" />
     <MESSAGE value="使用layer作为加载层" />
@@ -1432,7 +1473,8 @@
     <MESSAGE value="完成资产列表主机IP,资产列表支持IP搜索" />
     <MESSAGE value="主机IP删除按钮" />
     <MESSAGE value="修复混合部署到工具执行问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复混合部署到工具执行问题" />
+    <MESSAGE value="部署页面进行中" />
+    <option name="LAST_COMMIT_MESSAGE" value="部署页面进行中" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1470,28 +1512,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python34/Lib/site-packages/django/contrib/auth/decorators.py" />
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/DeployJobDetail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/DeployJob.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectHost.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1840,6 +1860,40 @@
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/hplus/js/plugins/metisMenu/jquery.metisMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/mainform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="192" column="55" lean-forward="false" selection-start-line="192" selection-start-column="55" selection-end-line="192" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/hplus/js/contabs.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="117" column="25" lean-forward="false" selection-start-line="117" selection-start-column="25" selection-end-line="117" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
