@@ -6,6 +6,7 @@ from django.views.decorators.gzip import gzip_page
 from django.views.decorators.http import require_http_methods
 import better_exceptions
 from deploy_manager.models import *
+from saltjob.tasks import deployTask, loadProjectConfig
 
 
 def add_form_plugin(args):
@@ -31,6 +32,32 @@ def project_version(request, pk):
 @login_required
 def delete_project_version(request, pk, args):
     ProjectVersion.objects.get(pk=int(pk)).delete()
+    return HttpResponse('')
+
+
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
+def project_deploy(request, pk):
+    # TODO:版本关联主机
+    project_host = ProjectHost.objects.filter(project=Project.objects.get(pk=int(pk)))
+    module = __import__('deploy_manager')
+    instance = getattr(getattr(module, 'models'), 'ProjectHost')
+    form = modelform_factory(instance, fields='__all__')
+    return render(request=request,
+                  template_name='frontend/deploy_manager/project_deploy_form.html',
+                  context=locals())
+
+
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
+def project_deploy_action(request, pk, args):
+    obj = Project.objects.get(pk=pk)
+    version = obj.projectversion_set.get(is_default=True)
+    job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
+    job.save()
+    deployTask.delay(job)
     return HttpResponse('')
 
 

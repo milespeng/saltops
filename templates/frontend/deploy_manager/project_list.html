@@ -60,8 +60,8 @@
                 <td>
                     <a href="{{ o.id }}/project_edit/"
                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>配置</a>
-                    <a href="{{ o.id }}/project_edit/"
-                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>部署</a>
+                    <a href="{{ o.id }}/project_deploy/"
+                       class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>部署</a>
                     <a href="{{ o.id }}/project_version/"
                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>版本</a>
                     <a href="{{ o.id }}/project_edit/"
@@ -71,6 +71,15 @@
                 </td>
             </tr>
         {% endfor %}
+        <script>
+            function deploy(id) {
+                layer.load();
+                $.get('{{ o.id }}/project_deploy/', function () {
+                    location.reload()
+                    layer.closeAll('loading');
+                })
+            }
+        </script>
         </tbody>
     </table>
 {% endblock %}
