@@ -11,5 +11,13 @@ def str_to_int(value):
 
 
 @register.filter()
+def bool_to_int(value):
+    if value is True:
+        return '是'
+    else:
+        return '否'
+
+
+@register.filter()
 def replace_to_br(value: str):
     return mark_safe(value.replace('\n', '<br/>'))

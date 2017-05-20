@@ -38,6 +38,8 @@ urlpatterns = [
         url(r'project_add/', simple_add),
         url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
         url(r'batch_delete_entity/', simple_batch_delete_entity),
+        url(r'project_version_add_action/', project_version_add_action),
+        url(r'(?P<pk>\d+)/delete_project_version/', delete_project_version),
         url(r'$', simple_list),
     ]), {
             'args': {

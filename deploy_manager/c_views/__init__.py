@@ -24,3 +24,16 @@ def jobscript_filter(value):
     for k in JOB_SCRIPT_TYPE:
         if k[0] == value:
             return k[1]
+
+
+@register.filter()
+def sub_jobscript_filter(value):
+    project_version = ProjectVersion.objects.get(pk=value)
+
+    if project_version.sub_job_script_type == 100:
+        project_ype_id = project_version.project.job_script_type
+    else:
+        project_ype_id = project_version.sub_job_script_type
+    for k in JOB_SCRIPT_TYPE:
+        if k[0] == project_ype_id:
+            return k[1]
