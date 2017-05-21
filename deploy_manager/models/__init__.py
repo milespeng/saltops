@@ -7,3 +7,4 @@ from .ProjectVersion import ProjectVersion
 from .ProjectConfigFile import ProjectConfigFile
 from .ProjectHostConfigFile import ProjectHostConfigFile
 from .PreProject import PreProject
+from .ProjectHostGroup import ProjectHostGroup

@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.forms import modelform_factory
 from django.http import HttpResponse
@@ -5,6 +7,8 @@ from django.shortcuts import redirect, render
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.http import require_http_methods
 import better_exceptions
+
+from cmdb.models import Host, HostGroup
 from deploy_manager.models import *
 from saltjob.tasks import deployTask, loadProjectConfig
 
@@ -38,27 +42,68 @@ def delete_project_version(request, pk, args):
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
-def project_deploy(request, pk):
-    # TODO:版本关联主机
-    project_host = ProjectHost.objects.filter(project=Project.objects.get(pk=int(pk)))
-    module = __import__('deploy_manager')
-    instance = getattr(getattr(module, 'models'), 'ProjectHost')
-    form = modelform_factory(instance, fields='__all__')
+def project_deploy(request, pk, args):
+    # 获取版本关联的主机信息
+    project = Project.objects.get(pk=int(pk))
+    project_version_obj = ProjectVersion.objects.filter(project=project, is_default=True)[0]
+    project_host = ProjectHost.objects.filter(project=project)
+    project_host_group = ProjectHostGroup.objects.filter(project=project)
+    host_list = Host.objects.all()
+    host_group_list = HostGroup.objects.all()
     return render(request=request,
                   template_name='frontend/deploy_manager/project_deploy_form.html',
                   context=locals())
 
 
-@require_http_methods(["GET"])
+@require_http_methods(["POST"])
 @gzip_page
 @login_required
 def project_deploy_action(request, pk, args):
+    hosts = request.POST.get('hostids', '')
+    host_groups = request.POST.get('hostgroup_ids', '')
     obj = Project.objects.get(pk=pk)
     version = obj.projectversion_set.get(is_default=True)
+    ProjectHostGroup.objects.filter(project=obj).delete()
+    if host_groups != '':
+        host_groups_ids = host_groups.split(',')
+        for o in host_groups_ids:
+            ProjectHostGroup(project=obj, hostgroup_id=int(o)).save()
+    ProjectHost.objects.filter(project=obj).delete()
+    if hosts != '':
+        hosts_ids = hosts.split(',')
+        for o in hosts_ids:
+            ProjectHost(project=obj, host_id=int(o)).save()
     job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
     job.save()
-    deployTask.delay(job)
-    return HttpResponse('')
+    deployjob = deployTask.delay(job)
+
+    job_result = DeployJob.objects.get(pk=job.id)
+    jobDetails = DeployJobDetail.objects.filter(job=job_result)
+    job_detail_list = []
+    for o in jobDetails:
+        rs = {
+            'host': o.host.host_name,
+            'deploy_message': o.deploy_message,
+            #            'job': o.job.job_name,
+            'job_cmd': o.job_cmd,
+            'start_time': o.start_time,
+            #   'duration': o.duration,
+            'stderr': o.stderr,
+            'comment': o.comment,
+            'is_success': o.is_success
+        }
+        job_detail_list.append(rs)
+    deploy_status = '执行成功'
+    if job_result.deploy_status == 2:
+        deploy_status = '执行失败'
+    result = {
+        'deploy_status': deploy_status,
+        'jobDetails': job_detail_list
+    }
+    # TODO:未完成
+    result_list = []
+    result_list.append(result)
+    return HttpResponse(json.dumps(result_list))
 
 
 @require_http_methods(["POST"])

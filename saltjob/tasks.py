@@ -327,9 +327,11 @@ def execTools(obj, hostList, ymlParam):
 
 
 @task(name='deployTask')
-def deployTask(deployJob, uninstall=False, uninstall_host=[]):
+def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: list = []):
     """
     部署业务
+    :param uninstall: 
+    :param uninstall_host: 
     :param deployJob:
     :return:
     """
@@ -380,7 +382,15 @@ def deployTask(deployJob, uninstall=False, uninstall_host=[]):
         jobList = []
 
         if uninstall is False:
-            hosts = project.host.all()
+            hosts = []
+            project_hosts = ProjectHost.objects.filter(project=project)
+            for o in project_hosts:
+                hosts.append(o.host)
+            project_host_groups = ProjectHostGroup.objects.filter(project=project)
+            for o in project_host_groups:
+                host = Host.objects.filter(host_group=o)
+                hosts.append(host)
+            hosts = list(set(hosts))
         else:
             hosts = uninstall_host
 
@@ -455,6 +465,7 @@ def deployTask(deployJob, uninstall=False, uninstall_host=[]):
         for i in jobList:
             i.save()
         logger.info("执行脚本完成")
+        return deployJob
     except Exception as e:
         deployJob.deploy_status = 2
         deployJob.save()
@@ -466,6 +477,7 @@ def deployTask(deployJob, uninstall=False, uninstall_host=[]):
             message='Hi there!',
             html_message='Hi <strong>there</strong>!',
         )
+        return deployJob
 
 
 @task(name='scanHostJob')

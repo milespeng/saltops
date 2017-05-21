@@ -41,6 +41,8 @@ urlpatterns = [
         url(r'project_version_add_action/', project_version_add_action),
         url(r'(?P<pk>\d+)/delete_project_version/', delete_project_version),
         url(r'(?P<pk>\d+)/project_deploy/', project_deploy),
+        url(r'(?P<pk>\d+)/project_deploy_action/', project_deploy_action),
+
         url(r'$', simple_list),
     ]), {
             'args': {
