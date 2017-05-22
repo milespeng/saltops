@@ -27,7 +27,7 @@ def project_version(request, pk):
     instance = getattr(getattr(module, 'models'), 'ProjectVersion')
     form = modelform_factory(instance, fields='__all__')
     return render(request=request,
-                  template_name='frontend/deploy_manager/project_version_form.html',
+                  template_name='deploy_manager/project_version_form.html',
                   context=locals())
 
 
@@ -51,7 +51,7 @@ def project_deploy(request, pk, args):
     host_list = Host.objects.all()
     host_group_list = HostGroup.objects.all()
     return render(request=request,
-                  template_name='frontend/deploy_manager/project_deploy_form.html',
+                  template_name='deploy_manager/project_deploy_form.html',
                   context=locals())
 
 

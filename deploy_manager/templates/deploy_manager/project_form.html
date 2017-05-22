@@ -1,0 +1,180 @@
+{% extends 'common/basic_layout.html' %}
+
+{% block content %}
+    <script src="/static/asserts/require.js"></script>
+    <link href="/static/hplus/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <script src="/static/hplus/js/plugins/chosen/chosen.jquery.js"></script>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{{ title }}
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" action="{{ action }}" onsubmit="return preSubmit()" class="form-horizontal">
+                            {% csrf_token %}
+                            <input type="hidden" id="id" name="id" value="{{ pk }}"/>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> 前置业务</label>
+                                <div class="col-sm-10">
+                                    <select data-placeholder="选择前置业务"
+                                            multiple class="form-control chosen-select" id="pre_project"
+                                            name="pre_project"
+                                            tabindex="4">
+                                        {% for o in plugin_result.pre_project %}
+                                            <option value="{{ o.id }}">{{ o.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.project_module.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.project_module }}
+                                    {{ form.project_module.errors }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.name.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.name }}
+                                    {{ form.name.errors }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.job_script_type.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.job_script_type }}
+                                    {{ form.job_script_type.errors }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.playbook.label_tag }}</label>
+                                <div class="col-sm-10" style="height: 200px" name="playbook_editor"
+                                     id="id_playbook_editor"></div>
+                                <textarea id="id_playbook" name="playbook"
+                                          style="display: none">{{ form.playbook.value|default_if_none:"" }}</textarea>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.anti_install_playbook.label_tag }}</label>
+                                <div class="col-sm-10" style="height: 200px" name="anti_install_playbook_editor"
+                                     id="id_anti_install_playbook_editor"></div>
+                                <textarea id="id_anti_install_playbook" name="anti_install_playbook"
+                                          style="display: none">{{ form.anti_install_playbook.value|default_if_none:"" }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.dev_monitor.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.dev_monitor }}
+                                    {{ form.dev_monitor.errors }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.ops_monitor.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.ops_monitor }}
+                                    {{ form.ops_monitor.errors }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.backup_monitor.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.backup_monitor }}
+                                    {{ form.backup_monitor.errors }}
+                                </div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存</button>
+                                    <a class="btn btn-white" href="javascript:history.go(-1)">取消</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var editor;
+        var anti_editor;
+        function preSubmit() {
+            $('#id_playbook').val(editor.getValue())
+            $('#id_anti_install_playbook').val(anti_editor.getValue())
+            return true;
+        }
+        $(document).ready(function () {
+            var fieldObj = $('.form-horizontal input')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+            fieldObj = $('.form-horizontal textarea')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+
+            fieldObj = $('.form-horizontal select')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+        })
+
+        require.config({paths: {ace: "/static/asserts/ace/lib/ace"}})
+
+        define('editor', ['ace/ace'],
+            function (ace, langtools) {
+                editor = ace.edit('id_playbook_editor');
+                anti_editor = ace.edit('id_anti_install_playbook_editor');
+                initEditor(editor, 'id_playbook')
+                initEditor(anti_editor, 'id_anti_install_playbook')
+            }
+        );
+        function initEditor(editor, editorid) {
+            editor.setTheme("ace/theme/xcode");
+            editor.session.setMode("ace/mode/yaml");
+            editor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true
+            });
+            require(["ace/requirejs/text!src/ace"], function (e) {
+                editor.setValue($('#' + editorid).val());
+            })
+        }
+        require(['editor'])
+        $('.chosen-select').chosen();
+        {#        $('#id_tool_run_type').change(function (e) {#}
+        {#            if ($('#id_tool_run_type').val() == "0") {#}
+        {#                editor.session.setMode("ace/mode/yaml");#}
+        {#            }#}
+        {#            if ($('#id_tool_run_type').val() == "1") {#}
+        {#                editor.session.setMode("ace/mode/sh");#}
+        {#            }#}
+        {#            if ($('#id_tool_run_type').val() == "2") {#}
+        {#                editor.session.setMode("ace/mode/powershell");#}
+        {#            }#}
+        {#            if ($('#id_tool_run_type').val() == "3") {#}
+        {#                editor.session.setMode("ace/mode/python");#}
+        {#            }#}
+        {#            if ($('#id_tool_run_type').val() == "4") {#}
+        {#                editor.session.setMode("ace/mode/plain_text");#}
+        {#            }#}
+        {#            if ($('#id_tool_run_type').val() == "5") {#}
+        {#                editor.session.setMode("ace/mode/plain_text");#}
+        {#            }#}
+        {#        })#}
+    </script>
+
+{% endblock %}

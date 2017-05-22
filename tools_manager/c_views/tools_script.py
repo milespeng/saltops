@@ -49,7 +49,7 @@ def tool_execute_history(request, pk):
             "err_count": len([x for x in history if x.err_msg != ''])
         })
         result_list = preparePage(request, result)
-    return render(request, 'frontend/tools_manager/tool_script_execute_history.html', locals(), RequestContext(request))
+    return render(request, 'tools_manager/tool_script_execute_history.html', locals(), RequestContext(request))
 
 
 @require_http_methods(["GET"])
@@ -65,7 +65,7 @@ def tool_execute(request, pk):
         if len(obj.split(':')) == 2:
             param_dict = (obj.split(':')[0], obj.split(':')[1])
             param_list.append(param_dict)
-    return render(request, 'frontend/tools_manager/tool_script_execute_form.html', locals(), RequestContext(request))
+    return render(request, 'tools_manager/tool_script_execute_form.html', locals(), RequestContext(request))
 
 
 @require_http_methods(["POST"])

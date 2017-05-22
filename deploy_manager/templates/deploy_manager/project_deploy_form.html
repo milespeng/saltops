@@ -1,0 +1,139 @@
+{% extends 'common/basic_layout.html' %}
+
+{% block content %}
+    <script src="/static/asserts/require.js"></script>
+    <link href="/static/hplus/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <script src="/static/hplus/js/plugins/chosen/chosen.jquery.js"></script>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>部署
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" enctype="multipart/form-data"
+                              action="/frontend/deploy_manager/project_list/project_version_add_action/"
+                              onsubmit="return preSubmit()"
+                              class="form-horizontal">
+                            {% csrf_token %}
+                            <input type="hidden" id="id" name="id" value="{{ pk }}"/>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> 业务版本</label>
+                                <div class="col-sm-10">
+                                    {{ project_version_obj.name }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> 主机组</label>
+                                <div class="col-sm-10">
+                                    <select data-placeholder="选择主机组"
+                                            multiple class="form-control chosen-select" id="hostgroup"
+                                            tabindex="4">
+                                        {% for o in host_group_list %}
+                                            <option value="{{ o.id }}">{{ o.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> 主机</label>
+                                <div class="col-sm-10">
+                                    <select data-placeholder="选择主机"
+                                            multiple class="form-control chosen-select"
+                                            id="hosts"
+                                            tabindex="4">
+                                        {% for o in host_list %}
+                                            <option value="{{ o.id }}">{{ o.host_name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed" id="result_line"></div>
+                            <div id="result">
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <a href="javascript:void(0)" class="btn btn-primary"
+                                       onclick="execute()">部署</a>
+                                    <a class="btn btn-white" href="javascript:history.go(-1)">取消</a>
+                                </div>
+                            </div>
+                        </form>
+                        <hr/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function execute() {
+            layer.load();
+            var hosts_id = $('#hosts').val();
+            hosts_str = "";
+            if (hosts_id != null) {
+                for (var i = 0; i < hosts_id.length; i++) {
+                    hosts_str += hosts_id[i] + ',';
+                }
+                hosts_str = hosts_str.substr(0, hosts_str.length - 1)
+            }
+
+            var hostsgroup_id = $('#hostgroup').val();
+            hostsgroup_str = "";
+            if (hostsgroup_id != null) {
+                for (var i = 0; i < hostsgroup_id.length; i++) {
+                    hostsgroup_str += hostsgroup_id[i] + ',';
+                }
+                hostsgroup_str = hostsgroup_str.substr(0, hostsgroup_str.length - 1)
+            }
+            $.post('/frontend/deploy_manager/project_list/{{ pk }}/project_deploy_action/', {
+                'hostids': hosts_str,
+                'hostgroup_ids': hostsgroup_str,
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                {% for k,v in param_list %}
+                    '{{ v }}': $('#{{ v }}').val()
+                {% endfor %}
+            }, function (rs) {
+                debugger;
+                $('#result').empty()
+                var obj = JSON.parse(rs)
+                for (var i = 0; i < obj.length; i++) {
+                    var content = "<h3>obj[i].deploy_status</h3>"
+
+                    for (var k = 0; k < obj[i].jobDetails.length; k++) {
+                        content += '<div class="form-group">' +
+                            ' <label class="col-sm-2 control-label"> ' + obj[i].jobDetails[k].host + '</label>' +
+                            '<div class="col-sm-10">' +
+                            '<div class="col-sm-10" class="form-control"></div>' +
+                            obj[i].jobDetails[k].deploy_message +
+                            {#                            '<br/>' +#}
+                            {#                            obj.jobDetails[k].job.replace(/\n/g, "<br/>") +#}
+                            '<br/>' +
+                            obj[i].jobDetails[k].job_cmd +
+                            '<br/>' +
+                            obj[i].jobDetails[k].start_time +
+                            '<br/>' +
+                            obj[i].jobDetails[k].stderr +
+                            '<br/>' +
+                            obj[i].jobDetails[k].comment +
+                            '<br/>' +
+                            obj[i].jobDetails[k].is_success +
+                            '</div> </div></div>'
+                    }
+
+                }
+                $('#result').append(content)
+                layer.closeAll('loading');
+            })
+        }
+        $(document).ready(function () {
+            $('.chosen-select').chosen();
+
+        })
+
+    </script>
+
+{% endblock %}

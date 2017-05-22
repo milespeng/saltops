@@ -25,7 +25,7 @@ def index(request):
     context = {}
     if 'type' in request.GET:
         context['type'] = request.GET['type']
-    return render(request, 'frontend/index.html', context)
+    return render(request, 'common/index.html', context)
 
 
 def checkLogin(request):
@@ -56,7 +56,7 @@ def mainform(request):
     :param request:
     :return:
     """
-    return render(request, 'frontend/mainform.html', {})
+    return render(request, 'common/mainform.html', {})
 
 
 def dashboard(request):
@@ -116,6 +116,6 @@ def dashboard(request):
         total.append(obj['total'])
     module['os'] = os
     module['total'] = total
-    return render(request, 'frontend/dashboard.html', {
+    return render(request, 'common/dashboard.html', {
         'module': module
     })

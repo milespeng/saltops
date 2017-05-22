@@ -1,0 +1,52 @@
+{% extends 'common/basic_list.html' %}
+
+{% block list_title %}
+    主机组
+{% endblock %}
+
+{% block list_filter %}
+    <div class="col-sm-4">
+        <div class="input-group">
+            <a href="hostgroup_add/"
+               class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
+            &nbsp;
+            <a href="javascript:void(0)"
+               onclick="deleteBatch()"
+               class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block list_content %}
+    <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
+        <thead>
+        <tr>
+            <th style="width: 3%;"><input id="checkall" type="checkbox" class="i-checks"></th>
+            <th style="width: 10%;">上级分组</th>
+            <th style="width: 10%;">主机组</th>
+            <th style="width: 10%;">创建时间</th>
+            <th style="width: 10%;">更新时间</th>
+            <th style="width:10%;">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for o in result_list %}
+            <tr>
+                <td>
+                    <input type="checkbox" class="i-checks icheck" id="{{ o.id }}" name="input[]">
+                </td>
+                <td>{{ o.parent|parent_filter }}</td>
+                <td>{{ o.name }}</td>
+                <td>{{ o.create_time }}</td>
+                <td>{{ o.update_time }}</td>
+                <td>
+                    <a href="{{ o.id }}/hostgroup_edit/"
+                       class="btn  btn-sm btn-info">编辑</a>
+                    <a href="{{ o.id }}/delete_entity/"
+                       class="btn  btn-sm btn-danger">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

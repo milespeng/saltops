@@ -1,0 +1,399 @@
+{% extends 'common/basic_layout.html' %}
+
+{% block content %}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>{{ title }}
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form method="post" action="{{ action }}" class="form-horizontal">
+                            {% csrf_token %}
+                            <input type="hidden" id="id" name="id" value="{{ pk }}"/>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.idc.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.idc }}
+                                    {{ form.idc.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.cabinet.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.cabinet }}
+                                    {{ form.cabinet.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.rack.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.rack }}
+                                    {{ form.rack.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.host_group.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.host_group }}
+                                    {{ form.host_group.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.host_name.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.host_name }}
+                                    {{ form.host_name.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.kernel.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.kernel }}
+                                    {{ form.kernel.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.kernel_release.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.kernel_release }}
+                                    {{ form.kernel_release.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.virtual.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.virtual }}
+                                    {{ form.virtual.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.host.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.host }}
+                                    {{ form.host.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> IP</label>
+                                <div class="col-sm-10">
+                                    <table id="tb"
+                                           class="table table-striped table-bordered table-hover dataTables-example dataTable">
+                                        <thead>
+                                        <tr>
+                                            <th style="width:40%;">IP地址</th>
+                                            <th style="width:40%;">IP类型</th>
+                                            <th style="width:10%;">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tb">
+                                        {% ifequal plugin_result.is_add False %}
+                                            {% for o in plugin_result.host_ip_list %}
+                                                <tr>
+                                                    <td><input name="ip" id="ip" i value="{{ o.ip }}">
+                                                    </td>
+                                                    <td>
+                                                        <select name="ip_type" id="ip_type">
+                                                            <option {% ifequal o.ip_type 0 %}selected="selected"{% endifequal %}
+                                                                    value="0">内网
+                                                            </option>
+                                                            <option
+                                                                    {% ifequal o.ip_type 1 %}selected="selected"{% endifequal %}
+                                                                    value="1">外网
+                                                            </option>
+                                                            <option
+                                                                    {% ifequal o.ip_type 2 %}selected="selected"{% endifequal %}
+                                                                    value="2">管理网
+                                                            </option>
+                                                        </select>
+                                                    <td>
+                                                        <a href="javascript:void(0)"
+                                                           onclick="removeIp(this)"
+                                                           class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
+                                                    </td>
+                                                    <script>
+                                                        function removeIp(obj) {
+                                                            debugger;
+                                                            var obj = $($(obj).parent()[0]).parent()[0]
+                                                            obj.remove()
+                                                        }
+                                                    </script>
+                                                </tr>
+                                            {% endfor %}
+                                        {% endifequal %}
+                                        <tr>
+                                            <td><input name="ip_add" id="ip_add" i placeholder="IP地址"></td>
+                                            <td>
+                                                <select name="ip_type_add" id="ip_type_add">
+                                                    <option value="100">请选择</option>
+                                                    <option value="0">内网</option>
+                                                    <option value="1">外网</option>
+                                                    <option value="2">管理网</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:void(0)"
+                                                   onclick="addRow()"
+                                                   class="btn  btn-sm btn-success"><i class="fa fa-trash"></i>增加</a>
+                                            </td>
+                                            <script>
+                                                function addRow() {
+                                                    var ip = $('#ip_add').val()
+                                                    var ip_type = $("#ip_type_add").find("option:selected").text();
+                                                    $('#ip_add').val("")
+                                                    $('#ip_type_add').val("")
+                                                    content = '<tr>';
+                                                    content += '<td><input class="form-control" name="ip" value="' + ip + '"></td>'
+                                                    content += '<td> <select class="form-control"  name="ip_type" id="ip_type">'
+                                                    select_str = ' selected="selected" '
+                                                    content += ('<option ' + (ip_type == '内网' ? select_str : ' ') + ' value="0">内网</option>')
+                                                    content += ('<option ' + (ip_type == '外网' ? select_str : ' ') + ' value="1">外网</option>')
+                                                    content += ('<option ' + (ip_type == '管理网' ? select_str : ' ') + ' value="2">管理网</option></select></td>')
+                                                    content += '<td>';
+                                                    content += '<a href="javascript:void(0)" '
+                                                    content += 'class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>'
+                                                    content += '</td></tr>'
+                                                    $('#tb').prepend(content);
+                                                }
+                                            </script>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.osrelease.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.osrelease }}
+                                    {{ form.osrelease.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.saltversion.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.saltversion }}
+                                    {{ form.saltversion.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.osfinger.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.osfinger }}
+                                    {{ form.osfinger.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.os_family.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.os_family }}
+                                    {{ form.os_family.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.num_gpus.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.num_gpus }}
+                                    {{ form.num_gpus.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.system_serialnumber.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.system_serialnumber }}
+                                    {{ form.system_serialnumber.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.cpu_model.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.cpu_model }}
+                                    {{ form.cpu_model.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.productname.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.productname }}
+                                    {{ form.productname.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.osarch.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.osarch }}
+                                    {{ form.osarch.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.cpuarch.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.cpuarch }}
+                                    {{ form.cpuarch.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.os.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.os }}
+                                    {{ form.os.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.mem_total.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.mem_total }}
+                                    {{ form.mem_total.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.num_cpus.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.num_cpus }}
+                                    {{ form.num_cpus.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.minion_status.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.minion_status }}
+                                    {{ form.minion_status.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.enable_ssh.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.enable_ssh }}
+                                    {{ form.enable_ssh.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.ssh_username.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.ssh_username }}
+                                    {{ form.ssh_username.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.ssh_password.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.ssh_password }}
+                                    {{ form.ssh_password.errors }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.enable_sudo.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.enable_sudo }}
+                                    {{ form.enable_sudo.errors }}
+                                </div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <button class="btn btn-primary" type="submit">保存</button>
+                                    <a class="btn btn-white" href="javascript:history.go(-1)">取消</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var fieldObj = $('.form-horizontal input')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+            fieldObj = $('.form-horizontal textarea')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+
+            fieldObj = $('.form-horizontal select')
+            for (var i = 0; i < fieldObj.length; i++) {
+                $(fieldObj[i]).addClass('form-control')
+            }
+        })
+
+    </script>
+
+{% endblock %}
+
+
+{% block script_content %}
+
+    <script>
+        {% ifequal plugin_result.is_add True %}
+            $('#id_cabinet').empty();
+            $("#id_cabinet").append("<option selected='selected' value = ''>请选择机房</option>");
+            $("#id_rack").append("<option selected='selected' value = ''>请选择机柜</option>");
+        {% endifequal %}
+        {% ifequal plugin_result.is_add False%}
+            $('#id_cabinet').empty();
+            {% for cabinet in plugin_result.cabinet_list %}
+                {% ifequal cabinet entity.cabinet.id %}
+                    $("#id_cabinet").append("<option selected='selected' value='{{ cabinet.id }}'>{{ cabinet.name }}</option>");
+                {% endifequal %}
+                {% ifnotequal  cabinet entity.cabinet.id  %}
+                    $("#id_cabinet").append("<option value='{{ cabinet.id }}'>{{ cabinet.name }}</option>");
+                {% endifnotequal %}
+            {% endfor %}
+        {% endifequal %}
+        $('#id_rack').empty();
+        {% for rack in plugin_result.rack_list %}
+            {% ifequal rack entity.rack.id %}
+                $("#id_rack").append("<option selected='selected' value='{{ rack.id }}'>{{ rack.name }}</option>");
+            {% endifequal %}
+            {% ifnotequal  rack entity.rack.id  %}
+                $("#id_rack").append("<option value='{{ rack.id }}'>{{ rack.name }}</option>");
+            {% endifnotequal %}
+        {% endfor %}
+        function loadCabinet() {
+            if ($('#id_idc').val() != '') {
+                $.get('/frontend/cmdb/rack_list/' + $('#id_idc').val() + '/load_cabinet_list/', function (rs) {
+                    optionList = eval(rs)
+                    $('#id_cabinet').empty()
+                    for (var i = 0; i < optionList.length; i++) {
+                        $("#id_cabinet").append("<option value=" + optionList[i].pk + ">" + optionList[i].fields.name + "</option>");
+                    }
+                    loadRack()
+                })
+            } else {
+                $('#id_cabinet').empty()
+                $("#id_cabinet").append("<option value=''>请选择机房</option>");
+                $('#id_rack').empty()
+                $("#id_rack").append("<option value=''>请选择机柜</option>");
+            }
+        }
+        $('#id_idc').change(function () {
+            loadCabinet()
+        })
+
+        function loadRack() {
+            if ($('#id_idc').val() != '' && $('#id_cabinet').val()) {
+                $.get('/frontend/cmdb/rack_list/' + $('#id_idc').val() + '/' + $('#id_cabinet').val() + '/load_rack_list/', function (rs) {
+                    optionList = eval(rs)
+                    $('#id_rack').empty()
+                    for (var i = 0; i < optionList.length; i++) {
+                        $("#id_rack").append("<option value=" + optionList[i].pk + ">" + optionList[i].fields.name + "</option>");
+                    }
+                })
+            } else {
+                $('#id_rack').empty()
+                $("#id_rack").append("<option value=''>请选择机柜</option>");
+            }
+        }
+        $('#id_cabinet').change(function () {
+            loadRack()
+        })
+    </script>
+
+{% endblock %}

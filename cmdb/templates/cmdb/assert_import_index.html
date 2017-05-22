@@ -1,0 +1,54 @@
+{% extends 'common/basic_layout.html' %}
+{% block content %}
+    <link href="/static/hplus/css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="/static/hplus/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <script src="/static/hplus/js/content.min.js?v=1.0.0"></script>
+    <script src="/static/hplus/js/plugins/dropzone/dropzone.js"></script>
+    <link href="/static/hplus/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <script src="/static/hplus/js/plugins/toastr/toastr.min.js"></script>
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>资产导入</h5>
+            </div>
+            <div class="ibox-content">
+                <form id="my-awesome-dropzone" class="dropzone" method="post"
+                      action="upload_file/">
+                    {% csrf_token %}
+                    <div class="dropzone-previews"></div>
+                </form>
+                <div>
+                    <div class="m">
+                        使用资产导入功能可以实现对资产进行本地快速导入，点击链接：
+                        <a href="/static/asserts/资产模板.xlsx" target="_blank">下载导入模板</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "progressBar": true,
+            "positionClass": "toast-top-full-width",
+            "onclick": null,
+            "showDuration": "400",
+            "hideDuration": "1000",
+            "timeOut": "7000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        $(".dropzone").dropzone({
+            init: function () {
+                this.on("complete", function (file) {
+                    toastr.success("资产导入", "资产导入成功")
+                })
+            }
+        });
+    </script>
+{% endblock %}

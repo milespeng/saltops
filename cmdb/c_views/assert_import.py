@@ -24,7 +24,7 @@ from saltops.settings import SALT_CONN_TYPE, SALT_HTTP_URL
 @gzip_page
 @login_required
 def assert_import_index(request):
-    return render(request, 'frontend/cmdb/assert_import_index.html', locals(), RequestContext(request))
+    return render(request, 'cmdb/assert_import_index.html', locals(), RequestContext(request))
 
 
 @require_http_methods(["POST"])

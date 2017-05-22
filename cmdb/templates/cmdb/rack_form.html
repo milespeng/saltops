@@ -1,0 +1,37 @@
+{% extends 'common/basic_form.html' %}
+
+{% block script_content %}
+
+    <script>
+        {% ifequal plugin_result.is_add True%}
+            $('#id_cabinet').empty();
+            $("#id_cabinet").append("<option selected='selected' value=''>请选择机房</option>");
+        {% endifequal %}
+        {% ifequal plugin_result.is_add False%}
+            $('#id_cabinet').empty();
+            {% for cabinet in plugin_result.cabinet_list %}
+                {% ifequal cabinet entity.cabinet.id %}
+                    $("#id_cabinet").append("<option selected='selected' value='{{ cabinet.id }}'>{{ cabinet.name }}</option>");
+                {% endifequal %}
+                {% ifnotequal  cabinet entity.cabinet.id  %}
+                    $("#id_cabinet").append("<option value='{{ cabinet.id }}'>{{ cabinet.name }}</option>");
+                {% endifnotequal %}
+
+            {% endfor %}
+        {% endifequal %}
+        $('#id_idc').change(function () {
+            if ($('#id_idc').val() != '') {
+                $.get('/frontend/cmdb/rack_list/' + $('#id_idc').val() + '/load_cabinet_list/', function (rs) {
+                    optionList = eval(rs)
+                    $('#id_cabinet').empty()
+                    for (var i = 0; i < optionList.length; i++) {
+                        $("#id_cabinet").append("<option value=" + optionList[i].pk + ">" + optionList[i].fields.name + "</option>");
+                    }
+                })
+            } else {
+                $('#id_cabinet').empty()
+                $("#id_cabinet").append("<option value=''>请选择机房</option>");
+            }
+        })
+    </script>
+{% endblock %}
