@@ -1,7 +1,7 @@
 send_file:
   file.managed:
       - name: /tmp/jdk-${version}-linux-x64.tar.gz
-      - source: salt://files/jdk-${version}-linux-x64.tar.gz
+      - source: salt://jdk-${version}-linux-x64.tar.gz
 
 extract_file:
   cmd.run:

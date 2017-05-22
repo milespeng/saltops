@@ -364,8 +364,12 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
         extent_dict = (
             {'version': defaultVersion.name}
         )
+        if defaultVersion.extra_param != '':
+            extra_params = defaultVersion.extra_param
+        else:
+            extra_params = project.extra_param
         script_name, script_path = generateDynamicScript(playbookContent, script_type, project.extra_param,
-                                                         defaultVersion.extra_param, extent_dict)
+                                                         extra_params, extent_dict)
         prepare_result = prepareScript(script_path)
         if prepare_result is False:
             deployJob.deploy_status = 2

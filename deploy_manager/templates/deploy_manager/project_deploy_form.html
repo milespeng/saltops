@@ -101,7 +101,7 @@
                 $('#result').empty()
                 var obj = JSON.parse(rs)
                 for (var i = 0; i < obj.length; i++) {
-                    var content = "<h3>obj[i].deploy_status</h3>"
+                    var content = "<h3>" + obj[i].deploy_status + "</h3>"
 
                     for (var k = 0; k < obj[i].jobDetails.length; k++) {
                         content += '<div class="form-group">' +

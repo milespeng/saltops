@@ -63,6 +63,14 @@
                                 <textarea id="id_anti_install_playbook" name="anti_install_playbook"
                                           style="display: none">{{ form.anti_install_playbook.value|default_if_none:"" }}</textarea>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.extra_param.label_tag }}</label>
+                                <div class="col-sm-10" style="height: 200px" name="extra_param_editor"
+                                     id="id_extra_param_editor"></div>
+                                <textarea id="id_extra_param" name="extra_param"
+                                          style="display: none">{{ form.extra_param.value|default_if_none:"" }}</textarea>
+                            </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -118,9 +126,11 @@
     <script>
         var editor;
         var anti_editor;
+        var extra_param_editor;
         function preSubmit() {
             $('#id_subplaybook_editor').val(editor.getValue())
             $('#id_anti_install_playbook').val(editor.getValue())
+            $('#id_extra_param').val(extra_param_editor.getValue())
             return true;
         }
         $(document).ready(function () {
@@ -147,8 +157,10 @@
             function (ace, langtools) {
                 editor = ace.edit('id_subplaybook_editor');
                 anti_editor = ace.edit('id_anti_install_playbook_editor');
+                extra_param_editor = ace.edit('id_extra_param_editor');
                 initEditor(editor, 'id_subplaybook')
                 initEditor(anti_editor, 'id_anti_install_playbook')
+                initEditor(extra_param_editor, 'id_extra_param')
             }
         );
         function initEditor(editor, editorid) {

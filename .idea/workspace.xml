@@ -6,124 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/dashboard.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/dashboard_modules.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/templates/host_resource_overview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/templates/host_type_overview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/templates/overview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/static/js/DeployJobAdmin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/static/js/Project.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/templates/pre_project.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/templates/project_change_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deploy_manager/templates/project_host_inline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/actions.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/app_index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/auth/user/add_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/auth/user/change_password.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/base.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/base_site.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/change_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/change_list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/change_list_results.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/date_hierarchy.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/delete_confirmation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/delete_selected_confirmation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/edit_inline/compact.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/edit_inline/stacked-nested.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/edit_inline/stacked.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/edit_inline/tabular-nested.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/edit_inline/tabular.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/filter.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/base.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/change_list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/change_list_export.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/change_list_export_item.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/change_list_import.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/change_list_import_export.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/change_list_import_item.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/export.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/import_export/import.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/includes/fieldset.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/includes/object_delete_summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/invalid_setup.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/object_history.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/pagination.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/popup_response.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/prepopulated_fields_js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/related_widget_wrapper.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/search_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/admin/submit_line.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/dashboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/dashboard_tools.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/module.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/app_list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/feed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/google_analytics_period_visitors.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/google_analytics_visitors_chart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/google_analytics_visitors_totals.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/link_list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/model_list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/recent_actions.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/yandex_metrika_period_visitors.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/yandex_metrika_visitors_chart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/modules/yandex_metrika_visitors_totals.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/update_module.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet.dashboard/update_module_fieldset.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/jet/related_field_ajax_list_filter.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/rangefilter/date_filter.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration/logged_out.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration/password_change_done.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration/password_change_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration/password_reset_done.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration/password_reset_email.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/registration/password_reset_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/static/js/ToolsExecJob.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/static/js/ToolsScriptAdmin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/templates/tools_script_change_form.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/assert_import_index.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/assert_import_index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/cabinet_form.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/cabinet_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/cabinet_list.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/cabinet_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/host_form.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/host_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/host_list.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/host_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/hostgroup_list.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/hostgroup_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/idc_level_list.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/idc_level_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/idc_list.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/idc_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/isp_list.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/isp_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/rack_form.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/rack_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/cmdb/rack_list.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/rack_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/common/basic_form.html" afterPath="$PROJECT_DIR$/common/templates/common/basic_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/common/basic_layout.html" afterPath="$PROJECT_DIR$/common/templates/common/basic_layout.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/common/basic_list.html" afterPath="$PROJECT_DIR$/common/templates/common/basic_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/common/pagination.html" afterPath="$PROJECT_DIR$/common/templates/common/pagination.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/dashboard.html" afterPath="$PROJECT_DIR$/common/templates/common/dashboard.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/deploy_manager/project_deploy_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/deploy_manager/project_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/deploy_manager/project_list.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/deploy_manager/project_module_list.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/deploy_manager/project_version_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/index.html" afterPath="$PROJECT_DIR$/common/templates/common/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/mainform.html" afterPath="$PROJECT_DIR$/common/templates/common/mainform.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/tools_manager/tool_script_execute_form.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/tools_manager/tool_script_execute_history.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/tools_manager/tools_script_form.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/tools_manager/tools_script_list.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/frontend/tools_manager/tools_types_list.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/c_views/assert_import.py" afterPath="$PROJECT_DIR$/cmdb/c_views/assert_import.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/urls.py" afterPath="$PROJECT_DIR$/cmdb/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/views.py" afterPath="$PROJECT_DIR$/common/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/c_views/project.py" afterPath="$PROJECT_DIR$/deploy_manager/c_views/project.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/urls.py" afterPath="$PROJECT_DIR$/deploy_manager/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/c_views/tools_script.py" afterPath="$PROJECT_DIR$/tools_manager/c_views/tools_script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/urls.py" afterPath="$PROJECT_DIR$/tools_manager/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/sls/jdk8.sls" afterPath="$PROJECT_DIR$/doc/sls/jdk8.sls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltjob/tasks.py" afterPath="$PROJECT_DIR$/saltjob/tasks.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -192,11 +81,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="basic_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/common/templates/common/basic_list.html">
+      <file leaf-file-name="project.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="89" column="36" lean-forward="false" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+            <state relative-caret-position="69">
+              <caret line="77" column="20" lean-forward="true" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project_deploy_form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -215,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>project_module</find>
-      <find>pa</find>
       <find>param</find>
       <find>Project</find>
       <find>filter</find>
@@ -245,6 +152,8 @@
       <find>project_deploy</find>
       <find>frontend/common/basic_form.html</find>
       <find>isp_lis</find>
+      <find>extra_param_editor</find>
+      <find>generateDynamicScript</find>
     </findStrings>
     <replaceStrings>
       <replace>BaseModel</replace>
@@ -291,7 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cmdb/admin.py" />
         <option value="$PROJECT_DIR$/cmdb/__init__.py" />
         <option value="$PROJECT_DIR$/deploy_manager/models/Project.py" />
         <option value="$PROJECT_DIR$/deploy_manager/models/PreProject.py" />
@@ -306,7 +214,6 @@
         <option value="$PROJECT_DIR$/static/hplus/js/contabs.min.js" />
         <option value="$PROJECT_DIR$/deploy_manager/models/ProjectHostGroup.py" />
         <option value="$PROJECT_DIR$/deploy_manager/models/__init__.py" />
-        <option value="$PROJECT_DIR$/saltjob/tasks.py" />
         <option value="$PROJECT_DIR$/templates/frontend/deploy_manager/project_deploy_form.html" />
         <option value="$PROJECT_DIR$/templates/frontend/deploy_manager/project_form.html" />
         <option value="$PROJECT_DIR$/cmdb/c_views/host.py" />
@@ -329,11 +236,8 @@
         <option value="$PROJECT_DIR$/cmdb/templates/cmdb/rack_form.html" />
         <option value="$PROJECT_DIR$/cmdb/templates/cmdb/rack_list.html" />
         <option value="$PROJECT_DIR$/cmdb/urls.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
-        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html" />
         <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html" />
         <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_list.html" />
-        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" />
         <option value="$PROJECT_DIR$/deploy_manager/urls.py" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html" />
@@ -342,6 +246,11 @@
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_list.html" />
         <option value="$PROJECT_DIR$/tools_manager/urls.py" />
         <option value="$PROJECT_DIR$/common/templates/common/basic_list.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html" />
+        <option value="$PROJECT_DIR$/doc/sls/jdk8.sls" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
+        <option value="$PROJECT_DIR$/saltjob/tasks.py" />
       </list>
     </option>
   </component>
@@ -391,6 +300,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="saltops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -996,13 +933,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00203" summary="新增资产导入页面">
-      <created>1492875155414</created>
-      <option name="number" value="00203" />
-      <option name="presentableId" value="LOCAL-00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1492875155414</updated>
-    </task>
     <task id="LOCAL-00204" summary="更新Changelog">
       <created>1492875578838</created>
       <option name="number" value="00204" />
@@ -1339,7 +1269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495382378378</updated>
     </task>
-    <option name="localTasksCounter" value="252" />
+    <task id="LOCAL-00252" summary="整理目录结构">
+      <created>1495435322499</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1495435322499</updated>
+    </task>
+    <option name="localTasksCounter" value="253" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1391,12 +1328,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32636815" sideWeight="0.50532484" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36535433" sideWeight="0.4888179" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32659408" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39370078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43622047" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2253635" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1987076" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27625203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16343042" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3527559" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3527559" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1460,7 +1397,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="使用layer作为加载层" />
     <MESSAGE value="工具" />
     <MESSAGE value="工具执行" />
     <MESSAGE value="工具部分迁移完毕" />
@@ -1485,10 +1421,23 @@
     <MESSAGE value="部署页面进行中" />
     <MESSAGE value="修复 打开编辑页面左侧菜单栏跳不到栏目首页" />
     <MESSAGE value="业务部署，重新接入，可执行部署，前置业务和历史查看未完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="业务部署，重新接入，可执行部署，前置业务和历史查看未完成" />
+    <MESSAGE value="整理目录结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理目录结构" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/saltjob/tasks.py</url>
+          <line>370</line>
+          <option name="timeStamp" value="559" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/saltjob/tasks.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="560" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1499,7 +1448,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="555" />
+      <option name="time" value="561" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
@@ -1514,72 +1463,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/host_group.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#36#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/idc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#46#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/rack.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#57#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/c_views/tools_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/frontend/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1683,7 +1566,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#72#0" expanded="true" />
+            <element signature="e#0#72#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1812,30 +1695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2670">
-          <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1847,14 +1706,6 @@
     <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3462">
           <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
           <folding />
         </state>
@@ -1936,6 +1787,94 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="89" column="36" lean-forward="false" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="152" column="16" lean-forward="false" selection-start-line="152" selection-start-column="16" selection-end-line="152" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="146" column="34" lean-forward="true" selection-start-line="146" selection-start-column="34" selection-end-line="146" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/bd37a818-3ebe-11e7-97d3-a8bbcf17ec44.sls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/sls/jdk8.sls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="77" column="20" lean-forward="true" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/14a7a5da-3ebf-11e7-97d3-a8bbcf17ec44.sls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/7e9f19a0-3ebf-11e7-97d3-a8bbcf17ec44.sls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="31" />
           <folding />
         </state>
       </provider>
