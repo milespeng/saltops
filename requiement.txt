@@ -1,6 +1,7 @@
 alabaster==0.7.9
 amqp==1.4.9
 anyjson==0.3.3
+appdirs==1.4.3
 arrow==0.10.0
 Babel==2.3.4
 backports-abc==0.5
@@ -40,7 +41,11 @@ libsaas==0.4
 Markdown==2.6.7
 MarkupSafe==0.23
 msgpack-python==0.4.8
+packaging==16.8
 psutil==5.1.0
+PyInstaller==3.2.1
+PyMySQL==0.7.11
+pyparsing==2.2.0
 python-dateutil==2.6.0
 pytz==2016.10
 PyYAML==3.12
