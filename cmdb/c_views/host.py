@@ -41,7 +41,7 @@ def host_list(request, args):
         host_filter_list = []
         for k in host_ip_lists:
             host_filter_list.append(k.host)
-        obj = obj.filter(host__in=host_filter_list)
+        obj = obj.filter(host_name__in=host_filter_list)
     result_list = preparePage(request, obj)
     return render(request, args['template_path'], locals(), RequestContext(request))
 
