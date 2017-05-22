@@ -80,19 +80,40 @@ def project_deploy_action(request, pk, args):
     job_result = DeployJob.objects.get(pk=job.id)
     jobDetails = DeployJobDetail.objects.filter(job=job_result)
     job_detail_list = []
+    #TODO:整合数据结构
     for o in jobDetails:
-        rs = {
-            'host': o.host.host_name,
-            'deploy_message': o.deploy_message,
-            #            'job': o.job.job_name,
-            'job_cmd': o.job_cmd,
-            'start_time': o.start_time,
-            #   'duration': o.duration,
-            'stderr': o.stderr,
-            'comment': o.comment,
-            'is_success': o.is_success
-        }
-        job_detail_list.append(rs)
+        target_obj = None
+        for k in job_detail_list:
+            if o.host.host_name == k['host_name']:
+                target_obj = k
+                break
+        if target_obj is None:
+            exec_rs = {
+                'host_name', o.host.host_name,
+                'result', []
+            }
+            exec_rs['result'].append({
+                'deploy_message': o.deploy_message,
+                #            'job': o.job.job_name,
+                'job_cmd': o.job_cmd,
+                'start_time': o.start_time,
+                'duration': str(o.duration),
+                'stderr': o.stderr,
+                'comment': o.comment,
+                'is_success': o.is_success
+            })
+            job_detail_list.append(exec_rs)
+        else:
+            target_obj['result'].append({
+                'deploy_message': o.deploy_message,
+                #            'job': o.job.job_name,
+                'job_cmd': o.job_cmd,
+                'start_time': o.start_time,
+                'duration': str(o.duration),
+                'stderr': o.stderr,
+                'comment': o.comment,
+                'is_success': o.is_success
+            })
     deploy_status = '执行成功'
     if job_result.deploy_status == 2:
         deploy_status = '执行失败'
@@ -100,7 +121,6 @@ def project_deploy_action(request, pk, args):
         'deploy_status': deploy_status,
         'jobDetails': job_detail_list
     }
-    # TODO:未完成
     result_list = []
     result_list.append(result)
     return HttpResponse(json.dumps(result_list))
