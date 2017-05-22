@@ -80,18 +80,20 @@ def project_deploy_action(request, pk, args):
     job_result = DeployJob.objects.get(pk=job.id)
     jobDetails = DeployJobDetail.objects.filter(job=job_result)
     job_detail_list = []
-    #TODO:整合数据结构
+
+    # 整合数据结构
     for o in jobDetails:
         target_obj = None
         for k in job_detail_list:
             if o.host.host_name == k['host_name']:
                 target_obj = k
                 break
+
+        is_successed_action = '执行成功'
+        if o.is_success is False:
+            is_successed_action = '执行失败'
         if target_obj is None:
-            exec_rs = {
-                'host_name', o.host.host_name,
-                'result', []
-            }
+            exec_rs = {'host_name': o.host.host_name, 'result': []}
             exec_rs['result'].append({
                 'deploy_message': o.deploy_message,
                 #            'job': o.job.job_name,
@@ -100,7 +102,7 @@ def project_deploy_action(request, pk, args):
                 'duration': str(o.duration),
                 'stderr': o.stderr,
                 'comment': o.comment,
-                'is_success': o.is_success
+                'is_success': is_successed_action
             })
             job_detail_list.append(exec_rs)
         else:
@@ -112,8 +114,21 @@ def project_deploy_action(request, pk, args):
                 'duration': str(o.duration),
                 'stderr': o.stderr,
                 'comment': o.comment,
-                'is_success': o.is_success
+                'is_success': is_successed_action
             })
+    # 判断任务是否执行成功
+    for o in job_detail_list:
+        is_successed = True
+        for k in o['result']:
+            if k is False:
+                is_successed = False
+                break
+        if is_successed is True:
+            o['is_success'] = '执行成功'
+        else:
+            o['is_success'] = '执行失败'
+
+    # 整体任务是否执行成功
     deploy_status = '执行成功'
     if job_result.deploy_status == 2:
         deploy_status = '执行失败'
@@ -121,9 +136,7 @@ def project_deploy_action(request, pk, args):
         'deploy_status': deploy_status,
         'jobDetails': job_detail_list
     }
-    result_list = []
-    result_list.append(result)
-    return HttpResponse(json.dumps(result_list))
+    return HttpResponse(json.dumps(result))
 
 
 @require_http_methods(["POST"])
