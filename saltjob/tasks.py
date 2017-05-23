@@ -391,8 +391,9 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                 hosts.append(o.host)
             project_host_groups = ProjectHostGroup.objects.filter(project=project)
             for o in project_host_groups:
-                host = Host.objects.filter(host_group=o)
-                hosts.append(host)
+                host = Host.objects.filter(host_group=o.hostgroup)
+                for h in host:
+                    hosts.append(h)
             hosts = list(set(hosts))
         else:
             hosts = uninstall_host
