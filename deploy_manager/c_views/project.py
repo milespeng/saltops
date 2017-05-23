@@ -48,8 +48,15 @@ def project_deploy(request, pk, args):
     project_version_obj = ProjectVersion.objects.filter(project=project, is_default=True)[0]
     project_host = ProjectHost.objects.filter(project=project)
     project_host_group = ProjectHostGroup.objects.filter(project=project)
-    host_list = Host.objects.all()
-    host_group_list = HostGroup.objects.all()
+    host_list = list(Host.objects.all())
+    for o in project_host:
+        if o.host in host_list:
+            host_list.remove(o.host)
+    host_group_list = list(HostGroup.objects.all())
+    for o in project_host_group:
+        if o.hostgroup in host_group_list:
+            host_group_list.remove(o.hostgroup)
+
     return render(request=request,
                   template_name='deploy_manager/project_deploy_form.html',
                   context=locals())
@@ -59,16 +66,18 @@ def project_deploy(request, pk, args):
 @gzip_page
 @login_required
 def project_deploy_action(request, pk, args):
+    # 目标主机
     hosts = request.POST.get('hostids', '')
+    # 目标主机组
     host_groups = request.POST.get('hostgroup_ids', '')
+
     obj = Project.objects.get(pk=pk)
     version = obj.projectversion_set.get(is_default=True)
-    ProjectHostGroup.objects.filter(project=obj).delete()
+
     if host_groups != '':
         host_groups_ids = host_groups.split(',')
         for o in host_groups_ids:
             ProjectHostGroup(project=obj, hostgroup_id=int(o)).save()
-    ProjectHost.objects.filter(project=obj).delete()
     if hosts != '':
         hosts_ids = hosts.split(',')
         for o in hosts_ids:
