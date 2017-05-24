@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 
 from cmdb.c_views import *
-from cmdb.views import IDCLevelView
+from cmdb.views import *
 from common import views
 from common.common_views import *
 
@@ -9,26 +9,12 @@ urlpatterns = [
     # 机房等级
 
     url(r'^idc_level_list/', include([
-        url(r'(?P<pk>\d+)/idc_level_edit_action/', simple_edit_action),
-        url(r'(?P<pk>\d+)/idc_level_edit/', simple_edit),
-        url(r'idc_level_add_action/', simple_add_action),
-        url(r'idc_level_add/', simple_add),
-        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
-        url(r'batch_delete_entity/', simple_batch_delete_entity),
-    ]), {
-            'args': {
-                'modulename': 'cmdb.models',
-                'modelname': 'IDCLevel',
-                'list_url': '/frontend/cmdb/idc_level_list/',
-                'form_template_path': 'common/basic_form.html',
-                'template_path': 'cmdb/idc_level_list.html',
-                'add_title': '新增机房等级',
-                'add_action': '/frontend/cmdb/idc_level_list/idc_level_add_action/',
-                'edit_title': '编辑机房等级',
-                'edit_action': '/frontend/cmdb/idc_level_list/%s/idc_level_edit_action/',
-            }
-        }),
-    url(r'^idc_level_list/', IDCLevelView.as_view()),
+        url(r'^delete_entity/', IDCLevelDeleteView.as_view(), name='idc_level_delete'),
+        url(r'^(?P<pk>\d+)/idc_level_edit/', IDCLevelUpdateView.as_view(), name='idc_level_edit'),
+        url(r'^idc_level_add/', IDCLevelCreateView.as_view(), name='idc_level_add'),
+        url(r'^$', IDCLevelView.as_view(), name='idc_level_list'),
+    ])),
+
     # ISP
     url(r'^isp_list/', include([
         url(r'(?P<pk>\d+)/isp_edit_action/', simple_edit_action),

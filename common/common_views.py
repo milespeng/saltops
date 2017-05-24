@@ -35,9 +35,6 @@ def simple_list(request, args):
 def simple_delete_entity(request, pk, args):
     module = __import__(args['modulename'])
     instance = getattr(getattr(module, 'models'), args['modelname'])
-    if 'plugin_name' in args:
-        plugin = getattr(getattr(module, 'c_views'), args['plugin_name'])
-        plugin_result = plugin()
     instance.objects.filter(pk=pk).delete()
     return redirect(args['list_url'])
 

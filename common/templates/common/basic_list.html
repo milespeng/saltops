@@ -32,10 +32,16 @@
             if (obj == "") {
                 alert('请选择至少一条记录进行删除');
             } else {
-                $.get('batch_delete_entity/?id=' + obj, function () {
+                obj = obj.substring(0, obj.length - 1);
+                $.get('delete_entity/?id=' + obj, function () {
                     location.reload();
                 })
             }
+        }
+        function deleteAction(id) {
+            $.get('delete_entity/?id=' + id, function () {
+                location.reload();
+            })
         }
         function getChecked() {
             var str = document.getElementsByName("input[]");

@@ -7,11 +7,11 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>{{ title }}
+                        <h5>{% block titleblock %}{% endblock %}
                         </h5>
                     </div>
                     <div class="ibox-content">
-                        <form method="post" action="{{ action }}" class="form-horizontal">
+                        <form method="post" class="form-horizontal">
                             {% csrf_token %}
                             <input type="hidden" id="id" name="id" value="{{ pk }}"/>
                             {% for field in form %}

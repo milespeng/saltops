@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djcelery',
+    'braces',
     'kombu.transport.django',
     # 'suit_dashboard',
     # 'debug_toolbar'
