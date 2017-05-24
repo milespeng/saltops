@@ -51,12 +51,21 @@
                                         {% for o in project_host_group %}
                                             <td>{{ o.hostgroup.name }}</td>
                                             <td>
-                                                <a href="{{ o.id }}/project_uninstall/"
+                                                <a href="javascript:void(0)"
+                                                   onclick="uninstallHostGroup('{{ o.id }}','{{ pk }}')"
                                                    class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
                                             </td>
                                         {% endfor %}
                                         </tbody>
                                     </table>
+                                    <script>
+                                        function uninstallHostGroup(id, pk) {
+                                            layer.load();
+                                            $.get('/frontend/deploy_manager/project_list/' + id + '/' + pk + '/project_hostgroup_undeploy_action/', function (rs) {
+                                                layer.closeAll('loading');
+                                            })
+                                        }
+                                    </script>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -86,7 +95,8 @@
                                         {% for o in project_host %}
                                             <td>{{ o.host_name }}</td>
                                             <td>
-                                                <a href="{{ o.id }}/project_uninstall/"
+                                                <a href="javascript:void(0)"
+                                                   onclick="uninstall_host_group('{{ o.id }}')"
                                                    class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
                                             </td>
                                         {% endfor %}
@@ -143,8 +153,7 @@
             }, function (rs) {
                 $('#result').empty()
                 var obj = JSON.parse(rs)
-                var content = "<h3>" + obj.deploy_status + "</h3>"
-                content += '<hr/>'
+                var content = ""
 
                 for (var k = 0; k < obj.jobDetails.length; k++) {
                     content += '<div class="form-group">' +

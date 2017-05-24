@@ -42,6 +42,19 @@ def delete_project_version(request, pk, args):
 @require_http_methods(["GET"])
 @gzip_page
 @login_required
+def project_hostgroup_undeploy_action(request, pk, project_id, args):
+    hostgroup = ProjectHostGroup.objects.get(pk=pk)
+    version = ProjectVersion.objects.get(is_default=True, project=hostgroup.project)
+    job = DeployJob(project_version=version, job_name='卸载' + hostgroup.hostgroup.name + ":" + version.name)
+    job.save()
+    deployjob = deployTask.delay(job, True, list(Host.objects.filter(host_group=hostgroup.hostgroup)))
+    hostgroup.delete()
+    return HttpResponse("")
+
+
+@require_http_methods(["GET"])
+@gzip_page
+@login_required
 def project_deploy(request, pk, args):
     # 获取版本关联的主机信息
     project = Project.objects.get(pk=int(pk))

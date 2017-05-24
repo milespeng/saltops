@@ -42,6 +42,7 @@ urlpatterns = [
         url(r'(?P<pk>\d+)/delete_project_version/', delete_project_version),
         url(r'(?P<pk>\d+)/project_deploy/', project_deploy),
         url(r'(?P<pk>\d+)/project_deploy_action/', project_deploy_action),
+        url(r'(?P<pk>\d+)/(?P<project_id>\d+)/project_hostgroup_undeploy_action/', project_hostgroup_undeploy_action),
 
         url(r'$', simple_list),
     ]), {

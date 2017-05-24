@@ -27,7 +27,7 @@ move_java:
 
 change_env:
   cmd.run:
-      - name: echo 'JAVA_HOME=/opt/jdk/${arg} \n PATH=$JAVA_HOME/bin:$PATH \n CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar \n export JAVA_HOME \n export PATH \n export CLASSPATH' >> /etc/profile
+      - name: echo 'JAVA_HOME=/opt/jdk/${arg}  \n PATH=$JAVA_HOME/bin:$PATH \n CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar \n export JAVA_HOME \n export PATH \n export CLASSPATH' >> /etc/profile
       - user: root
       - unless: cat /etc/profile|grep JAVA
       - require:
