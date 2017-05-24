@@ -301,3 +301,4 @@ EMAIL_SUBJECT_PREFIX = 'SaltOps'
 # EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'post_office.EmailBackend'
 LOGIN_URL = "/"
+PER_PAGE = 10

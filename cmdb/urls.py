@@ -1,11 +1,13 @@
 from django.conf.urls import include, url
 
 from cmdb.c_views import *
+from cmdb.views import IDCLevelView
 from common import views
 from common.common_views import *
 
 urlpatterns = [
     # 机房等级
+
     url(r'^idc_level_list/', include([
         url(r'(?P<pk>\d+)/idc_level_edit_action/', simple_edit_action),
         url(r'(?P<pk>\d+)/idc_level_edit/', simple_edit),
@@ -13,7 +15,6 @@ urlpatterns = [
         url(r'idc_level_add/', simple_add),
         url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
         url(r'batch_delete_entity/', simple_batch_delete_entity),
-        url(r'$', simple_list),
     ]), {
             'args': {
                 'modulename': 'cmdb.models',
@@ -27,7 +28,7 @@ urlpatterns = [
                 'edit_action': '/frontend/cmdb/idc_level_list/%s/idc_level_edit_action/',
             }
         }),
-
+    url(r'^idc_level_list/', IDCLevelView.as_view()),
     # ISP
     url(r'^isp_list/', include([
         url(r'(?P<pk>\d+)/isp_edit_action/', simple_edit_action),
