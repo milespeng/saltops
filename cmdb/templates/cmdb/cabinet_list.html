@@ -7,13 +7,13 @@
 {% block list_filter %}
     <div class="col-sm-2">
         <select class="form-control m-b" name="idc">
-            <option value="" {% ifequal '' kwargs.idc %}
+            <option value="" {% ifequal '' idc %}
                     selected="selected"
             {% endifequal %}
             >----
             </option>
-            {% for o in plugin_result.idc %}
-                <option value="{{ o.id }}" {% ifequal o.id kwargs.idc|str_to_int %}
+            {% for o in idclist %}
+                <option value="{{ o.id }}" {% ifequal o.id idc|str_to_int %}
                         selected="selected"
                 {% endifequal %}
 
@@ -60,9 +60,10 @@
                 <td>{{ o.update_time }}</td>
                 <td>
                     <a href="{{ o.id }}/cabinet_edit/"
-                       class="btn  btn-sm btn-info">编辑</a>
-                    <a href="{{ o.id }}/delete_entity/"
-                       class="btn  btn-sm btn-danger">删除</a>
+                       class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
+                    <a href="javascript:void(0)"
+                       onclick="deleteAction('{{ o.id }}')"
+                       class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
                 </td>
             </tr>
         {% endfor %}

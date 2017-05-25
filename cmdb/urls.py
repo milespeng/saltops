@@ -2,7 +2,6 @@ from django.conf.urls import include, url
 
 from cmdb.c_views import *
 from cmdb.views import *
-from common import views
 from common.common_views import *
 
 urlpatterns = [
@@ -17,71 +16,27 @@ urlpatterns = [
 
     # ISP
     url(r'^isp_list/', include([
-        url(r'(?P<pk>\d+)/isp_edit_action/', simple_edit_action),
-        url(r'(?P<pk>\d+)/isp_edit/', simple_edit),
-        url(r'isp_add_action/', simple_add_action),
-        url(r'isp_add/', simple_add),
-        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
-        url(r'batch_delete_entity/', simple_batch_delete_entity),
-        url(r'$', simple_list),
-    ]), {
-            'args': {
-                'modulename': 'cmdb.models',
-                'modelname': 'ISP',
-                'list_url': '/frontend/cmdb/isp_list/',
-                'form_template_path': 'common/basic_form.html',
-                'template_path': 'cmdb/isp_list.html',
-                'add_title': '新增ISP',
-                'add_action': '/frontend/cmdb/isp_list/isp_add_action/',
-                'edit_title': '编辑ISP',
-                'edit_action': '/frontend/cmdb/isp_list/%s/isp_edit_action/',
-            }}),
+        url(r'^delete_entity/', ISPDeleteView.as_view(), name='isp_delete'),
+        url(r'^(?P<pk>\d+)/isp_edit/', ISPUpdateView.as_view(), name='isp_edit'),
+        url(r'^isp_add/', ISPCreateView.as_view(), name='isp_add'),
+        url(r'^$', ISPView.as_view(), name='isp_list'),
+    ])),
 
     # IDC
     url(r'^idc_list/', include([
-        url(r'idc_add/', simple_add),
-        url(r'idc_add_action/', simple_add_action),
-        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
-        url(r'(?P<pk>\d+)/idc_edit/', simple_edit),
-        url(r'(?P<pk>\d+)/idc_edit_action/', simple_edit_action),
-        url(r'batch_delete_entity/', simple_batch_delete_entity),
-        url(r'$', simple_list),
-    ]), {
-            'args': {
-                'modulename': 'cmdb.models',
-                'modelname': 'IDC',
-                'list_url': '/frontend/cmdb/idc_list/',
-                'form_template_path': 'common/basic_form.html',
-                'template_path': 'cmdb/idc_list.html',
-                'add_title': '新增机房',
-                'add_action': '/frontend/cmdb/idc_list/idc_add_action/',
-                'edit_title': '编辑机房',
-                'edit_action': '/frontend/cmdb/idc_list/%s/idc_edit_action/',
-                'plugin_name': 'idc_list_plugin'
-            }}),
+        url(r'^delete_entity/', IDCDeleteView.as_view(), name='idc_delete'),
+        url(r'^(?P<pk>\d+)/idc_edit/', IDCUpdateView.as_view(), name='idc_edit'),
+        url(r'^idc_add/', IDCCreateView.as_view(), name='idc_add'),
+        url(r'^$', IDCView.as_view(), name='idc_list'),
+    ])),
 
     # 机柜
     url(r'^cabinet_list/', include([
-        url(r'cabinet_add/', simple_add),
-        url(r'cabinet_add_action/', simple_add_action),
-        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
-        url(r'(?P<pk>\d+)/cabinet_edit/', simple_edit),
-        url(r'(?P<pk>\d+)/cabinet_edit_action/', simple_edit_action),
-        url(r'batch_delete_entity/', simple_batch_delete_entity),
-        url(r'$', simple_list),
-    ]), {
-            'args': {
-                'modulename': 'cmdb.models',
-                'modelname': 'Cabinet',
-                'list_url': '/frontend/cmdb/cabinet_list/',
-                'form_template_path': 'common/basic_form.html',
-                'template_path': 'cmdb/cabinet_list.html',
-                'add_title': '新增机柜',
-                'add_action': '/frontend/cmdb/cabinet_list/cabinet_add_action/',
-                'edit_title': '编辑机柜',
-                'edit_action': '/frontend/cmdb/cabinet_list/%s/cabinet_edit_action/',
-                'plugin_name': 'idc_list_plugin'
-            }}),
+        url(r'^delete_entity/', CabinetDeleteView.as_view(), name='cabinet_delete'),
+        url(r'^(?P<pk>\d+)/cabinet_edit/', CabinetUpdateView.as_view(), name='cabinet_edit'),
+        url(r'^cabinet_add/', CabinetCreateView.as_view(), name='cabinet_add'),
+        url(r'^$', CabinetView.as_view(), name='cabinet_list'),
+    ])),
 
     url(r'^rack_list/(?P<idc_id>\d+)/(?P<cabinet_id>\d+)/load_rack_list/', load_rack_list),
     url(r'^rack_list/(?P<pk>\d+)/load_cabinet_list/', load_cabinet_list),
