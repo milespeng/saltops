@@ -40,8 +40,8 @@ urlpatterns = [
 
     # 机架
     url('^rack_list/', include([
-        url(r'^load_cabinet_list/', LoadCabinetListView.as_view(), name='load_cabinet_list'),
-        url(r'^load_rack_list/', LoadRackListView.as_view(), 'load_rack_list'),
+        url(r'^load_cabinet_list/', LoadCabinetListView.as_view()),
+        url(r'^load_rack_list/', LoadRackListView.as_view()),
         url(r'^delete_entity/', RackDeleteView.as_view(), name='rack_delete'),
         url(r'^(?P<pk>\d+)/rack_edit/', RackUpdateView.as_view(), name='rack_edit'),
         url(r'^rack_add/', RackCreateView.as_view(), name='rack_add'),
@@ -50,50 +50,20 @@ urlpatterns = [
 
     # 主机组
     url('^hostgroup_list/', include([
-        url(r'hostgroup_add/', simple_add),
-        url(r'hostgroup_add_action/', simple_add_action),
-        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
-        url(r'(?P<pk>\d+)/hostgroup_edit/', simple_edit),
-        url(r'(?P<pk>\d+)/hostgroup_edit_action/', simple_edit_action),
-        url(r'batch_delete_entity/', simple_batch_delete_entity),
-        url(r'$', simple_list),
-    ]), {
-            'args': {
-                'modulename': 'cmdb.models',
-                'modelname': 'HostGroup',
-                'list_url': '/frontend/cmdb/hostgroup_list/',
-                'form_template_path': 'common/basic_form.html',
-                'template_path': 'cmdb/hostgroup_list.html',
-                'add_title': '新增主机组',
-                'add_action': '/frontend/cmdb/hostgroup_list/hostgroup_add_action/',
-                'edit_title': '编辑主机组',
-                'edit_action': '/frontend/cmdb/hostgroup_list/%s/hostgroup_edit_action/',
-            }}),
+        url(r'^delete_entity/', HostGroupDeleteView.as_view(), name='hostgroup_delete'),
+        url(r'^(?P<pk>\d+)/hostgroup_edit/', HostGroupUpdateView.as_view(), name='hostgroup_edit'),
+        url(r'^hostgroup_add/', HostGroupCreateView.as_view(), name='hostgroup_add'),
+        url(r'^$', HostGroupView.as_view(), name='hostgroup_list'),
+    ])),
 
-    url(r'host_list/scan_host_job/', scan_host_job),
     # 主机
     url('^host_list/', include([
-        url(r'host_add/', simple_add),
-        url(r'host_add_action/', host_add_action),
-        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
-        url(r'(?P<pk>\d+)/host_edit/', simple_edit),
-        url(r'(?P<pk>\d+)/host_edit_action/', host_edit_action),
-        url(r'batch_delete_entity/', simple_batch_delete_entity),
-        url(r'$', host_list),
-    ]), {
-            'args': {
-                'modulename': 'cmdb.models',
-                'modelname': 'Host',
-                'list_url': '/frontend/cmdb/host_list/',
-                'form_template_path': 'cmdb/host_form.html',
-                'template_path': 'cmdb/host_list.html',
-                'add_title': '新增主机',
-                'add_action': '/frontend/cmdb/host_list/host_add_action/',
-                'edit_title': '编辑主机',
-                'edit_action': '/frontend/cmdb/host_list/%s/host_edit_action/',
-                'edit_form_plugin': 'host_edit_form_plugin',
-                'add_form_plugin': 'host_add_form_plugin'
-            }}),
+        url(r'host_list/scan_host_job/', ScanHostJobView.as_view()),
+        url(r'^delete_entity/', HostDeleteView.as_view(), name='host_delete'),
+        url(r'^(?P<pk>\d+)/host_edit/', HostUpdateView.as_view(), name='host_edit'),
+        url(r'^host_add/', HostCreateView.as_view(), name='host_add'),
+        url(r'^$', HostView.as_view(), name='host_list'),
+    ])),
 
     # 资产导入
     url(r'assert_import/upload_file/', upload_file),

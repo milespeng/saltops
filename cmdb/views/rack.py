@@ -67,12 +67,16 @@ class RackDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
 
 class LoadCabinetListView(JSONResponseMixin, AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
-        result = Cabinet.objects.filter(idc=int(request.GET.get('idc_id')))
+        idc_id = request.GET.get('idc_id')
+        if idc_id:
+            result = Cabinet.objects.filter(idc=int(idc_id))
         return self.render_json_object_response(result)
 
 
 class LoadRackListView(JSONResponseMixin, AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
-        result = Rack.objects.filter(idc=int(request.GET.get('idc_id')),
-                                     cabinet=int(request.GET.get('cabinet_id')))
+        idc_id = request.GET.get('idc_id')
+        cabinet_id = request.GET.get('cabinet_id')
+        result = Rack.objects.filter(idc=int(idc_id),
+                                     cabinet=int(cabinet_id))
         return self.render_json_object_response(result)

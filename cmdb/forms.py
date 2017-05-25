@@ -33,3 +33,22 @@ class RackForm(forms.ModelForm):
     class Meta:
         model = Rack
         fields = ['idc', 'cabinet', 'name']
+
+
+class HostGroupForm(forms.ModelForm):
+    class Meta:
+        model = HostGroup
+        fields = ['parent', 'name']
+
+
+class HostForm(forms.ModelForm):
+    class Meta:
+        model = Host
+        fields = ['host_group', 'host', 'host_name', 'kernel', 'kernel_release',
+                  'virtual', 'osrelease', 'saltversion', 'osfinger',
+                  'os_family', 'num_gpus', 'system_serialnumber',
+                  'cpu_model', 'productname', 'osarch', 'cpuarch',
+                  'os', 'mem_total', 'num_cpus', 'idc', 'cabinet',
+                  'rack', 'minion_status', 'enable_ssh', 'ssh_username',
+                  'ssh_password', 'enable_sudo'
+                  ]
