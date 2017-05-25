@@ -27,3 +27,9 @@ class CabinetForm(forms.ModelForm):
     class Meta:
         model = Cabinet
         fields = ['idc', 'name']
+
+
+class RackForm(forms.ModelForm):
+    class Meta:
+        model = Rack
+        fields = ['idc', 'cabinet', 'name']

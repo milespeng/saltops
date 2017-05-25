@@ -38,32 +38,15 @@ urlpatterns = [
         url(r'^$', CabinetView.as_view(), name='cabinet_list'),
     ])),
 
-    url(r'^rack_list/(?P<idc_id>\d+)/(?P<cabinet_id>\d+)/load_rack_list/', load_rack_list),
-    url(r'^rack_list/(?P<pk>\d+)/load_cabinet_list/', load_cabinet_list),
     # 机架
     url('^rack_list/', include([
-        url(r'rack_add/', simple_add),
-        url(r'rack_add_action/', simple_add_action),
-        url(r'(?P<pk>\d+)/delete_entity/', simple_delete_entity),
-        url(r'(?P<pk>\d+)/rack_edit/', simple_edit),
-        url(r'(?P<pk>\d+)/rack_edit_action/', simple_edit_action),
-        url(r'batch_delete_entity/', simple_batch_delete_entity),
-        url(r'$', simple_list),
-    ]), {
-            'args': {
-                'modulename': 'cmdb.models',
-                'modelname': 'Rack',
-                'list_url': '/frontend/cmdb/rack_list/',
-                'form_template_path': 'cmdb/rack_form.html',
-                'template_path': 'cmdb/rack_list.html',
-                'add_title': '新增机架',
-                'add_action': '/frontend/cmdb/rack_list/rack_add_action/',
-                'edit_title': '编辑机架',
-                'edit_action': '/frontend/cmdb/rack_list/%s/rack_edit_action/',
-                'plugin_name': 'idc_list_plugin',
-                'edit_form_plugin': 'rack_edit_form_plugin',
-                'add_form_plugin': 'rack_add_form_plugin'
-            }}),
+        url(r'^load_cabinet_list/', LoadCabinetListView.as_view(), name='load_cabinet_list'),
+        url(r'^load_rack_list/', LoadRackListView.as_view(), 'load_rack_list'),
+        url(r'^delete_entity/', RackDeleteView.as_view(), name='rack_delete'),
+        url(r'^(?P<pk>\d+)/rack_edit/', RackUpdateView.as_view(), name='rack_edit'),
+        url(r'^rack_add/', RackCreateView.as_view(), name='rack_add'),
+        url(r'^$', RackView.as_view(), name='rack_list'),
+    ])),
 
     # 主机组
     url('^hostgroup_list/', include([
