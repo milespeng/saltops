@@ -43,7 +43,8 @@
                 <td>
                     <a href="/frontend/tools_manager/tools_types_list/{{ o.id }}/tools_types_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
-                    <a href="/frontend/tools_manager/tools_types_list/{{ o.id }}/delete_entity/"
+                    <a href="javascript:void(0)"
+                       onclick="deleteAction('{{ o.id }}')"
                        class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
                 </td>
             </tr>

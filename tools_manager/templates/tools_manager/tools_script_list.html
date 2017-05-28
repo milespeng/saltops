@@ -112,11 +112,12 @@
 
                     <a href="{{ o.id }}/tools_script_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
-                    <a href="{{ o.id }}/tool_execute/"
+                    <a href="tool_execute/?pk={{ o.id }}"
                        class="btn  btn-sm btn-primary"><i class="fa fa-play"></i>执行</a>
-                    <a href="{{ o.id }}/tool_execute_history/"
+                    <a href="tool_execute_history/?pk={{ o.id }}"
                        class="btn  btn-sm btn-success"><i class="fa fa-expand"></i>历史</a>
-                    <a href="{{ o.id }}/delete_entity/"
+                    <a href="javascript:void(0)"
+                       onclick="deleteAction('{{ o.id }}')"
                        class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
                 </td>
             </tr>

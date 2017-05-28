@@ -46,7 +46,7 @@ urlpatterns = [
     url(r'^mainform/$', views.mainform, name='mainform'),
     url(r'^dashboard/$', views.dashboard, name='mainform'),
     url(r'^frontend/cmdb/', include('cmdb.urls', namespace='cmdb')),
-    url(r'^frontend/tools_manager/', include('tools_manager.urls')),
+    url(r'^frontend/tools_manager/', include('tools_manager.urls', namespace='tools_manager')),
     url(r'^frontend/deploy_manager/', include('deploy_manager.urls'))
 ]
 

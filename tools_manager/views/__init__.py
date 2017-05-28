@@ -1,9 +1,8 @@
-from django.template.defaultfilters import register
-from django.utils.safestring import mark_safe
-
-from tools_manager.models import *
 from tools_manager.models.ToolsScript import TOOL_RUN_TYPE
+from .tools_types import *
 from .tools_script import *
+
+from django.template.defaultfilters import register
 
 
 @register.filter()

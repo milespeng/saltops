@@ -64,6 +64,22 @@
                             <div id="result">
 
                             </div>
+                            <script type="text/template" id="tpl">
+                                <h3>执行结果</h3>
+                                <% _.each(result, function (item) { %>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><%= item.host%></label>
+                                    <div class="col-sm-10">
+                                        <div class="col-sm-10" class="form-control">
+                                            <%=item.exec_result%>
+                                            <br/>
+                                            <p>其他信息:</p>
+                                            <%=item.err_msg%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }); %>
+                            </script>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
                                     <a href="javascript:void(0)" class="btn btn-primary"
@@ -78,7 +94,9 @@
         </div>
     </div>
     <script src="/static/asserts/require.js"></script>
+    <script src="/static/asserts/underscore-min.js"></script>
     <script>
+        var result = []
         function execute() {
             layer.load();
             var hosts_id = $('#hosts').val();
@@ -107,21 +125,13 @@
                     '{{ v }}': $('#{{ v }}').val()
                 {% endfor %}
             }, function (rs) {
-                $('#result').empty()
-                debugger;
-                var obj = JSON.parse(rs)
-                var content = "<h3>执行结果</h3>"
-                for (var i = 0; i < obj.length; i++) {
-                    content += '<div class="form-group">' +
-                        ' <label class="col-sm-2 control-label"> ' + obj[i].host + '</label>' +
-                        '<div class="col-sm-10">' +
-                        '<div class="col-sm-10" class="form-control"></div>' +
-                        obj[i].exec_result.replace(/\n/g, "<br/>") +
-                        '<br/><p>其他信息:</p>' +
-                        obj[i].err_msg.replace(/\n/g, "<br/>") +
-                        '</div> </div>'
+                result = rs;
+                for (var i = 0; i < result.length; i++) {
+                    result[i].exec_result = result[i].exec_result.replace(/\n/g, "<br/>")
+                    result[i].err_msg = result[i].err_msg.replace(/\n/g, "<br/>")
                 }
-                $('#result').append(content)
+                debugger;
+                $('#result').html(_.template($('#tpl').html(), result));
                 layer.closeAll('loading');
             })
         }
