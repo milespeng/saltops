@@ -24,6 +24,7 @@ from rest_framework import routers
 
 # from deploy_manager.serializer import UserViewSet
 from common import views
+from common.views import LoginView
 from deploy_manager.views import *
 from saltops import settings
 
@@ -38,7 +39,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^chaining/', include('smart_selects.urls')),
     url('^searchableselect/', include('searchableselect.urls')),
-    url(r'^$', views.index, name='index'),
+    url(r'^$', LoginView.as_view(), name='index'),
     url(r'^checkLogin/$', views.checkLogin, name='checkLogin'),
     url(r'^mainform/$', views.mainform, name='mainform'),
     url(r'^dashboard/$', views.dashboard, name='mainform'),

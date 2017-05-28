@@ -1,7 +1,5 @@
 from django.conf.urls import include, url
 
-from deploy_manager.c_views import *
-from common.common_views import *
 from deploy_manager.views import *
 
 urlpatterns = [

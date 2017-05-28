@@ -9,7 +9,6 @@ from django.utils.safestring import mark_safe
 from django.views.generic import *
 
 from cmdb.models import HostGroup, Host
-from common.pageutil import preparePage
 from saltjob.tasks import execTools
 from saltops.settings import PER_PAGE
 from tools_manager.forms import *

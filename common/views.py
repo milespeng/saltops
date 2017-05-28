@@ -11,21 +11,19 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.views.generic import TemplateView
 
 from cmdb.models import Host
 from deploy_manager.models import Project
 
 
-def index(request):
-    """
-    登录页面
-    :param request:
-    :return:
-    """
-    context = {}
-    if 'type' in request.GET:
-        context['type'] = request.GET['type']
-    return render(request, 'common/index.html', context)
+class LoginView(TemplateView):
+    template_name = 'common/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LoginView, self).get_context_data(**kwargs)
+        context['type'] = self.request.GET.get('type', '')
+        return context
 
 
 def checkLogin(request):
