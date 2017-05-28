@@ -7,13 +7,13 @@
 {% block list_filter %}
     <div class="col-sm-2">
         <select class="form-control m-b" name="parent">
-            <option value="" {% ifequal '' kwargs.parent %}
+            <option value="" {% ifequal '' parent %}
                     selected="selected"
             {% endifequal %}
             >上级业务模块
             </option>
-            {% for o in plugin_result.project_module %}
-                <option value="{{ o.id }}" {% ifequal o.id kwargs.parent|str_to_int %}
+            {% for o in project_module %}
+                <option value="{{ o.id }}" {% ifequal o.id parent|str_to_int %}
                         selected="selected"
                 {% endifequal %}
 
@@ -62,7 +62,8 @@
 
                     <a href="{{ o.id }}/project_module_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
-                    <a href="{{ o.id }}/delete_entity/"
+                    <a href="javascript:void(0)"
+                       onclick="deleteAction('{{ o.id }}')"
                        class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
                 </td>
             </tr>

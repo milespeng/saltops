@@ -14,11 +14,10 @@
                     </div>
                     <div class="ibox-content">
                         <form method="post" enctype="multipart/form-data"
-                              action="/frontend/deploy_manager/project_list/project_version_add_action/"
                               onsubmit="return preSubmit()"
                               class="form-horizontal">
                             {% csrf_token %}
-                            <input type="hidden" id="id" name="id" value="{{ pk }}"/>
+                            <input type="hidden" id="pid" name="pid" value="{{ pk }}"/>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> {{ form.name.label_tag }}</label>
                                 <div class="col-sm-10">
@@ -96,7 +95,7 @@
                                     <th style="width: 7%;">{{ project_version.name }}</th>
                                     {#                                    <th style="width: 7%;"><a#}
                                     {#                                            href="{{ project_version.files }}">{{ project_version.files }}</a></th>#}
-                                    <th style="width: 5%;">{{ project_version.is_default|bool_to_int }}</th>
+                                    <th style="width: 5%;">{{ project_version.is_default|bool_to_human }}</th>
                                     <th style="width: 5%;">{{ project_version.id|sub_jobscript_filter }}</th>
                                     <th style="width:5%;">
                                         <a href="javascript:void(0)"
@@ -107,12 +106,10 @@
                             {% endfor %}
                             <script>
                                 function removeVersion(id, content) {
-                                    $.get('/frontend/deploy_manager/project_list/' + id + '/delete_project_version/', function (rs) {
-                                        debugger;
+                                    $.get('/frontend/deploy_manager/project_list/delete_project_version/?id=' + id, function (rs) {
                                         var obj = $($(content).parent()[0]).parent()[0]
                                         obj.remove()
                                     })
-
                                 }
                             </script>
                             </tbody>

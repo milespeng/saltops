@@ -7,8 +7,8 @@
 {% block list_filter %}
     <div class="col-sm-3">
         <div class="input-group">
-            <input type="text" name="name__contains" placeholder="业务名称"
-                   value="{{ kwargs.name__contains }}"
+            <input type="text" name="name" placeholder="业务名称"
+                   value="{{ name }}"
                    class="input-sm form-control">
 
         </div>
@@ -60,26 +60,18 @@
                 <td>
                     <a href="{{ o.id }}/project_edit/"
                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>配置</a>
-                    <a href="{{ o.id }}/project_deploy/"
+                    <a href="project_deploy/?pk={{ o.id }}"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>部署</a>
-                    <a href="{{ o.id }}/project_version/"
+                    <a href="project_version/?pk={{ o.id }}"
                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>版本</a>
                     <a href="{{ o.id }}/project_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
-                    <a href="{{ o.id }}/delete_entity/"
+                    <a href="javascript:void(0)"
+                       onclick="deleteAction('{{ o.id }}')"
                        class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
                 </td>
             </tr>
         {% endfor %}
-        <script>
-            function deploy(id) {
-                layer.load();
-                $.get('{{ o.id }}/project_deploy/', function () {
-                    location.reload()
-                    layer.closeAll('loading');
-                })
-            }
-        </script>
         </tbody>
     </table>
 {% endblock %}

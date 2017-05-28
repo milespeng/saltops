@@ -28,9 +28,6 @@ from deploy_manager.views import *
 from saltops import settings
 
 router = routers.DefaultRouter()
-router.register(r'projectversionViewSet', ProjectVersionViewSet)
-router.register(r'projectViewSet', ProjectViewSet)
-router.register(r'deployJobViewSet', DeployJobViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
@@ -47,7 +44,7 @@ urlpatterns = [
     url(r'^dashboard/$', views.dashboard, name='mainform'),
     url(r'^frontend/cmdb/', include('cmdb.urls', namespace='cmdb')),
     url(r'^frontend/tools_manager/', include('tools_manager.urls', namespace='tools_manager')),
-    url(r'^frontend/deploy_manager/', include('deploy_manager.urls'))
+    url(r'^frontend/deploy_manager/', include('deploy_manager.urls', namespace='deploy_manager'))
 ]
 
 # if settings.DEBUG:

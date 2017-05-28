@@ -49,19 +49,22 @@
                                         </thead>
                                         <tbody>
                                         {% for o in project_host_group %}
-                                            <td>{{ o.hostgroup.name }}</td>
-                                            <td>
-                                                <a href="javascript:void(0)"
-                                                   onclick="uninstallHostGroup('{{ o.id }}','{{ pk }}')"
-                                                   class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
-                                            </td>
+                                            <tr id="hg{{ o.id }}">
+                                                <td>{{ o.hostgroup.name }}</td>
+                                                <td>
+                                                    <a href="javascript:void(0)"
+                                                       onclick="uninstallHostGroup('{{ o.id }}','{{ pk }}')"
+                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
+                                                </td>
+                                            </tr>
                                         {% endfor %}
                                         </tbody>
                                     </table>
                                     <script>
                                         function uninstallHostGroup(id, pk) {
                                             layer.load();
-                                            $.get('/frontend/deploy_manager/project_list/' + id + '/' + pk + '/project_hostgroup_undeploy_action/', function (rs) {
+                                            $.get('project_hostgroup_undeploy_action/?pk=' + id, function (rs) {
+                                                $('#hg' + id).remove()
                                                 layer.closeAll('loading');
                                             })
                                         }
@@ -93,21 +96,60 @@
                                         </thead>
                                         <tbody>
                                         {% for o in project_host %}
-                                            <td>{{ o.host_name }}</td>
-                                            <td>
-                                                <a href="javascript:void(0)"
-                                                   onclick="uninstall_host_group('{{ o.id }}')"
-                                                   class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
-                                            </td>
+                                            <tr id="h{{ o.id }}">
+                                                <td>{{ o.host.host_name }}</td>
+                                                <td>
+                                                    <a href="javascript:void(0)"
+                                                       onclick="uninstall_host('{{ o.id }}')"
+                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
+                                                </td>
+                                            </tr>
                                         {% endfor %}
                                         </tbody>
                                     </table>
+                                    <script>
+                                        function uninstall_host(id) {
+                                            layer.load();
+                                            $.get('project_host_undeploy_action/?pk=' + id, function (rs) {
+                                                $('#h' + id).remove()
+                                                layer.closeAll('loading');
+                                            })
+                                        }
+                                    </script>
                                 </div>
                             </div>
                             <div class="hr-line-dashed" id="result_line"></div>
                             <div id="result">
 
                             </div>
+                            <script type="text/template" id="tpl">
+                                <% _.each(result, function (item) { %>
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <div class="col-sm-10" class="form-control">
+                                            <label class="col-sm-2 control-label"><%=item.host_name%></label>'
+                                            <div class="col-sm-10" class="form-control">
+                                                <%=item.is_success%>
+                                                <a href="javascript:void(0)"
+                                                   onclick="showContent('<%=item.host_name.trim()%>')">显示详情</a>
+                                                <div style="display:none" id="<%=item.host_name%>">
+                                                    <% _.each(item.result, function (subitem) { %>
+                                                    部署结果:<%=subitem.deploy_message%>
+                                                    <br/>
+                                                    作业命令：<%=subitem.job_cmd%>
+                                                    <br/>
+                                                    异常信息：<%=subitem.stderr%>
+                                                    <br/>
+                                                    执行状态：<%=subitem.is_success%>
+                                                    <hr/>
+                                                    <% }); %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }); %>
+                            </script>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
                                     <a href="javascript:void(0)" class="btn btn-primary"
@@ -124,6 +166,7 @@
     </div>
 
     <script>
+        var result = []
         function execute() {
             layer.load();
             var hosts_id = $('#hosts').val();
@@ -143,7 +186,7 @@
                 }
                 hostsgroup_str = hostsgroup_str.substr(0, hostsgroup_str.length - 1)
             }
-            $.post('/frontend/deploy_manager/project_list/{{ pk }}/project_deploy_action/', {
+            $.post('/frontend/deploy_manager/project_list/project_deploy_action/?pk={{ pk }}', {
                 'hostids': hosts_str,
                 'hostgroup_ids': hostsgroup_str,
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
@@ -151,39 +194,8 @@
                     '{{ v }}': $('#{{ v }}').val()
                 {% endfor %}
             }, function (rs) {
-                $('#result').empty()
-                var obj = JSON.parse(rs)
-                var content = ""
-
-                for (var k = 0; k < obj.jobDetails.length; k++) {
-                    content += '<div class="form-group">' +
-                        ' <label class="col-sm-2 control-label"> ' + obj.jobDetails[k].host_name + '</label>' +
-                        '<div class="col-sm-10" class="form-control">' + obj.jobDetails[k].is_success +
-                        '    <a href="javascript:void(0)" onclick="showContent(\'' + obj.jobDetails[k].host_name.trim() + '\')">显示详情</a>'
-                    content += '<div style="display:none" id="' + obj.jobDetails[k].host_name + '">'
-                    for (var j = 0; j < obj.jobDetails[k].result.length; j++) {
-                        content +=
-                            '部署信息:' +
-                            obj.jobDetails[k].result[j].deploy_message +
-                            '<br/>' +
-                            '作业命令:' +
-                            obj.jobDetails[k].result[j].job_cmd +
-                            '<br/>' +
-                            '<br/>' +
-                            '异常信息:' +
-                            obj.jobDetails[k].result[j].stderr +
-                            '<br/>' +
-                            '其他信息:' +
-                            obj.jobDetails[k].result[j].comment +
-                            '<br/>' +
-                            '执行状态:' +
-                            obj.jobDetails[k].result[j].is_success +
-                            '<hr/>'
-                    }
-                    content += '</div> </div></div>'
-                }
-
-                $('#result').append(content)
+                result = rs.jobDetails
+                $('#result').html(_.template($('#tpl').html(), result));
                 layer.closeAll('loading');
             })
         }

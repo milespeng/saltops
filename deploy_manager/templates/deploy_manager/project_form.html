@@ -13,7 +13,7 @@
                         </h5>
                     </div>
                     <div class="ibox-content">
-                        <form method="post" action="{{ action }}" onsubmit="return preSubmit()" class="form-horizontal">
+                        <form method="post" onsubmit="return preSubmit()" class="form-horizontal">
                             {% csrf_token %}
                             <input type="hidden" id="id" name="id" value="{{ pk }}"/>
                             <div class="form-group">

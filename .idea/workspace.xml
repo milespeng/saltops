@@ -6,23 +6,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/asserts/underscore-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/views/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/views/tools_script.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools_manager/views/tools_types.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/asserts/template-web.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/c_views/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools_manager/c_views/tools_script.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/forms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/views/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/views/project.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deploy_manager/views/project_module.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/templates/common/basic_layout.html" afterPath="$PROJECT_DIR$/common/templates/common/basic_layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_list.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/urls.py" afterPath="$PROJECT_DIR$/deploy_manager/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/urls.py" afterPath="$PROJECT_DIR$/saltops/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_list.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_list.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/urls.py" afterPath="$PROJECT_DIR$/tools_manager/urls.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,24 +91,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools_manager/views/__init__.py">
+      <file leaf-file-name="project.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deploy_manager/views/project.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+            <state relative-caret-position="168">
+              <caret line="105" column="56" lean-forward="false" selection-start-line="105" selection-start-column="56" selection-end-line="105" selection-end-column="56" />
               <folding>
-                <element signature="e#0#58#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tools_manager/urls.py">
+      <file leaf-file-name="ProjectHost.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectHost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+            <state relative-caret-position="92">
+              <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Host.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmdb/models/Host.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project_deploy_form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="112" column="84" lean-forward="false" selection-start-line="112" selection-start-column="84" selection-end-line="112" selection-end-column="84" />
+              <folding>
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy_manager/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="27" column="61" lean-forward="false" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="44" column="49" lean-forward="false" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,9 +170,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>package</find>
-      <find>获取目标主机信息,目标部署主机共1台</find>
-      <find>获取目标主机信息,目标部署主机共</find>
       <find>/sr</find>
       <find>PACKAGE_PATH</find>
       <find>metisMenu</find>
@@ -155,12 +195,13 @@
       <find>IDCLevel</find>
       <find>is_add</find>
       <find>MINION_STATUS</find>
-      <find>ISP</find>
       <find>ToolsTypes</find>
+      <find>ISP</find>
+      <find>ProjectModule</find>
+      <find>bool_to_int</find>
+      <find>uninstall_host_group</find>
     </findStrings>
     <replaceStrings>
-      <replace>print</replace>
-      <replace>dataResult</replace>
       <replace>list</replace>
       <replace>listresult_list</replace>
       <replace>idc</replace>
@@ -189,6 +230,8 @@
       <replace>Host</replace>
       <replace>ToolsTypes</replace>
       <replace>ToolsScript</replace>
+      <replace>ProjectModule</replace>
+      <replace>Project</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/templates/admin</dir>
@@ -213,17 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/common/templates/common/pagination.html" />
-        <option value="$PROJECT_DIR$/cmdb/models/IDCLevel.py" />
-        <option value="$PROJECT_DIR$/common/common_views.py" />
-        <option value="$PROJECT_DIR$/common/mixins.py" />
-        <option value="$PROJECT_DIR$/saltops/settings.py" />
-        <option value="$PROJECT_DIR$/common/templates/common/basic_form.html" />
-        <option value="$PROJECT_DIR$/cmdb/templates/cmdb/idc_level_form.html" />
-        <option value="$PROJECT_DIR$/common/templates/common/basic_list.html" />
-        <option value="$PROJECT_DIR$/cmdb/templates/cmdb/isp_form.html" />
-        <option value="$PROJECT_DIR$/cmdb/templates/cmdb/idc_level_list.html" />
-        <option value="$PROJECT_DIR$/cmdb/templates/cmdb/isp_list.html" />
         <option value="$PROJECT_DIR$/cmdb/templates/cmdb/idc_form.html" />
         <option value="$PROJECT_DIR$/cmdb/models/IDC.py" />
         <option value="$PROJECT_DIR$/common/__init__.py" />
@@ -250,10 +282,8 @@
         <option value="$PROJECT_DIR$/cmdb/views/__init__.py" />
         <option value="$PROJECT_DIR$/cmdb/urls.py" />
         <option value="$PROJECT_DIR$/cmdb/views/assert_import.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_form.html" />
         <option value="$PROJECT_DIR$/tools_manager/views/tools_types.py" />
-        <option value="$PROJECT_DIR$/saltops/urls.py" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_list.html" />
         <option value="$PROJECT_DIR$/tools_manager/forms.py" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_list.html" />
@@ -261,9 +291,22 @@
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html" />
         <option value="$PROJECT_DIR$/static/asserts/knockout-3.4.2.js" />
         <option value="$PROJECT_DIR$/static/asserts/underscore-min.js" />
-        <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html" />
         <option value="$PROJECT_DIR$/tools_manager/views/__init__.py" />
         <option value="$PROJECT_DIR$/tools_manager/urls.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_form.html" />
+        <option value="$PROJECT_DIR$/saltops/urls.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/views/__init__.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/forms.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_list.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/views/project_module.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html" />
+        <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html" />
+        <option value="$PROJECT_DIR$/common/templates/common/basic_layout.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/urls.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/views/project.py" />
       </list>
     </option>
   </component>
@@ -302,6 +345,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -317,7 +361,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,19 +380,19 @@
     <property name="node.js.selected.package.eslint" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/deploy_manager/views" />
+      <recent name="$PROJECT_DIR$/deploy_manager/templates/deploy_manager" />
+      <recent name="$PROJECT_DIR$/tools_manager/views" />
+      <recent name="$PROJECT_DIR$/tools_manager/templates/tools_manager" />
+      <recent name="$PROJECT_DIR$/cmdb/views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/cmdb/templates/cmdb" />
       <recent name="D:\github\saltops\static\asserts" />
       <recent name="$PROJECT_DIR$/doc/wiki/img" />
       <recent name="$PROJECT_DIR$/tools_manager/templates/tools_manager" />
       <recent name="$PROJECT_DIR$/doc/img" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tools_manager/views" />
-      <recent name="$PROJECT_DIR$/tools_manager/templates/tools_manager" />
-      <recent name="$PROJECT_DIR$/cmdb/views" />
-      <recent name="$PROJECT_DIR$/cmdb/templates/cmdb" />
-      <recent name="$PROJECT_DIR$/cmdb/templates/frontend" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -939,13 +982,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00216" summary="工具执行">
-      <created>1493911479146</created>
-      <option name="number" value="00216" />
-      <option name="presentableId" value="LOCAL-00216" />
-      <option name="project" value="LOCAL" />
-      <updated>1493911479146</updated>
-    </task>
     <task id="LOCAL-00217" summary="#69">
       <created>1493994987921</created>
       <option name="number" value="00217" />
@@ -1282,7 +1318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495945560264</updated>
     </task>
-    <option name="localTasksCounter" value="265" />
+    <task id="LOCAL-00265" summary="工具模块使用CBV和underscore重构">
+      <created>1495963830678</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1495963830678</updated>
+    </task>
+    <option name="localTasksCounter" value="266" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1329,15 +1372,15 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-1" width="1294" height="768" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2003231" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.226979" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32636815" sideWeight="0.50532484" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27625203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13070866" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35905513" sideWeight="0.4888179" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13070866" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.4888179" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43622047" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43622047" sideWeight="0.4946752" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46614173" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1346,7 +1389,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48188975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1359,14 +1402,14 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32636815" sideWeight="0.50532484" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13070866" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35905513" sideWeight="0.4888179" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43622047" sideWeight="0.4946752" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1720517" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13070866" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39502487" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.4888179" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43622047" sideWeight="0.4946752" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.226979" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27625203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27625203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48188975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1391,7 +1434,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="更新依赖" />
     <MESSAGE value="样板配置文件" />
     <MESSAGE value="Dockerfile" />
     <MESSAGE value="移除管理界面" />
@@ -1416,7 +1458,8 @@
     <MESSAGE value="机架" />
     <MESSAGE value="主机" />
     <MESSAGE value="CMDB模块采用CBV模式重构" />
-    <option name="LAST_COMMIT_MESSAGE" value="CMDB模块采用CBV模式重构" />
+    <MESSAGE value="工具模块使用CBV和underscore重构" />
+    <option name="LAST_COMMIT_MESSAGE" value="工具模块使用CBV和underscore重构" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1430,7 +1473,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="576" />
+      <option name="time" value="579" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
@@ -1447,143 +1490,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/host_group.py" />
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/cabinet.py" />
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/idc.py" />
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/rack.py" />
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/cabinet_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/hostgroup_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/models/HostGroup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/hostgroup_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="46" column="87" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="46" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/models/Host.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/host_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/host.py" />
-    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/host_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="44" column="59" lean-forward="false" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/cabinet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="45" column="24" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/host.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="94" column="22" lean-forward="false" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/idc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/idclevel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/rack.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/c_views/assert_import.py" />
-    <entry file="file://$PROJECT_DIR$/cmdb/views/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/assert_import.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="9" column="51" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/host_group.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools_manager/models/ToolsTypes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1591,23 +1501,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="40" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="66" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="11" selection-end-column="66" />
           <folding>
-            <element signature="e#0#41#0" expanded="false" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1629,36 +1525,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saltops/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="48" column="62" lean-forward="false" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="47" column="87" lean-forward="false" selection-start-line="47" selection-start-column="87" selection-end-line="47" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#24#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools_manager/models/ToolsScript.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1666,28 +1536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/isp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/isp_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="53" column="87" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="53" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2622">
-          <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1715,40 +1563,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/c_views/tools_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1886">
-          <caret line="102" column="38" lean-forward="false" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1610">
-          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/c_views/tools_script.py" />
     <entry file="file://$PROJECT_DIR$/tools_manager/views/tools_script.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1347">
           <caret line="129" column="43" lean-forward="false" selection-start-line="129" selection-start-column="43" selection-end-line="129" selection-end-column="43" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/asserts/knockout-3.4.2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="123" column="91" lean-forward="false" selection-start-line="123" selection-start-column="91" selection-end-line="123" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/asserts/knockout-3.4.2.js" />
     <entry file="file://$PROJECT_DIR$/static/asserts/underscore-min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1756,14 +1582,6 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1775,21 +1593,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/c_views/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/c_views/__init__.py" />
     <entry file="file://$PROJECT_DIR$/tools_manager/views/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1798,6 +1606,292 @@
         <state relative-caret-position="46">
           <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/views/isp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectModule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="61" lean-forward="false" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#57#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="11" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/isp_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="53" column="87" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="53" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="47" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#24#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1288">
+          <caret line="34" column="58" lean-forward="false" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-251">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#29#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/views/project_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/envs/saltops/lib/python3.5/site-packages/django/core/handlers/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/envs/saltops/lib/python3.5/site-packages/django/template/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="608" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/views/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="21" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="74" column="5" lean-forward="false" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_module_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="62" column="41" lean-forward="true" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/templates/common/basic_layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="133" column="16" lean-forward="false" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/2b4a28fb/a8a51446-5f55-4168-b3b1-28f9b6e6c179/main.deploy_manager_projecthost">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/c_views/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="44" column="49" lean-forward="false" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="112" column="84" lean-forward="false" selection-start-line="112" selection-start-column="84" selection-end-line="112" selection-end-column="84" />
+          <folding>
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="27" column="61" lean-forward="false" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/models/Host.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectHost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/views/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="105" column="56" lean-forward="false" selection-start-line="105" selection-start-column="56" selection-end-line="105" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
