@@ -23,8 +23,15 @@
                                             multiple class="form-control chosen-select" id="pre_project"
                                             name="pre_project"
                                             tabindex="4">
-                                        {% for o in plugin_result.pre_project %}
-                                            <option value="{{ o.id }}">{{ o.name }}</option>
+                                        {% for o in pre_project %}
+                                            <option value="{{ o.id }}"
+                                                    {% for k in pre_project_selected %}
+                                                        {% ifequal o.id|str_to_int k.project.id|str_to_int %}
+                                                    selected="selected"
+                                                        {% endifequal %}
+                                                    {% endfor %}
+
+                                            >{{ o.name }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>

@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^project_list/', include([
         url(r'^delete_entity/', ProjectDeleteView.as_view(), name='project_delete'),
         url(r'^(?P<pk>\d+)/project_edit/', ProjectUpdateView.as_view(), name='project_edit'),
-        url(r'^project_module_add/', ProjectCreateView.as_view(), name='project_add'),
+        url(r'^project_add/', ProjectCreateView.as_view(), name='project_add'),
         url(r'^project_version/', ProjectVersionCreateView.as_view()),
         url(r'delete_project_version/', ProjectVersionDeleteView.as_view()),
         url(r'project_deploy_action/', ProjectDeployActionView.as_view()),

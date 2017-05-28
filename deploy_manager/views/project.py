@@ -35,6 +35,11 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'deploy_manager/project_form.html'
     success_url = reverse_lazy('deploy_manager:project_list')
 
+    def get_context_data(self, **kwargs):
+        context = super(ProjectCreateView, self).get_context_data(**kwargs)
+        context['pre_project'] = Project.objects.all()
+        return context
+
     def form_valid(self, form):
         obj = form.save()
         pre_project_list = self.request.POST.getlist('pre_project')
@@ -49,6 +54,13 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     form_class = ProjectForm
     template_name = 'deploy_manager/project_form.html'
     success_url = reverse_lazy('deploy_manager:project_list')
+    context_object_name = 'entity'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectUpdateView, self).get_context_data(**kwargs)
+        context['pre_project'] = Project.objects.all()
+        context['pre_project_selected'] = PreProject.objects.filter(current_project_id=self.object.id)
+        return context
 
     def form_valid(self, form):
         obj = form.save()
