@@ -37,7 +37,8 @@ class HostGroupUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('cmdb:hostgroup_list')
 
 
-class HostGroupDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
+class HostGroupDeleteView(LoginRequiredMixin, JSONResponseMixin,
+                          AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         ids = request.GET.get('id', '')
         if ids != "":

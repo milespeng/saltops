@@ -42,7 +42,8 @@ class IDCUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('cmdb:idc_list')
 
 
-class IDCDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
+class IDCDeleteView(LoginRequiredMixin, JSONResponseMixin,
+                    AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         ids = request.GET.get('id', '')
         if ids != "":

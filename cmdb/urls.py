@@ -1,8 +1,6 @@
 from django.conf.urls import include, url
 
-from cmdb.c_views import *
 from cmdb.views import *
-from common.common_views import *
 
 urlpatterns = [
     # 机房等级
@@ -58,7 +56,7 @@ urlpatterns = [
 
     # 主机
     url('^host_list/', include([
-        url(r'host_list/scan_host_job/', ScanHostJobView.as_view()),
+        url(r'scan_host_job/', ScanHostJobView.as_view()),
         url(r'^delete_entity/', HostDeleteView.as_view(), name='host_delete'),
         url(r'^(?P<pk>\d+)/host_edit/', HostUpdateView.as_view(), name='host_edit'),
         url(r'^host_add/', HostCreateView.as_view(), name='host_add'),
@@ -66,7 +64,9 @@ urlpatterns = [
     ])),
 
     # 资产导入
-    url(r'assert_import/upload_file/', upload_file),
-    url(r'assert_import/$', assert_import_index),
+    url(r'assert_import/', include([
+        url(r'upload_file/', AssertImportView.as_view()),
+        url(r'^$', AssertImportCreateView.as_view(), name='assert_import'),
+    ])),
 
 ]

@@ -55,7 +55,8 @@ class RackUpdateView(LoginRequiredMixin, UpdateView):
         return context
 
 
-class RackDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
+class RackDeleteView(LoginRequiredMixin, JSONResponseMixin,
+                     AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         ids = request.GET.get('id', '')
         if ids != "":
@@ -65,7 +66,8 @@ class RackDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
             return self.render_json_response({"success": False})
 
 
-class LoadCabinetListView(JSONResponseMixin, AjaxResponseMixin, View):
+class LoadCabinetListView(LoginRequiredMixin, JSONResponseMixin,
+                          AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         idc_id = request.GET.get('idc_id')
         if idc_id:
@@ -73,7 +75,8 @@ class LoadCabinetListView(JSONResponseMixin, AjaxResponseMixin, View):
         return self.render_json_object_response(result)
 
 
-class LoadRackListView(JSONResponseMixin, AjaxResponseMixin, View):
+class LoadRackListView(LoginRequiredMixin, JSONResponseMixin,
+                       AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         idc_id = request.GET.get('idc_id')
         cabinet_id = request.GET.get('cabinet_id')

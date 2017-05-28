@@ -41,7 +41,8 @@ class ISPUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('cmdb:isp_list')
 
 
-class ISPDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
+class ISPDeleteView(LoginRequiredMixin, JSONResponseMixin,
+                    AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         ids = request.GET.get('id', '')
         if ids != "":

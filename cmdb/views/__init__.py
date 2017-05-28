@@ -1,4 +1,6 @@
 from django.template.defaultfilters import register
+
+from cmdb.models.Host import MINION_STATUS
 from .host_group import *
 from .host import *
 from .idclevel import *
@@ -7,7 +9,7 @@ from .idc import *
 from .cabinet import *
 from .rack import *
 from django.utils.safestring import mark_safe
-
+from .assert_import import *
 from cmdb.models.HostIP import IP_TYPE
 
 

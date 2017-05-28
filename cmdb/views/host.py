@@ -52,6 +52,7 @@ class HostCreateView(LoginRequiredMixin, CreateView):
         host_ips = zip(self.request.POST.getlist('ip'), self.request.POST.getlist('ip_type'))
         for o in list(host_ips):
             HostIP(ip=o[0], ip_type=o[1], host=obj).save()
+        return super(HostCreateView, self).form_valid(form)
 
 
 class HostUpdateView(LoginRequiredMixin, UpdateView):
@@ -64,8 +65,9 @@ class HostUpdateView(LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super(HostUpdateView, self).get_context_data(**kwargs)
         context['is_add'] = False
-        obj = Host.objects.get(pk=int(kwargs['pk']))
-        context['cabinet_list'] = Cabinet.objects.filter(idc=obj.idc)
+        obj = self.object
+        cabinet_list = Cabinet.objects.filter(idc=obj.idc)
+        context['cabinet_list'] = cabinet_list
         context['rack_list'] = Rack.objects.filter(cabinet__in=cabinet_list)
         context['host_ip_list'] = HostIP.objects.filter(host=obj)
         return context
@@ -76,6 +78,7 @@ class HostUpdateView(LoginRequiredMixin, UpdateView):
         host_ips = zip(self.request.POST.getlist('ip'), self.request.POST.getlist('ip_type'))
         for o in list(host_ips):
             HostIP(ip=o[0], ip_type=o[1], host=obj).save()
+        return super(HostUpdateView, self).form_valid(form)
 
 
 class HostDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
@@ -88,7 +91,8 @@ class HostDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
             return self.render_json_response({"success": False})
 
 
-class ScanHostJobView(JSONResponseMixin, AjaxResponseMixin, View):
+class ScanHostJobView(LoginRequiredMixin, JSONResponseMixin,
+                      AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         scanHostJob()
-        self.render_json_response({})
+        return self.render_json_response({})

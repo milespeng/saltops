@@ -42,7 +42,8 @@ class CabinetUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('cmdb:cabinet_list')
 
 
-class CabinetDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
+class CabinetDeleteView(LoginRequiredMixin, JSONResponseMixin,
+                        AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         ids = request.GET.get('id', '')
         if ids != "":
