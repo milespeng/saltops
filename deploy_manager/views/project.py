@@ -65,11 +65,11 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         obj = form.save()
         pre_project_list = self.request.POST.getlist('pre_project')
-        PreProject.objects.filter(project=obj).delete()
+        PreProject.objects.filter(current_project_id=obj.id).delete()
         if len(pre_project_list) > 0:
             for k in pre_project_list:
                 PreProject(project=Project.objects.get(pk=k), current_project_id=obj.id).save()
-        return super(ProjectCreateView, self).form_valid(form)
+        return super(ProjectUpdateView, self).form_valid(form)
 
 
 class ProjectDeleteView(LoginRequiredMixin, JSONResponseMixin,
@@ -120,6 +120,35 @@ class ProjectHostUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         return self.render_json_response({})
 
 
+def predeploy(project: Project, uninstall=False):
+    """
+    前置业务卸载功能暂不开放，有多重依赖的卸载关系需要考虑
+    :param project: 
+    :param uninstall: 
+    :return: 
+    """
+    preprojects = PreProject.objects.filter(current_project_id=project.id)
+    if len(preprojects) > 0:
+        for k in preprojects:
+            preproject_list = PreProject.objects.filter(current_project_id=k.project.id)
+            if preproject_list.count() > 0:
+                for o in preproject_list:
+                    predeploy(Project.objects.get(pk=o.project.id), uninstall)
+            else:
+                pre_version = ProjectVersion.objects.get(project=k.project, is_default=True)
+                job = DeployJob(project_version=pre_version,
+                                job_name='部署' + k.project.name + ":" + pre_version.name)
+                job.save()
+
+                uninstall_host = []
+                if uninstall is True:
+                    uninstall_host_qs = ProjectHost.objects.filter(project=k.project)
+                    for e in uninstall_host_qs:
+                        uninstall_host.append(e)
+
+                deployjob = deployTask.delay(job, uninstall, uninstall_host)
+
+
 class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                               AjaxResponseMixin, View):
     def post_ajax(self, request, *args, **kwargs):
@@ -139,6 +168,7 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
             hosts_ids = hosts.split(',')
             for o in hosts_ids:
                 ProjectHost(project=obj, host_id=int(o)).save()
+        predeploy(obj)
         job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
         job.save()
         deployjob = deployTask.delay(job)
