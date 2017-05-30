@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'deploy_manager',
     'django_crontab',
+    'base_auth',
     # 'dashboard',
     'django.contrib.admindocs',
     'django.contrib.admin',
