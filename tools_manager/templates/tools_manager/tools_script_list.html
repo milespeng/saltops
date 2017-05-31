@@ -35,32 +35,32 @@
             {% endifequal %}
             >脚本类型
             </option>
-            <option value="0" {% ifequal kwargs.tool_run_type|str_to_int  0 %}
+            <option value="0" {% ifequal tool_run_type|str_to_int  0 %}
                     selected="selected"
             {% endifequal %}
             >SaltState
             </option>
-            <option value="1" {% ifequal kwargs.tool_run_type|str_to_int 1 %}
+            <option value="1" {% ifequal tool_run_type|str_to_int 1 %}
                     selected="selected"
             {% endifequal %}
             >Shell
             </option>
-            <option value="2" {% ifequal kwargs.tool_run_type|str_to_int 2 %}
+            <option value="2" {% ifequal tool_run_type|str_to_int 2 %}
                     selected="selected"
             {% endifequal %}
             >PowerShell
             </option>
-            <option value="3" {% ifequal kwargs.tool_run_type|str_to_int 3 %}
+            <option value="3" {% ifequal tool_run_type|str_to_int 3 %}
                     selected="selected"
             {% endifequal %}
             >Python
             </option>
-            <option value="4" {% ifequal kwargs.tool_run_type|str_to_int 4 %}
+            <option value="4" {% ifequal tool_run_type|str_to_int 4 %}
                     selected="selected"
             {% endifequal %}
             >Salt命令
             </option>
-            <option value="5" {% ifequal kwargs.tool_run_type|str_to_int 5 %}
+            <option value="5" {% ifequal tool_run_type|str_to_int 5 %}
                     selected="selected"
             {% endifequal %}
             >Windows批处理
