@@ -266,9 +266,10 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProjectVersionCreateView, self).get_context_data(**kwargs)
-        pk = self.request.GET.get('pk')
-        project_versions = ProjectVersion.objects.filter(project_id=int(pk))
-        context.update(locals())
+        pk = self.request.GET.get('pk', '')
+        if pk:
+            project_versions = ProjectVersion.objects.filter(project_id=int(pk))
+            context.update(locals())
         return context
 
     def form_valid(self, form):

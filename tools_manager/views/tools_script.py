@@ -99,19 +99,21 @@ class ToolExecuteView(TemplateView, LoginRequiredMixin):
 
     def get_context_data(self, **kwargs):
         context = super(ToolExecuteView, self).get_context_data(**kwargs)
-        context['hostgroup'] = HostGroup.objects.all()
-        context['hosts'] = Host.objects.all()
-        pk = int(self.request.GET.get('pk'))
-        entity = ToolsScript.objects.get(pk=pk)
-        context['pk'] = pk
-        context['entity'] = entity
-        params = re.findall('\${(.*?)}', entity.tool_script)
-        param_list = []
-        for obj in params:
-            if len(obj.split(':')) == 2:
-                param_dict = (obj.split(':')[0], obj.split(':')[1])
-                param_list.append(param_dict)
-        context['param_list'] = param_list
+        pk = self.request.GET.get('pk', '')
+        if pk:
+            context['hostgroup'] = HostGroup.objects.all()
+            context['hosts'] = Host.objects.all()
+            pk = int(pk)
+            entity = ToolsScript.objects.get(pk=pk)
+            context['pk'] = pk
+            context['entity'] = entity
+            params = re.findall('\${(.*?)}', entity.tool_script)
+            param_list = []
+            for obj in params:
+                if len(obj.split(':')) == 2:
+                    param_dict = (obj.split(':')[0], obj.split(':')[1])
+                    param_list.append(param_dict)
+            context['param_list'] = param_list
         return context
 
 
