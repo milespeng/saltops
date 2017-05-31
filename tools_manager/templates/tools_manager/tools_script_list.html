@@ -7,13 +7,13 @@
 {% block list_filter %}
     <div class="col-sm-2">
         <select class="form-control m-b" name="tools_type">
-            <option value="" {% ifequal '' kwargs.tools_type %}
+            <option value="" {% ifequal '' tools_type %}
                     selected="selected"
             {% endifequal %}
             >工具类型
             </option>
-            {% for o in plugin_result.tools_types %}
-                <option value="{{ o.id }}" {% ifequal o.id kwargs.tools_type|str_to_int %}
+            {% for o in tools_types %}
+                <option value="{{ o.id }}" {% ifequal o.id tools_type|str_to_int %}
                         selected="selected"
                 {% endifequal %}
 
@@ -23,14 +23,14 @@
     </div>
     <div class="col-sm-2">
         <div class="input-group">
-            <input type="text" name="name__contains" placeholder="工具名称"
-                   value="{{ kwargs.name__contains }}"
+            <input type="text" name="name" placeholder="工具名称"
+                   value="{{ name }}"
                    class="input-sm form-control">
         </div>
     </div>
     <div class="col-sm-2">
         <select class="form-control m-b" name="tool_run_type">
-            <option value="" {% ifequal '' kwargs.tool_run_type %}
+            <option value="" {% ifequal '' tool_run_type %}
                     selected="selected"
             {% endifequal %}
             >脚本类型
