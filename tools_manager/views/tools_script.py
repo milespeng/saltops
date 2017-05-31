@@ -22,6 +22,25 @@ class ToolsScriptView(LoginRequiredMixin, ListView):
     template_name = 'tools_manager/tools_script_list.html'
     context_object_name = 'result_list'
 
+    def get_queryset(self):
+        result_list = ToolsScript.objects.all()
+        tools_type = self.request.GET.get('tools_type')
+        name = self.request.GET.get('name')
+        tool_run_type = self.request.GET.get('tool_run_type')
+        if tools_type:
+            result_list = result_list.filter(tools_type=tools_type)
+        if name:
+            result_list = result_list.filter(name__contains=name)
+        if tool_run_type:
+            result_list = result_list.filter(tool_run_type=tool_run_type)
+        return result_list
+
+    def get_context_data(self, **kwargs):
+        context = super(ToolsScriptView, self).get_context_data(**kwargs)
+        context['name'] = self.request.GET.get('name', '')
+        context['tools_types'] = ToolsTypes.objects.all()
+        return context
+
 
 class ToolsScriptCreateView(LoginRequiredMixin, CreateView):
     model = ToolsScript

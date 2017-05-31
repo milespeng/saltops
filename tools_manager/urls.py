@@ -15,7 +15,7 @@ urlpatterns = [
         url(r'^tool_execute_history/', ToolExecuteHistoryView.as_view()),
         url(r'^tool_execute_action/', ToolExecuteActionView.as_view()),
         url(r'^delete_entity/', ToolsScriptDeleteView.as_view(), name='tools_script_delete'),
-        url(r'^tools_script_edit/', ToolsScriptUpdateView.as_view(), name='tools_script_edit'),
+        url(r'^^(?P<pk>\d+)/tools_script_edit/', ToolsScriptUpdateView.as_view(), name='tools_script_edit'),
         url(r'^tools_script_add/', ToolsScriptCreateView.as_view(), name='tools_script_add'),
         url(r'^tool_execute/', ToolExecuteView.as_view()),
         url(r'^$', ToolsScriptView.as_view(), name='tools_script_list'),
