@@ -90,8 +90,8 @@
                                         </tr>
                                         </thead>
                                         <tbody id="tb">
-                                        {% ifequal plugin_result.is_add False %}
-                                            {% for o in plugin_result.host_ip_list %}
+                                        {% ifequal is_add False %}
+                                            {% for o in host_ip_list %}
                                                 <tr>
                                                     <td><input name="ip" id="ip" i value="{{ o.ip }}">
                                                     </td>
