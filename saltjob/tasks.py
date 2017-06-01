@@ -277,7 +277,12 @@ def execTools(obj, hostList, ymlParam):
                         rs_msg = '执行完成'
                     # Salt-API返回的结果一会是list一会是dict。。
                     elif isinstance(dataResult, list):
-                        rs_msg += "\n".join(dataResult)
+                        for k in dataResult:
+                            if isinstance(k, dict):
+                                for v in k:
+                                    rs_msg += ("\n" + v + ":" + str(k[v]))
+                            else:
+                                rs_msg += "\n".join(k)
                     elif isinstance(dataResult, str):
                         rs_msg = dataResult
                     # elif isinstance(dataResult,dict):
@@ -286,7 +291,7 @@ def execTools(obj, hostList, ymlParam):
                     elif isinstance(dataResult, bool):
                         rs_msg = str(dataResult)
 
-                    elif 'columns' in dataResult: #针对MySQL返回的结果做特别的处理
+                    elif 'columns' in dataResult:  # 针对MySQL返回的结果做特别的处理
                         rs_msg += "<table class='table table-striped table-bordered table-hover " \
                                   " dataTables-example dataTable'><tr>"
                         for c in dataResult['columns']:

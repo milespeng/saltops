@@ -104,8 +104,8 @@
       <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="292" column="19" lean-forward="true" selection-start-line="292" selection-start-column="19" selection-end-line="292" selection-end-column="19" />
+            <state relative-caret-position="99">
+              <caret line="282" column="74" lean-forward="false" selection-start-line="282" selection-start-column="74" selection-end-line="282" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -977,13 +977,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00226" summary="业务模块">
-      <created>1494254999980</created>
-      <option name="number" value="00226" />
-      <option name="presentableId" value="LOCAL-00226" />
-      <option name="project" value="LOCAL" />
-      <updated>1494254999980</updated>
-    </task>
     <task id="LOCAL-00227" summary="修复资产导入机房索引位置不匹配">
       <created>1494295062433</created>
       <option name="number" value="00227" />
@@ -1320,7 +1313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496234982269</updated>
     </task>
-    <option name="localTasksCounter" value="275" />
+    <task id="LOCAL-00275" summary="#32">
+      <created>1496324174757</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1496324174759</updated>
+    </task>
+    <option name="localTasksCounter" value="276" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1377,7 +1377,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43622047" sideWeight="0.4946752" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.430622" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4816587" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1429,7 +1429,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="资产列表显示IP" />
     <MESSAGE value="主机IP" />
     <MESSAGE value="完成资产列表主机IP" />
     <MESSAGE value="完成资产列表主机IP,资产列表支持IP搜索" />
@@ -1454,7 +1453,8 @@
     <MESSAGE value="0.6.0变更记录" />
     <MESSAGE value="#81" />
     <MESSAGE value="#82" />
-    <option name="LAST_COMMIT_MESSAGE" value="#82" />
+    <MESSAGE value="#32" />
+    <option name="LAST_COMMIT_MESSAGE" value="#32" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1468,14 +1468,13 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="594" />
+      <option name="time" value="598" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
-        <watch expression="o" language="Python" />
-        <watch expression="int(self.request.GET.get('pk'))" language="Python" />
-        <watch expression="cmd['columns']" language="Python" />
-        <watch expression="cmd" language="Python" />
+        <watch expression="k" language="Python" />
+        <watch expression="v + &quot;:&quot; + str(k[v])" language="Python" />
+        <watch expression="k[v]" language="Python" />
       </configuration>
       <configuration name="PythonConfigurationType">
         <watch expression="content" language="Python" />
@@ -1833,8 +1832,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/saltjob/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="292" column="19" lean-forward="true" selection-start-line="292" selection-start-column="19" selection-end-line="292" selection-end-column="19" />
+        <state relative-caret-position="99">
+          <caret line="282" column="74" lean-forward="false" selection-start-line="282" selection-start-column="74" selection-end-line="282" selection-end-column="74" />
           <folding />
         </state>
       </provider>
