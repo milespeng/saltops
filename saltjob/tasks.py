@@ -285,6 +285,21 @@ def execTools(obj, hostList, ymlParam):
                     #
                     elif isinstance(dataResult, bool):
                         rs_msg = str(dataResult)
+
+                    elif 'columns' in dataResult: #针对MySQL返回的结果做特别的处理
+                        rs_msg += "<table class='table table-striped table-bordered table-hover " \
+                                  " dataTables-example dataTable'><tr>"
+                        for c in dataResult['columns']:
+                            rs_msg += "<th>%s</th>" % str(c)
+                        rs_msg += "</tr>"
+                        for c in dataResult['results']:
+                            rs_msg += "<tr>"
+                            for o in c:
+                                rs_msg += "<td>%s</td>" % str(o)
+                            rs_msg += "</tr>"
+                        # TODO: 还有个query_time可以显示
+                        rs_msg += "</table>"
+                        rs_msg += '\n'
                     else:
                         for cmd in dataResult:
                             rs_msg = rs_msg + '\n' + cmd + ':' + str(dataResult[cmd])
@@ -311,6 +326,7 @@ def execTools(obj, hostList, ymlParam):
                     execDetail.save()
                     exec_detail_list.append(execDetail)
         except Exception as e:
+            print(e)
             errmsg = "执行失败"
             if isinstance(dataResult, str):
                 errmsg = dataResult
