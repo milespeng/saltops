@@ -83,6 +83,13 @@ class ProjectDeleteView(LoginRequiredMixin, JSONResponseMixin,
             return self.render_json_response({"success": False})
 
 
+class ProjectVersionUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'deploy_manager/project_version_edit_form.html'
+    form_class = ProjectVersionForm
+    model = ProjectVersion
+    success_url = reverse_lazy('deploy_manager:project_list')
+
+
 class ProjectVersionDeleteView(LoginRequiredMixin, JSONResponseMixin,
                                AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
