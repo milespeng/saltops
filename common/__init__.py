@@ -48,7 +48,7 @@ def pagination_range(total_page, current_num=1, display=5):
     start = current_num - display / 2 if current_num > display / 2 else 1
     end = start + display if start + display <= total_page else total_page + 1
 
-    return range(start, end)
+    return range(int(start), int(end))
 
 
 @register.filter()
