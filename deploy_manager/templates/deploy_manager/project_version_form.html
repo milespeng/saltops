@@ -98,7 +98,7 @@
                                     <th style="width: 5%;">{{ project_version.is_default|bool_to_human }}</th>
                                     <th style="width: 5%;">{{ project_version.id|sub_jobscript_filter }}</th>
                                     <th style="width:5%;">
-                                        <a href="/frontend/deploy_manager/project_list/{{ project_version.id }}/project_version_edit/"
+                                        <a href="/frontend/deploy_manager/project_list/{{ project_version.id }}/project_version_edit/?pk={{ project_version.project.id }}"
                                             class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
                                         <a href="javascript:void(0)"
                                            onclick="removeVersion('{{ project_version.id }}',this)"

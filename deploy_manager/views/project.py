@@ -87,7 +87,9 @@ class ProjectVersionUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'deploy_manager/project_version_edit_form.html'
     form_class = ProjectVersionForm
     model = ProjectVersion
-    success_url = reverse_lazy('deploy_manager:project_list')
+
+    def get_success_url(self):
+        return '/frontend/deploy_manager/project_list/project_version/?pk=%s' % self.request.GET.get('pk')
 
 
 class ProjectVersionDeleteView(LoginRequiredMixin, JSONResponseMixin,
