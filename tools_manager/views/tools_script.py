@@ -90,8 +90,8 @@ class ToolExecuteHistoryView(TemplateView, LoginRequiredMixin):
                 "success_count": len([x for x in history if x.err_msg == '']),
                 "err_count": len([x for x in history if x.err_msg != ''])
             })
-            context['result_list'] = preparePage(self.request, result)
-            return context
+        context['result_list'] = preparePage(self.request, result)
+        return context
 
 
 class ToolExecuteView(TemplateView, LoginRequiredMixin):
