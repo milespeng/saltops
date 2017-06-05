@@ -38,11 +38,6 @@ INSTALLED_APPS = [
     'common',
     'cmdb',
     'saltjob',
-    'smart_selects',
-    "post_office",
-    # 'searchableselect',
-    'jet.dashboard',
-    'jet',
     'nested_inline',
     'mptt',
     'tools_manager',
@@ -144,10 +139,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CRONJOBS = [
-    ('*/30 * * * *', 'saltjob.cron.scanHostJob')
-]
-
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = (
@@ -192,22 +183,6 @@ BROKER_URL = 'django://'
 CELERY_ALWAYS_EAGER = True
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
-SUIT_CONFIG = {
-    'ADMIN_NAME': "SaltOps",
-    'MENU': (
-        {'app': 'cmdb', 'icon': 'icon-leaf',
-         'models': ('IDCLevel', 'ISP', 'IDC', 'Cabinet', 'Rack', 'Host')},
-        {'app': 'deploy_manager', 'icon': 'icon-hdd',
-         'models': ('ProjectModule', 'Project', 'DeployJob')},
-        {'app': 'tools_manager', 'icon': 'icon-tasks',
-         'models': ('ToolsTypes', 'ToolsScript', 'ToolsExecJob')},
-        {'app': 'auth', 'icon': 'icon-lock', 'models': ('user', 'group')},
-        {'app': 'djcelery', 'icon': 'icon-cog',
-         'models': ('IntervalSchedule', 'CrontabSchedule', 'PeriodicTask', 'TaskState')},
-    ),
-    'LIST_PER_PAGE': 15
-}
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -251,56 +226,7 @@ LOGGING = {
 
 DEFAULT_LOGGER = 'default'
 
-INTERNAL_IPS = ['127.0.0.1']
-USE_DJANGO_JQUERY = True
-
-JET_SIDE_MENU_COMPACT = True
 CORS_ORIGIN_ALLOW_ALL = True
-JET_SIDE_MENU_CUSTOM_APPS = [
-    ('cmdb', [
-        'IDCLevel',
-        'ISP',
-        'IDC',
-        'Cabinet',
-        'Rack',
-        'HostGroup',
-        'Host'
-    ]),
-    ('deploy_manager', [
-        'ProjectModule',
-        'Project',
-        'DeployJob'
-    ]),
-    ('tools_manager', [
-        'ToolsTypes',
-        'ToolsScript',
-        'ToolsExecJob',
-    ]),
-    ('post_office', [
-        'Email',
-        'EmailTemplate',
-        'Attachment',
-        'Log'
-    ]),
-    ('djcelery', [
-        'IntervalSchedule',
-        'CrontabSchedule',
-        'PeriodicTask',
-        'TaskState'
-
-    ]),
-    # ('kombu', [
-    #     'Message',
-    # ]),
-]
-JET_INDEX_DASHBOARD = 'common.dashboard.CustomIndexDashboard'
-
-EMAIL_HOST = 'smtp.163.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_SUBJECT_PREFIX = 'SaltOps'
-# EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'post_office.EmailBackend'
 LOGIN_URL = "/"
 PER_PAGE = 10
+

@@ -33,21 +33,16 @@ router = routers.DefaultRouter()
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
-    url(r'^jet/', include('jet.urls', 'jet')),
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^chaining/', include('smart_selects.urls')),
-    url('^searchableselect/', include('searchableselect.urls')),
     url(r'^$', LoginView.as_view(), name='index'),
     url(r'^checkLogin/$', views.checkLogin, name='checkLogin'),
     url(r'^mainform/$', views.mainform, name='mainform'),
     url(r'^dashboard/$', views.dashboard, name='mainform'),
     url(r'^frontend/cmdb/', include('cmdb.urls', namespace='cmdb')),
     url(r'^frontend/tools_manager/', include('tools_manager.urls', namespace='tools_manager')),
-    url(r'^frontend/deploy_manager/', include('deploy_manager.urls', namespace='deploy_manager'))
+    url(r'^frontend/deploy_manager/', include('deploy_manager.urls', namespace='deploy_manager')),
+    url(r'^frontend/base_auth/', include('base_auth.urls', namespace='base_auth'))
 ]
-
+#
 # if settings.DEBUG:
 #     import debug_toolbar
 #
