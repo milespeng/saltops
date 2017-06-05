@@ -20,15 +20,15 @@ class GroupView(LoginRequiredMixin, ListView):
 class GroupCreateView(LoginRequiredMixin, CreateView):
     model = Group
     form_class = GroupForm
-    template_name = 'cmdb/isp_form.html'
-    success_url = reverse_lazy('cmdb:isp_list')
+    template_name = 'base_auth/groups_form.html'
+    success_url = reverse_lazy('base_auth:group_list')
 
 
 class GroupUpdateView(LoginRequiredMixin, UpdateView):
     model = Group
     form_class = GroupForm
-    template_name = 'cmdb/isp_form.html'
-    success_url = reverse_lazy('cmdb:isp_list')
+    template_name = 'base_auth/groups_form.html'
+    success_url = reverse_lazy('base_auth:group_list')
 
 
 class GroupDeleteView(LoginRequiredMixin, JSONResponseMixin,

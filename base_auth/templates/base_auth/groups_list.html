@@ -9,7 +9,7 @@
         <div class="input-group">
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>
             &nbsp;
-            <a href="idc_add/"
+            <a href="group_add/"
                class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
             &nbsp;
             <a href="javascript:void(0)"
@@ -24,7 +24,7 @@
         <thead>
         <tr>
             <th style="width: 3%"><input id="checkall" type="checkbox" class="i-checks"></th>
-            <th style="width: 7%;">用户组名称</th>
+            <th style="width: 70%;">用户组名称</th>
             <th style="width:15%;">操作</th>
         </tr>
         </thead>
@@ -36,7 +36,7 @@
                 </td>
                 <td>{{ o.name }}</td>
                 <td>
-                    <a href="{{ o.id }}/idc_edit/"
+                    <a href="{{ o.id }}/group_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
                     <a href="javascript:void(0)"
                        onclick="deleteAction('{{ o.id }}')"
