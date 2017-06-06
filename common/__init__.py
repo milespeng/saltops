@@ -52,6 +52,11 @@ def pagination_range(total_page, current_num=1, display=5):
 
 
 @register.filter()
+def file_path_filter(value):
+    return value.name.split('/')[-1]
+
+
+@register.filter()
 def bool_to_human(value):
     """
     转换布尔类型为中文

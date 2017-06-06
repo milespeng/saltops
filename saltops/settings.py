@@ -145,6 +145,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    ('scripts', os.path.join(STATIC_ROOT, 'scripts').replace('\\', '/')),
     ('asserts', os.path.join(STATIC_ROOT, 'asserts').replace('\\', '/')),
     ('hplus', os.path.join(STATIC_ROOT, 'hplus').replace('\\', '/')),
     ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
@@ -173,7 +174,7 @@ REST_FRAMEWORK = {
 # SALT_PASSWORD = '123456'
 SALT_CONN_TYPE = ''  # http
 SALT_HTTP_URL = 'http://127.0.0.1:5000'
-PACKAGE_PATH = "/home/kira/code/saltops/scripts/"
+PACKAGE_PATH = "/home/kira/code/saltops/static/scripts/"
 SALT_REST_URL = 'http://127.0.0.1:8001/'
 SALT_USER = 'saltops'
 SALT_PASSWORD = 'saltops'
@@ -229,4 +230,3 @@ DEFAULT_LOGGER = 'default'
 CORS_ORIGIN_ALLOW_ALL = True
 LOGIN_URL = "/"
 PER_PAGE = 10
-
