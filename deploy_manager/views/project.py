@@ -1,12 +1,17 @@
 from braces.views import *
 from django.contrib.auth.mixins import *
+from django.utils.safestring import mark_safe
 from django.urls import *
 from django.views.generic import *
+
 from saltjob.tasks import deployTask, loadProjectConfig
 from cmdb.models import Host, HostGroup
+from common.pageutil import preparePage
 from deploy_manager.forms import ProjectForm, ProjectVersionForm
 from deploy_manager.models import *
 from saltops.settings import PER_PAGE
+
+import arrow
 
 
 class ProjectView(LoginRequiredMixin, ListView):
@@ -301,3 +306,29 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
                 obj.is_default = False
             obj.save()
         return super(ProjectVersionCreateView, self).form_valid(form)
+
+
+class ProjectDeployHistoryView(TemplateView, LoginRequiredMixin):
+    template_name = 'deploy_manager/project_deploy_history.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectDeployHistoryView, self).get_context_data(**kwargs)
+        result = []
+
+        project = Project.objects.filter(id=self.request.GET.get('pk'))
+        project_versions = ProjectVersion.objects.filter(project=project)
+
+        for project_version in project_versions:
+            obj = DeployJob.objects.order_by('-create_time').filter(project_version=project_version)
+            for k in obj:
+                history = DeployJobDetail.objects.filter(job=k)
+                result.append({
+                    "id": k.id,
+                    "create_time": k.create_time,
+                    "human_time": arrow.get(k.create_time).humanize(locale="zh"),
+                    "result_hist": history,
+                    # "success_count": len([x for x in history if x.err_msg == '']),
+                    # "err_count": len([x for x in history if x.err_msg != ''])
+                })
+        context['result_list'] = preparePage(self.request, result)
+        return context
