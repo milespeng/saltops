@@ -13,6 +13,7 @@ urlpatterns = [
 
     # 业务
     url(r'^project_list/', include([
+        url(r'^project_deploy_history/', ProjectDeployHistoryView.as_view()),
         url(r'^delete_entity/', ProjectDeleteView.as_view(), name='project_delete'),
         url(r'^(?P<pk>\d+)/project_edit/', ProjectUpdateView.as_view(), name='project_edit'),
         url(r'^project_add/', ProjectCreateView.as_view(), name='project_add'),
