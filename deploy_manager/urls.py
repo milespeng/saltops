@@ -1,5 +1,6 @@
 from django.conf.urls import include, url
 
+# from deploy_manager.rest.project_version_rest import ProjectVersionUpdateRest
 from deploy_manager.views import *
 
 urlpatterns = [
@@ -26,6 +27,8 @@ urlpatterns = [
         url(r'project_host_undeploy_action/',
             ProjectHostUnDeployActionView.as_view()),
         url(r'project_deploy/', ProjectDeployView.as_view()),
+        # url(r'^(?P<project_name>\w+)/(?P<project_version_name>\w+)/project_version_update_rest/',
+        #     ProjectVersionUpdateRest),
         url(r'^$', ProjectView.as_view(), name='project_list'),
     ]))
 ]
