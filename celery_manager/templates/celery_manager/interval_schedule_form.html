@@ -1,0 +1,13 @@
+{% extends 'common/basic_form.html' %}
+{% block titleblock %}
+    周期管理
+{% endblock %}
+
+{% block script_content %}
+    <script>
+        $(document).ready(function () {
+            $('#id_every').parent().parent()[0].children[0].innerText = "频率:";
+            $('#id_period').parent().parent()[0].children[0].innerText = "周期:";
+        })
+    </script>
+{% endblock %}

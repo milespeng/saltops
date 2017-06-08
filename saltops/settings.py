@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'tools_manager',
     'rest_framework',
     'deploy_manager',
-    'django_crontab',
+    'celery_manager',
     'base_auth',
     # 'dashboard',
     'django.contrib.admindocs',
@@ -150,14 +150,10 @@ STATICFILES_DIRS = (
     ('hplus', os.path.join(STATIC_ROOT, 'hplus').replace('\\', '/')),
     ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
     ('djcelery', os.path.join(STATIC_ROOT, 'djcelery').replace('\\', '/')),
-    ('import_export', os.path.join(STATIC_ROOT, 'import_export').replace('\\', '/')),
-    ('jet', os.path.join(STATIC_ROOT, 'jet').replace('\\', '/')),
-    ('jet.dashboard', os.path.join(STATIC_ROOT, 'jet.dashboard').replace('\\', '/')),
     ('js', os.path.join(STATIC_ROOT, 'js').replace('\\', '/')),
     ('mptt', os.path.join(STATIC_ROOT, 'mptt').replace('\\', '/')),
     ('range_filter', os.path.join(STATIC_ROOT, 'range_filter').replace('\\', '/')),
     ('rest_framework', os.path.join(STATIC_ROOT, 'rest_framework').replace('\\', '/')),
-    ('smart-selects', os.path.join(STATIC_ROOT, 'smart-selects').replace('\\', '/')),
 
 )
 

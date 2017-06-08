@@ -40,7 +40,8 @@ urlpatterns = [
     url(r'^frontend/cmdb/', include('cmdb.urls', namespace='cmdb')),
     url(r'^frontend/tools_manager/', include('tools_manager.urls', namespace='tools_manager')),
     url(r'^frontend/deploy_manager/', include('deploy_manager.urls', namespace='deploy_manager')),
-    url(r'^frontend/base_auth/', include('base_auth.urls', namespace='base_auth'))
+    url(r'^frontend/base_auth/', include('base_auth.urls', namespace='base_auth')),
+    url(r'^frontend/celery_manager/', include('celery_manager.urls', namespace='celery_manager'))
 ]
 #
 # if settings.DEBUG:
