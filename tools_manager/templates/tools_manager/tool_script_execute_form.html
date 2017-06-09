@@ -71,10 +71,10 @@
                                     <label class="col-sm-2 control-label"><%= item.host%></label>
                                     <div class="col-sm-10">
                                         <div class="col-sm-10" class="form-control">
-                                            <%=item.exec_result%>
+                                            <%=item.exec_result.stdout%>
                                             <br/>
                                             <p>其他信息:</p>
-                                            <%=item.err_msg%>
+                                            <%=item.exec_result.stderr%>
                                         </div>
                                     </div>
                                 </div>
@@ -125,10 +125,20 @@
                     '{{ v }}': $('#{{ v }}').val(),
                 {% endfor %}
             }, function (rs) {
+                debugger;
                 result = rs;
                 for (var i = 0; i < result.length; i++) {
-                    result[i].exec_result = result[i].exec_result.replace(/\n/g, "<br/>")
                     result[i].err_msg = result[i].err_msg.replace(/\n/g, "<br/>")
+                    if (typeof(result[i].exec_result) == 'string') {
+                        var exec_result_object = {
+                            'stdout': result[i].exec_result.replace(/\n/g, "<br/>"),
+                            'stderr': result[i].err_msg
+                        }
+                        result[i].exec_result = exec_result_object;
+                    } else {
+                        result[i].exec_result.stdout = result[i].exec_result.stdout.replace(/\n/g, "<br/>")
+                        result[i].exec_result.stderr = result[i].exec_result.stderr.replace(/\n/g, "<br/>")
+                    }
                 }
                 debugger;
                 $('#result').html(_.template($('#tpl').html(), result));

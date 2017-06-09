@@ -164,6 +164,7 @@ def execTools(obj, hostList, ymlParam):
     # Salt命令参数
     func_args = None
 
+    func = "cmd.script"
     script_type = 'sls'
     if obj.tool_run_type == 1:
         script_type = "sh"
@@ -209,41 +210,16 @@ def execTools(obj, hostList, ymlParam):
                 continue
 
             if obj.tool_run_type == 1:
-                # 把脚本送到tmp目录下
-                salt_api_token({'fun': 'cp.get_file', 'tgt': target,
-                                'arg': tuple(['salt://' + script_name + '.sh', '/tmp/' + script_name + '.sh'])},
-                               SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client='local')['return'][0]
+                func_args = 'salt://%s.sh' % script_name
 
-                salt_api_token({'fun': 'file.set_mode', 'tgt': target,
-                                'arg': tuple(['/tmp/' + script_name + '.sh', '777'])},
-                               SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client='local')['return'][0]
-                func = "cmd.run"
-                func_args = '/tmp/' + script_name + '.sh'
+            elif obj.tool_run_type == 3:
+                func_args = 'salt://%s.py' % script_name
 
-            if obj.tool_run_type == 3:
-                # 把脚本送到tmp目录下
-                salt_api_token({'fun': 'cp.get_file', 'tgt': target,
-                                'arg': tuple(['salt://' + script_name + '.py', '/tmp/' + script_name + '.py'])},
-                               SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client='local')['return'][0]
-                func = "cmd.run"
-                func_args = '"python /tmp/' + script_name + '.py"'
+            elif obj.tool_run_type == 2:
+                func_args = 'salt://%s.ps' % script_name
 
-            # Windows下的路径有bug，晚点修
-            if obj.tool_run_type == 2:
-                # 把脚本送到tmp目录下
-                salt_api_token({'fun': 'cp.get_file', 'tgt': target,
-                                'arg': tuple(['salt://' + script_name + '.sh', '/tmp/' + script_name + '.ps'])},
-                               SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client='local')['return'][0]
-                func = "cmd.run"
-                func_args = '"powershell /tmp/' + script_name + '.ps"'
-
-            if obj.tool_run_type == 5:
-                # 把脚本送到tmp目录下
-                salt_api_token({'fun': 'cp.get_file', 'tgt': target,
-                                'arg': tuple(['salt://' + script_name + '.sh', '/tmp/' + script_name + '.bat'])},
-                               SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client='local')['return'][0]
-                func = "cmd.run"
-                func_args = '/tmp/' + script_name + '.bat'
+            elif obj.tool_run_type == 5:
+                func_args = 'salt://%s.bat' % script_name
 
             result = runSaltCommand(target, script_type, script_name, func, func_args)
 
