@@ -191,7 +191,7 @@
                 'hostgroup_ids': hostsgroup_str,
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
                 {% for k,v in param_list %}
-                    '{{ v }}': $('#{{ v }}').val()
+                    '{{ v }}': $('#{{ v }}').val(),
                 {% endfor %}
             }, function (rs) {
                 result = rs.jobDetails
