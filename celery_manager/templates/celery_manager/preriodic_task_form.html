@@ -1,0 +1,17 @@
+{% extends 'common/basic_form.html' %}
+{% block titleblock %}
+    周期管理
+{% endblock %}
+
+{% block script_content %}
+    <script>
+        $(document).ready(function () {
+            $('#id_interval').parent().parent()[0].children[0].innerText = "周期:";
+            $('#id_crontab').parent().parent()[0].children[0].innerText = "周期（Crontab）:";
+            $('#id_kwargs').parent().parent()[0].children[0].innerText = "顺序参数:";
+            $('#id_enabled').parent().parent()[0].children[0].innerText = "是否启用:";
+            $('#id_description').parent().parent()[0].children[0].innerText = "描述:";
+            $('#id_enabled').removeClass("form-control")
+        })
+    </script>
+{% endblock %}
