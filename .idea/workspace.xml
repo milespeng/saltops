@@ -8,7 +8,6 @@
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Changelog.md" afterPath="$PROJECT_DIR$/Changelog.md" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,7 +82,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="0">
-                <caret line="0" column="2" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="17" />
+                <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="17" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -183,7 +182,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="0.5.1" />
+        <entry key="$PROJECT_DIR$" value="0.6.0-Preview-1" />
       </map>
     </option>
   </component>
@@ -917,13 +916,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00240" summary="移除管理界面">
-      <created>1494605867720</created>
-      <option name="number" value="00240" />
-      <option name="presentableId" value="LOCAL-00240" />
-      <option name="project" value="LOCAL" />
-      <updated>1494605867724</updated>
-    </task>
     <task id="LOCAL-00241" summary="业务">
       <created>1494768831871</created>
       <option name="number" value="00241" />
@@ -1260,7 +1252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497019301234</updated>
     </task>
-    <option name="localTasksCounter" value="289" />
+    <task id="LOCAL-00289" summary="0.6.0-Preview-1">
+      <created>1497168323291</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1497168323293</updated>
+    </task>
+    <option name="localTasksCounter" value="290" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1369,7 +1368,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="业务部署重新接入完成" />
     <MESSAGE value="部署页面逻辑调整，加入卸载按钮" />
     <MESSAGE value="业务卸载" />
     <MESSAGE value="引入ClassBaseVIew" />
@@ -1394,7 +1392,8 @@
     <MESSAGE value="DjCelery周期管理" />
     <MESSAGE value="#93" />
     <MESSAGE value="#92 优化工具执行方式，采用cmd.script salt://的方式，不采用自行下发的方式" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 优化工具执行方式，采用cmd.script salt://的方式，不采用自行下发的方式" />
+    <MESSAGE value="0.6.0-Preview-1" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.0-Preview-1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1794,7 +1793,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
-            <caret line="0" column="2" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="17" />
+            <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="17" />
             <folding />
           </first_editor>
           <second_editor />
