@@ -17,5 +17,11 @@ urlpatterns = [
         url(r'^preriodic_task_add/', PeriodicTaskCreateView.as_view(), name='preriodic_task_add'),
         url(r'^$', PeriodicTaskView.as_view(), name='preriodic_task_list'),
     ])),
-
+    url(r'^crontab_schedule_list/', include([
+        url(r'^delete_entity/', CrontabScheduleDeleteView.as_view(), name='crontab_schedule_delete'),
+        url(r'^(?P<pk>\d+)/crontab_schedule_edit/', CrontabScheduleUpdateView.as_view(),
+            name='interval_schedule_edit'),
+        url(r'^crontab_schedule_add/', CrontabScheduleCreateView.as_view(), name='crontab_schedule_add'),
+        url(r'^$', CrontabScheduleView.as_view(), name='crontab_schedule_list'),
+    ])),
 ]

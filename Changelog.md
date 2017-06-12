@@ -1,4 +1,5 @@
 # 0.6.0-Preview-2
+* 新增Crontab格式周期管理
 
 # 0.6.0-Preview-1
 * 弃用DjangoAdmin的界面，采用HPlus重新开发前端界面

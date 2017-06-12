@@ -1,0 +1,55 @@
+{% extends 'common/basic_list.html' %}
+
+{% block list_title %}
+    周期管理(Crontab)
+{% endblock %}
+
+{% block list_filter %}
+    <div class="col-sm-4">
+        <div class="input-group">
+            <a href="crontab_schedule_add/"
+               class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
+            &nbsp;
+            <a href="javascript:void(0)"
+               onclick="deleteBatch()"
+               class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block list_content %}
+    <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
+        <thead>
+        <tr>
+            <th style="width: 2%;"><input id="checkall" type="checkbox" class="i-checks"></th>
+            <th style="width: 10%;">分</th>
+            <th style="width: 10%;">小时</th>
+            <th style="width: 10%;">周</th>
+            <th style="width: 10%;">月</th>
+            <th style="width: 10%;">年</th>
+            <th style="width:10%;">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for o in result_list %}
+            <tr>
+                <td>
+                    <input type="checkbox" class="i-checks icheck" id="{{ o.id }}" name="input[]">
+                </td>
+                <td>{{ o.minute }}</td>
+                <td>{{ o.hour }}</td>
+                <td>{{ o.day_of_week }}</td>
+                <td>{{ o.day_of_month }}</td>
+                <td>{{ o.month_of_year }}</td>
+                <td>
+                    <a href="{{ o.id }}/crontab_schedule_edit/"
+                       class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
+                    <a href="javascript:void(0)"
+                       onclick="deleteAction('{{ o.id }}')"
+                       class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i>删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
