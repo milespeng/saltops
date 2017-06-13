@@ -9,7 +9,7 @@
         <div class="input-group">
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>
             &nbsp;
-            <a href="preriodic_task_add/"
+            <a href="task_state_add/"
                class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
             &nbsp;
             <a href="javascript:void(0)"
@@ -54,7 +54,7 @@
                 <td>{{ o.retries }}</td>
                 <td>{{ o.worker }}</td>
                 <td>
-                    <a href="{{ o.id }}/preriodic_task_edit/"
+                    <a href="{{ o.id }}/task_state_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
                     <a href="javascript:void(0)"
                        onclick="deleteAction('{{ o.id }}')"
