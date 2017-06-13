@@ -163,17 +163,17 @@ REST_FRAMEWORK = {
     ]
 }
 
-# SALT_HTTP_URL = 'http://127.0.0.1:32769'
-# PACKAGE_PATH = "/Users/kira/oschina/saltops/scripts/files/"
-# SALT_REST_URL = 'http://127.0.0.1:32768/'
-# SALT_USER = 'ops'
-# SALT_PASSWORD = '123456'
-SALT_CONN_TYPE = ''  # http
-SALT_HTTP_URL = 'http://127.0.0.1:5000'
-PACKAGE_PATH = "/home/kira/code/saltops/static/scripts/"
-SALT_REST_URL = 'http://127.0.0.1:8001/'
-SALT_USER = 'saltops'
-SALT_PASSWORD = 'saltops'
+SALT_HTTP_URL = 'http://127.0.0.1:32769'
+PACKAGE_PATH = "/Users/kira/opensource/saltops/static/scripts/"
+SALT_REST_URL = 'http://127.0.0.1:32768/'
+SALT_USER = 'ops'
+SALT_PASSWORD = '123456'
+SALT_CONN_TYPE = 'http'  # http
+# SALT_HTTP_URL = 'http://127.0.0.1:5000'
+# PACKAGE_PATH = "/home/kira/code/saltops/static/scripts/"
+# SALT_REST_URL = 'http://127.0.0.1:8001/'
+# SALT_USER = 'saltops'
+# SALT_PASSWORD = 'saltops'
 
 djcelery.setup_loader()
 BROKER_URL = 'django://'

@@ -3,6 +3,7 @@ from djcelery.models import *
 from django import forms
 from anyjson import loads
 
+
 class IntervalScheduleForm(forms.ModelForm):
     class Meta:
         model = IntervalSchedule
@@ -14,6 +15,14 @@ class CrontabScheduleForm(forms.ModelForm):
         model = CrontabSchedule
         fields = ['minute', 'hour', 'day_of_week', 'day_of_month',
                   'month_of_year']
+
+
+class TaskStateForm(forms.ModelForm):
+    class Meta:
+        model = TaskState
+        fields = ['name', 'state', 'task_id', 'tstamp', 'args', 'kwargs',
+                  'eta', 'expires', 'result', 'traceback', 'runtime', 'retries', 'worker']
+
 
 class PeriodicTaskForm(forms.ModelForm):
     regtask = TaskChoiceField(label='计划任务（已注册）',
