@@ -557,8 +557,7 @@ def scanHostJob():
                               osfinger=result[host]["osfinger"] if 'osfinger' in result[host] else "",
                               os_family=result[host]["os_family"] if 'os_family' in result[host] else "",
                               num_gpus=result[host]["num_gpus"] if 'num_gpus' in result[host] else 0,
-                              system_serialnumber=result[host]['system_serialnumber'] if 'system_serialnumber' in
-                                                                                         result[host] else "",
+                              system_serialnumber=result[host]['serialnumber'] if 'serialnumber' in result[host] else "",
                               cpu_model=result[host]["cpu_model"] if 'cpu_model' in result[host] else "",
                               productname=result[host]['productname'] if "productname" in result[host]else"",
                               osarch=result[host]["osarch"] if 'osarch' in result[host] else "",
@@ -584,8 +583,7 @@ def scanHostJob():
                 entity.osfinger = result[host]["osfinger"] if 'osfinger' in result[host] else ""
                 entity.os_family = result[host]["os_family"] if 'os_family' in result[host] else ""
                 entity.num_gpus = result[host]["num_gpus"] if 'num_gpus' in result[host] else 0
-                entity.system_serialnumber = result[host]["system_serialnumber"] \
-                    if 'system_serialnumber' in result[host] else ""
+                entity.system_serialnumber = result[host]["serialnumber"] if 'serialnumber' in result[host] else ""
                 entity.cpu_model = result[host]["cpu_model"] if 'cpu_model' in result[host] else ""
                 entity.productname = result[host]["productname"] if 'productname' in result[host] else ""
                 entity.osarch = result[host]["osarch"] if 'osarch' in result[host] else ""
@@ -595,10 +593,12 @@ def scanHostJob():
                 entity.minion_status = minionstatus
                 entity.save()
 
-                HostIP.objects.filter(host=entity).delete()
-                for ip in result[host]["ipv4"]:
+                oldip_list = [i.ip for i in HostIP.objects.filter(host=entity)]
+                for ip in set(result[host]["ipv4"])-set(oldip_list):
                     hostip = HostIP(ip=ip, host=entity)
                     hostip.save()
+                for ip in set(oldip_list)-set(result[host]["ipv4"]):
+                    HostIP.objects.filter(ip=ip).delete()
 
         except Exception as e:
             logger.error("自动扫描出现异常:%s", e)
@@ -633,10 +633,13 @@ def scanHostJob():
                     # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
                     entity.minion_status = 1
                     entity.save()
-                    HostIP.objects.filter(host=entity).delete()
-                    for ip in sshResult[host]['return']["ipv4"]:
+
+                    oldip_list = [i.ip for i in HostIP.objects.filter(host=entity)]
+                    for ip in set(result[host]["ipv4"]) - set(oldip_list):
                         hostip = HostIP(ip=ip, host=entity)
-                    hostip.save()
+                        hostip.save()
+                    for ip in set(oldip_list) - set(result[host]["ipv4"]):
+                        HostIP.objects.filter(ip=ip).delete()
 
         except Exception as e:
             traceback.print_exc()
