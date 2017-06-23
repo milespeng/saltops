@@ -32,6 +32,9 @@ djangorestframework==3.5.3
 docutils==0.13.1
 Flask==0.12
 futures==3.0.5
+gevent==1.2.2
+greenlet==0.4.12
+gunicorn==19.7.1
 imagesize==0.7.1
 itsdangerous==0.24
 Jinja2==2.9.4
