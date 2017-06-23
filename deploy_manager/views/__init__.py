@@ -31,10 +31,10 @@ def jobscript_filter(value):
 def sub_jobscript_filter(value):
     project_version = ProjectVersion.objects.get(pk=value)
 
-    if project_version.sub_job_script_type == 100:
-        project_ype_id = project_version.project.job_script_type
+    if project_version.install_job_script_type == 100:
+        project_ype_id = project_version.project.install_job_script_type
     else:
-        project_ype_id = project_version.sub_job_script_type
+        project_ype_id = project_version.install_job_script_type
     for k in JOB_SCRIPT_TYPE:
         if k[0] == project_ype_id:
             return k[1]
