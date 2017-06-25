@@ -322,67 +322,98 @@ def execTools(obj, hostList, ymlParam):
     return toolExecJob, exec_detail_list
 
 
+def getScriptType(types):
+    if types == 0:
+        return 'sls'
+    elif types == 1:
+        return 'sh'
+    else:
+        return 'sls'
+
+
 @task(name='deployTask')
-def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: list = []):
+def deployTask(deploy_job: DeployJob,
+               operation: int,
+               target_hosts=[]):
     """
     部署业务
-    :param uninstall: 
-    :param uninstall_host: 
+    :param uninstall:
+    :param uninstall_host:
     :param deployJob:
     :return:
     """
     try:
-        project = deployJob.project_version.project
-        defaultVersion = project.projectversion_set.get(is_default=True)
-        logger.info("使用的默认版本为%s", defaultVersion)
+        project = deploy_job.project_version.project
+        default_version = deploy_job.project_version
+        logger.info("使用的默认版本为%s", default_version)
 
-        isSubScript = defaultVersion.sub_job_script_type == 100
-
+        # 判断是否使用版本的部署脚本
         script_type = 'sls'
-        if isSubScript is True:
-            if project.job_script_type == 1:
-                script_type = 'sh'
-        else:
-            if defaultVersion.sub_job_script_type == 1:
-                script_type = 'sh'
-
-        if isSubScript is True:
-            if uninstall is False:
-                playbookContent = project.playbook
+        playbookContent = ''
+        # 0 安装  1 卸载 2 状态守护 3 启动 4 停止 5 状态获取
+        if operation == 0:
+            if default_version.install_script != '':
+                playbookContent = default_version.install_script
+                script_type = getScriptType(default_version.install_job_script_type)
             else:
-                playbookContent = project.anti_install_playbook
-        else:
-            if uninstall is False:
-                playbookContent = defaultVersion.subplaybook
+                playbookContent = project.install_script
+                script_type = getScriptType(project.install_job_script_type)
+        if operation == 1:
+            if default_version.anti_install_script != '':
+                playbookContent = default_version.anti_install_script
+                script_type = getScriptType(default_version.anti_install_script_type)
             else:
-                playbookContent = defaultVersion.anti_install_playbook
+                playbookContent = project.anti_install_script
+                script_type = getScriptType(project.anti_install_script_type)
+        if operation == 2:
+            if default_version.stateguard_script != '':
+                playbookContent = default_version.stateguard_script
+                script_type = getScriptType(default_version.stateguard_script_type)
+            else:
+                playbookContent = project.stateguard_script
+                script_type = getScriptType(project.stateguard_script_type)
+        if operation == 3:
+            if default_version.start_script != '':
+                playbookContent = default_version.start_script
+                script_type = getScriptType(default_version.start_script_type)
+            else:
+                playbookContent = project.start_script
+                script_type = getScriptType(project.start_script_type)
+        if operation == 4:
+            if default_version.stop_script != '':
+                playbookContent = default_version.stop_script
+                script_type = getScriptType(default_version.stop_script_type)
+            else:
+                playbookContent = default_version.stop_script
+                script_type = getScriptType(project.stop_script_type)
+        if operation == 5:
+            if default_version.state_script != '':
+                playbookContent = default_version.state_script
+                script_type = getScriptType(default_version.state_script_type)
+            else:
+                playbookContent = project.state_script
+                script_type = getScriptType(project.state_script_type)
 
         extent_dict = (
-            {'version': defaultVersion.name}
+            {'version': default_version.name}
         )
-        if defaultVersion.extra_param != '':
-            extra_params = defaultVersion.extra_param
+        if default_version.extra_param != '':
+            extra_params = default_version.extra_param
         else:
             extra_params = project.extra_param
+
         script_name, script_path = generateDynamicScript(playbookContent, script_type, project.extra_param,
                                                          extra_params, extent_dict)
         prepare_result = prepareScript(script_path)
         if prepare_result is False:
-            deployJob.deploy_status = 2
-            deployJob.save()
+            deploy_job.deploy_status = 2
+            deploy_job.save()
             logger.info("执行失败，请检查SimpleService是否启动")
             return
 
-        if uninstall is False and defaultVersion.files is not None:
-            try:
-                prepareScript(defaultVersion.files.path)
-            except Exception as e:
-                logger.info("没有文件，不执行发送操作")
-
         jobList = []
-
-        if uninstall is False:
-            hosts = []
+        hosts = []
+        if len(target_hosts) == 0:
             project_hosts = ProjectHost.objects.filter(project=project)
             for o in project_hosts:
                 hosts.append(o.host)
@@ -393,7 +424,7 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                     hosts.append(h)
             hosts = list(set(hosts))
         else:
-            hosts = uninstall_host
+            hosts = target_hosts
 
         logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
         hasErr = False
@@ -434,7 +465,7 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                             deployJobDetail = DeployJobDetail(
                                 host=targetHost,
                                 deploy_message=msg,
-                                job=deployJob,
+                                job=deploy_job,
                                 stderr=stderr,
                                 job_cmd=jobCmd,
                                 comment=dataResult[cmd]['comment'],
@@ -453,7 +484,7 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                     deployJobDetail = DeployJobDetail(
                         host=targetHost,
                         deploy_message=dataResult['stdout'],
-                        job=deployJob,
+                        job=deploy_job,
                         stderr=dataResult['stderr'],
                         job_cmd=playbookContent,
                         is_success=True if dataResult['stderr'] == '' else False,
@@ -461,15 +492,15 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                     jobList.append(deployJobDetail)
 
         os.remove(script_path)
-        deployJob.deploy_status = 1 if hasErr is False else 2
-        deployJob.save()
+        deploy_job.deploy_status = 1 if hasErr is False else 2
+        deploy_job.save()
         for i in jobList:
             i.save()
         logger.info("执行脚本完成")
-        return deployJob
+        return deploy_job
     except Exception as e:
-        deployJob.deploy_status = 2
-        deployJob.save()
+        deploy_job.deploy_status = 2
+        deploy_job.save()
         logger.info("执行失败%s:" % e)
 
         mail.send(
@@ -478,7 +509,7 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
             message='Hi there!',
             html_message='Hi <strong>there</strong>!',
         )
-        return deployJob
+        return deploy_job
 
 
 @task(name='scanHostJob')
@@ -557,7 +588,8 @@ def scanHostJob():
                               osfinger=result[host]["osfinger"] if 'osfinger' in result[host] else "",
                               os_family=result[host]["os_family"] if 'os_family' in result[host] else "",
                               num_gpus=result[host]["num_gpus"] if 'num_gpus' in result[host] else 0,
-                              system_serialnumber=result[host]['serialnumber'] if 'serialnumber' in result[host] else "",
+                              system_serialnumber=result[host]['serialnumber'] if 'serialnumber' in result[
+                                  host] else "",
                               cpu_model=result[host]["cpu_model"] if 'cpu_model' in result[host] else "",
                               productname=result[host]['productname'] if "productname" in result[host]else"",
                               osarch=result[host]["osarch"] if 'osarch' in result[host] else "",
@@ -594,10 +626,10 @@ def scanHostJob():
                 entity.save()
 
                 oldip_list = [i.ip for i in HostIP.objects.filter(host=entity)]
-                for ip in set(result[host]["ipv4"])-set(oldip_list):
+                for ip in set(result[host]["ipv4"]) - set(oldip_list):
                     hostip = HostIP(ip=ip, host=entity)
                     hostip.save()
-                for ip in set(oldip_list)-set(result[host]["ipv4"]):
+                for ip in set(oldip_list) - set(result[host]["ipv4"]):
                     HostIP.objects.filter(ip=ip).delete()
 
         except Exception as e:

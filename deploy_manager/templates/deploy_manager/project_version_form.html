@@ -212,7 +212,6 @@
                             <tr>
                                 <th style="width: 7%;">版本名称</th>
                                 {#                                <th style="width: 7%;">版本</th>#}
-                                <th style="width: 5%;">默认版本</th>
                                 <th style="width: 5%;">脚本语言</th>
                                 <th style="width:5%;">操作</th>
                             </tr>
@@ -225,7 +224,7 @@
                                     </th>
                                     {#                                    <th style="width: 7%;"><a#}
                                     {#                                            href="{{ project_version.files }}">{{ project_version.files }}</a></th>#}
-                                    <th style="width: 5%;">{{ project_version.is_default|bool_to_human }}</th>
+
                                     <th style="width: 5%;">{{ project_version.id|sub_jobscript_filter }}</th>
                                     <th style="width:5%;">
                                         <a href="/frontend/deploy_manager/project_list/{{ project_version.id }}/project_version_edit/?pk={{ project_version.project.id }}"

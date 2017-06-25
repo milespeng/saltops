@@ -25,7 +25,7 @@ class ProjectForm(forms.ModelForm):
 class ProjectVersionForm(forms.ModelForm):
     class Meta:
         model = ProjectVersion
-        fields = ['project', 'name', 'files', 'is_default',
+        fields = ['project', 'name', 'files',
                   'install_job_script_type',
                   'install_script', 'anti_install_script_type', 'anti_install_script',
                   'stateguard_script_type', 'stateguard_script',

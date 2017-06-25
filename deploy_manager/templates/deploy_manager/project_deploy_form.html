@@ -22,7 +22,13 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> 业务版本</label>
                                 <div class="col-sm-10">
-                                    {{ project_version_obj.name }}
+                                    <select data-placeholder="选择版本"
+                                            class="form-control " id="version"
+                                            tabindex="4">
+                                        {% for o in project_version_obj %}
+                                            <option value="{{ o.id }}">{{ o.name }}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -190,6 +196,7 @@
                 'hostids': hosts_str,
                 'hostgroup_ids': hostsgroup_str,
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'version': $('#version').val(),
                 {% for k,v in param_list %}
                     '{{ v }}': $('#{{ v }}').val(),
                 {% endfor %}
