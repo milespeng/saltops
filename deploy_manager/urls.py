@@ -27,6 +27,10 @@ urlpatterns = [
             ProjectHostGroupUnDeployActionView.as_view()),
         url(r'project_host_undeploy_action/',
             ProjectHostUnDeployActionView.as_view()),
+        url(r'project_host_start_action/',
+            ProjectHostStartActionView.as_view()),
+        url(r'project_host_stop_action/',
+            ProjectHostStopActionView.as_view()),
         url(r'project_deploy/', ProjectDeployView.as_view()),
         url(
             r'^(?P<username>\w+)/(?P<password>\w+)/(?P<project_name>\w+)/(?P<project_version_name>\w+)/project_version_update_rest/',

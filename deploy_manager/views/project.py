@@ -134,6 +134,32 @@ class ProjectHostUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         return self.render_json_response({})
 
 
+class ProjectHostStartActionView(LoginRequiredMixin, JSONResponseMixin,
+                                 AjaxResponseMixin, View):
+    def get_ajax(self, request, *args, **kwargs):
+        projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
+        version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))
+        job = DeployJob(project_version=version, job_name='启动' + projecthost.host.host_name + ":" + version.name)
+        job.save()
+        hostlist = []
+        hostlist.append(projecthost.host)
+        deployjob = deployTask.delay(job, 3, hostlist)
+        return self.render_json_response({})
+
+
+class ProjectHostStopActionView(LoginRequiredMixin, JSONResponseMixin,
+                                AjaxResponseMixin, View):
+    def get_ajax(self, request, *args, **kwargs):
+        projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
+        version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))
+        job = DeployJob(project_version=version, job_name='启动' + projecthost.host.host_name + ":" + version.name)
+        job.save()
+        hostlist = []
+        hostlist.append(projecthost.host)
+        deployjob = deployTask.delay(job, 4, hostlist)
+        return self.render_json_response({})
+
+
 def predeploy(project: Project, uninstall=False):
     """
     :param project:
