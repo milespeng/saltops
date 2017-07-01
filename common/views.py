@@ -14,7 +14,8 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 
 from cmdb.models import Host
-from deploy_manager.models import Project
+from deploy_manager.models import Project, DeployJob
+from tools_manager.models import ToolsExecJob
 
 
 class LoginView(TemplateView):
@@ -114,6 +115,9 @@ def dashboard(request):
         total.append(obj['total'])
     module['os'] = os
     module['total'] = total
+
+    module['tool_count'] = ToolsExecJob.objects.count()
+    module['deploy_count'] = DeployJob.objects.count()
     return render(request, 'common/dashboard.html', {
         'module': module
     })
