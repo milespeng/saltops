@@ -3,9 +3,5 @@ import json
 from django.test import TestCase
 
 # Create your tests here.
-a = {
+from saltjob.tasks import scanProjectState
 
-}
-a['rs'] = 1
-a['a'] = []
-print(json.dumps(a))

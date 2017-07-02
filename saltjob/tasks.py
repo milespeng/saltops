@@ -9,7 +9,7 @@ import yaml
 from celery import task
 from post_office import mail
 
-from cmdb.models import Host, HostIP
+from cmdb.models import Host, HostIP, HostGroup
 from deploy_manager.models import *
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
@@ -717,3 +717,55 @@ def scanProjectConfig():
     project_config_file = ProjectConfigFile.objects.all()
     for project in project_config_file:
         loadProjectConfig(project.project.id)
+
+
+@task(name='scanProjectState')
+def scanProjectState():
+    """
+    状态采集
+    :return:
+    """
+    project_host_lists = ProjectHost.objects.all()
+    project_host_group_list = ProjectHostGroup.objects.all()
+    logger.info("共扫描业务%s个" % len(project_host_lists))
+    hostlist = []
+    for o in project_host_group_list:
+        Host.objects.filter(host_group=o)
+        hostlist.append(o)
+    for k in project_host_lists:
+        version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
+        job = DeployJob(project_version=version, job_name='采集业务' + k.host.host_name + ":" + version.name)
+        job.save()
+        hostlist.append(k.host)
+        logger.info("扫描业务%s" % version.project.name)
+        deployjob = deployTask.delay(job, 5, hostlist)
+        deployjob_obj = DeployJobDetail.objects.get(job=deployjob.result)
+        if deployjob_obj.deploy_message != '':
+            k.is_running = True
+            logger.info("业务%s运行中" % version.project.name)
+        else:
+            k.is_running = False
+            logger.info("业务%s未运行" % version.project.name)
+        k.save()
+
+
+@task(name='scanProjectGuard')
+def scanProjectGuard():
+    """
+    状态采集
+    :return:
+    """
+    project_host_lists = ProjectHost.objects.all()
+    project_host_group_list = ProjectHostGroup.objects.all()
+    logger.info("共扫描业务%s个" % len(project_host_lists))
+    hostlist = []
+    for o in project_host_group_list:
+        Host.objects.filter(host_group=o)
+        hostlist.append(o)
+    for k in project_host_lists:
+        version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
+        job = DeployJob(project_version=version, job_name='守护' + k.host.host_name + ":" + version.name)
+        job.save()
+        hostlist.append(k.host)
+        logger.info("扫描业务%s" % version.project.name)
+        deployjob = deployTask.delay(job, 2, hostlist)

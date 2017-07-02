@@ -28,6 +28,14 @@ def jobscript_filter(value):
 
 
 @register.filter()
+def isrunning_filter(value):
+    if value is True:
+        return '运行中'
+    else:
+        return '未运行'
+
+
+@register.filter()
 def sub_jobscript_filter(value):
     project_version = ProjectVersion.objects.get(pk=value)
 

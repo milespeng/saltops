@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 from django.urls import *
 from django.views.generic import *
 
-from saltjob.tasks import deployTask, loadProjectConfig
+from saltjob.tasks import deployTask, loadProjectConfig, scanProjectState
 from cmdb.models import Host, HostGroup
 from common.pageutil import preparePage
 from deploy_manager.forms import ProjectForm, ProjectVersionForm
