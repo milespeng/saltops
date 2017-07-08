@@ -152,7 +152,7 @@ class ProjectHostStopActionView(LoginRequiredMixin, JSONResponseMixin,
     def get_ajax(self, request, *args, **kwargs):
         projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
         version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))
-        job = DeployJob(project_version=version, job_name='启动' + projecthost.host.host_name + ":" + version.name)
+        job = DeployJob(project_version=version, job_name='停止' + projecthost.host.host_name + ":" + version.name)
         job.save()
         hostlist = []
         hostlist.append(projecthost.host)

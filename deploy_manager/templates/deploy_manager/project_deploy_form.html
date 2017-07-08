@@ -108,10 +108,10 @@
                                                 <td>{{ o.is_running|isrunning_filter }}</td>
                                                 <td>
                                                     <a href="javascript:void(0)"
-                                                       onclick="uninstall_host('{{ o.id }}')"
+                                                       onclick="start_host('{{ o.id }}')"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>启动</a>
                                                     <a href="javascript:void(0)"
-                                                       onclick="uninstall_host('{{ o.id }}')"
+                                                       onclick="stop_host('{{ o.id }}')"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>停止</a>
                                                     <a href="javascript:void(0)"
                                                        onclick="uninstall_host('{{ o.id }}')"
@@ -137,7 +137,7 @@
                                         }
                                         function stop_host(id) {
                                             layer.load();
-                                            $.get('project_host_start_action/?pk=' + id, function (rs) {
+                                            $.get('project_host_stop_action/?pk=' + id, function (rs) {
                                                 layer.closeAll('loading');
                                             })
                                         }

@@ -377,14 +377,14 @@ def deployTask(deploy_job: DeployJob,
                 playbookContent = default_version.start_script
                 script_type = getScriptType(default_version.start_script_type)
             else:
-                playbookContent = project.start_script
+                playbookContent = project.start_scriptw
                 script_type = getScriptType(project.start_script_type)
         if operation == 4:
             if default_version.stop_script != '':
                 playbookContent = default_version.stop_script
                 script_type = getScriptType(default_version.stop_script_type)
             else:
-                playbookContent = default_version.stop_script
+                playbookContent = project.stop_script
                 script_type = getScriptType(project.stop_script_type)
         if operation == 5:
             if default_version.state_script != '':
