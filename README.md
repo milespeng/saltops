@@ -5,13 +5,6 @@
 
 #saltops
 
-#演示地址
-
-> 每半个小时会重建一次SaltOps的环境～仅对前端进行了展示，Salt部分未启动
-
-可以访问 http://123.207.118.148/ 查看Master版本的SaltOps演示
-用户名:saltops
-密码:saltops1234
 
 
 #目标
