@@ -99,7 +99,7 @@ def runSaltCommand(host, script_type, filename, func=None, func_args=None):
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
             logger.info("执行结果为:%s", result)
     else:
-        if func_args != "":
+        if func_args is not None:
             lex = shlex.shlex(func_args.strip())
             lex.quotes = '"'
             lex.whitespace_split = True
@@ -220,6 +220,10 @@ def execTools(obj, hostList, ymlParam):
 
             elif obj.tool_run_type == 5:
                 func_args = 'salt://%s.bat' % script_name
+
+            elif obj.tool_run_type == 0:
+                func = 'state.sls'
+                func_args = script_name
 
             result = runSaltCommand(target, script_type, script_name, func, func_args)
 
