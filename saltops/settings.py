@@ -27,7 +27,7 @@ SECRET_KEY = '7(9#4oty&&)!8==#p+*cpr9=3q_k_r@n%kti&k39smwtf)qrh$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.80.172', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 # CELERY_IMPORTS = ('saltjob.cron.scanHostJob',)

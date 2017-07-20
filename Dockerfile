@@ -37,7 +37,7 @@ RUN mkdir -p /srv/salt
 WORKDIR /opt/
 RUN git clone https://git.oschina.net/wuwenhao/saltops.git
 WORKDIR /opt/saltops/
-RUN cp -f /opt/saltops/saltops/settings_backup.py /opt/saltops/saltops/settings.py
+#RUN cp -f /opt/saltops/saltops/settings_backup.py /opt/saltops/saltops/settings.py
 RUN pip3 install -r ./requiement.txt -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 RUN useradd -ms /bin/bash saltops
 RUN echo 'saltops:saltops' | chpasswd

@@ -22,7 +22,13 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> 业务版本</label>
                                 <div class="col-sm-10">
-                                    {{ project_version_obj.name }}
+                                    <select data-placeholder="选择版本"
+                                            class="form-control " id="version"
+                                            tabindex="4">
+                                        {% for o in project_version_obj %}
+                                            <option value="{{ o.id }}">{{ o.name }}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -90,15 +96,23 @@
                                     <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
                                         <thead>
                                         <tr>
-                                            <th style="width: 80%;">主机</th>
-                                            <th style="width:5%;">操作</th>
+                                            <th style="width: 40%;">主机</th>
+                                            <th style="width: 20%;">业务状态</th>
+                                            <th style="width:20%;">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         {% for o in project_host %}
                                             <tr id="h{{ o.id }}">
                                                 <td>{{ o.host.host_name }}</td>
+                                                <td>{{ o.is_running|isrunning_filter }}</td>
                                                 <td>
+                                                    <a href="javascript:void(0)"
+                                                       onclick="start_host('{{ o.id }}')"
+                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>启动</a>
+                                                    <a href="javascript:void(0)"
+                                                       onclick="stop_host('{{ o.id }}')"
+                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>停止</a>
                                                     <a href="javascript:void(0)"
                                                        onclick="uninstall_host('{{ o.id }}')"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
@@ -112,6 +126,18 @@
                                             layer.load();
                                             $.get('project_host_undeploy_action/?pk=' + id, function (rs) {
                                                 $('#h' + id).remove()
+                                                layer.closeAll('loading');
+                                            })
+                                        }
+                                        function start_host(id) {
+                                            layer.load();
+                                            $.get('project_host_start_action/?pk=' + id, function (rs) {
+                                                layer.closeAll('loading');
+                                            })
+                                        }
+                                        function stop_host(id) {
+                                            layer.load();
+                                            $.get('project_host_stop_action/?pk=' + id, function (rs) {
                                                 layer.closeAll('loading');
                                             })
                                         }
@@ -190,6 +216,7 @@
                 'hostids': hosts_str,
                 'hostgroup_ids': hostsgroup_str,
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'version': $('#version').val(),
                 {% for k,v in param_list %}
                     '{{ v }}': $('#{{ v }}').val(),
                 {% endfor %}

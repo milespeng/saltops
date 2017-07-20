@@ -5,6 +5,8 @@
 
 #saltops
 
+
+
 #目标
 SaltOps是一个基于SaltStack和Django开发的运维平台，
 平台的主要功能包括：CMDB、包发布管理、工具系统、最终作为包发布和工具系统的接色

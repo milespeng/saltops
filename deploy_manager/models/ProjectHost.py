@@ -7,6 +7,7 @@ from deploy_manager.models.Project import Project
 class ProjectHost(BaseModel):
     host = models.ForeignKey(Host, verbose_name='主机')
     project = models.ForeignKey(Project, verbose_name='业务')
+    is_running = models.BooleanField(null=False, blank=False, default=False, verbose_name='是否运行')
 
     def __str__(self):
         return self.host.host_name

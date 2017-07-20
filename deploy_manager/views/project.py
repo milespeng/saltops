@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 from django.urls import *
 from django.views.generic import *
 
-from saltjob.tasks import deployTask, loadProjectConfig
+from saltjob.tasks import deployTask, loadProjectConfig, scanProjectState
 from cmdb.models import Host, HostGroup
 from common.pageutil import preparePage
 from deploy_manager.forms import ProjectForm, ProjectVersionForm
@@ -112,10 +112,10 @@ class ProjectHostGroupUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                                          AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         hostgroup = ProjectHostGroup.objects.get(pk=int(self.request.GET.get('pk')))
-        version = ProjectVersion.objects.get(is_default=True, project=hostgroup.project)
+        version = ProjectVersion.objects.get(pk=(hostgroup.project.current_version_id))
         job = DeployJob(project_version=version, job_name='卸载' + hostgroup.hostgroup.name + ":" + version.name)
         job.save()
-        deployjob = deployTask.delay(job, True, list(Host.objects.filter(host_group=hostgroup.hostgroup)))
+        deployjob = deployTask.delay(job, 1, list(Host.objects.filter(host_group=hostgroup.hostgroup)))
         hostgroup.delete()
         return self.render_json_response({})
 
@@ -124,24 +124,50 @@ class ProjectHostUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                                     AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
-        version = ProjectVersion.objects.get(is_default=True, project=projecthost.project)
+        version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))
         job = DeployJob(project_version=version, job_name='卸载' + projecthost.host.host_name + ":" + version.name)
         job.save()
         hostlist = []
         hostlist.append(projecthost.host)
-        deployjob = deployTask.delay(job, True, hostlist)
+        deployjob = deployTask.delay(job, 1, hostlist)
         projecthost.delete()
+        return self.render_json_response({})
+
+
+class ProjectHostStartActionView(LoginRequiredMixin, JSONResponseMixin,
+                                 AjaxResponseMixin, View):
+    def get_ajax(self, request, *args, **kwargs):
+        projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
+        version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))
+        job = DeployJob(project_version=version, job_name='启动' + projecthost.host.host_name + ":" + version.name)
+        job.save()
+        hostlist = []
+        hostlist.append(projecthost.host)
+        deployjob = deployTask.delay(job, 3, hostlist)
+        return self.render_json_response({})
+
+
+class ProjectHostStopActionView(LoginRequiredMixin, JSONResponseMixin,
+                                AjaxResponseMixin, View):
+    def get_ajax(self, request, *args, **kwargs):
+        projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
+        version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))
+        job = DeployJob(project_version=version, job_name='停止' + projecthost.host.host_name + ":" + version.name)
+        job.save()
+        hostlist = []
+        hostlist.append(projecthost.host)
+        deployjob = deployTask.delay(job, 4, hostlist)
         return self.render_json_response({})
 
 
 def predeploy(project: Project, uninstall=False):
     """
-    前置业务卸载功能暂不开放，有多重依赖的卸载关系需要考虑
-    :param project: 
+    :param project:
     :param uninstall: 
     :return: 
     """
     preprojects = PreProject.objects.filter(current_project_id=project.id)
+
     if len(preprojects) > 0:
         for k in preprojects:
             preproject_list = PreProject.objects.filter(current_project_id=k.project.id)
@@ -149,30 +175,33 @@ def predeploy(project: Project, uninstall=False):
                 for o in preproject_list:
                     predeploy(Project.objects.get(pk=o.project.id), uninstall)
             else:
-                pre_version = ProjectVersion.objects.get(project=k.project, is_default=True)
+                pre_version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
                 job = DeployJob(project_version=pre_version,
                                 job_name='部署' + k.project.name + ":" + pre_version.name)
                 job.save()
 
-                uninstall_host = []
-                if uninstall is True:
-                    uninstall_host_qs = ProjectHost.objects.filter(project=k.project)
-                    for e in uninstall_host_qs:
-                        uninstall_host.append(e)
-
-                deployjob = deployTask.delay(job, uninstall, uninstall_host)
+                # uninstall_host = []
+                # if uninstall is True:
+                #     uninstall_host_qs = ProjectHost.objects.filter(project=k.project)
+                #     for e in uninstall_host_qs:
+                #         uninstall_host.append(e)
+                deployjob = deployTask.delay(job, 1)
 
 
 class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                               AjaxResponseMixin, View):
     def post_ajax(self, request, *args, **kwargs):
+
         # 目标主机
         hosts = request.POST.get('hostids', '')
         # 目标主机组
         host_groups = request.POST.get('hostgroup_ids', '')
 
         obj = Project.objects.get(pk=int(self.request.GET.get('pk')))
-        version = obj.projectversion_set.get(is_default=True)
+        project_version_id = request.POST.get('version', '')
+        obj.current_version_id = project_version_id
+        obj.save()
+        version = ProjectVersion.objects.get(pk=int(project_version_id))
 
         if host_groups != '':
             host_groups_ids = host_groups.split(',')
@@ -185,7 +214,8 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         predeploy(obj)
         job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
         job.save()
-        deployjob = deployTask.delay(job)
+
+        deployjob = deployTask.delay(job, 0)
 
         job_result = DeployJob.objects.get(pk=job.id)
         jobDetails = DeployJobDetail.objects.filter(job=job_result)
@@ -257,7 +287,7 @@ class ProjectDeployView(LoginRequiredMixin, TemplateView):
         # 获取版本关联的主机信息
         pk = self.request.GET.get('pk')
         project = Project.objects.get(pk=int(pk))
-        project_version_obj = ProjectVersion.objects.filter(project=project, is_default=True)[0]
+        project_version_obj = ProjectVersion.objects.filter(project=project).all()
         project_host = ProjectHost.objects.filter(project=project)
         project_host_group = ProjectHostGroup.objects.filter(project=project)
         host_list = list(Host.objects.all())
@@ -290,21 +320,10 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
         obj = form.save(commit=False)
         project = Project.objects.get(pk=int(self.request.POST['pid']))
         results = ProjectVersion.objects.filter(project=project)
-        if 'is_default' in form.data and form.data['is_default'] == 'on':
-            for k in results:
-                k.is_default = False
-                k.save()
-            obj.project = project
-            obj.is_default = True
-            obj.save()
-        else:
-            obj = form.save()
-            obj.project = project
-            if len(results) == 0:
-                obj.is_default = True
-            else:
-                obj.is_default = False
-            obj.save()
+        obj = form.save()
+        obj.project = project
+        obj.save()
+
         return super(ProjectVersionCreateView, self).form_valid(form)
 
 

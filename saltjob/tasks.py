@@ -9,7 +9,7 @@ import yaml
 from celery import task
 from post_office import mail
 
-from cmdb.models import Host, HostIP
+from cmdb.models import Host, HostIP, HostGroup
 from deploy_manager.models import *
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
@@ -99,7 +99,7 @@ def runSaltCommand(host, script_type, filename, func=None, func_args=None):
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
             logger.info("执行结果为:%s", result)
     else:
-        if func_args != "":
+        if func_args is not None:
             lex = shlex.shlex(func_args.strip())
             lex.quotes = '"'
             lex.whitespace_split = True
@@ -221,6 +221,10 @@ def execTools(obj, hostList, ymlParam):
             elif obj.tool_run_type == 5:
                 func_args = 'salt://%s.bat' % script_name
 
+            elif obj.tool_run_type == 0:
+                func = 'state.sls'
+                func_args = script_name
+
             result = runSaltCommand(target, script_type, script_name, func, func_args)
 
             if len(result) == 0:
@@ -322,67 +326,98 @@ def execTools(obj, hostList, ymlParam):
     return toolExecJob, exec_detail_list
 
 
+def getScriptType(types):
+    if types == 0:
+        return 'sls'
+    elif types == 1:
+        return 'sh'
+    else:
+        return 'sls'
+
+
 @task(name='deployTask')
-def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: list = []):
+def deployTask(deploy_job: DeployJob,
+               operation: int,
+               target_hosts=[]):
     """
     部署业务
-    :param uninstall: 
-    :param uninstall_host: 
+    :param uninstall:
+    :param uninstall_host:
     :param deployJob:
     :return:
     """
     try:
-        project = deployJob.project_version.project
-        defaultVersion = project.projectversion_set.get(is_default=True)
-        logger.info("使用的默认版本为%s", defaultVersion)
+        project = deploy_job.project_version.project
+        default_version = deploy_job.project_version
+        logger.info("使用的默认版本为%s", default_version)
 
-        isSubScript = defaultVersion.sub_job_script_type == 100
-
+        # 判断是否使用版本的部署脚本
         script_type = 'sls'
-        if isSubScript is True:
-            if project.job_script_type == 1:
-                script_type = 'sh'
-        else:
-            if defaultVersion.sub_job_script_type == 1:
-                script_type = 'sh'
-
-        if isSubScript is True:
-            if uninstall is False:
-                playbookContent = project.playbook
+        playbookContent = ''
+        # 0 安装  1 卸载 2 状态守护 3 启动 4 停止 5 状态获取
+        if operation == 0:
+            if default_version.install_script != '':
+                playbookContent = default_version.install_script
+                script_type = getScriptType(default_version.install_job_script_type)
             else:
-                playbookContent = project.anti_install_playbook
-        else:
-            if uninstall is False:
-                playbookContent = defaultVersion.subplaybook
+                playbookContent = project.install_script
+                script_type = getScriptType(project.install_job_script_type)
+        if operation == 1:
+            if default_version.anti_install_script != '':
+                playbookContent = default_version.anti_install_script
+                script_type = getScriptType(default_version.anti_install_script_type)
             else:
-                playbookContent = defaultVersion.anti_install_playbook
+                playbookContent = project.anti_install_script
+                script_type = getScriptType(project.anti_install_script_type)
+        if operation == 2:
+            if default_version.stateguard_script != '':
+                playbookContent = default_version.stateguard_script
+                script_type = getScriptType(default_version.stateguard_script_type)
+            else:
+                playbookContent = project.stateguard_script
+                script_type = getScriptType(project.stateguard_script_type)
+        if operation == 3:
+            if default_version.start_script != '':
+                playbookContent = default_version.start_script
+                script_type = getScriptType(default_version.start_script_type)
+            else:
+                playbookContent = project.start_scriptw
+                script_type = getScriptType(project.start_script_type)
+        if operation == 4:
+            if default_version.stop_script != '':
+                playbookContent = default_version.stop_script
+                script_type = getScriptType(default_version.stop_script_type)
+            else:
+                playbookContent = project.stop_script
+                script_type = getScriptType(project.stop_script_type)
+        if operation == 5:
+            if default_version.state_script != '':
+                playbookContent = default_version.state_script
+                script_type = getScriptType(default_version.state_script_type)
+            else:
+                playbookContent = project.state_script
+                script_type = getScriptType(project.state_script_type)
 
         extent_dict = (
-            {'version': defaultVersion.name}
+            {'version': default_version.name}
         )
-        if defaultVersion.extra_param != '':
-            extra_params = defaultVersion.extra_param
+        if default_version.extra_param != '':
+            extra_params = default_version.extra_param
         else:
             extra_params = project.extra_param
+
         script_name, script_path = generateDynamicScript(playbookContent, script_type, project.extra_param,
                                                          extra_params, extent_dict)
         prepare_result = prepareScript(script_path)
         if prepare_result is False:
-            deployJob.deploy_status = 2
-            deployJob.save()
+            deploy_job.deploy_status = 2
+            deploy_job.save()
             logger.info("执行失败，请检查SimpleService是否启动")
             return
 
-        if uninstall is False and defaultVersion.files is not None:
-            try:
-                prepareScript(defaultVersion.files.path)
-            except Exception as e:
-                logger.info("没有文件，不执行发送操作")
-
         jobList = []
-
-        if uninstall is False:
-            hosts = []
+        hosts = []
+        if len(target_hosts) == 0:
             project_hosts = ProjectHost.objects.filter(project=project)
             for o in project_hosts:
                 hosts.append(o.host)
@@ -393,7 +428,7 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                     hosts.append(h)
             hosts = list(set(hosts))
         else:
-            hosts = uninstall_host
+            hosts = target_hosts
 
         logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
         hasErr = False
@@ -434,7 +469,7 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                             deployJobDetail = DeployJobDetail(
                                 host=targetHost,
                                 deploy_message=msg,
-                                job=deployJob,
+                                job=deploy_job,
                                 stderr=stderr,
                                 job_cmd=jobCmd,
                                 comment=dataResult[cmd]['comment'],
@@ -453,7 +488,7 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                     deployJobDetail = DeployJobDetail(
                         host=targetHost,
                         deploy_message=dataResult['stdout'],
-                        job=deployJob,
+                        job=deploy_job,
                         stderr=dataResult['stderr'],
                         job_cmd=playbookContent,
                         is_success=True if dataResult['stderr'] == '' else False,
@@ -461,15 +496,15 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
                     jobList.append(deployJobDetail)
 
         os.remove(script_path)
-        deployJob.deploy_status = 1 if hasErr is False else 2
-        deployJob.save()
+        deploy_job.deploy_status = 1 if hasErr is False else 2
+        deploy_job.save()
         for i in jobList:
             i.save()
         logger.info("执行脚本完成")
-        return deployJob
+        return deploy_job
     except Exception as e:
-        deployJob.deploy_status = 2
-        deployJob.save()
+        deploy_job.deploy_status = 2
+        deploy_job.save()
         logger.info("执行失败%s:" % e)
 
         mail.send(
@@ -478,7 +513,7 @@ def deployTask(deployJob: DeployJob, uninstall: bool = False, uninstall_host: li
             message='Hi there!',
             html_message='Hi <strong>there</strong>!',
         )
-        return deployJob
+        return deploy_job
 
 
 @task(name='scanHostJob')
@@ -557,8 +592,8 @@ def scanHostJob():
                               osfinger=result[host]["osfinger"] if 'osfinger' in result[host] else "",
                               os_family=result[host]["os_family"] if 'os_family' in result[host] else "",
                               num_gpus=result[host]["num_gpus"] if 'num_gpus' in result[host] else 0,
-                              system_serialnumber=result[host]['system_serialnumber'] if 'system_serialnumber' in
-                                                                                         result[host] else "",
+                              system_serialnumber=result[host]['serialnumber'] if 'serialnumber' in result[
+                                  host] else "",
                               cpu_model=result[host]["cpu_model"] if 'cpu_model' in result[host] else "",
                               productname=result[host]['productname'] if "productname" in result[host]else"",
                               osarch=result[host]["osarch"] if 'osarch' in result[host] else "",
@@ -584,8 +619,7 @@ def scanHostJob():
                 entity.osfinger = result[host]["osfinger"] if 'osfinger' in result[host] else ""
                 entity.os_family = result[host]["os_family"] if 'os_family' in result[host] else ""
                 entity.num_gpus = result[host]["num_gpus"] if 'num_gpus' in result[host] else 0
-                entity.system_serialnumber = result[host]["system_serialnumber"] \
-                    if 'system_serialnumber' in result[host] else ""
+                entity.system_serialnumber = result[host]["serialnumber"] if 'serialnumber' in result[host] else ""
                 entity.cpu_model = result[host]["cpu_model"] if 'cpu_model' in result[host] else ""
                 entity.productname = result[host]["productname"] if 'productname' in result[host] else ""
                 entity.osarch = result[host]["osarch"] if 'osarch' in result[host] else ""
@@ -595,10 +629,12 @@ def scanHostJob():
                 entity.minion_status = minionstatus
                 entity.save()
 
-                HostIP.objects.filter(host=entity).delete()
-                for ip in result[host]["ipv4"]:
+                oldip_list = [i.ip for i in HostIP.objects.filter(host=entity)]
+                for ip in set(result[host]["ipv4"]) - set(oldip_list):
                     hostip = HostIP(ip=ip, host=entity)
                     hostip.save()
+                for ip in set(oldip_list) - set(result[host]["ipv4"]):
+                    HostIP.objects.filter(ip=ip).delete()
 
         except Exception as e:
             logger.error("自动扫描出现异常:%s", e)
@@ -633,10 +669,13 @@ def scanHostJob():
                     # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
                     entity.minion_status = 1
                     entity.save()
-                    HostIP.objects.filter(host=entity).delete()
-                    for ip in sshResult[host]['return']["ipv4"]:
+
+                    oldip_list = [i.ip for i in HostIP.objects.filter(host=entity)]
+                    for ip in set(result[host]["ipv4"]) - set(oldip_list):
                         hostip = HostIP(ip=ip, host=entity)
-                    hostip.save()
+                        hostip.save()
+                    for ip in set(oldip_list) - set(result[host]["ipv4"]):
+                        HostIP.objects.filter(ip=ip).delete()
 
         except Exception as e:
             traceback.print_exc()
@@ -682,3 +721,55 @@ def scanProjectConfig():
     project_config_file = ProjectConfigFile.objects.all()
     for project in project_config_file:
         loadProjectConfig(project.project.id)
+
+
+@task(name='scanProjectState')
+def scanProjectState():
+    """
+    状态采集
+    :return:
+    """
+    project_host_lists = ProjectHost.objects.all()
+    project_host_group_list = ProjectHostGroup.objects.all()
+    logger.info("共扫描业务%s个" % len(project_host_lists))
+    hostlist = []
+    for o in project_host_group_list:
+        Host.objects.filter(host_group=o)
+        hostlist.append(o)
+    for k in project_host_lists:
+        version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
+        job = DeployJob(project_version=version, job_name='采集业务' + k.host.host_name + ":" + version.name)
+        job.save()
+        hostlist.append(k.host)
+        logger.info("扫描业务%s" % version.project.name)
+        deployjob = deployTask.delay(job, 5, hostlist)
+        deployjob_obj = DeployJobDetail.objects.get(job=deployjob.result)
+        if deployjob_obj.deploy_message != '':
+            k.is_running = True
+            logger.info("业务%s运行中" % version.project.name)
+        else:
+            k.is_running = False
+            logger.info("业务%s未运行" % version.project.name)
+        k.save()
+
+
+@task(name='scanProjectGuard')
+def scanProjectGuard():
+    """
+    状态采集
+    :return:
+    """
+    project_host_lists = ProjectHost.objects.all()
+    project_host_group_list = ProjectHostGroup.objects.all()
+    logger.info("共扫描业务%s个" % len(project_host_lists))
+    hostlist = []
+    for o in project_host_group_list:
+        Host.objects.filter(host_group=o)
+        hostlist.append(o)
+    for k in project_host_lists:
+        version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
+        job = DeployJob(project_version=version, job_name='守护' + k.host.host_name + ":" + version.name)
+        job.save()
+        hostlist.append(k.host)
+        logger.info("扫描业务%s" % version.project.name)
+        deployjob = deployTask.delay(job, 2, hostlist)

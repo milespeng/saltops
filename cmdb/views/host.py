@@ -1,3 +1,4 @@
+import requests
 from braces.views import *
 from django.contrib.auth.mixins import *
 from django.urls import *
@@ -6,7 +7,33 @@ from django.views.generic import *
 from cmdb.forms import *
 from cmdb.models import *
 from saltjob.tasks import scanHostJob
-from saltops.settings import PER_PAGE
+from saltops.settings import PER_PAGE, SALT_HTTP_URL, SALT_CONN_TYPE
+
+
+def updateSaltRouster():
+    # 如果主机是SSH类型的，把SSH列表更新一遍
+    hosts = Host.objects.all()
+
+    rosterString = ""
+    for host in hosts:
+        if host.enable_ssh is True:
+            rosterString += """
+
+%s:
+    host: %s
+    user: %s
+    passwd: %s
+    sudo: %s
+    tty: True
+
+                    """ % (host.host, host.host, host.ssh_username, host.ssh_password,
+                           host.enable_ssh)
+
+    if SALT_CONN_TYPE == 'http':
+        requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})
+    else:
+        with open('/etc/salt/roster', 'w') as content:
+            content.write(rosterString)
 
 
 class HostView(LoginRequiredMixin, ListView):
@@ -49,6 +76,7 @@ class HostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         obj = form.save()
+        updateSaltRouster()
         host_ips = zip(self.request.POST.getlist('ip'), self.request.POST.getlist('ip_type'))
         for o in list(host_ips):
             HostIP(ip=o[0], ip_type=o[1], host=obj).save()
@@ -74,6 +102,7 @@ class HostUpdateView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         obj = form.save()
+        updateSaltRouster()
         HostIP.objects.filter(host=obj).delete()
         host_ips = zip(self.request.POST.getlist('ip'), self.request.POST.getlist('ip_type'))
         for o in list(host_ips):
@@ -86,6 +115,7 @@ class HostDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
         ids = request.GET.get('id', '')
         if ids != "":
             Host.objects.filter(pk__in=map(int, ids.split(','))).delete()
+            updateSaltRouster()
             return self.render_json_response({"success": True})
         else:
             return self.render_json_response({"success": False})

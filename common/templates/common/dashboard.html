@@ -2,6 +2,53 @@
 {% block content %}
     <div class="wrapper wrapper-content">
         <div class="row">
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">台</span>
+                        <h5>主机数量</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{ module.host_count }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">个</span>
+                        <h5>业务数量</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{ module.buss_count }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">次</span>
+                        <h5>工具执行次数</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{ module.tool_count }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-success pull-right">次</span>
+                        <h5>业务发布次数</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{ module.deploy_count }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
             <div class="col-sm-6">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
@@ -39,14 +86,6 @@
                                 <td>{{ module.py_version }}</td>
                             </tr>
                             <tr>
-                                <td>主机数量</td>
-                                <td>{{ module.host_count }}</td>
-                            </tr>
-                            <tr>
-                                <td>业务数量</td>
-                                <td>{{ module.buss_count }}</td>
-                            </tr>
-                            <tr>
                                 <td>Minion状态</td>
                                 <td>{{ module.minions_status }}</td>
                             </tr>
@@ -75,7 +114,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>主机分布</h5>
@@ -126,7 +165,7 @@
                 },
                 chart: {
                     type: 'bar',
-                    height: 243,
+                    height: 210,
                 },
                 xAxis: {
                     categories: ['CPU使用率', '内存使用率']
