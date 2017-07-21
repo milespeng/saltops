@@ -1,0 +1,72 @@
+<thead>
+<tr>
+    <th style="width: 2%;"><input id="checkall" type="checkbox" class="i-checks"></th>
+    {% for o in headers %}
+        {% if o.style %}
+            <th style="{{ o.style }}"><a class="order-by-column" data-column="{{ o.sortid }}" href="#"><i
+                    class="fa fa-sort order-by-column_icon"></i>{{ o.name }}</a></th>
+        {% else %}
+            <th style="width: 10%;"><a class="order-by-column" data-column="{{ o.sortid }}" href="#"><i
+                    class="fa fa-sort order-by-column_icon"></i>{{ o.name }}</a></th>
+        {% endif %}
+
+    {% endfor %}
+
+    <th style="{{ operation_style }}">操作</th>
+
+</tr>
+</thead>
+
+<script>
+    function setupOrderedColumns(order_by, orderin) {
+        var _self = this;
+        $('.order-by-column').each(function () {
+            var $el = $(this),
+                column_name = $el.data('column'),
+                href = location.href,
+                next_order = 'asc',
+                has_query_string = (href.indexOf('?') !== -1),
+                order_by_param,
+                ordering_param;
+
+            if (order_by === column_name) {
+                if (orderin === 'asc') {
+                    next_order = 'desc';
+                }
+
+                $($el[0].children[0]).removeClass('fa-sort');
+                if (next_order === 'asc') {
+                    debugger;
+                    $($el[0].children[0]).addClass('fa-sort-desc');
+                } else {
+                    debugger;
+                    $($el[0].children[0]).addClass('fa-sort-asc');
+                }
+            }
+
+
+            order_by_param = "order_by=" + column_name;
+            ordering_param = "ordering=" + next_order;
+            if (!has_query_string) {
+                href = '?' + order_by_param + '&' + ordering_param;
+            } else {
+                if (href.match(/ordering=(asc|desc)/)) {
+                    href = href.replace(/ordering=(asc|desc)/, ordering_param);
+                } else {
+                    href += '&' + ordering_param;
+                }
+
+                if (href.match(/order_by=[_\w]+/)) {
+                    href = href.replace(/order_by=([_\w]+)/, order_by_param);
+                } else {
+                    href += '&' + order_by_param;
+                }
+
+            }
+
+            $el.attr('href', href);
+
+        });
+    }
+    setupOrderedColumns('{{ order_by }}', '{{ ordering }}');
+</script>

@@ -3,6 +3,9 @@ from time import timezone
 from django.template.defaultfilters import register
 from django.utils.safestring import mark_safe
 
+# 注册自己为一个自定义的Tag
+from django import template
+register_lib = template.Library()
 
 @register.filter
 def join_queryset_attr(queryset, attr, delimiter=', '):

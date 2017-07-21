@@ -8,9 +8,13 @@ from celery_manager.forms import *
 from saltops.settings import PER_PAGE
 
 
-class CrontabScheduleView(LoginRequiredMixin, ListView):
+class CrontabScheduleView(LoginRequiredMixin,
+                          OrderableListMixin,
+                          ListView):
     model = CrontabSchedule
     paginate_by = PER_PAGE
+    orderable_columns = ('minute', 'hour', 'day_of_week', 'day_of_month', 'month_of_year')
+    orderable_columns_default = "id"
     template_name = 'celery_manager/crontab_schedule_list.html'
     context_object_name = 'result_list'
 
@@ -30,7 +34,7 @@ class CrontabScheduleUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class CrontabScheduleDeleteView(LoginRequiredMixin, JSONResponseMixin,
-                                 AjaxResponseMixin, View):
+                                AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         ids = request.GET.get('id', '')
         if ids != "":
