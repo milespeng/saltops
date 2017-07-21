@@ -4,7 +4,7 @@ from saltops.settings import *
 
 
 @register()
-def example_check(app_configs, **kwargs):
+def saltops_check(app_configs, **kwargs):
     errors = []
     if SALT_CONN_TYPE != '' and SALT_HTTP_URL == '':
         errors.append(
