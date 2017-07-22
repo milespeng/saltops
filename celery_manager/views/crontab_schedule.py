@@ -3,9 +3,12 @@ from django.contrib.auth.mixins import *
 from django.urls import *
 from django.views.generic import *
 from djcelery.models import CrontabSchedule
-
 from celery_manager.forms import *
 from saltops.settings import PER_PAGE
+
+listview_lazy_url = 'celery_manager:crontab_schedule_list'
+listview_template = 'celery_manager/crontab_schedule_list.html'
+formview_template = 'celery_manager/crontab_schedule_form.html'
 
 
 class CrontabScheduleView(LoginRequiredMixin,
@@ -15,22 +18,22 @@ class CrontabScheduleView(LoginRequiredMixin,
     paginate_by = PER_PAGE
     orderable_columns = ('minute', 'hour', 'day_of_week', 'day_of_month', 'month_of_year')
     orderable_columns_default = "id"
-    template_name = 'celery_manager/crontab_schedule_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
 
 
 class CrontabScheduleCreateView(LoginRequiredMixin, CreateView):
     model = CrontabSchedule
     form_class = CrontabScheduleForm
-    template_name = 'celery_manager/crontab_schedule_form.html'
-    success_url = reverse_lazy('celery_manager:crontab_schedule_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class CrontabScheduleUpdateView(LoginRequiredMixin, UpdateView):
     model = CrontabSchedule
     form_class = CrontabScheduleForm
-    template_name = 'celery_manager/crontab_schedule_form.html'
-    success_url = reverse_lazy('celery_manager:crontab_schedule_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class CrontabScheduleDeleteView(LoginRequiredMixin, JSONResponseMixin,
