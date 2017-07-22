@@ -8,6 +8,25 @@
         $(document).ready(function () {
             $('#id_every').parent().parent()[0].children[0].innerText = "频率:";
             $('#id_period').parent().parent()[0].children[0].innerText = "周期:";
+            var options = $('#id_period')[0].options;
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].text == 'Days') {
+                    options[i].text = '天'
+                }
+                if (options[i].text == 'Hours') {
+                    options[i].text = '小时'
+                }
+                if (options[i].text == 'Minutes') {
+                    options[i].text = '分'
+                }
+                if (options[i].text == 'Seconds') {
+                    options[i].text = '秒'
+                }
+                if (options[i].text == 'Microseconds') {
+                    options[i].text = '微秒'
+                }
+            }
+            $('#id_period')[0].options = options;
         })
     </script>
 {% endblock %}

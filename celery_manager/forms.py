@@ -7,14 +7,13 @@ from anyjson import loads
 class IntervalScheduleForm(forms.ModelForm):
     class Meta:
         model = IntervalSchedule
-        fields = ['every', 'period']
+        fields = IntervalSchedule._meta.ordering
 
 
 class CrontabScheduleForm(forms.ModelForm):
     class Meta:
         model = CrontabSchedule
-        fields = ['minute', 'hour', 'day_of_week', 'day_of_month',
-                  'month_of_year']
+        fields = CrontabSchedule._meta.ordering
 
 
 class TaskStateForm(forms.ModelForm):

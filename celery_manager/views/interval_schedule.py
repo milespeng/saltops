@@ -7,26 +7,34 @@ from djcelery.models import IntervalSchedule
 from celery_manager.forms import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'celery_manager:interval_schedule_list'
+listview_template = 'celery_manager/interval_schedule_list.html'
+formview_template = 'celery_manager/interval_schedule_form.html'
 
-class IntervalScheduleView(LoginRequiredMixin, ListView):
+
+class IntervalScheduleView(LoginRequiredMixin,
+                           OrderableListMixin,
+                           ListView):
+    orderable_columns_default = 'id'
+    orderable_columns = IntervalSchedule._meta.ordering
     model = IntervalSchedule
     paginate_by = PER_PAGE
-    template_name = 'celery_manager/interval_schedule_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
 
 
 class IntervalScheduleCreateView(LoginRequiredMixin, CreateView):
     model = IntervalSchedule
     form_class = IntervalScheduleForm
-    template_name = 'celery_manager/interval_schedule_form.html'
-    success_url = reverse_lazy('celery_manager:interval_schedule_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class IntervalScheduleUpdateView(LoginRequiredMixin, UpdateView):
     model = IntervalSchedule
     form_class = IntervalScheduleForm
-    template_name = 'celery_manager/interval_schedule_form.html'
-    success_url = reverse_lazy('celery_manager:interval_schedule_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class IntervalScheduleDeleteView(LoginRequiredMixin, JSONResponseMixin,

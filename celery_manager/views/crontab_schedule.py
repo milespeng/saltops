@@ -16,7 +16,7 @@ class CrontabScheduleView(LoginRequiredMixin,
                           ListView):
     model = CrontabSchedule
     paginate_by = PER_PAGE
-    orderable_columns = ('minute', 'hour', 'day_of_week', 'day_of_month', 'month_of_year')
+    orderable_columns = CrontabSchedule._meta.ordering
     orderable_columns_default = "id"
     template_name = listview_template
     context_object_name = 'result_list'

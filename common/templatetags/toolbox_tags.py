@@ -3,6 +3,15 @@ from django import template
 
 register = template.Library()
 
+@register.inclusion_tag("common/tags/toolbox_search.html")
+def toolbox_search():
+    """
+    工具栏的搜索按钮
+    :return: 
+    """
+    return {
+    }
+
 
 @register.inclusion_tag("common/tags/toolbox_add.html")
 def toolbox_add(url):
