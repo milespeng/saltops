@@ -26,6 +26,11 @@
             $('#checkall').on('ifUnchecked', function (event) {
                 $('.icheck').iCheck('uncheck');
             });
+            if (getUrlParam("_msg") != null) {
+                $('#msgdiv').append(' <div class="alert alert-success alert-dismissable"> ' +
+                    '<button aria-hidden="true" data-dismiss="alert" class="close" type="button">× </button>' +
+                    '删除成功 </div>')
+            }
         });
         function deleteBatch() {
             var obj = getChecked()
@@ -38,9 +43,19 @@
                 })
             }
         }
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]);
+            return null; //返回参数值
+        }
         function deleteAction(id) {
             $.get('delete_entity/?id=' + id, function () {
-                location.reload();
+                if (window.location.href.indexOf("?") == -1) {
+                    window.location.href = window.location.href + "?_msg=1"
+                } else {
+                    window.location.href = window.location.href + "&_msg=1"
+                }
             })
         }
         function getChecked() {
@@ -90,6 +105,19 @@
                             </div>
                         </form>
                         <div class="dataTables_wrapper form-inline">
+                            <div id="msgdiv">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div
+                                                class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissable">
+                                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">
+                                                ×
+                                            </button>
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
                             {% block list_content %}
                             {% endblock %}
                         </div>

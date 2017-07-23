@@ -26,7 +26,7 @@ urlpatterns = [
         url(r'^crontab_schedule_add/', CrontabScheduleCreateView.as_view(), name='crontab_schedule_add'),
         url(r'^$', CrontabScheduleView.as_view(), name='crontab_schedule_list'),
     ])),
-    
+
     url(r'^task_state_list/', include([
         url(r'^delete_entity/', TaskStateDeleteView.as_view(), name='task_state_delete'),
         url(r'^(?P<pk>\d+)/task_state_edit/', TaskStateUpdateView.as_view(),
