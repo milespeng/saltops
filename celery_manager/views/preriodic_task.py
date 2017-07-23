@@ -4,6 +4,7 @@ from django.urls import *
 from django.views.generic import *
 from celery_manager.forms import *
 from saltops.settings import PER_PAGE
+from django.contrib import messages
 
 listview_lazy_url = 'celery_manager:preriodic_task_list'
 listview_template = 'celery_manager/preriodic_task_list.html'
@@ -30,12 +31,20 @@ class PeriodicTaskCreateView(LoginRequiredMixin, CreateView):
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
 
+    def form_valid(self, form):
+        messages.success(self.request, "新增成功")
+        return super(PeriodicTaskCreateView, self).form_valid(form)
+
 
 class PeriodicTaskUpdateView(LoginRequiredMixin, UpdateView):
     model = PeriodicTask
     form_class = PeriodicTaskForm
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
+
+    def form_valid(self, form):
+        messages.success(self.request, "编辑成功")
+        return super(PeriodicTaskUpdateView, self).form_valid(form)
 
 
 class PeriodicTaskDeleteView(LoginRequiredMixin, JSONResponseMixin,

@@ -3,9 +3,10 @@ from django.contrib.auth.mixins import *
 from django.urls import *
 from django.views.generic import *
 from djcelery.models import IntervalSchedule
-
+from django.contrib import messages
 from celery_manager.forms import *
 from saltops.settings import PER_PAGE
+
 
 listview_lazy_url = 'celery_manager:interval_schedule_list'
 listview_template = 'celery_manager/interval_schedule_list.html'
@@ -29,12 +30,20 @@ class IntervalScheduleCreateView(LoginRequiredMixin, CreateView):
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
 
+    def form_valid(self, form):
+        messages.success(self.request, "新增成功")
+        return super(IntervalScheduleCreateView, self).form_valid(form)
+
 
 class IntervalScheduleUpdateView(LoginRequiredMixin, UpdateView):
     model = IntervalSchedule
     form_class = IntervalScheduleForm
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
+
+    def form_valid(self, form):
+        messages.success(self.request, "编辑成功")
+        return super(IntervalScheduleUpdateView, self).form_valid(form)
 
 
 class IntervalScheduleDeleteView(LoginRequiredMixin, JSONResponseMixin,
