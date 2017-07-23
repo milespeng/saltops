@@ -5,30 +5,41 @@ from django.views.generic import *
 from celery_manager.forms import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'celery_manager:preriodic_task_list'
+listview_template = 'celery_manager/preriodic_task_list.html'
+formview_template = 'celery_manager/preriodic_task_form.html'
 
-class PeriodicTaskView(LoginRequiredMixin, ListView):
+
+class PeriodicTaskView(LoginRequiredMixin,
+                       OrderableListMixin,
+                       ListView):
+    orderable_columns_default = 'id'
+    orderable_columns = ('name', 'regtask', 'task', 'interval',
+                         'crontab', 'args', 'kwargs', 'queue',
+                         'exchange', 'routing_key', 'expires',
+                         'enabled', 'description')
     model = PeriodicTask
     paginate_by = PER_PAGE
-    template_name = 'celery_manager/preriodic_task_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
 
 
 class PeriodicTaskCreateView(LoginRequiredMixin, CreateView):
     model = PeriodicTask
     form_class = PeriodicTaskForm
-    template_name = 'celery_manager/preriodic_task_form.html'
-    success_url = reverse_lazy('celery_manager:preriodic_task_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class PeriodicTaskUpdateView(LoginRequiredMixin, UpdateView):
     model = PeriodicTask
     form_class = PeriodicTaskForm
-    template_name = 'celery_manager/preriodic_task_form.html'
-    success_url = reverse_lazy('celery_manager:preriodic_task_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class PeriodicTaskDeleteView(LoginRequiredMixin, JSONResponseMixin,
-                                 AjaxResponseMixin, View):
+                             AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         ids = request.GET.get('id', '')
         if ids != "":

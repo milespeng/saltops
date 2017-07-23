@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/templates/common/tags/toolbox_search.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/__init__.py" afterPath="$PROJECT_DIR$/celery_manager/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/forms.py" afterPath="$PROJECT_DIR$/celery_manager/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/templates/celery_manager/crontab_schedule_list.html" afterPath="$PROJECT_DIR$/celery_manager/templates/celery_manager/crontab_schedule_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/templates/celery_manager/interval_schedule_form.html" afterPath="$PROJECT_DIR$/celery_manager/templates/celery_manager/interval_schedule_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/templates/celery_manager/interval_schedule_list.html" afterPath="$PROJECT_DIR$/celery_manager/templates/celery_manager/interval_schedule_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/views/crontab_schedule.py" afterPath="$PROJECT_DIR$/celery_manager/views/crontab_schedule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/views/interval_schedule.py" afterPath="$PROJECT_DIR$/celery_manager/views/interval_schedule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/templatetags/toolbox_tags.py" afterPath="$PROJECT_DIR$/common/templatetags/toolbox_tags.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_form.html" afterPath="$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_list.html" afterPath="$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/celery_manager/views/preriodic_task.py" afterPath="$PROJECT_DIR$/celery_manager/views/preriodic_task.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/templates/common/mainform.html" afterPath="$PROJECT_DIR$/common/templates/common/mainform.html" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,21 +80,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="interval_schedule_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/celery_manager/templates/celery_manager/interval_schedule_list.html">
+      <file leaf-file-name="preriodic_task.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/celery_manager/views/preriodic_task.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="27" column="69" lean-forward="false" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
-              <folding />
+            <state relative-caret-position="531">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table_tags.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/templatetags/table_tags.py">
+      <file leaf-file-name="task_state.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/celery_manager/views/task_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="24" column="69" lean-forward="true" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="69" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainform.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/templates/common/mainform.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="137" column="28" lean-forward="true" selection-start-line="137" selection-start-column="28" selection-end-line="137" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -214,9 +223,6 @@
         <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html" />
         <option value="$PROJECT_DIR$/saltjob/tasks.py" />
-        <option value="$PROJECT_DIR$/celery_manager/views/preriodic_task.py" />
-        <option value="$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_form.html" />
-        <option value="$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_list.html" />
         <option value="$PROJECT_DIR$/Changelog.md" />
         <option value="$PROJECT_DIR$/celery_manager/templates/celery_manager/task_state_form.html" />
         <option value="$PROJECT_DIR$/celery_manager/views/task_state.py" />
@@ -245,8 +251,6 @@
         <option value="$PROJECT_DIR$/celery_manager/tests.py" />
         <option value="$PROJECT_DIR$/celery_manager/urls.py" />
         <option value="$PROJECT_DIR$/common/templates/common/basic_list.html" />
-        <option value="$PROJECT_DIR$/common/templates/common/mainform.html" />
-        <option value="$PROJECT_DIR$/celery_manager/forms.py" />
         <option value="$PROJECT_DIR$/celery_manager/views/crontab_schedule.py" />
         <option value="$PROJECT_DIR$/celery_manager/views/interval_schedule.py" />
         <option value="$PROJECT_DIR$/common/templates/common/tags/toolbox_search.html" />
@@ -255,6 +259,11 @@
         <option value="$PROJECT_DIR$/celery_manager/templates/celery_manager/interval_schedule_form.html" />
         <option value="$PROJECT_DIR$/celery_manager/__init__.py" />
         <option value="$PROJECT_DIR$/celery_manager/templates/celery_manager/interval_schedule_list.html" />
+        <option value="$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_list.html" />
+        <option value="$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_form.html" />
+        <option value="$PROJECT_DIR$/celery_manager/forms.py" />
+        <option value="$PROJECT_DIR$/celery_manager/views/preriodic_task.py" />
+        <option value="$PROJECT_DIR$/common/templates/common/mainform.html" />
       </list>
     </option>
   </component>
@@ -294,7 +303,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -307,76 +315,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="celery_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="celery_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="saltops" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="celery_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="celery_manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -999,13 +940,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00248" summary="修复混合部署到工具执行问题">
-      <created>1495289826756</created>
-      <option name="number" value="00248" />
-      <option name="presentableId" value="LOCAL-00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1495289826757</updated>
-    </task>
     <task id="LOCAL-00249" summary="部署页面进行中">
       <created>1495291369875</created>
       <option name="number" value="00249" />
@@ -1342,7 +1276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500639213301</updated>
     </task>
-    <option name="localTasksCounter" value="297" />
+    <task id="LOCAL-00297" summary="调整周期管理">
+      <created>1500732796931</created>
+      <option name="number" value="00297" />
+      <option name="presentableId" value="LOCAL-00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1500732796931</updated>
+    </task>
+    <option name="localTasksCounter" value="298" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1389,17 +1330,17 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-1" width="1294" height="768" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19709209" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2003231" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46299213" sideWeight="0.51130855" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27625203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41732284" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4062992" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39370078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18740158" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.4946752" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53700787" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53700787" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1461,7 +1402,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="主机" />
     <MESSAGE value="CMDB模块采用CBV模式重构" />
     <MESSAGE value="工具模块使用CBV和underscore重构" />
     <MESSAGE value="部署模块采用CBV重构" />
@@ -1486,7 +1426,8 @@
     <MESSAGE value="业务部署优化为多tab页" />
     <MESSAGE value="自定义列表tag，列表引入排序" />
     <MESSAGE value="使用System Check Framework" />
-    <option name="LAST_COMMIT_MESSAGE" value="使用System Check Framework" />
+    <MESSAGE value="调整周期管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整周期管理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1535,28 +1476,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common/templates/common/tags/toolbox_batch_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" lean-forward="true" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/common/tags/toolbox_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="61" lean-forward="false" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/baseview/simple_listview.py" />
-    <entry file="file://$USER_HOME$/envs/saltops/lib/python3.5/site-packages/django/core/handlers/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/envs/saltops/lib/python3.5/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
@@ -1716,13 +1635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/common/mainform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="126" column="86" lean-forward="false" selection-start-line="126" selection-start-column="86" selection-end-line="126" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/celery_manager/templates/celery_manager/crontab_schedule_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1735,9 +1647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1745,7 +1654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="2" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1753,7 +1661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1769,7 +1676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1797,24 +1703,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/celery_manager/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/celery_manager/views/interval_schedule.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/templatetags/toolbox_tags.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1823,19 +1711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/envs/saltops/lib/python3.5/site-packages/djcelery/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="100" column="10" lean-forward="false" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/templates/common/tags/toolbox_search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1851,9 +1730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="31" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1869,7 +1745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1887,24 +1762,91 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/templatetags/table_tags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="24" column="69" lean-forward="true" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="69" />
+        <state relative-caret-position="528">
+          <caret line="24" column="69" lean-forward="false" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/celery_manager/templates/celery_manager/interval_schedule_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="69" lean-forward="false" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
+        <state relative-caret-position="22">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_manager/templates/celery_manager/preriodic_task_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/envs/saltops/lib/python3.5/site-packages/djcelery/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-854">
+          <caret line="208" column="6" lean-forward="false" selection-start-line="208" selection-start-column="6" selection-end-line="208" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_manager/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_manager/views/interval_schedule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_manager/views/preriodic_task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_manager/views/task_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/templates/common/mainform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="137" column="28" lean-forward="true" selection-start-line="137" selection-start-column="28" selection-end-line="137" selection-end-column="28" />
           <folding />
         </state>
       </provider>
