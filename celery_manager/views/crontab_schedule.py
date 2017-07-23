@@ -1,5 +1,6 @@
 from braces.views import *
 from django.contrib.auth.mixins import *
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import *
 from django.views.generic import *
 from djcelery.models import CrontabSchedule
@@ -23,26 +24,22 @@ class CrontabScheduleView(LoginRequiredMixin,
     context_object_name = 'result_list'
 
 
-class CrontabScheduleCreateView(LoginRequiredMixin, CreateView):
+class CrontabScheduleCreateView(SuccessMessageMixin,
+                                LoginRequiredMixin, CreateView):
     model = CrontabSchedule
     form_class = CrontabScheduleForm
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
-
-    def form_valid(self, form):
-        messages.success(self.request, "新增成功")
-        return super(CrontabScheduleCreateView, self).form_valid(form)
+    success_message = "新增成功"
 
 
-class CrontabScheduleUpdateView(LoginRequiredMixin, UpdateView):
+class CrontabScheduleUpdateView(SuccessMessageMixin,
+                                LoginRequiredMixin, UpdateView):
     model = CrontabSchedule
     form_class = CrontabScheduleForm
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
-
-    def form_valid(self, form):
-        messages.success(self.request, "编辑成功")
-        return super(CrontabScheduleUpdateView, self).form_valid(form)
+    success_message = "编辑成功"
 
 
 class CrontabScheduleDeleteView(LoginRequiredMixin, JSONResponseMixin,

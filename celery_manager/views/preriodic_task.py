@@ -1,5 +1,6 @@
 from braces.views import *
 from django.contrib.auth.mixins import *
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import *
 from django.views.generic import *
 from celery_manager.forms import *
@@ -25,26 +26,22 @@ class PeriodicTaskView(LoginRequiredMixin,
     context_object_name = 'result_list'
 
 
-class PeriodicTaskCreateView(LoginRequiredMixin, CreateView):
+class PeriodicTaskCreateView(SuccessMessageMixin,
+                             LoginRequiredMixin, CreateView):
     model = PeriodicTask
     form_class = PeriodicTaskForm
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
-
-    def form_valid(self, form):
-        messages.success(self.request, "新增成功")
-        return super(PeriodicTaskCreateView, self).form_valid(form)
+    success_message = "新增成功"
 
 
-class PeriodicTaskUpdateView(LoginRequiredMixin, UpdateView):
+class PeriodicTaskUpdateView(SuccessMessageMixin,
+                             LoginRequiredMixin, UpdateView):
     model = PeriodicTask
     form_class = PeriodicTaskForm
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
-
-    def form_valid(self, form):
-        messages.success(self.request, "编辑成功")
-        return super(PeriodicTaskUpdateView, self).form_valid(form)
+    success_message = "编辑成功"
 
 
 class PeriodicTaskDeleteView(LoginRequiredMixin, JSONResponseMixin,
