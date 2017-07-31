@@ -9,26 +9,29 @@ from cmdb.forms import *
 from cmdb.models import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'base_auth:group_list'
+listview_template = 'base_auth/groups_list.html'
+formview_template = 'base_auth/groups_form.html'
 
 class GroupView(LoginRequiredMixin, ListView):
     model = Group
     paginate_by = PER_PAGE
-    template_name = 'base_auth/groups_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
 
 
 class GroupCreateView(LoginRequiredMixin, CreateView):
     model = Group
     form_class = GroupForm
-    template_name = 'base_auth/groups_form.html'
-    success_url = reverse_lazy('base_auth:group_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class GroupUpdateView(LoginRequiredMixin, UpdateView):
     model = Group
     form_class = GroupForm
-    template_name = 'base_auth/groups_form.html'
-    success_url = reverse_lazy('base_auth:group_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class GroupDeleteView(LoginRequiredMixin, JSONResponseMixin,
