@@ -32,6 +32,11 @@
                     用户名密码校验失败
                 </div>
             {% endifequal %}
+            {% ifequal type '2' %}
+                <div class="alert alert-success">
+                    登出成功
+                </div>
+            {% endifequal %}
 
             <div class="form-group">
                 <input type="text" name="username" class="form-control" placeholder="用户名" required="">

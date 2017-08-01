@@ -44,9 +44,7 @@ def checkLogin(request):
 
 def logout(request):
     auth.logout(request)
-    return render(request, 'login/login.html', context={
-        'info': "登出成功"
-    })
+    return redirect('/?type=2')
 
 
 def mainform(request):

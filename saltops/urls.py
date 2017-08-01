@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^$', LoginView.as_view(), name='index'),
     url(r'^checkLogin/$', views.checkLogin, name='checkLogin'),
+    url(r'^logout/$', views.logout, name='logout'),
     url(r'^mainform/$', views.mainform, name='mainform'),
     url(r'^dashboard/$', views.dashboard, name='mainform'),
     url(r'^frontend/cmdb/', include('cmdb.urls', namespace='cmdb')),
