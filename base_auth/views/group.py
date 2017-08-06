@@ -13,9 +13,14 @@ listview_lazy_url = 'base_auth:group_list'
 listview_template = 'base_auth/groups_list.html'
 formview_template = 'base_auth/groups_form.html'
 
-class GroupView(LoginRequiredMixin, ListView):
+
+class GroupView(LoginRequiredMixin,
+                OrderableListMixin,
+                ListView):
     model = Group
     paginate_by = PER_PAGE
+    orderable_columns_default = 'id'
+    orderable_columns = ('name')
     template_name = listview_template
     context_object_name = 'result_list'
 

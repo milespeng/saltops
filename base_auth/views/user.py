@@ -9,31 +9,38 @@ from cmdb.forms import *
 from cmdb.models import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'base_auth:user_list'
+listview_template = 'base_auth/user_list.html'
+formview_template = 'base_auth/user_form.html'
 
-class UserView(LoginRequiredMixin, ListView):
+
+class UserView(LoginRequiredMixin,
+               OrderableListMixin,
+               ListView):
     model = User
+    orderable_columns_default = 'id'
+    orderable_columns = ('username', 'groups', 'email', 'is_active')
     paginate_by = PER_PAGE
-    template_name = 'base_auth/user_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
-
 
 
 class UserCreateView(LoginRequiredMixin, CreateView):
     model = User
     form_class = UserForm
-    template_name = 'base_auth/user_form.html'
-    success_url = reverse_lazy('base_auth:user_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserForm
-    template_name = 'base_auth/user_form.html'
-    success_url = reverse_lazy('base_auth:user_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class UserDeleteView(LoginRequiredMixin, JSONResponseMixin,
-                      AjaxResponseMixin, View):
+                     AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         ids = request.GET.get('id', '')
         if ids != "":
