@@ -9,7 +9,7 @@ from django.template.defaultfilters import register
 def tools_count(value):
     obj = ToolsTypes.objects.get(pk=value)
     return mark_safe(
-        '<a href="/frontend/cmdb/cabinet_list/?idc=&idc=%s">%s</a>' % (obj.id, obj.toolsscript_set.count()))
+        '<a href="/frontend/tools_manager/tools_script_list/?tools_type=%s">%s</a>' % (obj.id, obj.toolsscript_set.count()))
 
 
 @register.filter()

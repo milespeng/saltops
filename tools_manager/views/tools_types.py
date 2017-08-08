@@ -18,7 +18,7 @@ class ToolsTypesView(LoginRequiredMixin,
     model = ToolsTypes
     paginate_by = PER_PAGE
     orderable_columns_default = 'id'
-    orderable_columns = ('name')
+    orderable_columns = ['name']
     template_name = listview_template
     context_object_name = 'result_list'
 
