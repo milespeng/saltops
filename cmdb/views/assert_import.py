@@ -98,7 +98,8 @@ class AssertImportView(LoginRequiredMixin, JSONResponseMixin,
             if row[1] != '' and Host.objects.filter(host=row[1]).count() == 0:
                 try:
                     host = Host(
-                        host=row[1],
+                        host_name=row[1],
+                        host=row[2],
                         enable_ssh=True,
                         ssh_username=row[5],
                         ssh_password=row[6],
