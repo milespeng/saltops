@@ -7,26 +7,34 @@ from saltops.settings import PER_PAGE
 from tools_manager.forms import *
 from tools_manager.models import *
 
+listview_lazy_url = 'tools_manager:tools_types_list'
+listview_template = 'tools_manager/tools_types_list.html'
+formview_template = 'tools_manager/tools_types_form.html'
 
-class ToolsTypesView(LoginRequiredMixin, ListView):
+
+class ToolsTypesView(LoginRequiredMixin,
+                     OrderableListMixin,
+                     ListView):
     model = ToolsTypes
     paginate_by = PER_PAGE
-    template_name = 'tools_manager/tools_types_list.html'
+    orderable_columns_default = 'id'
+    orderable_columns = ('name')
+    template_name = listview_template
     context_object_name = 'result_list'
 
 
 class ToolsTypesCreateView(LoginRequiredMixin, CreateView):
     model = ToolsTypes
     form_class = ToolsTypesForm
-    template_name = 'tools_manager/tools_types_form.html'
-    success_url = reverse_lazy('tools_manager:tools_types_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class ToolsTypesUpdateView(LoginRequiredMixin, UpdateView):
     model = ToolsTypes
     form_class = ToolsTypesForm
-    template_name = 'tools_manager/tools_types_form.html'
-    success_url = reverse_lazy('tools_manager:tools_types_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class ToolsTypesDeleteView(LoginRequiredMixin, JSONResponseMixin,
