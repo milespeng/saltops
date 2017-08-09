@@ -19,7 +19,7 @@ class UserView(LoginRequiredMixin,
                ListView):
     model = User
     orderable_columns_default = 'id'
-    orderable_columns = ('username', 'groups', 'email', 'is_active')
+    orderable_columns = ['username', 'groups', 'email', 'is_active']
     paginate_by = PER_PAGE
     template_name = listview_template
     context_object_name = 'result_list'

@@ -16,10 +16,10 @@ class PeriodicTaskView(LoginRequiredMixin,
                        OrderableListMixin,
                        ListView):
     orderable_columns_default = 'id'
-    orderable_columns = ('name', 'regtask', 'task', 'interval',
+    orderable_columns = ['name', 'regtask', 'task', 'interval',
                          'crontab', 'args', 'kwargs', 'queue',
                          'exchange', 'routing_key', 'expires',
-                         'enabled', 'description')
+                         'enabled', 'description']
     model = PeriodicTask
     paginate_by = PER_PAGE
     template_name = listview_template
