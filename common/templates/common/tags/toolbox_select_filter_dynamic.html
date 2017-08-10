@@ -1,0 +1,13 @@
+<select class="form-control m-b" name="{{ select_name }}">
+    <option value="" {% ifequal '' select_value %}
+            selected="selected"
+    {% endifequal %}
+    >{{ select_label }}
+    </option>
+    {% for o in select_datasource %}
+        <option value="{{ o.id }}" {% ifequal o.id select_value|str_to_int %}
+                selected="selected"
+        {% endifequal %}
+        >{{ o.name }}</option>
+    {% endfor %}
+</select>

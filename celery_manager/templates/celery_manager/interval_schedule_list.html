@@ -25,10 +25,10 @@
 
 {% block list_content %}
     <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
-        {% table_head "频率@every,周期@period" order_by ordering 'width:3%'%}
+        {% table_head "频率@every,周期@period" order_by ordering 'width:3%' %}
         <tbody>
         {% for o in result_list %}
-            {% table o.id 'interval_schedule_edit/' o.id o.every o.period|interval_to_str %}
+            {% table o.id 'interval_schedule_edit/' "" o.id o.every o.period|interval_to_str %}
         {% endfor %}
         </tbody>
     </table>

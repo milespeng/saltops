@@ -26,7 +26,7 @@
         {% table_head "分@minute,小时@hour,周@day_of_week,月@day_of_month,年@month_of_year" order_by ordering %}
         <tbody>
         {% for o in result_list %}
-            {% table o.id 'crontab_schedule_edit/' o.id o.minute o.hour o.day_of_week o.day_of_month o.month_of_year %}
+            {% table o.id 'crontab_schedule_edit/' "" o.id o.minute o.hour o.day_of_week o.day_of_month o.month_of_year %}
         {% endfor %}
         </tbody>
     </table>

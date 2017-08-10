@@ -28,7 +28,7 @@
         {% table_head "任务名称@name,任务@task,周期@interval,Crontab@crontab,过期时间@expires,状态@enabled" order_by ordering 'width:15%' %}
         <tbody>
         {% for o in result_list %}
-            {% table o.id 'preriodic_task_edit/' o.id o.name o.task o.interval o.crontab o.expires o.enabled|bool_to_human %}
+            {% table o.id 'preriodic_task_edit/' "" o.id o.name o.task o.interval o.crontab o.expires o.enabled|bool_to_human %}
         {% endfor %}
         </tbody>
     </table>

@@ -3,6 +3,34 @@ from django import template
 
 register = template.Library()
 
+
+@register.inclusion_tag("common/tags/toolbox_select_filter_dynamic.html")
+def toolbox_select_filter_dynamic(select_name, select_value, select_label, select_datasource):
+    """
+    工具栏的搜索按钮
+    :return:
+    """
+    return {
+        'select_name': select_name,
+        'select_value': select_value,
+        'select_label': select_label,
+        'select_datasource': select_datasource
+    }
+
+
+@register.inclusion_tag("common/tags/toolbox_text_filter.html")
+def toolbox_text_filter(txt_widget_name, placeholder, name):
+    """
+    工具栏的搜索按钮
+    :return:
+    """
+    return {
+        'txt_widget_name': txt_widget_name,
+        'placeholder': placeholder,
+        'name': name
+    }
+
+
 @register.inclusion_tag("common/tags/toolbox_search.html")
 def toolbox_search():
     """

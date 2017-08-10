@@ -21,10 +21,10 @@
 
 {% block list_content %}
     <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
-        {% table_head "用户组名称@name" order_by ordering 'width:3%'%}
+        {% table_head "用户组名称@name" order_by ordering 'width:3%' %}
         <tbody>
         {% for o in result_list %}
-            {% table o.id 'group_edit/' o.id o.name %}
+            {% table o.id 'group_edit/' "" o.id o.name %}
         {% endfor %}
         </tbody>
     </table>

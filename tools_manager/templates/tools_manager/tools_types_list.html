@@ -24,7 +24,7 @@
         {% table_head "名称@name,工具数量@tools_count,创建时间@create_time,更新时间@update_time" order_by ordering 'width:8%' %}
         <tbody>
         {% for o in result_list %}
-            {% table o.id 'tools_types_edit/' o.id o.name o.id|tools_count o.create_time o.update_time %}
+            {% table o.id 'tools_types_edit/' "" o.id o.name o.id|tools_count o.create_time o.update_time %}
         {% endfor %}
         </tbody>
     </table>

@@ -15,11 +15,19 @@ from saltops.settings import PER_PAGE
 from tools_manager.forms import *
 from tools_manager.models import *
 
+listview_lazy_url = 'tools_manager:tools_script_list'
+listview_template = 'tools_manager/tools_script_list.html'
+formview_template = 'tools_manager/tools_script_form.html'
 
-class ToolsScriptView(LoginRequiredMixin, ListView):
+
+class ToolsScriptView(LoginRequiredMixin,
+                      OrderableListMixin,
+                      ListView):
     model = ToolsScript
+    orderable_columns_default = 'id'
+    orderable_columns = ['name', 'tool_script', 'tools_type', 'tool_run_type', 'create_time', 'update_time']
     paginate_by = PER_PAGE
-    template_name = 'tools_manager/tools_script_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
 
     def get_queryset(self):
@@ -27,33 +35,53 @@ class ToolsScriptView(LoginRequiredMixin, ListView):
         tools_type = self.request.GET.get('tools_type')
         name = self.request.GET.get('name')
         tool_run_type = self.request.GET.get('tool_run_type')
+        order_by = self.request.GET.get('order_by')
+        ordering = self.request.GET.get('ordering')
         if tools_type:
             result_list = result_list.filter(tools_type=tools_type)
         if name:
             result_list = result_list.filter(name__contains=name)
         if tool_run_type:
             result_list = result_list.filter(tool_run_type=tool_run_type)
+        if order_by:
+            if ordering == 'desc':
+                result_list = result_list.order_by('-' + order_by)
+            else:
+                result_list = result_list.order_by(order_by)
+
         return result_list
 
     def get_context_data(self, **kwargs):
         context = super(ToolsScriptView, self).get_context_data(**kwargs)
+        context['order_by'] = self.request.GET.get('order_by', '')
+        context['ordering'] = self.request.GET.get('ordering', 'asc')
         context['name'] = self.request.GET.get('name', '')
+        context['tools_type'] = self.request.GET.get('tools_type')
+        context['tool_run_type'] = self.request.GET.get('tool_run_type')
         context['tools_types'] = ToolsTypes.objects.all()
+        context['tools_types_datasource'] = [
+            {'id': 0, 'name': 'SaltState'},
+            {'id': 1, 'name': 'Shell'},
+            {'id': 2, 'name': 'PowerShell'},
+            {'id': 3, 'name': 'Python'},
+            {'id': 4, 'name': 'Salt命令'},
+            {'id': 5, 'name': 'Windows批处理'},
+        ]
         return context
 
 
 class ToolsScriptCreateView(LoginRequiredMixin, CreateView):
     model = ToolsScript
     form_class = ToolsScriptForm
-    template_name = 'tools_manager/tools_script_form.html'
-    success_url = reverse_lazy('tools_manager:tools_script_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class ToolsScriptUpdateView(LoginRequiredMixin, UpdateView):
     model = ToolsScript
     form_class = ToolsScriptForm
-    template_name = 'tools_manager/tools_script_form.html'
-    success_url = reverse_lazy('tools_manager:tools_script_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class ToolsScriptDeleteView(LoginRequiredMixin, JSONResponseMixin,
