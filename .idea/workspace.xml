@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/templates/common/tags/form_script_field.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/templates/common/tags/form_submit_btns.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/templates/common/tags/form_text_field.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/templatetags/form_tags.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/templates/common/mainform.html" afterPath="$PROJECT_DIR$/common/templates/common/mainform.html" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,94 +76,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tools_script_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tools_script_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_script_field.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/templates/common/tags/form_script_field.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_submit_btns.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/templates/common/tags/form_submit_btns.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/templatetags/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="toolbox_tags.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/templatetags/toolbox_tags.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="26" column="3" lean-forward="false" selection-start-line="26" selection-start-column="3" selection-end-line="30" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_tags.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="form_tags.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/templatetags/form_tags.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            <state relative-caret-position="238">
+              <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form_text_field.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/templates/common/tags/form_text_field.html">
+      <file leaf-file-name="mainform.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/templates/common/mainform.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table_tags.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/templatetags/table_tags.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="6" selection-end-column="56" />
+            <state relative-caret-position="119">
+              <caret line="101" column="45" lean-forward="false" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -186,7 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>interval</find>
       <find>preriodic</find>
       <find>taskstate</find>
       <find>TaskState</find>
@@ -216,6 +138,7 @@
       <find>saltops</find>
       <find>name</find>
       <find>sortid</find>
+      <find>工具</find>
     </findStrings>
     <replaceStrings>
       <replace>project</replace>
@@ -292,7 +215,6 @@
         <option value="$PROJECT_DIR$/requiement.txt" />
         <option value="$PROJECT_DIR$/saltops/urls.py" />
         <option value="$PROJECT_DIR$/common/views.py" />
-        <option value="$PROJECT_DIR$/common/templates/common/mainform.html" />
         <option value="$PROJECT_DIR$/common/templates/common/index.html" />
         <option value="$PROJECT_DIR$/base_auth/forms.py" />
         <option value="$PROJECT_DIR$/cmdb/views/assert_import.py" />
@@ -323,6 +245,7 @@
         <option value="$PROJECT_DIR$/common/templatetags/form_tags.py" />
         <option value="$PROJECT_DIR$/common/templates/common/tags/form_script_field.html" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html" />
+        <option value="$PROJECT_DIR$/common/templates/common/mainform.html" />
       </list>
     </option>
   </component>
@@ -385,30 +308,6 @@
               <item name="common" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="tools_manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="tools_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="tools_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="tools_manager" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1028,13 +927,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00259" summary="引入ClassBaseVIew">
-      <created>1495643790332</created>
-      <option name="number" value="00259" />
-      <option name="presentableId" value="LOCAL-00259" />
-      <option name="project" value="LOCAL" />
-      <updated>1495643790332</updated>
-    </task>
     <task id="LOCAL-00260" summary="机房等级">
       <created>1495664702398</created>
       <option name="number" value="00260" />
@@ -1371,7 +1263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502373018209</updated>
     </task>
-    <option name="localTasksCounter" value="308" />
+    <task id="LOCAL-00308" summary="调整工具表单的代码">
+      <created>1502464302181</created>
+      <option name="number" value="00308" />
+      <option name="presentableId" value="LOCAL-00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1502464302182</updated>
+    </task>
+    <option name="localTasksCounter" value="309" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1490,7 +1389,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="修复list展示的问题" />
     <MESSAGE value="版本编辑优化" />
     <MESSAGE value="用户组" />
     <MESSAGE value="用户" />
@@ -1515,7 +1413,8 @@
     <MESSAGE value="工具类型代码优化" />
     <MESSAGE value="修复排序问题" />
     <MESSAGE value="工具列表代码调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="工具列表代码调整" />
+    <MESSAGE value="调整工具表单的代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整工具表单的代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1570,13 +1469,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmdb/views/assert_import.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="97" column="6" lean-forward="false" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/saltopsenvs/lib/python3.5/site-packages/django/contrib/auth/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-182">
@@ -1952,8 +1844,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/templatetags/form_tags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        <state relative-caret-position="238">
+          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/templates/common/mainform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="101" column="45" lean-forward="false" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
           <folding />
         </state>
       </provider>
