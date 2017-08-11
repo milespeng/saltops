@@ -1,4 +1,5 @@
 {% extends 'common/basic_layout.html' %}
+{% load form_tags %}
 
 {% block content %}
     <script src="/static/asserts/require.js"></script>
@@ -7,55 +8,18 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>{{ title }}
-                        </h5>
+                        <h5>{{ title }}</h5>
                     </div>
                     <div class="ibox-content">
                         <form method="post" action="{{ action }}" onsubmit="return preSubmit()" class="form-horizontal">
                             {% csrf_token %}
                             <input type="hidden" id="id" name="id" value="{{ pk }}"/>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> {{ form.name.label_tag }}</label>
-                                <div class="col-sm-10">
-                                    {{ form.name }}
-                                    {{ form.name.errors }}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> {{ form.tool_script.label_tag }}</label>
-                                <div class="col-sm-10" style="height: 200px" name="tool_script_editor"
-                                     id="id_tool_script_editor"></div>
-                                <textarea id="id_tool_script" name="tool_script"
-                                          style="display: none">{{ form.tool_script.value|default_if_none:"" }}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> {{ form.tools_type.label_tag }}</label>
-                                <div class="col-sm-10">
-                                    {{ form.tools_type }}
-                                    {{ form.tools_type.errors }}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> {{ form.tool_run_type.label_tag }}</label>
-                                <div class="col-sm-10">
-                                    {{ form.tool_run_type }}
-                                    {{ form.tool_run_type.errors }}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> {{ form.comment.label_tag }}</label>
-                                <div class="col-sm-10">
-                                    {{ form.comment }}
-                                    {{ form.comment.errors }}
-                                </div>
-                            </div>
-                            <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-primary" type="submit">保存</button>
-                                    <a class="btn btn-white" href="javascript:history.go(-1)">取消</a>
-                                </div>
-                            </div>
+                            {% form_text_field form.name.label_tag form.name form.name.errors %}
+                            {% form_script_field form.tool_script.label_tag "tool_script" form.tool_script.value|default_if_none:"" %}
+                            {% form_text_field form.tools_type.label_tag form.tools_type form.tools_type.errors %}
+                            {% form_text_field form.tool_run_type.label_tag form.tool_run_type form.tool_run_type.errors %}
+                            {% form_text_field form.comment.label_tag form.comment form.comment.errors %}
+                            {% form_submit_btns %}
                         </form>
                     </div>
                 </div>
@@ -63,68 +27,11 @@
         </div>
     </div>
     <script>
-        var editor;
         function preSubmit() {
-            $('#id_tool_script').val(editor.getValue())
+            debugger;
+            $('#id_tool_script').val(id_tool_script_editor.getValue())
             return true;
         }
-        $(document).ready(function () {
-            var fieldObj = $('.form-horizontal input')
-            for (var i = 0; i < fieldObj.length; i++) {
-                $(fieldObj[i]).addClass('form-control')
-            }
-            fieldObj = $('.form-horizontal textarea')
-            for (var i = 0; i < fieldObj.length; i++) {
-                $(fieldObj[i]).addClass('form-control')
-            }
-
-            fieldObj = $('.form-horizontal select')
-            for (var i = 0; i < fieldObj.length; i++) {
-                $(fieldObj[i]).addClass('form-control')
-            }
-        })
-
-        require.config({paths: {ace: "/static/asserts/ace/lib/ace"}})
-
-
-        define('editor', ['ace/ace'],
-            function (ace, langtools) {
-                {#                console.log("This is the testace module");#}
-                editor = ace.edit("id_tool_script_editor");
-                editor.setTheme("ace/theme/xcode");
-                editor.session.setMode("ace/mode/yaml");
-                editor.setOptions({
-                    enableBasicAutocompletion: true,
-                    enableSnippets: true,
-                    enableLiveAutocompletion: true
-                });
-                require(["ace/requirejs/text!src/ace"], function (e) {
-                    editor.setValue($('#id_tool_script').val());
-                })
-            }
-        );
-        require(['editor'])
-
-        $('#id_tool_run_type').change(function (e) {
-            if ($('#id_tool_run_type').val() == "0") {
-                editor.session.setMode("ace/mode/yaml");
-            }
-            if ($('#id_tool_run_type').val() == "1") {
-                editor.session.setMode("ace/mode/sh");
-            }
-            if ($('#id_tool_run_type').val() == "2") {
-                editor.session.setMode("ace/mode/powershell");
-            }
-            if ($('#id_tool_run_type').val() == "3") {
-                editor.session.setMode("ace/mode/python");
-            }
-            if ($('#id_tool_run_type').val() == "4") {
-                editor.session.setMode("ace/mode/plain_text");
-            }
-            if ($('#id_tool_run_type').val() == "5") {
-                editor.session.setMode("ace/mode/plain_text");
-            }
-        })
     </script>
 
 {% endblock %}
