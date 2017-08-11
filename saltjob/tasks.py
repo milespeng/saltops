@@ -665,16 +665,16 @@ def scanHostJob():
                     entity.osarch = sshResult[host]['return']["osarch"]
                     entity.cpuarch = sshResult[host]['return']["cpuarch"]
                     entity.os = sshResult[host]['return']["os"]
-                    # entity.num_cpus = int(sshResult[host]['return']["num_cpus"]),
-                    # entity.mem_total = int(sshResult[host]['return']["mem_total"]),
+                    entity.num_cpus = sshResult[host]['return']["num_cpus"],
+                    entity.mem_total = sshResult[host]['return']["mem_total"],
                     entity.minion_status = 1
                     entity.save()
 
                     oldip_list = [i.ip for i in HostIP.objects.filter(host=entity)]
-                    for ip in set(result[host]["ipv4"]) - set(oldip_list):
+                    for ip in set(sshResult[host]['return']["ipv4"]) - set(oldip_list):
                         hostip = HostIP(ip=ip, host=entity)
                         hostip.save()
-                    for ip in set(oldip_list) - set(result[host]["ipv4"]):
+                    for ip in set(oldip_list) - set(sshResult[host]['return']["ipv4"]):
                         HostIP.objects.filter(ip=ip).delete()
 
         except Exception as e:
