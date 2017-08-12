@@ -31,7 +31,9 @@
                     '<button aria-hidden="true" data-dismiss="alert" class="close" type="button">× </button>' +
                     '删除成功 </div>')
             }
+            setupOrderedColumns('{{ order_by }}', '{{ ordering }}');
         });
+
         function deleteBatch() {
             var obj = getChecked()
             if (obj == "") {
@@ -43,12 +45,65 @@
                 })
             }
         }
+
+        function setupOrderedColumns(order_by, orderin) {
+            var _self = this;
+            $('.order-by-column').each(function () {
+                var $el = $(this),
+                    column_name = $el.data('column'),
+                    href = location.href,
+                    next_order = 'asc',
+                    has_query_string = (href.indexOf('?') !== -1),
+                    order_by_param,
+                    ordering_param;
+
+                if (order_by === column_name) {
+                    if (orderin === 'asc') {
+                        next_order = 'desc';
+                    }
+
+                    $($el[0].children[0]).removeClass('fa-sort');
+                    if (next_order === 'asc') {
+                        debugger;
+                        $($el[0].children[0]).addClass('fa-sort-desc');
+                    } else {
+                        debugger;
+                        $($el[0].children[0]).addClass('fa-sort-asc');
+                    }
+                }
+
+
+                order_by_param = "order_by=" + column_name;
+                ordering_param = "ordering=" + next_order;
+                if (!has_query_string) {
+                    href = '?' + order_by_param + '&' + ordering_param;
+                } else {
+                    if (href.match(/ordering=(asc|desc)/)) {
+                        href = href.replace(/ordering=(asc|desc)/, ordering_param);
+                    } else {
+                        href += '&' + ordering_param;
+                    }
+
+                    if (href.match(/order_by=[_\w]+/)) {
+                        href = href.replace(/order_by=([_\w]+)/, order_by_param);
+                    } else {
+                        href += '&' + order_by_param;
+                    }
+
+                }
+
+                $el.attr('href', href);
+
+            });
+        }
+
         function getUrlParam(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
             var r = window.location.search.substr(1).match(reg);  //匹配目标参数
             if (r != null) return unescape(r[2]);
             return null; //返回参数值
         }
+
         function deleteAction(id) {
             $.get('delete_entity/?id=' + id, function () {
                 if (window.location.href.indexOf("?") == -1) {
@@ -58,6 +113,7 @@
                 }
             })
         }
+
         function getChecked() {
             var str = document.getElementsByName("input[]");
             var objarray = str.length;
@@ -69,6 +125,7 @@
             }
             return chestr;
         }
+
         function checktb(obj, id) {
             if (obj.name == 'pmenu' && obj.checked == true) {
                 $($("input[type='checkbox']")).each(function () {
