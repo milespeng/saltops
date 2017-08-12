@@ -1,0 +1,12 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label"> {{ label }}</label>
+    <div class="col-sm-10">
+        <select data-placeholder="{{ placeholder }}"
+                multiple class="form-control chosen-select" id="{{ id }}"
+                tabindex="4">
+            {% for o in datasource %}
+                <option value="{{ o.id }}">{{ o.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

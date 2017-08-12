@@ -1,3 +1,4 @@
+<script src="/static/asserts/require.js"></script>
 <div class="form-group">
     <label class="col-sm-2 control-label"> {{ label }}</label>
     <div class="col-sm-10" style="height: 200px" name="id_editor"
@@ -13,12 +14,32 @@
         function (ace, langtools) {
             id_{{ id }}_editor = ace.edit("id_{{ id }}_editor");
             id_{{ id }}_editor.setTheme("ace/theme/xcode");
-            id_{{ id }}_editor.session.setMode("ace/mode/yaml");
+            {% ifequal language_type 0  %}
+                id_{{ id }}_editor.session.setMode("ace/mode/yaml");
+            {% endifequal %}
+            {% ifequal language_type 1  %}
+                id_{{ id }}_editor.session.setMode("ace/mode/sh");
+            {% endifequal %}
+            {% ifequal language_type 2  %}
+                id_{{ id }}_editor.session.setMode("ace/mode/powershell");
+            {% endifequal %}
+            {% ifequal language_type 3  %}
+                id_{{ id }}_editor.session.setMode("ace/mode/python");
+            {% endifequal %}
+            {% ifequal language_type 4  %}
+                id_{{ id }}_editor.session.setMode("ace/mode/plain_text");
+            {% endifequal %}
+            {% ifequal language_type 5  %}
+                id_{{ id }}_editor.session.setMode("ace/mode/plain_text");
+            {% endifequal %}
             id_{{ id }}_editor.setOptions({
                 enableBasicAutocompletion: true,
                 enableSnippets: true,
-                enableLiveAutocompletion: true
+                enableLiveAutocompletion: true,
             });
+            {% ifequal readonly True  %}
+                id_{{ id }}_editor.setReadOnly(true);
+            {% endifequal %}
             require(["ace/requirejs/text!src/ace"], function (e) {
                 id_{{ id }}_editor.setValue($('#id_{{ id }}').val());
             })
@@ -26,24 +47,4 @@
     );
     require(['editor'])
 
-    $('#id_{{ id }}').change(function (e) {
-        if ($('#id_{{ id }}').val() == "0") {
-            id_{{ id }}editor.session.setMode("ace/mode/yaml");
-        }
-        if ($('#id_{{ id }}').val() == "1") {
-            id_{{ id }}editor.session.setMode("ace/mode/sh");
-        }
-        if ($('#id_{{ id }}').val() == "2") {
-            id_{{ id }}editor.session.setMode("ace/mode/powershell");
-        }
-        if ($('#id_{{ id }}').val() == "3") {
-            id_{{ id }}editor.session.setMode("ace/mode/python");
-        }
-        if ($('#id_{{ id }}').val() == "4") {
-            id_{{ id }}editor.session.setMode("ace/mode/plain_text");
-        }
-        if ($('#id_{{ id }}').val() == "5") {
-            id_{{ id }}editor.session.setMode("ace/mode/plain_text");
-        }
-    })
 </script>

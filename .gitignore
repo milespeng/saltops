@@ -9,3 +9,5 @@ db.sqlite3
 /doc/script
 /doc/scripts
 .idea/workspace.xml
+/saltops2-web/node_modules
+/saltops2-web/.idea

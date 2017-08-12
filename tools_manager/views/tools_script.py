@@ -130,6 +130,7 @@ class ToolExecuteView(TemplateView, LoginRequiredMixin):
         pk = self.request.GET.get('pk', '')
         if pk:
             context['hostgroup'] = HostGroup.objects.all()
+
             context['hosts'] = Host.objects.all()
             pk = int(pk)
             entity = ToolsScript.objects.get(pk=pk)
