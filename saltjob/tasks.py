@@ -665,8 +665,8 @@ def scanHostJob():
                     entity.osarch = sshResult[host]['return']["osarch"]
                     entity.cpuarch = sshResult[host]['return']["cpuarch"]
                     entity.os = sshResult[host]['return']["os"]
-                    entity.num_cpus = sshResult[host]['return']["num_cpus"],
-                    entity.mem_total = sshResult[host]['return']["mem_total"],
+                    # entity.num_cpus = sshResult[host]['return']["num_cpus"],
+                    # entity.mem_total = sshResult[host]['return']["mem_total"],
                     entity.minion_status = 1
                     entity.save()
 
