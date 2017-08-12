@@ -59,14 +59,6 @@ class ToolsScriptView(LoginRequiredMixin,
         context['tools_type'] = self.request.GET.get('tools_type')
         context['tool_run_type'] = self.request.GET.get('tool_run_type')
         context['tools_types'] = ToolsTypes.objects.all()
-        context['tools_types_datasource'] = [
-            {'id': 0, 'name': 'SaltState'},
-            {'id': 1, 'name': 'Shell'},
-            {'id': 2, 'name': 'PowerShell'},
-            {'id': 3, 'name': 'Python'},
-            {'id': 4, 'name': 'Salt命令'},
-            {'id': 5, 'name': 'Windows批处理'},
-        ]
         return context
 
 

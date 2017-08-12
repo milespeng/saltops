@@ -14,7 +14,9 @@ from saltops.settings import PER_PAGE
 import arrow
 
 
-class ProjectView(LoginRequiredMixin, ListView):
+class ProjectView(LoginRequiredMixin,
+
+                  ListView):
     model = Project
     paginate_by = PER_PAGE
     template_name = 'deploy_manager/project_list.html'
