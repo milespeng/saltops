@@ -23,8 +23,6 @@ urlpatterns = [
         url(r'^(?P<pk>\d+)/project_version_edit/', ProjectVersionUpdateView.as_view()),
         url(r'delete_project_version/', ProjectVersionDeleteView.as_view()),
         url(r'project_deploy_action/', ProjectDeployActionView.as_view()),
-        url(r'project_hostgroup_undeploy_action/',
-            ProjectHostGroupUnDeployActionView.as_view()),
         url(r'project_host_undeploy_action/',
             ProjectHostUnDeployActionView.as_view()),
         url(r'project_host_start_action/',

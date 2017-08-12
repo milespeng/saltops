@@ -26,7 +26,8 @@ class ProjectView(LoginRequiredMixin,
     template_name = listview_template
     context_object_name = 'result_list'
     orderable_columns_default = 'id'
-    orderable_columns = ['project_module', 'name', 'create_time', 'job_script_type', 'dev_monitor', 'ops_monitor']
+    orderable_columns = ['project_module', 'name', 'create_time', 'job_script_type',
+                         'dev_monitor', 'ops_monitor']
 
     def get_queryset(self):
         result_list = Project.objects.all()
@@ -61,14 +62,6 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         context['pre_project'] = Project.objects.all()
         return context
 
-    def form_valid(self, form):
-        obj = form.save()
-        pre_project_list = self.request.POST.getlist('pre_project')
-        if len(pre_project_list) > 0:
-            for k in pre_project_list:
-                PreProject(project=Project.objects.get(pk=k), current_project_id=obj.id).save()
-        return super(ProjectCreateView, self).form_valid(form)
-
 
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
@@ -76,21 +69,6 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
     context_object_name = 'entity'
-
-    def get_context_data(self, **kwargs):
-        context = super(ProjectUpdateView, self).get_context_data(**kwargs)
-        context['pre_project'] = Project.objects.all()
-        context['pre_project_selected'] = PreProject.objects.filter(current_project_id=self.object.id)
-        return context
-
-    def form_valid(self, form):
-        obj = form.save()
-        pre_project_list = self.request.POST.getlist('pre_project')
-        PreProject.objects.filter(current_project_id=obj.id).delete()
-        if len(pre_project_list) > 0:
-            for k in pre_project_list:
-                PreProject(project=Project.objects.get(pk=k), current_project_id=obj.id).save()
-        return super(ProjectUpdateView, self).form_valid(form)
 
 
 class ProjectDeleteView(LoginRequiredMixin, JSONResponseMixin,
@@ -122,18 +100,6 @@ class ProjectVersionDeleteView(LoginRequiredMixin, JSONResponseMixin,
             return self.render_json_response({"success": True})
         else:
             return self.render_json_response({"success": False})
-
-
-class ProjectHostGroupUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
-                                         AjaxResponseMixin, View):
-    def get_ajax(self, request, *args, **kwargs):
-        hostgroup = ProjectHostGroup.objects.get(pk=int(self.request.GET.get('pk')))
-        version = ProjectVersion.objects.get(pk=(hostgroup.project.current_version_id))
-        job = DeployJob(project_version=version, job_name='卸载' + hostgroup.hostgroup.name + ":" + version.name)
-        job.save()
-        deployjob = deployTask.delay(job, 1, list(Host.objects.filter(host_group=hostgroup.hostgroup)))
-        hostgroup.delete()
-        return self.render_json_response({})
 
 
 class ProjectHostUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
@@ -175,34 +141,6 @@ class ProjectHostStopActionView(LoginRequiredMixin, JSONResponseMixin,
         deployjob = deployTask.delay(job, 4, hostlist)
         return self.render_json_response({})
 
-#
-# def predeploy(project: Project, uninstall=False):
-#     """
-#     :param project:
-#     :param uninstall:
-#     :return:
-#     """
-#     preprojects = PreProject.objects.filter(current_project_id=project.id)
-#
-#     if len(preprojects) > 0:
-#         for k in preprojects:
-#             preproject_list = PreProject.objects.filter(current_project_id=k.project.id)
-#             if preproject_list.count() > 0:
-#                 for o in preproject_list:
-#                     predeploy(Project.objects.get(pk=o.project.id), uninstall)
-#             else:
-#                 pre_version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
-#                 job = DeployJob(project_version=pre_version,
-#                                 job_name='部署' + k.project.name + ":" + pre_version.name)
-#                 job.save()
-#
-#                 # uninstall_host = []
-#                 # if uninstall is True:
-#                 #     uninstall_host_qs = ProjectHost.objects.filter(project=k.project)
-#                 #     for e in uninstall_host_qs:
-#                 #         uninstall_host.append(e)
-#                 deployjob = deployTask.delay(job, 1)
-#
 
 class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                               AjaxResponseMixin, View):
@@ -221,7 +159,6 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
             hosts_ids = hosts.split(',')
             for o in hosts_ids:
                 ProjectHost(project=obj, host_id=int(o)).save()
-        #predeploy(obj)
         job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
         job.save()
 
@@ -301,15 +238,11 @@ class ProjectDeployView(LoginRequiredMixin, TemplateView):
         project = Project.objects.get(pk=int(pk))
         project_version_obj = ProjectVersion.objects.filter(project=project).all()
         project_host = ProjectHost.objects.filter(project=project)
-        project_host_group = ProjectHostGroup.objects.filter(project=project)
         host_list = list(Host.objects.all())
         for o in project_host:
             if o.host in host_list:
                 host_list.remove(o.host)
         host_group_list = list(HostGroup.objects.all())
-        for o in project_host_group:
-            if o.hostgroup in host_group_list:
-                host_group_list.remove(o.hostgroup)
         context.update(locals())
         return context
 

@@ -33,9 +33,6 @@
         <thead>
         <tr>
             <th style="width: 2%;"><input id="checkall" type="checkbox" class="i-checks"></th>
-{#            <th style="width: 7%;">#}
-{#                前置业务#}
-{#            </th>#}
             <th style="width: 7%;">
                 <a class="order-by-column" data-column="project_module" href="#">
                     <i class="fa fa-sort order-by-column_icon"></i>
@@ -81,7 +78,6 @@
                 <td>
                     <input type="checkbox" class="i-checks icheck" id="{{ o.id }}" name="input[]">
                 </td>
-{#                <td>{{ o.id|preproject_filter }}</td>#}
                 <td>{{ o.project_module|parent_filter }}</td>
                 <td>{{ o.name }}</td>
                 <td>{{ o.job_script_type|jobscript_filter }}</td>
