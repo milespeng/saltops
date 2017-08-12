@@ -95,14 +95,19 @@ class ToolsScriptDeleteView(LoginRequiredMixin, JSONResponseMixin,
             return self.render_json_response({"success": False})
 
 
-class ToolExecuteHistoryView(TemplateView, LoginRequiredMixin):
+class ToolExecuteHistoryView(ListView, LoginRequiredMixin):
     template_name = 'tools_manager/tool_script_execute_history.html'
+    context_object_name = 'result_list'
+    paginate_by = PER_PAGE
+
+    def get_queryset(self):
+        result_list = ToolsExecJob.objects.order_by('-create_time').filter(tools=self.request.GET.get('pk'))
+        return result_list
 
     def get_context_data(self, **kwargs):
         context = super(ToolExecuteHistoryView, self).get_context_data(**kwargs)
         result = []
-        obj = ToolsExecJob.objects.order_by('-create_time').filter(tools=self.request.GET.get('pk'))
-        for k in obj:
+        for k in context['result_list']:
             host = ""
             for h in k.hosts.all():
                 host += h.host_name + "<br/>"
@@ -118,7 +123,7 @@ class ToolExecuteHistoryView(TemplateView, LoginRequiredMixin):
                 "success_count": len([x for x in history if x.err_msg == '']),
                 "err_count": len([x for x in history if x.err_msg != ''])
             })
-        context['result_list'] = preparePage(self.request, result)
+        context['result_list'] = result
         return context
 
 

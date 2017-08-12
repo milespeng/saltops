@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/templates/common/tags/form_raw_text_field.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/templates/common/tags/form_select_fields.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/templates/common/tags/form_script_field.html" afterPath="$PROJECT_DIR$/common/templates/common/tags/form_script_field.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/templatetags/form_tags.py" afterPath="$PROJECT_DIR$/common/templatetags/form_tags.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html" afterPath="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/__init__.py" afterPath="$PROJECT_DIR$/common/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools_manager/views/tools_script.py" afterPath="$PROJECT_DIR$/tools_manager/views/tools_script.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -86,8 +80,40 @@
       <file leaf-file-name="tools_script.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tools_manager/views/tools_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
-              <caret line="128" column="31" lean-forward="false" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+            <state relative-caret-position="306">
+              <caret line="125" column="39" lean-forward="false" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pageutil.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/pageutil.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tool_script_execute_history.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pagination.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/templates/common/pagination.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -106,7 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>crontab_schedule</find>
       <find>preriodic_task</find>
       <find>pagination_range</find>
       <find>saltops_tags</find>
@@ -136,6 +161,7 @@
       <find>menus</find>
       <find>id_{{ id }}editor</find>
       <find>id_{{ id }}</find>
+      <find>replace_to_br</find>
     </findStrings>
     <replaceStrings>
       <replace>obj.jobDetails[k].result</replace>
@@ -192,8 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/celery_manager/templates/celery_manager/crontabschedule_confirm_delete.html" />
-        <option value="$PROJECT_DIR$/celery_manager/urls.py" />
         <option value="$PROJECT_DIR$/common/templates/common/basic_list.html" />
         <option value="$PROJECT_DIR$/celery_manager/views/crontab_schedule.py" />
         <option value="$PROJECT_DIR$/celery_manager/views/interval_schedule.py" />
@@ -242,6 +266,8 @@
         <option value="$PROJECT_DIR$/common/templates/common/tags/form_script_field.html" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_form.html" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_form.html" />
+        <option value="$PROJECT_DIR$/common/__init__.py" />
+        <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html" />
         <option value="$PROJECT_DIR$/tools_manager/views/tools_script.py" />
       </list>
     </option>
@@ -297,20 +323,7 @@
             <path>
               <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
               <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="tools_manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="tools_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="tools_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="tools_manager" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -931,13 +944,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00262" summary="机架">
-      <created>1495709291292</created>
-      <option name="number" value="00262" />
-      <option name="presentableId" value="LOCAL-00262" />
-      <option name="project" value="LOCAL" />
-      <updated>1495709291293</updated>
-    </task>
     <task id="LOCAL-00263" summary="主机">
       <created>1495711611422</created>
       <option name="number" value="00263" />
@@ -1274,7 +1280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502466429201</updated>
     </task>
-    <option name="localTasksCounter" value="311" />
+    <task id="LOCAL-00311" summary="调整表单，避免过度优化">
+      <created>1502519468781</created>
+      <option name="number" value="00311" />
+      <option name="presentableId" value="LOCAL-00311" />
+      <option name="project" value="LOCAL" />
+      <updated>1502519468783</updated>
+    </task>
+    <option name="localTasksCounter" value="312" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1330,8 +1343,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43269232" sideWeight="0.4946752" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26715687" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27625203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48076922" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42147437" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42147437" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1340,7 +1354,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48188975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1353,13 +1366,13 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30448717" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4062992" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4054487" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39370078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43269232" sideWeight="0.4946752" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25653595" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26715687" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27625203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48188975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48076922" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42147437" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
@@ -1393,7 +1406,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="用户" />
     <MESSAGE value="与Jenkins对接的版本接口" />
     <MESSAGE value="新增版本上传Rest接口，用于与Jenkins进行对接" />
     <MESSAGE value="版本下载" />
@@ -1418,7 +1430,8 @@
     <MESSAGE value="调整工具表单的代码" />
     <MESSAGE value="修改工具管理Logo" />
     <MESSAGE value=" fix bug #IEI5X 执行shell脚本报错" />
-    <option name="LAST_COMMIT_MESSAGE" value=" fix bug #IEI5X 执行shell脚本报错" />
+    <MESSAGE value="调整表单，避免过度优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整表单，避免过度优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1459,19 +1472,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="640" />
+      <option name="time" value="644" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
-        <watch expression="result[host][&quot;ipv4&quot;]" language="Python" />
-        <watch expression="host" language="Python" />
-        <watch expression="result" language="Python" />
-        <watch expression="oldip_list" language="Python" />
-        <watch expression="sshResult[host]['return'][&quot;mem_total&quot;]" language="Python" />
-        <watch expression="set(result[host][&quot;ipv4&quot;]) - set(oldip_list)" language="Python" />
-        <watch expression="result[host][&quot;ipv4&quot;]" language="Python" />
-        <watch expression="sshResult[host]['return']" language="Python" />
-        <watch expression="sshResult[host]['return']['num_cpus']" language="Python" />
+        <watch expression="super(ToolExecuteHistoryView, self).get_context_data(**kwargs)" language="Python" />
       </configuration>
       <configuration name="PythonConfigurationType">
         <watch expression="content" language="Python" />
@@ -1480,28 +1485,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/common/tags/toolbox_search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/templates/common/tags/toolbox_select_filter_dynamic.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1555,13 +1538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/views/tools_types.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1660,6 +1636,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1667,6 +1644,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1766,14 +1744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_types_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -1862,11 +1832,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/common/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="81" column="37" lean-forward="false" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/views/tools_types.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/pageutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/templates/common/pagination.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tools_manager/views/tools_script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="128" column="31" lean-forward="false" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="306">
+          <caret line="125" column="39" lean-forward="false" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

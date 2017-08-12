@@ -79,7 +79,7 @@ def replace_to_br(value: str):
     :param value: 
     :return: 
     """
-    return mark_safe(value.replace('\n', '<br/>'))
+    return mark_safe(value.replace('\\n', '<br/>'))
 
 
 @register.filter
