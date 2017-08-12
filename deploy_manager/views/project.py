@@ -13,18 +13,31 @@ from saltops.settings import PER_PAGE
 
 import arrow
 
+listview_lazy_url = 'deploy_manager:project_list'
+listview_template = 'deploy_manager/project_list.html'
+formview_template = 'deploy_manager/project_form.html'
+
 
 class ProjectView(LoginRequiredMixin,
-
+                  OrderableListMixin,
                   ListView):
     model = Project
     paginate_by = PER_PAGE
-    template_name = 'deploy_manager/project_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
+    orderable_columns_default = 'id'
+    orderable_columns = ['project_module', 'name', 'create_time', 'job_script_type', 'dev_monitor', 'ops_monitor']
 
     def get_queryset(self):
         result_list = Project.objects.all()
         name = self.request.GET.get('name')
+        order_by = self.request.GET.get('order_by')
+        ordering = self.request.GET.get('ordering')
+        if order_by:
+            if ordering == 'desc':
+                result_list = result_list.order_by('-' + order_by)
+            else:
+                result_list = result_list.order_by(order_by)
         if name:
             result_list = result_list.filter(name__contains=name)
         return result_list
@@ -32,15 +45,16 @@ class ProjectView(LoginRequiredMixin,
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
         context['name'] = self.request.GET.get('name', '')
-
+        context['order_by'] = self.request.GET.get('order_by', '')
+        context['ordering'] = self.request.GET.get('ordering', 'asc')
         return context
 
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     form_class = ProjectForm
-    template_name = 'deploy_manager/project_form.html'
-    success_url = reverse_lazy('deploy_manager:project_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
     def get_context_data(self, **kwargs):
         context = super(ProjectCreateView, self).get_context_data(**kwargs)
@@ -59,8 +73,8 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
-    template_name = 'deploy_manager/project_form.html'
-    success_url = reverse_lazy('deploy_manager:project_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
     context_object_name = 'entity'
 
     def get_context_data(self, **kwargs):
@@ -161,34 +175,34 @@ class ProjectHostStopActionView(LoginRequiredMixin, JSONResponseMixin,
         deployjob = deployTask.delay(job, 4, hostlist)
         return self.render_json_response({})
 
-
-def predeploy(project: Project, uninstall=False):
-    """
-    :param project:
-    :param uninstall: 
-    :return: 
-    """
-    preprojects = PreProject.objects.filter(current_project_id=project.id)
-
-    if len(preprojects) > 0:
-        for k in preprojects:
-            preproject_list = PreProject.objects.filter(current_project_id=k.project.id)
-            if preproject_list.count() > 0:
-                for o in preproject_list:
-                    predeploy(Project.objects.get(pk=o.project.id), uninstall)
-            else:
-                pre_version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
-                job = DeployJob(project_version=pre_version,
-                                job_name='部署' + k.project.name + ":" + pre_version.name)
-                job.save()
-
-                # uninstall_host = []
-                # if uninstall is True:
-                #     uninstall_host_qs = ProjectHost.objects.filter(project=k.project)
-                #     for e in uninstall_host_qs:
-                #         uninstall_host.append(e)
-                deployjob = deployTask.delay(job, 1)
-
+#
+# def predeploy(project: Project, uninstall=False):
+#     """
+#     :param project:
+#     :param uninstall:
+#     :return:
+#     """
+#     preprojects = PreProject.objects.filter(current_project_id=project.id)
+#
+#     if len(preprojects) > 0:
+#         for k in preprojects:
+#             preproject_list = PreProject.objects.filter(current_project_id=k.project.id)
+#             if preproject_list.count() > 0:
+#                 for o in preproject_list:
+#                     predeploy(Project.objects.get(pk=o.project.id), uninstall)
+#             else:
+#                 pre_version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
+#                 job = DeployJob(project_version=pre_version,
+#                                 job_name='部署' + k.project.name + ":" + pre_version.name)
+#                 job.save()
+#
+#                 # uninstall_host = []
+#                 # if uninstall is True:
+#                 #     uninstall_host_qs = ProjectHost.objects.filter(project=k.project)
+#                 #     for e in uninstall_host_qs:
+#                 #         uninstall_host.append(e)
+#                 deployjob = deployTask.delay(job, 1)
+#
 
 class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                               AjaxResponseMixin, View):
@@ -196,8 +210,6 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
 
         # 目标主机
         hosts = request.POST.get('hostids', '')
-        # 目标主机组
-        host_groups = request.POST.get('hostgroup_ids', '')
 
         obj = Project.objects.get(pk=int(self.request.GET.get('pk')))
         project_version_id = request.POST.get('version', '')
@@ -205,15 +217,11 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         obj.save()
         version = ProjectVersion.objects.get(pk=int(project_version_id))
 
-        if host_groups != '':
-            host_groups_ids = host_groups.split(',')
-            for o in host_groups_ids:
-                ProjectHostGroup(project=obj, hostgroup_id=int(o)).save()
         if hosts != '':
             hosts_ids = hosts.split(',')
             for o in hosts_ids:
                 ProjectHost(project=obj, host_id=int(o)).save()
-        predeploy(obj)
+        #predeploy(obj)
         job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
         job.save()
 
@@ -244,7 +252,8 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                     'duration': str(o.duration),
                     'stderr': o.stderr,
                     'comment': o.comment,
-                    'is_success': is_successed_action
+                    'is_success': is_successed_action,
+                    'id': o.id
                 })
                 job_detail_list.append(exec_rs)
             else:
@@ -256,7 +265,8 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                     'duration': str(o.duration),
                     'stderr': o.stderr,
                     'comment': o.comment,
-                    'is_success': is_successed_action
+                    'is_success': is_successed_action,
+                    'id': o.id
                 })
         # 判断任务是否执行成功
         for o in job_detail_list:
@@ -308,7 +318,7 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
     template_name = 'deploy_manager/project_version_form.html'
     form_class = ProjectVersionForm
     model = ProjectVersion
-    success_url = reverse_lazy('deploy_manager:project_list')
+    success_url = reverse_lazy(listview_lazy_url)
 
     def get_context_data(self, **kwargs):
         context = super(ProjectVersionCreateView, self).get_context_data(**kwargs)

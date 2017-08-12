@@ -32,52 +32,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label"> 主机组</label>
-                                <div class="col-sm-10">
-                                    <select data-placeholder="选择主机组"
-                                            multiple class="form-control chosen-select" id="hostgroup"
-                                            tabindex="4">
-                                        {% for o in host_group_list %}
-                                            <option value="{{ o.id }}">{{ o.name }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> 已关联主机组</label>
-                                <div class="col-sm-10">
-                                    <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
-                                        <thead>
-                                        <tr>
-                                            <th style="width: 80%;">主机组</th>
-                                            <th style="width:5%;">操作</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for o in project_host_group %}
-                                            <tr id="hg{{ o.id }}">
-                                                <td>{{ o.hostgroup.name }}</td>
-                                                <td>
-                                                    <a href="javascript:void(0)"
-                                                       onclick="uninstallHostGroup('{{ o.id }}','{{ pk }}')"
-                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                    <script>
-                                        function uninstallHostGroup(id, pk) {
-                                            layer.load();
-                                            $.get('project_hostgroup_undeploy_action/?pk=' + id, function (rs) {
-                                                $('#hg' + id).remove()
-                                                layer.closeAll('loading');
-                                            })
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-sm-2 control-label"> 主机</label>
                                 <div class="col-sm-10">
                                     <select data-placeholder="选择主机"
@@ -101,7 +55,7 @@
                                             <th style="width:20%;">操作</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="tb">
                                         {% for o in project_host %}
                                             <tr id="h{{ o.id }}">
                                                 <td>{{ o.host.host_name }}</td>
@@ -120,6 +74,25 @@
                                             </tr>
                                         {% endfor %}
                                         </tbody>
+                                        <script type="text/template" id="row">
+                                            <% _.each(result, function (item) { %>
+                                            <tr id="h<%=item.id%>">
+                                                <td><%=item.host_name%></td>
+                                                <td></td>
+                                                <td>
+                                                    <a href="javascript:void(0)"
+                                                       onclick="start_host('<%=item.id%>')"
+                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>启动</a>
+                                                    <a href="javascript:void(0)"
+                                                       onclick="stop_host('<%=item.id%>')"
+                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>停止</a>
+                                                    <a href="javascript:void(0)"
+                                                       onclick="uninstall_host('<%=item.id%>')"
+                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
+                                                </td>
+                                            </tr>
+                                            <% }); %>
+                                        </script>
                                     </table>
                                     <script>
                                         function uninstall_host(id) {
@@ -129,12 +102,14 @@
                                                 layer.closeAll('loading');
                                             })
                                         }
+
                                         function start_host(id) {
                                             layer.load();
                                             $.get('project_host_start_action/?pk=' + id, function (rs) {
                                                 layer.closeAll('loading');
                                             })
                                         }
+
                                         function stop_host(id) {
                                             layer.load();
                                             $.get('project_host_stop_action/?pk=' + id, function (rs) {
@@ -193,6 +168,7 @@
 
     <script>
         var result = []
+
         function execute() {
             layer.load();
             var hosts_id = $('#hosts').val();
@@ -222,13 +198,22 @@
                 {% endfor %}
             }, function (rs) {
                 result = rs.jobDetails
+                obj = [];
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i].is_success == '执行成功') {
+                        obj.push(result[i])
+                    }
+                }
+                $('#tb').append(_.template($('#row').html(), obj))
                 $('#result').html(_.template($('#tpl').html(), result));
                 layer.closeAll('loading');
             })
         }
+
         function showContent(id) {
             $('#' + id).show()
         }
+
         $(document).ready(function () {
             $('.chosen-select').chosen();
 

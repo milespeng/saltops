@@ -33,14 +33,46 @@
         <thead>
         <tr>
             <th style="width: 2%;"><input id="checkall" type="checkbox" class="i-checks"></th>
-            <th style="width: 7%;">前置业务</th>
-            <th style="width: 7%;">业务模块</th>
-            <th style="width: 5%;">名称</th>
-            <th style="width: 5%;">脚本语言</th>
-            <th style="width: 5%;">开发负责人</th>
-            <th style="width: 5%;">运维负责人</th>
-            <th style="width: 7%;">创建时间</th>
-            <th style="width:25%;">操作</th>
+{#            <th style="width: 7%;">#}
+{#                前置业务#}
+{#            </th>#}
+            <th style="width: 7%;">
+                <a class="order-by-column" data-column="project_module" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    业务模块
+                </a>
+            </th>
+            <th style="width: 5%;">
+                <a class="order-by-column" data-column="name" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    名称
+                </a>
+            </th>
+            <th style="width: 5%;">
+                <a class="order-by-column" data-column="job_script_type" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    脚本语言
+                </a>
+            </th>
+            <th style="width: 5%;">
+                <a class="order-by-column" data-column="dev_monitor" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    开发负责人
+                </a>
+            </th>
+            <th style="width: 5%;">
+                <a class="order-by-column" data-column="ops_monitor" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    运维负责人
+                </a>
+            </th>
+            <th style="width: 7%;">
+                <a class="order-by-column" data-column="create_time" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    创建时间
+                </a>
+            </th>
+            <th style="width:20%;">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -49,7 +81,7 @@
                 <td>
                     <input type="checkbox" class="i-checks icheck" id="{{ o.id }}" name="input[]">
                 </td>
-                <td>{{ o.id|preproject_filter }}</td>
+{#                <td>{{ o.id|preproject_filter }}</td>#}
                 <td>{{ o.project_module|parent_filter }}</td>
                 <td>{{ o.name }}</td>
                 <td>{{ o.job_script_type|jobscript_filter }}</td>
@@ -58,14 +90,14 @@
 
                 <td>{{ o.create_time }}</td>
                 <td>
-{#                    <a href="{{ o.id }}/project_edit/"#}
-{#                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>配置</a>#}
-                    <a href="project_deploy/?pk={{ o.id }}"
-                       class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>部署</a>
-                    <a href="project_version/?pk={{ o.id }}"
-                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>版本</a>
+                    {#                    <a href="{{ o.id }}/project_edit/"#}
+                    {#                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>配置</a>#}
                     <a href="{{ o.id }}/project_edit/"
                        class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
+                    <a href="project_version/?pk={{ o.id }}"
+                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>版本</a>
+                    <a href="project_deploy/?pk={{ o.id }}"
+                       class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>部署</a>
                     <a href="project_deploy_history/?pk={{ o.id }}"
                        class="btn  btn-sm btn-success"><i class="fa fa-expand"></i>历史</a>
                     <a href="javascript:void(0)"
