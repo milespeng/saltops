@@ -199,12 +199,12 @@ LOGGING = {
     },
     'formatters': {
         'standard': {
-            'format': '%(levelname)s [ %(message)s] %(asctime)s %(pathname)s %(filename)s %(module)s %(funcName)s %(lineno)d'
+            'format': '%(levelname)s %(asctime)s [ %(message)s]  %(pathname)s  %(funcName)s %(lineno)d'
         },
     },
     'handlers': {
         'mail_admins': {
-            'level': 'ERROR',
+            'level': 'INFO',
             'class': 'django.utils.log.AdminEmailHandler',
             'formatter': 'standard'
         },

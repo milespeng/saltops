@@ -518,6 +518,10 @@ def deployTask(deploy_job: DeployJob,
 
 @task(name='scanHostJob')
 def scanHostJob():
+    """
+    扫描客户端信息
+    :return:
+    """
     logger.info('扫描Minion启动状态列表')
     upList = []
     try:
@@ -525,8 +529,10 @@ def scanHostJob():
                                         SALT_REST_URL, {'X-Auth-Token': token_id()})
         statusResult = manageInstance.runnerRun()
         upList = statusResult['return'][0]['up']
+        logger.debug("SaltMinion状态列表[%s]" % upList)
     except Exception as e:
-        logger.info("没有任何主机启动状态信息:%s" % e)
+        logger.error("没有任何主机启动状态信息:%s")
+        logger.error(traceback.format_exc())
 
     logger.info("扫描客户端注册列表")
     minions_rejected = []
@@ -537,32 +543,28 @@ def scanHostJob():
                                          SALT_REST_URL, {'X-Auth-Token': token_id()})
         minionList = minionsInstance.wheelRun()['return'][0]['data']['return']
         minions_pre = minionList['minions_pre']
+
         logger.info("待接受主机:%s" % len(minions_pre))
-        # minions = minionList['minions']
+        logger.debug("待接受主机[%s]" % minions_pre)
+
         minions_rejected = minionList['minions_rejected']
         logger.info("已拒绝主机:%s", len(minions_rejected))
+        logger.debug("已拒绝主机[%s]", minions_rejected)
 
         minions_denied = minionList['minions_denied']
         logger.info("已禁用主机:%s", len(minions_denied))
+        logger.debug("已禁用主机[%s]" % minions_denied)
+
     except Exception as e:
         logger.info("扫描主机键值状态异常:%s" % e)
-        # logger.info("自动主机")
-        # for minion in minions_pre:
-        #     logger.info("自动接受主机:%s" % minion)
-        #     salt_api_token({'fun': 'key.accept', 'match': minion},
-        #                    SALT_REST_URL, {'X-Auth-Token': token_id()}).wheelRun()
-        # rs = Host.objects.filter(host_name=minion)
-        # if len(rs) == 0:
-        #     try:
-        #         device = Host(host_name=minion, minion_status=2)
-        #         device.save()
-        #     except Exception as e:
-        #         logger.info(e)
+        logger.error(traceback.format_exc())
 
     logger.info("获取Minion主机资产信息")
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
                             SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
     logger.info("扫描Minion数量为[%s]", len(result))
+    logger.debug("Minions资产信息[%s]" % result)
+
     Host.objects.update(minion_status=0)
 
     for host in result:
@@ -638,6 +640,7 @@ def scanHostJob():
 
         except Exception as e:
             logger.error("自动扫描出现异常:%s", e)
+            logger.error(traceback.format_exc())
 
     logger.info("扫描Salt-SSH主机信息")
     sshResult = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
@@ -678,7 +681,7 @@ def scanHostJob():
                         HostIP.objects.filter(ip=ip).delete()
 
         except Exception as e:
-            traceback.print_exc()
+            logger.error(traceback.format_exc())
 
 
 def loadProjectConfig(id):
