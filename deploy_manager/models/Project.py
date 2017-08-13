@@ -17,38 +17,6 @@ class Project(BaseModel):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="业务名称")
     project_module = models.ForeignKey(ProjectModule, verbose_name='业务模块', blank=True, null=True, default="")
     extra_param = models.TextField(verbose_name='扩展参数', default="", blank=True, null=True)
-    current_version_id = models.TextField(default="", blank=True, null=True, verbose_name='已部署版本的ID')
-    install_job_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
-                                                  verbose_name='部署脚本类型')
-
-    install_script = models.TextField(verbose_name='部署脚本', null=True, blank=True,
-                                      help_text='${version}代表默认版本号')
-
-    anti_install_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
-                                                   verbose_name='卸载部署脚本类型')
-    anti_install_script = models.TextField(verbose_name='卸载脚本', null=True, blank=True,
-                                           help_text='${version}代表默认版本号')
-
-    stateguard_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
-                                                 verbose_name='守护脚本类型')
-    stateguard_script = models.TextField(verbose_name='守护脚本', null=True, blank=True,
-                                         help_text='${version}代表默认版本号')
-
-    start_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
-                                            verbose_name='启动脚本类型')
-    start_script = models.TextField(verbose_name='启动脚本', null=True, blank=True,
-                                    help_text='${version}代表默认版本号')
-
-    stop_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
-                                           verbose_name='停止脚本类型')
-    stop_script = models.TextField(verbose_name='停止脚本', null=True, blank=True,
-                                   help_text='${version}代表默认版本号')
-
-    state_script_type = models.IntegerField(default=0, choices=JOB_SCRIPT_TYPE,
-                                            verbose_name='状态脚本类型')
-    state_script = models.TextField(verbose_name='状态脚本', null=True, blank=True,
-                                    help_text='${version}代表默认版本号')
-
     dev_monitor = models.ForeignKey(User, verbose_name='开发负责人', blank=True, null=True, related_name='dev_monitor')
     ops_monitor = models.ForeignKey(User, verbose_name='运维负责人', blank=True, null=True, related_name='ops_monitor')
     backup_monitor = models.ForeignKey(User, verbose_name='备份负责人', blank=True, null=True, related_name='backup_monitor')

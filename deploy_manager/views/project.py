@@ -1,6 +1,9 @@
 import logging
 import uuid
 
+import os
+
+import yaml
 from braces.views import *
 from django.contrib.auth.mixins import *
 from django.utils.safestring import mark_safe
@@ -13,9 +16,10 @@ from cmdb.models import Host, HostGroup
 from common.pageutil import preparePage
 from deploy_manager.forms import ProjectForm, ProjectVersionForm
 from deploy_manager.models import *
-from saltops.settings import PER_PAGE, DEFAULT_LOGGER
+from saltops.settings import PER_PAGE, DEFAULT_LOGGER, PACKAGE_PATH
 
 import arrow
+import zipfile
 
 logger = logging.getLogger(DEFAULT_LOGGER)
 
@@ -154,89 +158,95 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                               AjaxResponseMixin, View):
     def post_ajax(self, request, *args, **kwargs):
         hosts = request.POST.get('hostids', '')
-        logger.debug('部署目标主机ID为[%s]' % hosts)
-
         project_pk = int(self.request.GET.get('pk'))
         obj = Project.objects.get(pk=project_pk)
         project_version_id = request.POST.get('version', '')
         version = ProjectVersion.objects.get(pk=int(project_version_id))
-        logger.debug('部署业务为[%s],部署版本为[%s]' % (obj, version))
-
         # 记录下主机-业务-业务版本号的对应关系
         hosts_ids = hosts.split(',')
+        top_content = open(PACKAGE_PATH + 'top.sls', 'r')
+        top_yaml = yaml.load(top_content)
+
+        # TODO:未完成，主机关联后需要填入top.sls
         for o in hosts_ids:
+            host = Host.objects.get(pk=o)
+            top_yaml['base'][host.host_name].append(version.name)
+            os.write(top_yaml)
             ProjectHost(project=obj, host_id=int(o), project_version_id=project_version_id).save()
-
-        # 添加部署任务记录
-        job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
-        #TODO:使用事务改造，部署失败不要插入表里面
-        job.save()
-
-        # 开始部署
-        deployTask.delay(job, 0)
-
-        job_result = DeployJob.objects.get(pk=job.id)
-        jobDetails = DeployJobDetail.objects.filter(job=job_result)
-        job_detail_list = []
-
-        # 整合数据结构
-        for o in jobDetails:
-            target_obj = None
-            for k in job_detail_list:
-                if o.host.host_name == k['host_name']:
-                    target_obj = k
-                    break
-
-            is_successed_action = '执行成功'
-            if o.is_success is False:
-                is_successed_action = '执行失败'
-            if target_obj is None:
-                exec_rs = {'host_name': o.host.host_name, 'result': []}
-                exec_rs['result'].append({
-                    'deploy_message': o.deploy_message,
-                    #            'job': o.job.job_name,
-                    'job_cmd': o.job_cmd,
-                    'start_time': o.start_time,
-                    'duration': str(o.duration),
-                    'stderr': o.stderr,
-                    'comment': o.comment,
-                    'is_success': is_successed_action,
-                    'id': o.id
-                })
-                job_detail_list.append(exec_rs)
-            else:
-                target_obj['result'].append({
-                    'deploy_message': o.deploy_message,
-                    #            'job': o.job.job_name,
-                    'job_cmd': o.job_cmd,
-                    'start_time': o.start_time,
-                    'duration': str(o.duration),
-                    'stderr': o.stderr,
-                    'comment': o.comment,
-                    'is_success': is_successed_action,
-                    'id': o.id
-                })
-        # 判断任务是否执行成功
-        for o in job_detail_list:
-            is_successed = True
-            for k in o['result']:
-                if k['is_success'] == '执行失败':
-                    is_successed = False
-                    break
-            if is_successed is True:
-                o['is_success'] = '执行成功'
-            else:
-                o['is_success'] = '执行失败'
-
-        # 整体任务是否执行成功
-        deploy_status = '执行成功'
-        if job_result.deploy_status == 2:
-            deploy_status = '执行失败'
-        result = {
-            'deploy_status': deploy_status,
-            'jobDetails': job_detail_list
-        }
-        return self.render_json_response(result)
+        output = open(PACKAGE_PATH + 'top.sls', 'wb')
+        output.write(bytes(top_yaml, encoding='utf8'))
+        output.close()
+        #
+        # # 添加部署任务记录
+        # job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
+        # #TODO:使用事务改造，部署失败不要插入表里面
+        # job.save()
+        #
+        # # 开始部署
+        # deployTask.delay(job, 0)
+        #
+        # job_result = DeployJob.objects.get(pk=job.id)
+        # jobDetails = DeployJobDetail.objects.filter(job=job_result)
+        # job_detail_list = []
+        #
+        # # 整合数据结构
+        # for o in jobDetails:
+        #     target_obj = None
+        #     for k in job_detail_list:
+        #         if o.host.host_name == k['host_name']:
+        #             target_obj = k
+        #             break
+        #
+        #     is_successed_action = '执行成功'
+        #     if o.is_success is False:
+        #         is_successed_action = '执行失败'
+        #     if target_obj is None:
+        #         exec_rs = {'host_name': o.host.host_name, 'result': []}
+        #         exec_rs['result'].append({
+        #             'deploy_message': o.deploy_message,
+        #             #            'job': o.job.job_name,
+        #             'job_cmd': o.job_cmd,
+        #             'start_time': o.start_time,
+        #             'duration': str(o.duration),
+        #             'stderr': o.stderr,
+        #             'comment': o.comment,
+        #             'is_success': is_successed_action,
+        #             'id': o.id
+        #         })
+        #         job_detail_list.append(exec_rs)
+        #     else:
+        #         target_obj['result'].append({
+        #             'deploy_message': o.deploy_message,
+        #             #            'job': o.job.job_name,
+        #             'job_cmd': o.job_cmd,
+        #             'start_time': o.start_time,
+        #             'duration': str(o.duration),
+        #             'stderr': o.stderr,
+        #             'comment': o.comment,
+        #             'is_success': is_successed_action,
+        #             'id': o.id
+        #         })
+        # # 判断任务是否执行成功
+        # for o in job_detail_list:
+        #     is_successed = True
+        #     for k in o['result']:
+        #         if k['is_success'] == '执行失败':
+        #             is_successed = False
+        #             break
+        #     if is_successed is True:
+        #         o['is_success'] = '执行成功'
+        #     else:
+        #         o['is_success'] = '执行失败'
+        #
+        # # 整体任务是否执行成功
+        # deploy_status = '执行成功'
+        # if job_result.deploy_status == 2:
+        #     deploy_status = '执行失败'
+        # result = {
+        #     'deploy_status': deploy_status,
+        #     'jobDetails': job_detail_list
+        # }
+        return self.render_json_response([])
 
 
 class ProjectDeployView(LoginRequiredMixin, TemplateView):
@@ -279,6 +289,10 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
         obj = form.save()
         obj.project = project
         obj.save()
+        f = zipfile.ZipFile(obj.files, 'r')
+        for file in f.namelist():
+            f.extract(file, PACKAGE_PATH)
+        f.close()
 
         return super(ProjectVersionCreateView, self).form_valid(form)
 

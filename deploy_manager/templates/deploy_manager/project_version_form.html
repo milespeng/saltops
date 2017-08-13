@@ -32,172 +32,6 @@
                                     {{ form.files.errors }}
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> {{ form.is_default.label_tag }}</label>
-                                <div class="col-sm-10">
-                                    {{ form.is_default }}
-                                    {{ form.is_default.errors }}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> </label>
-                                <div class="col-sm-10">
-                                    <div class="tabs-container">
-                                        <ul class="nav nav-tabs">
-                                            <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">
-                                                发布</a>
-                                            </li>
-                                            <li class=""><a data-toggle="tab" href="#tab-2"
-                                                            aria-expanded="false">卸载</a>
-                                            </li>
-                                            <li class=""><a data-toggle="tab" href="#tab-3"
-                                                            aria-expanded="false">状态守护</a>
-                                            </li>
-                                            <li class=""><a data-toggle="tab" href="#tab-4"
-                                                            aria-expanded="false">启动</a>
-                                            </li>
-                                            <li class=""><a data-toggle="tab" href="#tab-5"
-                                                            aria-expanded="false">暂停</a>
-                                            </li>
-                                            <li class=""><a data-toggle="tab" href="#tab-6"
-                                                            aria-expanded="false">状态采集</a>
-                                            </li>
-                                        </ul>
-
-                                        <div class="tab-content">
-                                            <div id="tab-1" class="tab-pane active">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.install_job_script_type.label_tag }}</label>
-                                                        <div class="col-sm-10">
-                                                            {{ form.install_job_script_type }}
-                                                            {{ form.install_job_script_type.errors }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.install_script.label_tag }}</label>
-                                                        <div class="col-sm-10" style="height: 200px"
-                                                             name="install_script_editor"
-                                                             id="id_install_script_editor"></div>
-                                                        <textarea id="id_install_script" name="install_script"
-                                                                  style="display: none">{{ form.install_script.value|default_if_none:"" }}</textarea>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div id="tab-2" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.anti_install_script_type.label_tag }}</label>
-                                                        <div class="col-sm-10">
-                                                            {{ form.anti_install_script_type }}
-                                                            {{ form.anti_install_script_type.errors }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.anti_install_script.label_tag }}</label>
-                                                        <div class="col-sm-10" style="height: 200px"
-                                                             name="anti_install_script_editor"
-                                                             id="id_anti_install_script_editor"></div>
-                                                        <textarea id="id_anti_install_script"
-                                                                  name="anti_install_script"
-                                                                  style="display: none">{{ form.anti_install_script.value|default_if_none:"" }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="tab-3" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.stateguard_script_type.label_tag }}</label>
-                                                        <div class="col-sm-10">
-                                                            {{ form.stateguard_script_type }}
-                                                            {{ form.stateguard_script_type.errors }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.stateguard_script.label_tag }}</label>
-                                                        <div class="col-sm-10" style="height: 200px"
-                                                             name="stateguard_script_editor"
-                                                             id="id_stateguard_script_editor"></div>
-                                                        <textarea id="id_stateguard_script"
-                                                                  name="stateguard_script"
-                                                                  style="display: none">{{ form.stateguard_script.value|default_if_none:"" }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="tab-4" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.start_script_type.label_tag }}</label>
-                                                        <div class="col-sm-10">
-                                                            {{ form.start_script_type }}
-                                                            {{ form.start_script_type.errors }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.start_script.label_tag }}</label>
-                                                        <div class="col-sm-10" style="height: 200px"
-                                                             name="start_script_editor"
-                                                             id="id_start_script_editor"></div>
-                                                        <textarea id="id_start_script"
-                                                                  name="start_script"
-                                                                  style="display: none">{{ form.start_script.value|default_if_none:"" }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="tab-5" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.stop_script_type.label_tag }}</label>
-                                                        <div class="col-sm-10">
-                                                            {{ form.stop_script_type }}
-                                                            {{ form.stop_script_type.errors }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.stop_script.label_tag }}</label>
-                                                        <div class="col-sm-10" style="height: 200px"
-                                                             name="stop_script_editor"
-                                                             id="id_stop_script_editor"></div>
-                                                        <textarea id="id_stop_script"
-                                                                  name="stop_script"
-                                                                  style="display: none">{{ form.stop_script.value|default_if_none:"" }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="tab-6" class="tab-pane">
-                                                <div class="panel-body">
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.state_script_type.label_tag }}</label>
-                                                        <div class="col-sm-10">
-                                                            {{ form.state_script_type }}
-                                                            {{ form.state_script_type.errors }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-2 control-label"> {{ form.state_script.label_tag }}</label>
-                                                        <div class="col-sm-10" style="height: 200px"
-                                                             name="state_script_editor"
-                                                             id="id_state_script_editor"></div>
-                                                        <textarea id="id_state_script"
-                                                                  name="state_script"
-                                                                  style="display: none">{{ form.state_script.value|default_if_none:"" }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> {{ form.extra_param.label_tag }}</label>
-                                <div class="col-sm-10" style="height: 200px" name="extra_param_editor"
-                                     id="id_extra_param_editor"></div>
-                                <textarea id="id_extra_param" name="extra_param"
-                                          style="display: none">{{ form.extra_param.value|default_if_none:"" }}</textarea>
-                            </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -211,8 +45,6 @@
                             <thead>
                             <tr>
                                 <th style="width: 7%;">版本名称</th>
-                                {#                                <th style="width: 7%;">版本</th>#}
-                                <th style="width: 5%;">脚本语言</th>
                                 <th style="width:5%;">操作</th>
                             </tr>
                             </thead>
@@ -222,10 +54,6 @@
                                     <th style="width: 7%;"><a
                                             href="/static/scripts/{{ project_version.files|file_path_filter }}"> {{ project_version.name }}</a>
                                     </th>
-                                    {#                                    <th style="width: 7%;"><a#}
-                                    {#                                            href="{{ project_version.files }}">{{ project_version.files }}</a></th>#}
-
-                                    <th style="width: 5%;">{{ project_version.id|sub_jobscript_filter }}</th>
                                     <th style="width:5%;">
                                         <a href="/frontend/deploy_manager/project_list/{{ project_version.id }}/project_version_edit/?pk={{ project_version.project.id }}"
                                            class="btn  btn-sm btn-info"><i class="fa fa-edit"></i>编辑</a>
@@ -271,6 +99,7 @@
             $('#id_state_script').val(state_script_editor.getValue())
             return true;
         }
+
         $(document).ready(function () {
             var fieldObj = $('.form-horizontal input')
             for (var i = 0; i < fieldObj.length; i++) {
@@ -309,6 +138,7 @@
                 initEditor(extra_param_editor, 'id_extra_param')
             }
         );
+
         function initEditor(editor, editorid) {
             editor.setTheme("ace/theme/xcode");
             editor.session.setMode("ace/mode/yaml");
@@ -321,6 +151,7 @@
                 editor.setValue($('#' + editorid).val());
             })
         }
+
         require(['editor'])
     </script>
 

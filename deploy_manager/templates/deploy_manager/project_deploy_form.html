@@ -74,25 +74,6 @@
                                             </tr>
                                         {% endfor %}
                                         </tbody>
-                                        <script type="text/template" id="row">
-                                            <% _.each(obj, function (item) { %>
-                                            <tr id="h<%=item.id%>">
-                                                <td><%=item.host_name%></td>
-                                                <td></td>
-                                                <td>
-                                                    <a href="javascript:void(0)"
-                                                       onclick="start_host('<%=item.id%>')"
-                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>启动</a>
-                                                    <a href="javascript:void(0)"
-                                                       onclick="stop_host('<%=item.id%>')"
-                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>停止</a>
-                                                    <a href="javascript:void(0)"
-                                                       onclick="uninstall_host('<%=item.id%>')"
-                                                       class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
-                                                </td>
-                                            </tr>
-                                            <% }); %>
-                                        </script>
                                     </table>
                                     <script>
                                         function uninstall_host(id) {
@@ -154,7 +135,7 @@
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
                                     <a href="javascript:void(0)" class="btn btn-primary"
-                                       onclick="execute()">部署</a>
+                                       onclick="execute()">关联</a>
                                     <a class="btn btn-white" href="javascript:history.go(-1)">取消</a>
                                 </div>
                             </div>
@@ -180,33 +161,12 @@
                 hosts_str = hosts_str.substr(0, hosts_str.length - 1)
             }
 
-            var hostsgroup_id = $('#hostgroup').val();
-            hostsgroup_str = "";
-            if (hostsgroup_id != null) {
-                for (var i = 0; i < hostsgroup_id.length; i++) {
-                    hostsgroup_str += hostsgroup_id[i] + ',';
-                }
-                hostsgroup_str = hostsgroup_str.substr(0, hostsgroup_str.length - 1)
-            }
             $.post('/frontend/deploy_manager/project_list/project_deploy_action/?pk={{ pk }}', {
                 'hostids': hosts_str,
-                'hostgroup_ids': hostsgroup_str,
                 'csrfmiddlewaretoken': '{{ csrf_token }}',
                 'version': $('#version').val(),
-                {% for k,v in param_list %}
-                    '{{ v }}': $('#{{ v }}').val(),
-                {% endfor %}
             }, function (rs) {
-                result = rs.jobDetails
-                obj = [];
-                for (var i = 0; i < result.length; i++) {
-                    debugger;
-                    if (result[i].is_success == '执行成功') {
-                        obj.push(result[i])
-                    }
-                }
-                $('#tb').append(_.template($('#row').html(), obj))
-                $('#result').html(_.template($('#tpl').html(), result));
+                location.reload()
                 layer.closeAll('loading');
             })
         }
