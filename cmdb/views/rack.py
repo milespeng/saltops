@@ -7,11 +7,15 @@ from cmdb.forms import *
 from cmdb.models import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'cmdb:rack_list'
+listview_template = 'cmdb/rack_list.html'
+formview_template = 'cmdb/rack_form.html'
+
 
 class RackView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = Rack
     paginate_by = PER_PAGE
-    template_name = 'cmdb/rack_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
     orderable_columns_default = 'id'
     orderable_columns = ['idc', 'cabinet', 'name', 'create_time', 'update_time']
@@ -42,8 +46,8 @@ class RackView(LoginRequiredMixin, OrderableListMixin, ListView):
 class RackCreateView(LoginRequiredMixin, CreateView):
     model = Rack
     form_class = RackForm
-    template_name = 'cmdb/rack_form.html'
-    success_url = reverse_lazy('cmdb:rack_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
     context_object_name = 'entity'
 
     def get_context_data(self, **kwargs):
@@ -55,8 +59,8 @@ class RackCreateView(LoginRequiredMixin, CreateView):
 class RackUpdateView(LoginRequiredMixin, UpdateView):
     model = Rack
     form_class = RackForm
-    template_name = 'cmdb/rack_form.html'
-    success_url = reverse_lazy('cmdb:rack_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
     context_object_name = 'entity'
 
     def get_context_data(self, **kwargs):

@@ -7,11 +7,15 @@ from cmdb.forms import *
 from cmdb.models import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'cmdb:idc_list'
+listview_template = 'cmdb/idc_list.html'
+formview_template = 'cmdb/idc_form.html'
+
 
 class IDCView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = IDC
     paginate_by = PER_PAGE
-    template_name = 'cmdb/idc_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
     orderable_columns_default = 'id'
     orderable_columns = ['name', 'type', 'phone', 'linkman', 'address', 'operator', 'concat_email', 'create_time',
@@ -44,15 +48,15 @@ class IDCView(LoginRequiredMixin, OrderableListMixin, ListView):
 class IDCCreateView(LoginRequiredMixin, CreateView):
     model = IDC
     form_class = IDCForm
-    template_name = 'cmdb/idc_form.html'
-    success_url = reverse_lazy('cmdb:idc_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class IDCUpdateView(LoginRequiredMixin, UpdateView):
     model = IDC
     form_class = IDCForm
-    template_name = 'cmdb/idc_form.html'
-    success_url = reverse_lazy('cmdb:idc_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class IDCDeleteView(LoginRequiredMixin, JSONResponseMixin,

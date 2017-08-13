@@ -567,6 +567,7 @@ def scanHostJob():
 
     Host.objects.update(minion_status=0)
 
+
     for host in result:
         try:
             minionstatus = 0

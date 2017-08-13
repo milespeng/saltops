@@ -7,11 +7,15 @@ from cmdb.forms import *
 from cmdb.models import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'cmdb:cabinet_list'
+listview_template = 'cmdb/cabinet_list.html'
+formview_template = 'cmdb/cabinet_form.html'
+
 
 class CabinetView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = Cabinet
     paginate_by = PER_PAGE
-    template_name = 'cmdb/cabinet_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
     orderable_columns_default = 'id'
     orderable_columns = ['name', 'idc', 'create_time', 'update_time']
@@ -42,15 +46,15 @@ class CabinetView(LoginRequiredMixin, OrderableListMixin, ListView):
 class CabinetCreateView(LoginRequiredMixin, CreateView):
     model = Cabinet
     form_class = CabinetForm
-    template_name = 'cmdb/cabinet_form.html'
-    success_url = reverse_lazy('cmdb:cabinet_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class CabinetUpdateView(LoginRequiredMixin, UpdateView):
     model = Cabinet
     form_class = CabinetForm
-    template_name = 'cmdb/cabinet_form.html'
-    success_url = reverse_lazy('cmdb:cabinet_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class CabinetDeleteView(LoginRequiredMixin, JSONResponseMixin,

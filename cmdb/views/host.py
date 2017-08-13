@@ -9,6 +9,10 @@ from cmdb.models import *
 from saltjob.tasks import scanHostJob
 from saltops.settings import PER_PAGE, SALT_HTTP_URL, SALT_CONN_TYPE
 
+listview_lazy_url = 'cmdb:host_list'
+listview_template = 'cmdb/host_list.html'
+formview_template = 'cmdb/host_form.html'
+
 
 def updateSaltRouster():
     # 如果主机是SSH类型的，把SSH列表更新一遍
@@ -39,7 +43,7 @@ def updateSaltRouster():
 class HostView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = Host
     paginate_by = PER_PAGE
-    template_name = 'cmdb/host_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
     orderable_columns_default = 'id'
     orderable_columns = ['parent', 'name', 'idc', 'os', 'enable_ssh', 'minion_status',
@@ -78,8 +82,8 @@ class HostView(LoginRequiredMixin, OrderableListMixin, ListView):
 class HostCreateView(LoginRequiredMixin, CreateView):
     model = Host
     form_class = HostForm
-    template_name = 'cmdb/host_form.html'
-    success_url = reverse_lazy('cmdb:host_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
     def get_context_data(self, **kwargs):
         context = super(HostCreateView, self).get_context_data(**kwargs)
@@ -98,8 +102,8 @@ class HostCreateView(LoginRequiredMixin, CreateView):
 class HostUpdateView(LoginRequiredMixin, UpdateView):
     model = Host
     form_class = HostForm
-    template_name = 'cmdb/host_form.html'
-    success_url = reverse_lazy('cmdb:host_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
     context_object_name = 'entity'
 
     def get_context_data(self, **kwargs):

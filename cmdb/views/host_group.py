@@ -7,27 +7,32 @@ from cmdb.forms import *
 from cmdb.models import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'cmdb:hostgroup_list'
+listview_template = 'cmdb/hostgroup_list.html'
+formview_template = 'cmdb/hostgroup_form.html'
+
 
 class HostGroupView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = HostGroup
     paginate_by = PER_PAGE
-    template_name = 'cmdb/hostgroup_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
     orderable_columns_default = 'id'
     orderable_columns = ['host_group', 'host_name', 'create_time', 'update_time']
 
+
 class HostGroupCreateView(LoginRequiredMixin, CreateView):
     model = HostGroup
     form_class = HostGroupForm
-    template_name = 'cmdb/hostgroup_form.html'
-    success_url = reverse_lazy('cmdb:hostgroup_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class HostGroupUpdateView(LoginRequiredMixin, UpdateView):
     model = HostGroup
     form_class = HostGroupForm
-    template_name = 'cmdb/hostgroup_form.html'
-    success_url = reverse_lazy('cmdb:hostgroup_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class HostGroupDeleteView(LoginRequiredMixin, JSONResponseMixin,

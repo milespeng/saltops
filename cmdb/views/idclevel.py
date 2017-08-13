@@ -8,15 +8,15 @@ from cmdb.forms import IDCLevelForm
 from cmdb.models import IDCLevel
 from saltops.settings import PER_PAGE
 
-listview_lazy_url = 'tools_manager:tools_script_list'
-listview_template = 'tools_manager/tools_script_list.html'
-formview_template = 'tools_manager/tools_script_form.html'
+listview_lazy_url = 'cmdb:idc_level_list'
+listview_template = 'cmdb/idc_level_list.html'
+formview_template = 'cmdb/idc_level_form.html'
 
 
 class IDCLevelView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = IDCLevel
     paginate_by = PER_PAGE
-    template_name = 'cmdb/idc_level_list.html'
+    template_name = listview_template
     orderable_columns_default = 'id'
     orderable_columns = ['name', 'comment', 'create_time', 'update_time']
     context_object_name = 'result_list'
@@ -46,15 +46,15 @@ class IDCLevelView(LoginRequiredMixin, OrderableListMixin, ListView):
 class IDCLevelCreateView(LoginRequiredMixin, CreateView):
     model = IDCLevel
     form_class = IDCLevelForm
-    template_name = 'cmdb/idc_level_form.html'
-    success_url = reverse_lazy('cmdb:idc_level_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class IDCLevelUpdateView(LoginRequiredMixin, UpdateView):
     model = IDCLevel
     form_class = IDCLevelForm
-    template_name = 'cmdb/idc_level_form.html'
-    success_url = reverse_lazy('cmdb:idc_level_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class IDCLevelDeleteView(LoginRequiredMixin, JSONResponseMixin,

@@ -7,11 +7,15 @@ from cmdb.forms import *
 from cmdb.models import *
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'cmdb:isp_list'
+listview_template = 'cmdb/isp_list.html'
+formview_template = 'cmdb/isp_form.html'
+
 
 class ISPView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = ISP
     paginate_by = PER_PAGE
-    template_name = 'cmdb/isp_list.html'
+    template_name = listview_template
     context_object_name = 'result_list'
     orderable_columns_default = 'id'
     orderable_columns = ['name', 'create_time', 'update_time']
@@ -41,15 +45,15 @@ class ISPView(LoginRequiredMixin, OrderableListMixin, ListView):
 class ISPCreateView(LoginRequiredMixin, CreateView):
     model = ISP
     form_class = ISPForm
-    template_name = 'cmdb/isp_form.html'
-    success_url = reverse_lazy('cmdb:isp_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class ISPUpdateView(LoginRequiredMixin, UpdateView):
     model = ISP
     form_class = ISPForm
-    template_name = 'cmdb/isp_form.html'
-    success_url = reverse_lazy('cmdb:isp_list')
+    template_name = formview_template
+    success_url = reverse_lazy(listview_lazy_url)
 
 
 class ISPDeleteView(LoginRequiredMixin, JSONResponseMixin,
