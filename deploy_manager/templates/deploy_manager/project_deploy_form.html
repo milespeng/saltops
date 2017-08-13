@@ -75,7 +75,7 @@
                                         {% endfor %}
                                         </tbody>
                                         <script type="text/template" id="row">
-                                            <% _.each(result, function (item) { %>
+                                            <% _.each(obj, function (item) { %>
                                             <tr id="h<%=item.id%>">
                                                 <td><%=item.host_name%></td>
                                                 <td></td>
@@ -200,6 +200,7 @@
                 result = rs.jobDetails
                 obj = [];
                 for (var i = 0; i < result.length; i++) {
+                    debugger;
                     if (result[i].is_success == '执行成功') {
                         obj.push(result[i])
                     }

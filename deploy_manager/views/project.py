@@ -1,17 +1,23 @@
+import logging
+import uuid
+
 from braces.views import *
 from django.contrib.auth.mixins import *
 from django.utils.safestring import mark_safe
 from django.urls import *
 from django.views.generic import *
 
+from common.utils.logger_utils import LoggerUtils
 from saltjob.tasks import deployTask, loadProjectConfig, scanProjectState
 from cmdb.models import Host, HostGroup
 from common.pageutil import preparePage
 from deploy_manager.forms import ProjectForm, ProjectVersionForm
 from deploy_manager.models import *
-from saltops.settings import PER_PAGE
+from saltops.settings import PER_PAGE, DEFAULT_LOGGER
 
 import arrow
+
+logger = logging.getLogger(DEFAULT_LOGGER)
 
 listview_lazy_url = 'deploy_manager:project_list'
 listview_template = 'deploy_manager/project_list.html'
@@ -57,11 +63,6 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
 
-    def get_context_data(self, **kwargs):
-        context = super(ProjectCreateView, self).get_context_data(**kwargs)
-        context['pre_project'] = Project.objects.all()
-        return context
-
 
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
@@ -106,7 +107,7 @@ class ProjectHostUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                                     AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
-        version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))
+        version = ProjectVersion.objects.get(pk=int(projecthost.project_version_id))
         job = DeployJob(project_version=version, job_name='卸载' + projecthost.host.host_name + ":" + version.name)
         job.save()
         hostlist = []
@@ -142,27 +143,37 @@ class ProjectHostStopActionView(LoginRequiredMixin, JSONResponseMixin,
         return self.render_json_response({})
 
 
+class ProjectScanStateActionView(LoginRequiredMixin, JSONResponseMixin,
+                                 AjaxResponseMixin, View):
+    def get_ajax(self, request, *args, **kwargs):
+        scanProjectState()
+        return self.render_json_response({})
+
+
 class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                               AjaxResponseMixin, View):
     def post_ajax(self, request, *args, **kwargs):
-
-        # 目标主机
         hosts = request.POST.get('hostids', '')
+        logger.debug('部署目标主机ID为[%s]' % hosts)
 
-        obj = Project.objects.get(pk=int(self.request.GET.get('pk')))
+        project_pk = int(self.request.GET.get('pk'))
+        obj = Project.objects.get(pk=project_pk)
         project_version_id = request.POST.get('version', '')
-        obj.current_version_id = project_version_id
-        obj.save()
         version = ProjectVersion.objects.get(pk=int(project_version_id))
+        logger.debug('部署业务为[%s],部署版本为[%s]' % (obj, version))
 
-        if hosts != '':
-            hosts_ids = hosts.split(',')
-            for o in hosts_ids:
-                ProjectHost(project=obj, host_id=int(o)).save()
+        # 记录下主机-业务-业务版本号的对应关系
+        hosts_ids = hosts.split(',')
+        for o in hosts_ids:
+            ProjectHost(project=obj, host_id=int(o), project_version_id=project_version_id).save()
+
+        # 添加部署任务记录
         job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
+        #TODO:使用事务改造，部署失败不要插入表里面
         job.save()
 
-        deployjob = deployTask.delay(job, 0)
+        # 开始部署
+        deployTask.delay(job, 0)
 
         job_result = DeployJob.objects.get(pk=job.id)
         jobDetails = DeployJobDetail.objects.filter(job=job_result)
@@ -209,7 +220,7 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         for o in job_detail_list:
             is_successed = True
             for k in o['result']:
-                if k is False:
+                if k['is_success'] == '执行失败':
                     is_successed = False
                     break
             if is_successed is True:

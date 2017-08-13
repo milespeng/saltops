@@ -13,7 +13,7 @@
 
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-6">
         <div class="input-group">
             &nbsp;
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>
@@ -22,9 +22,23 @@
                class="btn btn-sm btn-success"><i class="fa fa-plus"></i> 新增</a>
             &nbsp;
             <a href="javascript:void(0)"
+               onclick="scan_state()"
+               class="btn btn-sm btn-info"><i class="fa fa-plus"></i> 状态更新</a>
+            &nbsp;
+            <a href="javascript:void(0)"
                onclick="deleteBatch()"
                class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
         </div>
+        <script>
+            function scan_state() {
+                layer.load();
+                $.get('scan_state/', function () {
+                    location.reload()
+                    layer.closeAll('loading');
+                })
+
+            }
+        </script>
     </div>
 {% endblock %}
 
@@ -43,12 +57,6 @@
                 <a class="order-by-column" data-column="name" href="#">
                     <i class="fa fa-sort order-by-column_icon"></i>
                     名称
-                </a>
-            </th>
-            <th style="width: 5%;">
-                <a class="order-by-column" data-column="job_script_type" href="#">
-                    <i class="fa fa-sort order-by-column_icon"></i>
-                    脚本语言
                 </a>
             </th>
             <th style="width: 5%;">
@@ -80,7 +88,6 @@
                 </td>
                 <td>{{ o.project_module|parent_filter }}</td>
                 <td>{{ o.name }}</td>
-                <td>{{ o.job_script_type|jobscript_filter }}</td>
                 <td>{{ o.dev_monitor|parent_filter }}</td>
                 <td>{{ o.ops_monitor|parent_filter }}</td>
 

@@ -11,3 +11,4 @@ db.sqlite3
 .idea/workspace.xml
 /saltops2-web/node_modules
 /saltops2-web/.idea
+/static/scripts

@@ -347,64 +347,83 @@ def deployTask(deploy_job: DeployJob,
     :return:
     """
     try:
+        logger.info("开始部署任务")
+
         project = deploy_job.project_version.project
+        logger.info("部署目标业务为[%s]" % project)
+
         default_version = deploy_job.project_version
         logger.info("使用的默认版本为%s", default_version)
 
-        # 判断是否使用版本的部署脚本
+        # 判断是否使用版本内的部署脚本
         script_type = 'sls'
         playbookContent = ''
         # 0 安装  1 卸载 2 状态守护 3 启动 4 停止 5 状态获取
         if operation == 0:
-            if default_version.install_script != '':
+            if default_version.install_script is not None and default_version.install_script != '':
                 playbookContent = default_version.install_script
                 script_type = getScriptType(default_version.install_job_script_type)
+                logger.info("业务安装操作，使用版本内的部署脚本")
             else:
                 playbookContent = project.install_script
                 script_type = getScriptType(project.install_job_script_type)
+                logger.info("业务安装操作，使用业务的部署脚本")
         if operation == 1:
-            if default_version.anti_install_script != '':
+            if default_version.anti_install_script is not None and default_version.anti_install_script != '':
                 playbookContent = default_version.anti_install_script
                 script_type = getScriptType(default_version.anti_install_script_type)
+                logger.info("业务卸载操作，使用版本内的卸载脚本")
             else:
                 playbookContent = project.anti_install_script
                 script_type = getScriptType(project.anti_install_script_type)
+                logger.info("业务卸载操作，使用业务的卸载脚本")
         if operation == 2:
-            if default_version.stateguard_script != '':
+            if default_version.stateguard_script is not None and default_version.stateguard_script != '':
                 playbookContent = default_version.stateguard_script
                 script_type = getScriptType(default_version.stateguard_script_type)
+                logger.info("业务守护操作，使用版本内的守护脚本")
             else:
                 playbookContent = project.stateguard_script
                 script_type = getScriptType(project.stateguard_script_type)
+                logger.info("业务守护操作，使用业务的守护脚本")
         if operation == 3:
-            if default_version.start_script != '':
+            if default_version.start_script is not None and default_version.start_script != '':
                 playbookContent = default_version.start_script
                 script_type = getScriptType(default_version.start_script_type)
+                logger.info("业务启动操作，使用版本内的启动脚本")
             else:
                 playbookContent = project.start_script
                 script_type = getScriptType(project.start_script_type)
+                logger.info("业务启动操作，使用业务的启动脚本")
         if operation == 4:
-            if default_version.stop_script != '':
+            if default_version.stop_script is not None and default_version.stop_script != '':
                 playbookContent = default_version.stop_script
                 script_type = getScriptType(default_version.stop_script_type)
+                logger.info("业务停止操作，使用版本内的停止脚本")
             else:
                 playbookContent = project.stop_script
                 script_type = getScriptType(project.stop_script_type)
+                logger.info("业务停止操作，使用业务的停止脚本")
         if operation == 5:
             if default_version.state_script != '':
                 playbookContent = default_version.state_script
                 script_type = getScriptType(default_version.state_script_type)
+                logger.info("业务状态采集操作，使用版本内的状态采集脚本")
             else:
                 playbookContent = project.state_script
                 script_type = getScriptType(project.state_script_type)
-
+                logger.info("业务状态采集操作，使用业务的状态采集脚本")
         extent_dict = (
             {'version': default_version.name}
         )
+        logger.info("内置参数[%s]" % extent_dict)
+
         if default_version.extra_param != '':
             extra_params = default_version.extra_param
         else:
             extra_params = project.extra_param
+
+        logger.info("扩展参数[%s]" % extra_params)
 
         script_name, script_path = generateDynamicScript(playbookContent, script_type, project.extra_param,
                                                          extra_params, extent_dict)
@@ -412,25 +431,23 @@ def deployTask(deploy_job: DeployJob,
         if prepare_result is False:
             deploy_job.deploy_status = 2
             deploy_job.save()
-            logger.info("执行失败，请检查SimpleService是否启动")
+            logger.error("执行失败，请检查SimpleService是否启动")
             return
 
         jobList = []
         hosts = []
+
+        # TODO:逻辑有些奇怪，目标主机怎么会为空呢？
         if len(target_hosts) == 0:
             project_hosts = ProjectHost.objects.filter(project=project)
             for o in project_hosts:
                 hosts.append(o.host)
-            project_host_groups = ProjectHostGroup.objects.filter(project=project)
-            for o in project_host_groups:
-                host = Host.objects.filter(host_group=o.hostgroup)
-                for h in host:
-                    hosts.append(h)
             hosts = list(set(hosts))
         else:
             hosts = target_hosts
 
         logger.info("获取目标主机信息,目标部署主机共%s台", len(hosts))
+
         hasErr = False
         for target in hosts:
 
@@ -505,7 +522,7 @@ def deployTask(deploy_job: DeployJob,
     except Exception as e:
         deploy_job.deploy_status = 2
         deploy_job.save()
-        logger.info("执行失败%s:" % e)
+        logger.info("执行失败%s:" % traceback.format_exc())
 
         mail.send(
             '529280602@qq.com',  # List of email addresses also accepted
@@ -566,7 +583,6 @@ def scanHostJob():
     logger.debug("Minions资产信息[%s]" % result)
 
     Host.objects.update(minion_status=0)
-
 
     for host in result:
         try:
@@ -734,12 +750,8 @@ def scanProjectState():
     :return:
     """
     project_host_lists = ProjectHost.objects.all()
-    project_host_group_list = ProjectHostGroup.objects.all()
     logger.info("共扫描业务%s个" % len(project_host_lists))
     hostlist = []
-    for o in project_host_group_list:
-        Host.objects.filter(host_group=o)
-        hostlist.append(o)
     for k in project_host_lists:
         version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
         job = DeployJob(project_version=version, job_name='采集业务' + k.host.host_name + ":" + version.name)
@@ -764,12 +776,8 @@ def scanProjectGuard():
     :return:
     """
     project_host_lists = ProjectHost.objects.all()
-    project_host_group_list = ProjectHostGroup.objects.all()
     logger.info("共扫描业务%s个" % len(project_host_lists))
     hostlist = []
-    for o in project_host_group_list:
-        Host.objects.filter(host_group=o)
-        hostlist.append(o)
     for k in project_host_lists:
         version = ProjectVersion.objects.get(pk=int(k.project.current_version_id))
         job = DeployJob(project_version=version, job_name='守护' + k.host.host_name + ":" + version.name)

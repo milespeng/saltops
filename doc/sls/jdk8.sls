@@ -1,34 +1,34 @@
-send_file:
+jdk.send_file:
   file.managed:
       - name: /tmp/jdk-${version}-linux-x64.tar.gz
-      - source: salt://jdk-${version}-linux-x64.tar.gz
+      - source: salt://jdk/files/jdk-${version}-linux-x64.tar.gz
 
-extract_file:
+jdk.extract_file:
   cmd.run:
       - name: tar -xvf ./jdk-${version}-linux-x64.tar.gz
       - cwd: /tmp
-      - unless: test -d /tmp/${arg}
+      - unless: test -d /tmp/jdk${version}
       - require:
-        - file: send_file
+        - file: jdk.send_file
 
-make_java_dir:
+jdk.make_java_dir:
   cmd.run:
       - name: mkdir -p /opt/jdk
       - unless: test -d /opt/jdk/
       - require:
-        - cmd: extract_file
+        - cmd: jdk.extract_file
 
-move_java:
+jdk.move_java:
   cmd.run:
-      - name: mv /tmp/${arg} /opt/jdk
-      - unless: test -d /opt/jdk/${arg}
+      - name: mv /tmp/jdk${version} /opt/jdk
+      - unless: test -d /opt/jdk/jdk${version}
       - require:
-        - cmd: make_java_dir
+        - cmd: jdk.make_java_dir
 
-change_env:
+jdk.change_env:
   cmd.run:
-      - name: echo 'JAVA_HOME=/opt/jdk/${arg}  \n PATH=$JAVA_HOME/bin:$PATH \n CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar \n export JAVA_HOME \n export PATH \n export CLASSPATH' >> /etc/profile
+      - name: echo 'export JAVA_HOME=/opt/jdk/jdk${version}  \n export PATH=$JAVA_HOME/bin:$PATH \n export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar \n' >> /etc/profile
       - user: root
       - unless: cat /etc/profile|grep JAVA
       - require:
-        - cmd: move_java
+        - cmd: jdk.move_java
