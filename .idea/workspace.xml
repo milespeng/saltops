@@ -4,17 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/saltjob/tasks.py" line="193" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
+    <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="列表添加排序功能">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/views/cabinet.py" afterPath="$PROJECT_DIR$/cmdb/views/cabinet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/views/host.py" afterPath="$PROJECT_DIR$/cmdb/views/host.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/views/host_group.py" afterPath="$PROJECT_DIR$/cmdb/views/host_group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/views/idc.py" afterPath="$PROJECT_DIR$/cmdb/views/idc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/views/idclevel.py" afterPath="$PROJECT_DIR$/cmdb/views/idclevel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/views/isp.py" afterPath="$PROJECT_DIR$/cmdb/views/isp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/views/rack.py" afterPath="$PROJECT_DIR$/cmdb/views/rack.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltjob/tasks.py" afterPath="$PROJECT_DIR$/saltjob/tasks.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -955,13 +947,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00271" summary="0.6.0变更记录">
-      <created>1496028580628</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1496028580628</updated>
-    </task>
     <task id="LOCAL-00272" summary="0.6.0变更记录">
       <created>1496115062845</created>
       <option name="number" value="00272" />
@@ -1298,7 +1283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502598152536</updated>
     </task>
-    <option name="localTasksCounter" value="320" />
+    <task id="LOCAL-00320" summary="列表添加排序功能">
+      <created>1502603987604</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1502603987605</updated>
+    </task>
+    <option name="localTasksCounter" value="321" />
     <servers />
   </component>
   <component name="TestHistory">
