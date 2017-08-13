@@ -36,16 +36,26 @@ def updateSaltRouster():
             content.write(rosterString)
 
 
-class HostView(LoginRequiredMixin, ListView):
+class HostView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = Host
     paginate_by = PER_PAGE
     template_name = 'cmdb/host_list.html'
     context_object_name = 'result_list'
+    orderable_columns_default = 'id'
+    orderable_columns = ['parent', 'name', 'idc', 'os', 'enable_ssh', 'minion_status',
+                         'create_time', 'update_time']
 
     def get_queryset(self):
         result_list = Host.objects.all()
         host = self.request.GET.get('host')
         ip_filter = self.request.GET.get('ip_filter')
+        order_by = self.request.GET.get('order_by')
+        ordering = self.request.GET.get('ordering')
+        if order_by:
+            if ordering == 'desc':
+                result_list = result_list.order_by('-' + order_by)
+            else:
+                result_list = result_list.order_by(order_by)
         if host:
             result_list = result_list.filter(host__contains=host)
         if ip_filter:
@@ -60,6 +70,8 @@ class HostView(LoginRequiredMixin, ListView):
         context = super(HostView, self).get_context_data(**kwargs)
         context['host'] = self.request.GET.get('host', '')
         context['ip_filter'] = self.request.GET.get('ip_filter', '')
+        context['order_by'] = self.request.GET.get('order_by', '')
+        context['ordering'] = self.request.GET.get('ordering', 'asc')
         return context
 
 

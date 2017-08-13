@@ -31,10 +31,30 @@
         <thead>
         <tr>
             <th><input id="checkall" type="checkbox" class="i-checks"></th>
-            <th style="width: 10%;">名称</th>
-            <th>描述</th>
-            <th style="width: 15%;">创建时间</th>
-            <th style="width: 15%;">更新时间</th>
+            <th style="width: 10%;">
+                <a class="order-by-column" data-column="name" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    名称
+                </a>
+            </th>
+            <th>
+                <a class="order-by-column" data-column="comment" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    描述
+                </a>
+            </th>
+            <th style="width: 15%;">
+                <a class="order-by-column" data-column="create_time" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    创建时间
+                </a>
+            </th>
+            <th style="width: 15%;">
+                <a class="order-by-column" data-column="update_time" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    更新时间
+                </a>
+            </th>
             <th style="width:15%;">操作</th>
         </tr>
         </thead>

@@ -1,4 +1,4 @@
-from braces.views import JSONResponseMixin, AjaxResponseMixin
+from braces.views import JSONResponseMixin, AjaxResponseMixin, OrderableListMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import View
@@ -8,16 +8,29 @@ from cmdb.forms import IDCLevelForm
 from cmdb.models import IDCLevel
 from saltops.settings import PER_PAGE
 
+listview_lazy_url = 'tools_manager:tools_script_list'
+listview_template = 'tools_manager/tools_script_list.html'
+formview_template = 'tools_manager/tools_script_form.html'
 
-class IDCLevelView(LoginRequiredMixin, ListView):
+
+class IDCLevelView(LoginRequiredMixin, OrderableListMixin, ListView):
     model = IDCLevel
     paginate_by = PER_PAGE
     template_name = 'cmdb/idc_level_list.html'
+    orderable_columns_default = 'id'
+    orderable_columns = ['name', 'comment', 'create_time', 'update_time']
     context_object_name = 'result_list'
 
     def get_queryset(self):
         result_list = IDCLevel.objects.all()
         name = self.request.GET.get('name')
+        order_by = self.request.GET.get('order_by')
+        ordering = self.request.GET.get('ordering')
+        if order_by:
+            if ordering == 'desc':
+                result_list = result_list.order_by('-' + order_by)
+            else:
+                result_list = result_list.order_by(order_by)
         if name:
             result_list = result_list.filter(name__contains=name)
         return result_list
@@ -25,6 +38,8 @@ class IDCLevelView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(IDCLevelView, self).get_context_data(**kwargs)
         context['name'] = self.request.GET.get('name', '')
+        context['order_by'] = self.request.GET.get('order_by', '')
+        context['ordering'] = self.request.GET.get('ordering', 'asc')
         return context
 
 

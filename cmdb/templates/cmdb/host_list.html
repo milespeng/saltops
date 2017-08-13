@@ -65,16 +65,63 @@
         <thead>
         <tr>
             <th style="width:3%;"><input id="checkall" type="checkbox" class="i-checks"></th>
-            <th style="width: 8%;">主机组</th>
-            <th style="width: 8%;">主机DNS名称</th>
-            <th style="width: 8%;">主机名</th>
-            <th style="width: 8%;">IP</th>
-            <th style="width: 8%;">机房</th>
-            <th style="width: 8%;">系统内核</th>
-            <th style="width: 8%;">使用SaltSSH</th>
-            <th style="width: 8%;">Minion状态</th>
-            <th style="width: 8%;">创建时间</th>
-            <th style="width: 8%;">更新时间</th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="host_group" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    主机组
+                </a>
+            </th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="host_name" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    主机DNS名称
+                </a>
+            </th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="host" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    主机名
+                </a>
+            </th>
+            <th style="width: 8%;">
+                IP
+            </th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="idc" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    机房
+                </a>
+            </th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="os" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    系统内核
+                </a>
+            </th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="enable_ssh" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    使用SaltSSH
+                </a>
+            </th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="minion_status" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    Minion状态
+                </a>
+            </th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="create_time" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    创建时间
+                </a>
+            </th>
+            <th style="width: 8%;">
+                <a class="order-by-column" data-column="update_time" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                    更新时间
+                </a>
+            </th>
             <th style="width:15%;">操作</th>
         </tr>
         </thead>

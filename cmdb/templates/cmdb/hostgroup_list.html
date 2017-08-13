@@ -22,10 +22,30 @@
         <thead>
         <tr>
             <th style="width: 3%;"><input id="checkall" type="checkbox" class="i-checks"></th>
-            <th style="width: 10%;">上级分组</th>
-            <th style="width: 10%;">主机组</th>
-            <th style="width: 10%;">创建时间</th>
-            <th style="width: 10%;">更新时间</th>
+            <th style="width: 10%;">
+                 <a class="order-by-column" data-column="parent" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                     上级分组
+                 </a>
+            </th>
+            <th style="width: 10%;">
+                 <a class="order-by-column" data-column="name" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                     主机组
+                 </a>
+            </th>
+            <th style="width: 10%;">
+                 <a class="order-by-column" data-column="create_time" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                     创建时间
+                 </a>
+            </th>
+            <th style="width: 10%;">
+                 <a class="order-by-column" data-column="update_time" href="#">
+                    <i class="fa fa-sort order-by-column_icon"></i>
+                     更新时间
+                 </a>
+            </th>
             <th style="width:10%;">操作</th>
         </tr>
         </thead>
