@@ -50,5 +50,5 @@ class HostForm(forms.ModelForm):
                   'cpu_model', 'productname', 'osarch', 'cpuarch',
                   'os', 'mem_total', 'num_cpus', 'idc', 'cabinet',
                   'rack', 'minion_status', 'enable_ssh', 'ssh_username',
-                  'ssh_password', 'enable_sudo'
+                  'ssh_password', 'enable_sudo', 'enable_tty'
                   ]

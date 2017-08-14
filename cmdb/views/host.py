@@ -28,10 +28,10 @@ def updateSaltRouster():
     user: %s
     passwd: %s
     sudo: %s
-    tty: True
+    tty: %s
 
                     """ % (host.host, host.host, host.ssh_username, host.ssh_password,
-                           host.enable_ssh)
+                           host.enable_sudo,host.enable_tty)
 
     if SALT_CONN_TYPE == 'http':
         requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})

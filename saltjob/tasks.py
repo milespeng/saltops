@@ -89,12 +89,12 @@ def runSaltCommand(host, script_type, filename, func=None, func_args=None):
         client = 'ssh'
     if func is None:
         if script_type == 'sls':
-            result = salt_api_token({'fun': 'state.sls', 'tgt': host,
+            result = salt_api_token({'fun': 'state.sls', 'tgt': host.host if host.enable_ssh else host,
                                      'arg': filename},
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
             logger.info("执行结果为:%s", result)
         else:
-            result = salt_api_token({'fun': 'cmd.script', 'tgt': host,
+            result = salt_api_token({'fun': 'cmd.script', 'tgt': host.host if host.enable_ssh else host,
                                      'arg': 'salt://%s.%s' % (filename, script_type)},
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return'][0]
             logger.info("执行结果为:%s", result)
@@ -108,11 +108,11 @@ def runSaltCommand(host, script_type, filename, func=None, func_args=None):
             for i in b:
                 s = i.replace('"', '')
                 l.append(s)
-            result = salt_api_token({'fun': func, 'tgt': host,
+            result = salt_api_token({'fun': func, 'tgt': host.host if host.enable_ssh else host,
                                      'arg': tuple(l)},
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return']
         else:
-            result = salt_api_token({'fun': func, 'tgt': host},
+            result = salt_api_token({'fun': func, 'tgt': host.host if host.enable_ssh else host},
                                     SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client)['return']
 
         logger.info("执行结果为:%s", result)
@@ -714,7 +714,7 @@ def scanHostJob():
                     if 'num_gpus' in sshResult[host]:
                         entity.num_gpus = sshResult[host]['return']['num_gpus']
                     else:
-                        entity.num_gpus = ''
+                        entity.num_gpus = 0
 
                     if "serialnumber" in sshResult[host]:
                         entity.system_serialnumber = sshResult[host]['return']["serialnumber"]

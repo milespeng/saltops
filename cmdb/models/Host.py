@@ -54,6 +54,7 @@ class Host(BaseModel):
     ssh_username = models.CharField(verbose_name='SSH用户名', max_length=255, blank=True, null=True, default="")
     ssh_password = models.CharField(verbose_name='SSH密码', max_length=255, blank=True, null=True, default="")
     enable_sudo = models.BooleanField(verbose_name='启用Sudo', choices=((True, '启用'), (False, '禁用')), default=False)
+    enable_tty = models.BooleanField(verbose_name='启用TTY', choices=((True, '启用'), (False, '禁用')), default=False)
 
     def __str__(self):
         return self.host_name

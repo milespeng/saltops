@@ -291,7 +291,13 @@
                                     {{ form.enable_sudo.errors }}
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.enable_tty.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.enable_tty }}
+                                    {{ form.enable_tty.errors }}
+                                </div>
+                            </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -373,6 +379,7 @@
                 $("#id_rack").append("<option value=''>请选择机柜</option>");
             }
         }
+
         $('#id_idc').change(function () {
             loadCabinet()
         })
@@ -391,6 +398,7 @@
                 $("#id_rack").append("<option value=''>请选择机柜</option>");
             }
         }
+
         $('#id_cabinet').change(function () {
             loadRack()
         })
