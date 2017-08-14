@@ -7,11 +7,6 @@
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/forms.py" afterPath="$PROJECT_DIR$/cmdb/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/models/Host.py" afterPath="$PROJECT_DIR$/cmdb/models/Host.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/templates/cmdb/host_form.html" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb/host_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/views/host.py" afterPath="$PROJECT_DIR$/cmdb/views/host.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltjob/tasks.py" afterPath="$PROJECT_DIR$/saltjob/tasks.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -943,13 +938,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00276" summary="修复list展示的问题">
-      <created>1496325276983</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1496325276983</updated>
-    </task>
     <task id="LOCAL-00277" summary="版本编辑优化">
       <created>1496367591971</created>
       <option name="number" value="00277" />
@@ -1286,7 +1274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502723324353</updated>
     </task>
-    <option name="localTasksCounter" value="325" />
+    <task id="LOCAL-00325" summary=" #IEJHG 新建主机使用Salt-SSH的时候需要新增是否使用TTY">
+      <created>1502725788975</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1502725788976</updated>
+    </task>
+    <option name="localTasksCounter" value="326" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1405,7 +1400,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="业务部署优化为多tab页" />
     <MESSAGE value="自定义列表tag，列表引入排序" />
     <MESSAGE value="使用System Check Framework" />
     <MESSAGE value="调整周期管理" />
@@ -1430,7 +1424,8 @@
     <MESSAGE value="业务部署调整中～～" />
     <MESSAGE value="业务部署调整中～～简化部署，采用top.sls的方式最大化的发挥salt的功能" />
     <MESSAGE value=" #IEJHH 执行主机扫描的时候会出现扫不出主机sn号导致出错的情况，需要判断是否具有sn号" />
-    <option name="LAST_COMMIT_MESSAGE" value=" #IEJHH 执行主机扫描的时候会出现扫不出主机sn号导致出错的情况，需要判断是否具有sn号" />
+    <MESSAGE value=" #IEJHG 新建主机使用Salt-SSH的时候需要新增是否使用TTY" />
+    <option name="LAST_COMMIT_MESSAGE" value=" #IEJHG 新建主机使用Salt-SSH的时候需要新增是否使用TTY" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
