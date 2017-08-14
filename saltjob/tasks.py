@@ -670,21 +670,81 @@ def scanHostJob():
                 if rs is not None:
                     entity = rs[0]
                     logger.info("更新主机:%s", host)
-                    entity.host_name = sshResult[host]['return']['fqdn'] if 'fqdn' in sshResult[host]['return'] else ""
-                    entity.kernel = sshResult[host]['return']['kernel']
-                    entity.kernel_release = sshResult[host]['return']['kernelrelease']
-                    entity.virtual = sshResult[host]['return']['virtual']
-                    entity.osrelease = sshResult[host]['return']['osrelease']
-                    entity.saltversion = sshResult[host]['return']['saltversion']
-                    entity.osfinger = sshResult[host]['return']['osfinger']
-                    entity.os_family = sshResult[host]['return']['os_family']
-                    entity.num_gpus = sshResult[host]['return']['num_gpus']
-                    entity.system_serialnumber = sshResult[host]['return']["serialnumber"]
-                    entity.cpu_model = sshResult[host]['return']["cpu_model"]
-                    entity.productname = sshResult[host]['return']["productname"]
-                    entity.osarch = sshResult[host]['return']["osarch"]
-                    entity.cpuarch = sshResult[host]['return']["cpuarch"]
-                    entity.os = sshResult[host]['return']["os"]
+
+                    if 'fqdn' in sshResult[host]['return']:
+                        entity.host_name = sshResult[host]['return']['fqdn']
+                    else:
+                        entity.host_name = ''
+
+                    if 'kernel' in sshResult[host]['return']:
+                        entity.kernel = sshResult[host]['return']['kernel']
+                    else:
+                        entity.kernel = ''
+
+                    if 'kernelrelease' in sshResult[host]['return']:
+                        entity.kernel_release = sshResult[host]['return']['kernelrelease']
+                    else:
+                        entity.kernel_release = ''
+
+                    if 'virtual' in sshResult[host]['return']:
+                        entity.virtual = sshResult[host]['return']['virtual']
+                    else:
+                        entity.virtual = ''
+
+                    if 'osrelease' in sshResult[host]['return']:
+                        entity.osrelease = sshResult[host]['return']['osrelease']
+                    else:
+                        entity.osrelease = ''
+
+                    if 'saltversion' in sshResult[host]['return']:
+                        entity.saltversion = sshResult[host]['return']['saltversion']
+                    else:
+                        entity.saltversion = ''
+
+                    if 'osfinger' in sshResult[host]['return']:
+                        entity.osfinger = sshResult[host]['return']['osfinger']
+                    else:
+                        entity.osfinger = ''
+
+                    if 'os_family' in sshResult[host]['return']:
+                        entity.os_family = sshResult[host]['return']['os_family']
+                    else:
+                        entity.os_family = ''
+
+                    if 'num_gpus' in sshResult[host]:
+                        entity.num_gpus = sshResult[host]['return']['num_gpus']
+                    else:
+                        entity.num_gpus = ''
+
+                    if "serialnumber" in sshResult[host]:
+                        entity.system_serialnumber = sshResult[host]['return']["serialnumber"]
+                    else:
+                        entity.system_serialnumber = ''
+
+                    if "cpu_model" in sshResult[host]['return']:
+                        entity.cpu_model = sshResult[host]['return']["cpu_model"]
+                    else:
+                        entity.cpu_model = ''
+
+                    if "productname" in sshResult[host]['return']:
+                        entity.productname = sshResult[host]['return']["productname"]
+                    else:
+                        entity.productname = ''
+
+                    if "osarch" in sshResult[host]['return']:
+                        entity.osarch = sshResult[host]['return']["osarch"]
+                    else:
+                        entity.osarch = ''
+
+                    if "cpuarch" in sshResult[host]['return']:
+                        entity.cpuarch = sshResult[host]['return']["cpuarch"]
+                    else:
+                        entity.cpuarch = ''
+
+                    if "os" in sshResult[host]['return']:
+                        entity.os = sshResult[host]['return']["os"]
+                    else:
+                        entity.os = ''
                     # entity.num_cpus = sshResult[host]['return']["num_cpus"],
                     # entity.mem_total = sshResult[host]['return']["mem_total"],
                     entity.minion_status = 1
