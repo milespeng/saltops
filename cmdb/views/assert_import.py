@@ -97,15 +97,19 @@ class AssertImportView(LoginRequiredMixin, JSONResponseMixin,
                 continue
             if row[1] != '' and Host.objects.filter(host=row[1]).count() == 0:
                 try:
+                    excel_host_name=row[1] if type(row[1])!=float else str(int(row[1]))
+                    excel_host=row[2] if type(row[2])!=float else str(int(row[2]))
+                    excel_username=row[5] if type(row[5])!=float else str(int(row[5]))
+                    excel_password=row[6] if type(row[6])!=float else str(int(row[6]))
                     host = Host(
-                        host_name=row[1],
-                        host=row[2],
+                        host_name=excel_host_name,
+                        host=excel_host,
                         enable_ssh=True,
-                        ssh_username=row[5],
-                        ssh_password=row[6],
+                        ssh_username=excel_username,
+                        ssh_password=excel_password,
                         enable_sudo=enable_sudo)
                     if str(row[0]) != '' and HostGroup.objects.filter(name=str(row[0])).count() != 0:
-                        host.host_group = HostGroup.objects.get(name=str(row[0]))
+                        host.host_group = HostGroup.objects.get(    name=str(row[0]))
                     if str(row[3]) != '' and IDC.objects.filter(name=str(row[3])).count() != 0:
                         host.idc = IDC.objects.get(name=str(row[3]))
                     if str(row[4]) != '' and Cabinet.objects.filter(name=str(row[4])).count() != 0:
