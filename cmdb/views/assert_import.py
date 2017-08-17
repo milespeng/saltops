@@ -1,4 +1,6 @@
 import logging
+import traceback
+
 import requests
 import xlrd
 from braces.views import *
@@ -87,29 +89,35 @@ class AssertImportView(LoginRequiredMixin, JSONResponseMixin,
         # 主机
         for i in range(1, wb.sheets()[6].nrows):
             row = wb.sheets()[6].row_values(i)
+            enable_sudo = False
+            enable_ssh = False
+
+            excel_enable_sudo = row[9] if type(row[9]) != float else str(int(row[9]))
+            excel_enable_ssh = row[6] if type(row[6]) != float else str(int(row[6]))
             try:
-                enable_sudo = False
-                if row[7] != '0':
+                if excel_enable_sudo != '0':
                     enable_sudo = True
+                if excel_enable_ssh != '0':
+                    enable_ssh = True
             except Exception as e:
                 pass
             if len(Host.objects.filter(host_name=row[1])) != 0:
                 continue
             if row[1] != '' and Host.objects.filter(host=row[1]).count() == 0:
                 try:
-                    excel_host_name=row[1] if type(row[1])!=float else str(int(row[1]))
-                    excel_host=row[2] if type(row[2])!=float else str(int(row[2]))
-                    excel_username=row[5] if type(row[5])!=float else str(int(row[5]))
-                    excel_password=row[6] if type(row[6])!=float else str(int(row[6]))
+                    excel_host_name = row[1] if type(row[1]) != float else str(int(row[1]))
+                    excel_host = row[2] if type(row[2]) != float else str(int(row[2]))
+                    excel_username = row[7] if type(row[7]) != float else str(int(row[7]))
+                    excel_password = row[8] if type(row[8]) != float else str(int(row[8]))
                     host = Host(
                         host_name=excel_host_name,
                         host=excel_host,
-                        enable_ssh=True,
+                        enable_ssh=enable_ssh,
                         ssh_username=excel_username,
                         ssh_password=excel_password,
                         enable_sudo=enable_sudo)
                     if str(row[0]) != '' and HostGroup.objects.filter(name=str(row[0])).count() != 0:
-                        host.host_group = HostGroup.objects.get(    name=str(row[0]))
+                        host.host_group = HostGroup.objects.get(name=str(row[0]))
                     if str(row[3]) != '' and IDC.objects.filter(name=str(row[3])).count() != 0:
                         host.idc = IDC.objects.get(name=str(row[3]))
                     if str(row[4]) != '' and Cabinet.objects.filter(name=str(row[4])).count() != 0:
@@ -119,7 +127,7 @@ class AssertImportView(LoginRequiredMixin, JSONResponseMixin,
                     host.save()
 
                 except Exception as e:
-                    print('导入主机失败', e)
+                    logger.error('导入主机失败[%s]' % traceback.format_exc())
 
             # 更新一遍Rouster信息
             hosts = Host.objects.all()
