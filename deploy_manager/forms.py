@@ -20,4 +20,4 @@ class ProjectForm(forms.ModelForm):
 class ProjectVersionForm(forms.ModelForm):
     class Meta:
         model = ProjectVersion
-        fields = ['project', 'name', 'files']
+        fields = ['project', 'name', 'files', 'software_files']

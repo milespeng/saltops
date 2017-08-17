@@ -32,6 +32,14 @@
                                     {{ form.files.errors }}
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"> {{ form.software_files.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    {{ form.software_files }}
+                                    {{ form.software_files.errors }}
+                                </div>
+                            </div>
+
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
@@ -80,25 +88,7 @@
     </div>
 
     <script>
-        var install_script_editor;
-        var anti_install_script_editor;
-        var extra_param_editor;
-        var stateguard_script_editor;
-        var start_script_editor;
-        var stop_script_editor;
-        var state_script_editor;
 
-        function preSubmit() {
-            debugger;
-            $('#id_install_script').val(install_script_editor.getValue())
-            $('#id_anti_install_script').val(anti_install_script_editor.getValue())
-            $('#id_extra_param').val(extra_param_editor.getValue())
-            $('#id_stateguard_script').val(stateguard_script_editor.getValue())
-            $('#id_start_script').val(start_script_editor.getValue())
-            $('#id_stop_script').val(stop_script_editor.getValue())
-            $('#id_state_script').val(state_script_editor.getValue())
-            return true;
-        }
 
         $(document).ready(function () {
             var fieldObj = $('.form-horizontal input')
@@ -116,43 +106,9 @@
             }
             $('#id_is_default').removeClass('form-control')
             $('#id_files').removeClass('form-control')
+            $('#id_software_files').removeClass('form-control')
 
         })
-        require.config({paths: {ace: "/static/asserts/ace/lib/ace"}})
-
-        define('editor', ['ace/ace'],
-            function (ace, langtools) {
-                install_script_editor = ace.edit('id_install_script_editor');
-                anti_install_script_editor = ace.edit('id_anti_install_script_editor');
-                stateguard_script_editor = ace.edit('id_stateguard_script_editor');
-                start_script_editor = ace.edit('id_start_script_editor');
-                stop_script_editor = ace.edit('id_stop_script_editor');
-                state_script_editor = ace.edit('id_state_script_editor');
-                extra_param_editor = ace.edit('id_extra_param_editor');
-                initEditor(install_script_editor, 'id_install_script')
-                initEditor(anti_install_script_editor, 'id_anti_install_script')
-                initEditor(stateguard_script_editor, 'id_stateguard_script')
-                initEditor(start_script_editor, 'id_start_script')
-                initEditor(stop_script_editor, 'id_stop_script')
-                initEditor(state_script_editor, 'id_state_script')
-                initEditor(extra_param_editor, 'id_extra_param')
-            }
-        );
-
-        function initEditor(editor, editorid) {
-            editor.setTheme("ace/theme/xcode");
-            editor.session.setMode("ace/mode/yaml");
-            editor.setOptions({
-                enableBasicAutocompletion: true,
-                enableSnippets: true,
-                enableLiveAutocompletion: true
-            });
-            require(["ace/requirejs/text!src/ace"], function (e) {
-                editor.setValue($('#' + editorid).val());
-            })
-        }
-
-        require(['editor'])
     </script>
 
 {% endblock %}
