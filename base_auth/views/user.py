@@ -1,10 +1,9 @@
 from braces.views import *
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.mixins import *
 from django.contrib.auth.models import User
 from django.urls import *
 from django.views.generic import *
-
-from base_auth.forms import UserForm
 from cmdb.forms import *
 from cmdb.models import *
 from saltops.settings import PER_PAGE
@@ -27,14 +26,14 @@ class UserView(LoginRequiredMixin,
 
 class UserCreateView(LoginRequiredMixin, CreateView):
     model = User
-    form_class = UserForm
+    form_class = UserCreationForm
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
 
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = User
-    form_class = UserForm
+    form_class = UserChangeForm
     template_name = formview_template
     success_url = reverse_lazy(listview_lazy_url)
 

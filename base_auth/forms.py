@@ -7,9 +7,3 @@ class GroupForm(forms.ModelForm):
     class Meta:
         model = Group
         fields = ['name', 'permissions']
-
-
-class UserForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ['username', 'groups', 'email', 'is_active']
