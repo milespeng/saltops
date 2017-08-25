@@ -161,21 +161,10 @@ class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         project_pk = int(self.request.GET.get('pk'))
         obj = Project.objects.get(pk=project_pk)
         project_version_id = request.POST.get('version', '')
-        version = ProjectVersion.objects.get(pk=int(project_version_id))
         # 记录下主机-业务-业务版本号的对应关系
         hosts_ids = hosts.split(',')
-        top_content = open(PACKAGE_PATH + 'top.sls', 'r')
-        top_yaml = yaml.load(top_content)
-
-        # TODO:未完成，主机关联后需要填入top.sls
         for o in hosts_ids:
-            host = Host.objects.get(pk=o)
-            top_yaml['base'][host.host_name].append(version.name)
-            os.write(top_yaml)
             ProjectHost(project=obj, host_id=int(o), project_version_id=project_version_id).save()
-        output = open(PACKAGE_PATH + 'top.sls', 'wb')
-        output.write(bytes(top_yaml, encoding='utf8'))
-        output.close()
         #
         # # 添加部署任务记录
         # job = DeployJob(project_version=version, job_name='部署' + obj.name + ":" + version.name)
@@ -285,10 +274,10 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         obj = form.save(commit=False)
         project = Project.objects.get(pk=int(self.request.POST['pid']))
-        results = ProjectVersion.objects.filter(project=project)
         obj = form.save()
         obj.project = project
         obj.save()
+        # 解压SLS到
         f = zipfile.ZipFile(obj.files, 'r')
         for file in f.namelist():
             f.extract(file, PACKAGE_PATH)
