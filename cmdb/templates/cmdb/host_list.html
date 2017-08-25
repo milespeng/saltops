@@ -6,12 +6,26 @@
 
 {% block list_filter %}
     <div class="col-sm-2">
+        <select class="form-control m-b" name="host_group">
+            <option value="" {% ifequal '' host_group %}
+                    selected="selected"
+            {% endifequal %}
+            >主机组
+            </option>
+            {% for o in host_group_list %}
+                <option value="{{ o.id }}" {% ifequal o.id host_group|str_to_int %}
+                        selected="selected"
+                {% endifequal %}
+
+                >{{ o.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-sm-2">
         <div class="input-group">
             <input type="text" name="host" placeholder="主机名"
                    value="{{ host }}"
                    class="input-sm form-control">
-
-
         </div>
     </div>
     <div class="col-sm-2">

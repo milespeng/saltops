@@ -31,7 +31,7 @@ def updateSaltRouster():
     tty: %s
 
                     """ % (host.host, host.host, host.ssh_username, host.ssh_password,
-                           host.enable_sudo,host.enable_tty)
+                           host.enable_sudo, host.enable_tty)
 
     if SALT_CONN_TYPE == 'http':
         requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})
@@ -52,6 +52,7 @@ class HostView(LoginRequiredMixin, OrderableListMixin, ListView):
     def get_queryset(self):
         result_list = Host.objects.all()
         host = self.request.GET.get('host')
+        host_group = self.request.GET.get('host_group')
         ip_filter = self.request.GET.get('ip_filter')
         order_by = self.request.GET.get('order_by')
         ordering = self.request.GET.get('ordering')
@@ -62,6 +63,8 @@ class HostView(LoginRequiredMixin, OrderableListMixin, ListView):
                 result_list = result_list.order_by(order_by)
         if host:
             result_list = result_list.filter(host__contains=host)
+        if host_group:
+            result_list = result_list.filter(host_group=host_group)
         if ip_filter:
             host_ip_lists = HostIP.objects.filter(ip__contains=ip_filter)
             host_filter_list = []
@@ -76,6 +79,8 @@ class HostView(LoginRequiredMixin, OrderableListMixin, ListView):
         context['ip_filter'] = self.request.GET.get('ip_filter', '')
         context['order_by'] = self.request.GET.get('order_by', '')
         context['ordering'] = self.request.GET.get('ordering', 'asc')
+        context['host_group'] = self.request.GET.get('host_group', '')
+        context['host_group_list'] = HostGroup.objects.all()
         return context
 
 
