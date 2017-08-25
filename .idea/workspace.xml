@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py" afterPath="$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requiement.txt" afterPath="$PROJECT_DIR$/requiement.txt" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -77,103 +77,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="host_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/host_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="57" column="25" lean-forward="false" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-              <folding>
-                <element signature="e#1648#1654#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Project.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectVersion.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProjectVersion.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requiement.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/requiement.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-243">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="files.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/saltops_envs/lib/python3.5/site-packages/django/db/models/fields/files.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="231" column="0" lean-forward="false" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
-              <folding>
-                <marker date="1503648712727" expanded="true" signature="563:1903" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="10826:10863" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="10826:13712" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="10920:11053" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="11088:11431" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="11124:11264" ph="'...'" />
-                <marker date="1503648712727" expanded="true" signature="11470:11791" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="11506:11640" ph="'...'" />
-                <marker date="1503648712727" expanded="true" signature="11845:12452" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="11854:12136" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1503648712727" expanded="true" signature="12245:12396" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="12499:13067" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="12508:12802" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="12831:13067" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="12844:12969" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="13103:13712" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="13194:13547" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="13757:14842" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="13762:13931" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1503648712727" expanded="true" signature="13971:14842" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="14110:14735" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="14888:15099" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="14921:15099" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="15336:15479" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="15511:15651" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="15698:16192" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="15781:16156" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="15802:16155" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="15937:16054" ph="'...'" />
-                <marker date="1503648712727" expanded="true" signature="16220:16500" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="16557:17011" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="16639:16896" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="17091:19558" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="17100:17625" ph="&quot;&quot;&quot;Updates field's width and height fields, if defined....&quot;&quot;&quot;" />
-                <marker date="1503648712727" expanded="true" signature="17634:17735" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="17911:18092" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="18487:18999" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="19160:19224" ph="..." />
-                <marker date="1503648712727" expanded="true" signature="19238:19340" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy_manager/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+            <state relative-caret-position="108">
+              <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -999,13 +907,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00276" summary="修复list展示的问题">
-      <created>1496325276983</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1496325276983</updated>
-    </task>
     <task id="LOCAL-00277" summary="版本编辑优化">
       <created>1496367591971</created>
       <option name="number" value="00277" />
@@ -1342,7 +1243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1503639648195</updated>
     </task>
-    <option name="localTasksCounter" value="325" />
+    <task id="LOCAL-00325" summary="升级Django">
+      <created>1503648758354</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1503648758354</updated>
+    </task>
+    <option name="localTasksCounter" value="326" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1392,11 +1300,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46299213" sideWeight="0.51130855" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47390395" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34446764" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4035964" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3935282" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.53549063" sideWeight="0.4946752" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53549063" sideWeight="0.4946752" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18974076" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27625203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
@@ -1467,7 +1375,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="业务部署优化为多tab页" />
     <MESSAGE value="自定义列表tag，列表引入排序" />
     <MESSAGE value="使用System Check Framework" />
     <MESSAGE value="调整周期管理" />
@@ -1492,7 +1399,8 @@
     <MESSAGE value="业务部署调整中～～" />
     <MESSAGE value="添加主机组过滤" />
     <MESSAGE value="主机组支持列表导出" />
-    <option name="LAST_COMMIT_MESSAGE" value="主机组支持列表导出" />
+    <MESSAGE value="升级Django" />
+    <option name="LAST_COMMIT_MESSAGE" value="升级Django" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1547,20 +1455,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmdb/views/idclevel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="12" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/views/isp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmdb/views/rack.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1723,13 +1617,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/saltopsenvs/lib/python3.6/site-packages/django/contrib/admin/templates/admin/change_list.html" />
-    <entry file="file://$PROJECT_DIR$/deploy_manager/views/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="173" column="30" lean-forward="false" selection-start-line="173" selection-start-column="30" selection-end-line="173" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base_auth/templates/base_auth/user_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1827,14 +1714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/saltops_envs/lib/python3.5/site-packages/django/db/models/fields/files.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -1883,18 +1762,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/forms.py">
+    <entry file="file://$PROJECT_DIR$/deploy_manager/views/project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        <state relative-caret-position="362">
+          <caret line="291" column="31" lean-forward="true" selection-start-line="291" selection-start-column="31" selection-end-line="291" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py">
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        <state relative-caret-position="297">
+          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.5/zipfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="1025" column="0" lean-forward="false" selection-start-line="1025" selection-start-column="0" selection-end-line="1025" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1903,6 +1790,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-243">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/saltops_envs/lib/python3.5/site-packages/django/core/validators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="467" column="8" lean-forward="false" selection-start-line="467" selection-start-column="8" selection-end-line="467" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding />
         </state>
       </provider>

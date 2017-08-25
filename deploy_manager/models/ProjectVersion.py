@@ -2,10 +2,13 @@ from django.db import models
 from common.models import BaseModel
 from deploy_manager.models.Project import Project, JOB_SCRIPT_TYPE
 from saltops.settings import PACKAGE_PATH
+from django.core.validators import FileExtensionValidator
+
 class ProjectVersion(BaseModel):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="版本名称")
     project = models.ForeignKey(Project, default="", verbose_name="业务名称", blank=True, null=True, )
-    files = models.FileField(verbose_name='SLS包', blank=True, null=True, upload_to=PACKAGE_PATH)
+    files = models.FileField(verbose_name='SLS包', blank=True, null=True, upload_to=PACKAGE_PATH,
+                             validators=[FileExtensionValidator(['zip'])])
     software_files = models.FileField(verbose_name='应用包', blank=True, null=True, upload_to=PACKAGE_PATH)
 
     def __str__(self):
