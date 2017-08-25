@@ -6,7 +6,7 @@
 
 {% block list_filter %}
     <div class="col-sm-2">
-        <select class="form-control m-b" name="host_group">
+        <select class="form-control m-b" name="host_group" id="host_group">
             <option value="" {% ifequal '' host_group %}
                     selected="selected"
             {% endifequal %}
@@ -22,19 +22,15 @@
         </select>
     </div>
     <div class="col-sm-2">
-        <div class="input-group">
-            <input type="text" name="host" placeholder="主机名"
-                   value="{{ host }}"
-                   class="input-sm form-control">
-        </div>
+        <input type="text" name="host" placeholder="主机名" id="host"
+               value="{{ host }}"
+               class="input-sm form-control">
     </div>
     <div class="col-sm-2">
-        <div class="input-group">
-            <input type="text" name="ip_filter" placeholder="主机IP"
-                   value="{{ ip_filter }}"
-                   class="input-sm form-control">
+        <input type="text" name="ip_filter" placeholder="主机IP" id="ip_filter"
+               value="{{ ip_filter }}"
+               class="input-sm form-control">
 
-        </div>
     </div>
 
 
@@ -49,11 +45,24 @@
                class="btn btn-sm btn-success"> 扫描主机</a>
             &nbsp;
             <a href="javascript:void(0)"
+               onclick="exportCsv()"
+               class="btn btn-sm btn-success"> 导出列表</a>&nbsp;
+            &nbsp;
+            <a href="javascript:void(0)"
                onclick="deleteBatch()"
                class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> 批量删除</a>
         </div>
     </div>
     <script>
+        function exportCsv() {
+            layer.load();
+            let url = '/frontend/cmdb/host_list/host_export/?host=' +
+                $('#host').val() + "&ip_filter=" + $('#ip_filter').val()
+                + "&host_group=" + $('#host_group').val();
+            window.location.href = url
+            layer.closeAll('loading');
+        }
+
         function scan_host() {
             layer.load();
             $.get('/frontend/cmdb/host_list/scan_host_job/', function () {

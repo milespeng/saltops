@@ -3,6 +3,8 @@ from braces.views import *
 from django.contrib.auth.mixins import *
 from django.urls import *
 from django.views.generic import *
+from django_export_csv import QueryCsvMixin
+from djqscsv import render_to_csv_response
 
 from cmdb.forms import *
 from cmdb.models import *
@@ -82,6 +84,31 @@ class HostView(LoginRequiredMixin, OrderableListMixin, ListView):
         context['host_group'] = self.request.GET.get('host_group', '')
         context['host_group_list'] = HostGroup.objects.all()
         return context
+
+
+def HostExportView(request):
+    result_list = Host.objects.all()
+    host = request.GET.get('host')
+    host_group = request.GET.get('host_group')
+    ip_filter = request.GET.get('ip_filter')
+    order_by = request.GET.get('order_by')
+    ordering = request.GET.get('ordering')
+    if order_by:
+        if ordering == 'desc':
+            result_list = result_list.order_by('-' + order_by)
+        else:
+            result_list = result_list.order_by(order_by)
+    if host:
+        result_list = result_list.filter(host__contains=host)
+    if host_group:
+        result_list = result_list.filter(host_group=host_group)
+    if ip_filter:
+        host_ip_lists = HostIP.objects.filter(ip__contains=ip_filter)
+        host_filter_list = []
+        for k in host_ip_lists:
+            host_filter_list.append(k.host)
+        result_list = result_list.filter(host_name__in=host_filter_list)
+    return render_to_csv_response(result_list)
 
 
 class HostCreateView(LoginRequiredMixin, CreateView):

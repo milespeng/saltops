@@ -60,6 +60,7 @@ urlpatterns = [
         url(r'^delete_entity/', HostDeleteView.as_view(), name='host_delete'),
         url(r'^(?P<pk>\d+)/host_edit/', HostUpdateView.as_view(), name='host_edit'),
         url(r'^host_add/', HostCreateView.as_view(), name='host_add'),
+        url(r'^host_export/', HostExportView, name='host_export'),
         url(r'^$', HostView.as_view(), name='host_list'),
     ])),
 
