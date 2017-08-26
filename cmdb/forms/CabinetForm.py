@@ -11,8 +11,6 @@ class CabinetForm(forms.ModelForm):
 
 
 class CabinetListFilterForm(forms.Form):
-    idc = forms.ModelChoiceField(queryset=IDC.objects, required=False, empty_label='机房类型',
-                                 widget=forms.Select(attrs={'class': FORM_WIDGET_BASE_STYLE}))
-    name = forms.CharField(required=False,
-                           widget=forms.TextInput(attrs={'class': FORM_WIDGET_BASE_STYLE,
-                                                         'placeholder': 'ISP名称'}))
+    idc = forms.ModelChoiceField(
+        queryset=IDC.objects, required=False, empty_label='机房类型')
+    name = forms.CharField(required=False, label='机柜')

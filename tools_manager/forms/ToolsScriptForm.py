@@ -26,13 +26,8 @@ class ToolsScriptListFilterForm(forms.Form):
     tools_type = forms.ModelChoiceField(
         required=False,
         queryset=ToolsTypes.objects,
-        empty_label='工具类型',
-        widget=forms.Select({'class': FORM_WIDGET_BASE_STYLE}))
-    name = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={'class': FORM_WIDGET_BASE_STYLE,
-               'placeholder': '工具名称'
-               }))
+        empty_label='工具类型')
+    name = forms.CharField(required=False, label='工具名称')
     tool_run_type = forms.ChoiceField(
         choices=TOOL_RUN_TYPE_FILTER,
-        required=False,
-        widget=forms.Select({'class': FORM_WIDGET_BASE_STYLE}))
+        required=False)

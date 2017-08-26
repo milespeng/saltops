@@ -14,5 +14,4 @@ class ProjectModuleListFilterForm(forms.Form):
     parent = forms.ModelChoiceField(
         required=False,
         queryset=ProjectModule.objects,
-        empty_label='上级业务',
-        widget=forms.Select({'class': FORM_WIDGET_BASE_STYLE}))
+        empty_label='上级业务')

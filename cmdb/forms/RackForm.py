@@ -13,5 +13,4 @@ class RackForm(forms.ModelForm):
 class RackListFilterForm(forms.Form):
     idc = forms.ModelChoiceField(queryset=IDC.objects,
                                  required=False,
-                                 empty_label='机房',
-                                 widget=forms.Select({'class': FORM_WIDGET_BASE_STYLE}))
+                                 empty_label='机房')

@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'djcelery',
     'braces',
     'kombu.transport.django',
+    'widget_tweaks',
     # 'suit_dashboard',
     # 'debug_toolbar'
 ]

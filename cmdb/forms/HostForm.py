@@ -12,13 +12,8 @@ class HostForm(forms.ModelForm):
 
 class HostListFilterForm(forms.Form):
     ip_filter = forms.CharField(
-        required=False,
-        widget=forms.TextInput({'class': FORM_WIDGET_BASE_STYLE, 'placeholder': 'IP'}))
+        required=False, label='IP')
     host_group = forms.ModelChoiceField(
         queryset=HostGroup.objects,
-        empty_label='主机组', required=False,
-        widget=forms.Select({'class': FORM_WIDGET_BASE_STYLE}))
-    host = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={'class': FORM_WIDGET_BASE_STYLE,
-               'placeholder': '主机名'
-               }))
+        empty_label='主机组', required=False)
+    host = forms.CharField(required=False, label='主机名')

@@ -11,7 +11,4 @@ class IDCLevelForm(forms.ModelForm):
 
 
 class IDCLevelListFilterForm(forms.Form):
-    name = forms.CharField(required=False,
-                           widget=forms.TextInput(attrs={'class': FORM_WIDGET_BASE_STYLE,
-                                                         'placeholder': '名称'
-                                                         }))
+    name = forms.CharField(required=False,label='机房等级')

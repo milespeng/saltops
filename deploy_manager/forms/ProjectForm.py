@@ -11,10 +11,7 @@ class ProjectForm(forms.ModelForm):
 
 
 class ProjectListFilterForm(forms.Form):
-    name = forms.CharField(required=False,
-                           widget=forms.TextInput(attrs={'class': FORM_WIDGET_BASE_STYLE,
-                                                         'placeholder': '业务名称'
-                                                         }))
+    name = forms.CharField(required=False, label='业务名称')
 
 
 class ProjectVersionForm(forms.ModelForm):

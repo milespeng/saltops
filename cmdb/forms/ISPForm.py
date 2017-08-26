@@ -11,7 +11,4 @@ class ISPForm(forms.ModelForm):
 
 
 class ISPListFilterForm(forms.Form):
-    name = forms.CharField(required=False,
-                           widget=forms.TextInput(attrs={'class': FORM_WIDGET_BASE_STYLE,
-                                                         'placeholder': 'ISP名称'
-                                                         }))
+    name = forms.CharField(required=False, label='ISP名称')
