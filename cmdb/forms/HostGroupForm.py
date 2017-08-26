@@ -7,4 +7,4 @@ from common.constants import FORM_WIDGET_BASE_STYLE
 class HostGroupForm(forms.ModelForm):
     class Meta:
         model = HostGroup
-        fields = ['parent', 'name']
+        fields = '__all__'

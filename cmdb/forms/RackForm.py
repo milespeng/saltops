@@ -7,7 +7,7 @@ from common.constants import FORM_WIDGET_BASE_STYLE
 class RackForm(forms.ModelForm):
     class Meta:
         model = Rack
-        fields = ['idc', 'cabinet', 'name']
+        fields = '__all__'
 
 
 class RackListFilterForm(forms.Form):

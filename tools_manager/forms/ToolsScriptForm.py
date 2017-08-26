@@ -7,8 +7,7 @@ from tools_manager.models import *
 class ToolsScriptForm(forms.ModelForm):
     class Meta:
         model = ToolsScript
-        fields = ['name', 'tool_script', 'tools_type', 'tool_run_type',
-                  'comment']
+        fields = '__all__'
 
 
 # TODO:这里应该优化，从原有的脚本类型里面追加一条记录才合适

@@ -7,9 +7,7 @@ from deploy_manager.models import ProjectModule, Project, ProjectVersion
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['project_module', 'name',
-                  'dev_monitor', 'ops_monitor',
-                  'backup_monitor']
+        fields = '__all__'
 
 
 class ProjectListFilterForm(forms.Form):

@@ -6,4 +6,4 @@ from tools_manager.models import *
 class ToolsTypesForm(forms.ModelForm):
     class Meta:
         model = ToolsTypes
-        fields = ['name']
+        fields = '__all__'
