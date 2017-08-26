@@ -335,6 +335,22 @@ def getScriptType(types):
         return 'sls'
 
 
+def deploy_job_task(project_host_name: str,
+                    project_version_name: str,
+                    client_type: str):
+    """
+    部署业务
+    :return:
+    """
+    logger.info("执行部署，目标主机为:%s", project_host_name)
+    result = salt_api_token({'fun': 'state.apply',
+                             'tgt': project_host_name,
+                             'arg': project_version_name},
+                            SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client_type)['return'][0]
+    logger.info("执行结果为:%s", result)
+    return result
+
+
 @task(name='deployTask')
 def deployTask(deploy_job: DeployJob,
                operation: int,

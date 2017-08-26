@@ -1,5 +1,5 @@
 import platform
-import better_exceptions
+
 import psutil
 from django.contrib import auth
 from django.contrib.auth.forms import AuthenticationForm

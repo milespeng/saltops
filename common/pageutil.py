@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-import better_exceptions
+
 
 
 def preparePage(request, dataList):
