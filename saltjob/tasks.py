@@ -335,12 +335,19 @@ def getScriptType(types):
         return 'sls'
 
 
+@task(name='deploy_job_task')
 def deploy_job_task(project_host_name: str,
                     project_version_name: str,
                     client_type: str):
     """
-    部署业务
-    :return:
+    此函数仅负责部署单个业务
+    部署业务，部署业务约定以版本名称作为state名称，如部署golang，
+    则版本名称为golang1_8_3，压缩包中，此文件夹的名称也需要为golang1_8_3，
+    部署的时候，以salt [目标主机] state.apply [版本名称]
+    :param project_host_name: 目标主机
+    :param project_version_name: 版本名称
+    :param client_type: 使用的客户端类型，minion则为local，ssh则为ssh
+    :return:Salt-API返回的结果，不做任何处理直接返回
     """
     logger.info("执行部署，目标主机为:%s", project_host_name)
     result = salt_api_token({'fun': 'state.apply',
