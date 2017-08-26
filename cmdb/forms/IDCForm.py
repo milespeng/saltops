@@ -3,9 +3,8 @@ from django import forms
 from cmdb.models import *
 from common.constants import FORM_WIDGET_BASE_STYLE
 
+
 class IDCForm(forms.ModelForm):
     class Meta:
         model = IDC
-        fields = ['name', 'operator', 'bandwidth', 'phone', 'linkman',
-                  'address', 'concat_email', 'network',
-                  'type', 'comment']
+        fields = '__all__'

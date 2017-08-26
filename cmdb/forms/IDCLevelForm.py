@@ -7,7 +7,7 @@ from common.constants import FORM_WIDGET_BASE_STYLE
 class IDCLevelForm(forms.ModelForm):
     class Meta:
         model = IDCLevel
-        fields = ['name', 'comment']
+        fields = '__all__'
 
 
 class IDCLevelListFilterForm(forms.Form):
