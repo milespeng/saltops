@@ -23,8 +23,11 @@ class CabinetView(LoginRequiredMixin, OrderableListMixin, ListView):
     def get_queryset(self):
         result_list = Cabinet.objects.all()
         idc = self.request.GET.get('idc')
+        name = self.request.GET.get('name')
         if idc:
             result_list = result_list.filter(idc_id=int(idc))
+        if name:
+            result_list = result_list.filter(name__contains=name)
         order_by = self.request.GET.get('order_by')
         ordering = self.request.GET.get('ordering')
         if order_by:
@@ -40,6 +43,7 @@ class CabinetView(LoginRequiredMixin, OrderableListMixin, ListView):
         context['idclist'] = IDC.objects.all()
         context['order_by'] = self.request.GET.get('order_by', '')
         context['ordering'] = self.request.GET.get('ordering', 'asc')
+        context['filter_form'] = CabinetListFilterForm(self.request.GET)
         return context
 
 

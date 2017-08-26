@@ -5,22 +5,6 @@
 {% endblock %}
 
 {% block list_filter %}
-    <div class="col-sm-3">
-        <select class="form-control m-b" name="idc">
-            <option value="" {% ifequal '' idc %}
-                    selected="selected"
-            {% endifequal %}
-            >----
-            </option>
-            {% for o in idclist %}
-                <option value="{{ o.id }}" {% ifequal o.id idc|str_to_int %}
-                        selected="selected"
-                {% endifequal %}
-
-                >{{ o.name }}</option>
-            {% endfor %}
-        </select>
-    </div>
     <div class="col-sm-4">
         <div class="input-group">
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>

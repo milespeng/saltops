@@ -40,6 +40,7 @@ class RackView(LoginRequiredMixin, OrderableListMixin, ListView):
         context['idclist'] = IDC.objects.all()
         context['order_by'] = self.request.GET.get('order_by', '')
         context['ordering'] = self.request.GET.get('ordering', 'asc')
+        context['filter_form'] = RackListFilterForm(self.request.GET)
         return context
 
 

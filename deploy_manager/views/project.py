@@ -10,11 +10,12 @@ from django.utils.safestring import mark_safe
 from django.urls import *
 from django.views.generic import *
 
+from cmdb.forms import ISPListFilterForm
 from common.utils.logger_utils import LoggerUtils
 from saltjob.tasks import deployTask, loadProjectConfig, scanProjectState
 from cmdb.models import Host, HostGroup
 from common.pageutil import preparePage
-from deploy_manager.forms import ProjectForm, ProjectVersionForm
+from deploy_manager.forms import ProjectForm, ProjectVersionForm, ProjectListFilterForm
 from deploy_manager.models import *
 from saltops.settings import PER_PAGE, DEFAULT_LOGGER, PACKAGE_PATH
 
@@ -55,9 +56,9 @@ class ProjectView(LoginRequiredMixin,
 
     def get_context_data(self, **kwargs):
         context = super(ProjectView, self).get_context_data(**kwargs)
-        context['name'] = self.request.GET.get('name', '')
         context['order_by'] = self.request.GET.get('order_by', '')
         context['ordering'] = self.request.GET.get('ordering', 'asc')
+        context['filter_form'] = ProjectListFilterForm(self.request.GET)
         return context
 
 
@@ -122,7 +123,7 @@ class ProjectHostUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
 
 
 class ProjectHostDeployActionView(LoginRequiredMixin, JSONResponseMixin,
-                                 AjaxResponseMixin, View):
+                                  AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
         projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
         version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))

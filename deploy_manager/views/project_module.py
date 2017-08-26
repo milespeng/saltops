@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import *
 from django.urls import *
 from django.views.generic import *
 
-from deploy_manager.forms import ProjectModuleForm
+from deploy_manager.forms import ProjectModuleForm, ProjectModuleListFilterForm
 from deploy_manager.models import *
 from saltops.settings import PER_PAGE
 
@@ -36,10 +36,9 @@ class ProjectModuleView(LoginRequiredMixin, OrderableListMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ProjectModuleView, self).get_context_data(**kwargs)
-        context['parent'] = self.request.GET.get('parent', '')
-        context['project_module'] = ProjectModule.objects.filter(parent=None).all()
         context['order_by'] = self.request.GET.get('order_by', '')
         context['ordering'] = self.request.GET.get('ordering', 'asc')
+        context['filter_form'] = ProjectModuleListFilterForm(self.request.GET)
         return context
 
 

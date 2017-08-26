@@ -6,22 +6,6 @@
 
 
 {% block list_filter %}
-    <div class="col-sm-2">
-        <select class="form-control m-b" name="parent">
-            <option value="" {% ifequal '' parent %}
-                    selected="selected"
-            {% endifequal %}
-            >上级业务模块
-            </option>
-            {% for o in project_module %}
-                <option value="{{ o.id }}" {% ifequal o.id parent|str_to_int %}
-                        selected="selected"
-                {% endifequal %}
-
-                >{{ o.name }}</option>
-            {% endfor %}
-        </select>
-    </div>
     <div class="col-sm-4">
         <div class="input-group">
             &nbsp;

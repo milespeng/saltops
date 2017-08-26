@@ -157,6 +157,11 @@
                     <div class="ibox-content">
                         <form method="get">
                             <div class="row">
+                                {% for field in filter_form %}
+                                    <div class="col-sm-2">
+                                        {{ field }}
+                                    </div>
+                                {% endfor %}
                                 {% block list_filter %}
                                 {% endblock %}
                             </div>

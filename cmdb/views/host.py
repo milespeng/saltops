@@ -1,6 +1,7 @@
 import requests
 from braces.views import *
 from django.contrib.auth.mixins import *
+from django.forms import modelform_factory
 from django.urls import *
 from django.views.generic import *
 from django_export_csv import QueryCsvMixin
@@ -83,6 +84,8 @@ class HostView(LoginRequiredMixin, OrderableListMixin, ListView):
         context['ordering'] = self.request.GET.get('ordering', 'asc')
         context['host_group'] = self.request.GET.get('host_group', '')
         context['host_group_list'] = HostGroup.objects.all()
+        filter_form = HostListFilterForm(self.request.GET)
+        context['filter_form'] = filter_form
         return context
 
 

@@ -5,36 +5,7 @@
 {% endblock %}
 
 {% block list_filter %}
-    <div class="col-sm-2">
-        <select class="form-control m-b" name="host_group" id="host_group">
-            <option value="" {% ifequal '' host_group %}
-                    selected="selected"
-            {% endifequal %}
-            >主机组
-            </option>
-            {% for o in host_group_list %}
-                <option value="{{ o.id }}" {% ifequal o.id host_group|str_to_int %}
-                        selected="selected"
-                {% endifequal %}
-
-                >{{ o.name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div class="col-sm-2">
-        <input type="text" name="host" placeholder="主机名" id="host"
-               value="{{ host }}"
-               class="input-sm form-control">
-    </div>
-    <div class="col-sm-2">
-        <input type="text" name="ip_filter" placeholder="主机IP" id="ip_filter"
-               value="{{ ip_filter }}"
-               class="input-sm form-control">
-
-    </div>
-
-
-    <div class="col-sm-5">
+    <div class="col-sm-6">
         <div class="input-group">
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i> 搜索</button>
             &nbsp;

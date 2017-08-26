@@ -55,10 +55,7 @@ class ToolsScriptView(LoginRequiredMixin,
         context = super(ToolsScriptView, self).get_context_data(**kwargs)
         context['order_by'] = self.request.GET.get('order_by', '')
         context['ordering'] = self.request.GET.get('ordering', 'asc')
-        context['name'] = self.request.GET.get('name', '')
-        context['tools_type'] = self.request.GET.get('tools_type')
-        context['tool_run_type'] = self.request.GET.get('tool_run_type')
-        context['tools_types'] = ToolsTypes.objects.all()
+        context['filter_form'] = ToolsScriptListFilterForm(self.request.GET)
         return context
 
 

@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView
 
-from cmdb.forms import IDCLevelForm
+from cmdb.forms import IDCLevelForm, IDCLevelListFilterForm
 from cmdb.models import IDCLevel
 from saltops.settings import PER_PAGE
 
@@ -40,6 +40,7 @@ class IDCLevelView(LoginRequiredMixin, OrderableListMixin, ListView):
         context['name'] = self.request.GET.get('name', '')
         context['order_by'] = self.request.GET.get('order_by', '')
         context['ordering'] = self.request.GET.get('ordering', 'asc')
+        context['filter_form'] = IDCLevelListFilterForm(self.request.GET)
         return context
 
 

@@ -36,9 +36,9 @@ class ISPView(LoginRequiredMixin, OrderableListMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ISPView, self).get_context_data(**kwargs)
-        context['name'] = self.request.GET.get('name', '')
         context['order_by'] = self.request.GET.get('order_by', '')
         context['ordering'] = self.request.GET.get('ordering', 'asc')
+        context['filter_form'] = ISPListFilterForm(self.request.GET)
         return context
 
 
