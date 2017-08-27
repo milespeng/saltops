@@ -319,27 +319,26 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
         return super(ProjectVersionCreateView, self).form_valid(form)
 
 
-class ProjectDeployHistoryView(TemplateView, LoginRequiredMixin):
+class ProjectDeployHistoryView(ListView, LoginRequiredMixin):
     template_name = 'deploy_manager/project_deploy_history.html'
+    context_object_name = 'result_list'
+    paginate_by = PER_PAGE
+
+    def get_queryset(self):
+        result_list = DeployJob.objects.order_by('-create_time').filter(
+            project_version__project=self.request.GET.get('pk'))
+        return result_list
 
     def get_context_data(self, **kwargs):
         context = super(ProjectDeployHistoryView, self).get_context_data(**kwargs)
         result = []
-
-        project = Project.objects.filter(id=self.request.GET.get('pk'))
-        project_versions = ProjectVersion.objects.filter(project=project)
-
-        for project_version in project_versions:
-            obj = DeployJob.objects.order_by('-create_time').filter(project_version=project_version)
-            for k in obj:
-                history = DeployJobDetail.objects.filter(job=k)
-                result.append({
-                    "id": k.id,
-                    "create_time": k.create_time,
-                    "human_time": arrow.get(k.create_time).humanize(locale="zh"),
-                    "result_hist": history,
-                    # "success_count": len([x for x in history if x.err_msg == '']),
-                    # "err_count": len([x for x in history if x.err_msg != ''])
-                })
+        for deploy_job in context['result_list']:
+            history = DeployJobDetail.objects.filter(job=deploy_job)
+            result.append({
+                "id": deploy_job.id,
+                "create_time": deploy_job.create_time,
+                "human_time": arrow.get(deploy_job.create_time).humanize(locale="zh"),
+                "result_hist": history,
+            })
         context['result_list'] = preparePage(self.request, result)
         return context
