@@ -14,7 +14,7 @@ from deploy_manager.models import *
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from saltjob.tasks import *
-from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL, DEFAULT_LOGGER
+from saltjob.tasks import generateDynamicScript
 from tools_manager.models import ToolsExecDetailHistory, ToolsExecJob
 
 import shlex

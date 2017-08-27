@@ -6,7 +6,7 @@ from celery.task import task
 from deploy_manager.models import *
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
-from saltops.settings import DEFAULT_LOGGER, SALT_REST_URL, SALT_CONN_TYPE, SALT_HTTP_URL
+from saltops.settings import DEFAULT_LOGGER, SALT_OPS_CONFIG
 
 logger = logging.getLogger(DEFAULT_LOGGER)
 
@@ -28,11 +28,11 @@ def loadProjectConfig(id):
         targets = targets[0:len(targets) - 1]
         for configobj in obj.projectconfigfile_set.all():
             salt_api_token({'fun': 'cp.push', 'tgt': targets, 'arg': configobj.config_path},
-                           SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()
+                           SALT_OPS_CONFIG['salt_api_url'], {'X-Auth-Token': token_id()}).CmdRun()
 
             for host in obj.host.all():
-                if SALT_CONN_TYPE == 'http':
-                    url = SALT_HTTP_URL + '/read'
+                if SALT_OPS_CONFIG['connect_type'] == 'http':
+                    url = SALT_OPS_CONFIG['simple_service_url'] + '/read'
                     if host.enable_ssh is False:
                         data = requests.post(url, data={
                             "name": "/var/cache/salt/master/minions/" + host.host_name + '/files' + configobj.config_path}).content

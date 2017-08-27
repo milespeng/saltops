@@ -1,15 +1,15 @@
 from saltjob.salt_https_api import salt_api_token
-from saltops.settings import SALT_REST_URL, SALT_USER, SALT_PASSWORD
+from saltops.settings import SALT_OPS_CONFIG
 
 
 def token_id():
     s = salt_api_token(
         {
-            "username": SALT_USER,
-            "password": SALT_PASSWORD,
+            "username": SALT_OPS_CONFIG['salt_api_user'],
+            "password": SALT_OPS_CONFIG['salt_api_password'],
             "eauth": "pam"
         },
-        SALT_REST_URL + "login",
+        SALT_OPS_CONFIG['salt_api_url'] + "login",
         {}
     )
     test = s.run()

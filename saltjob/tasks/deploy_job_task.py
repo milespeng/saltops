@@ -13,7 +13,7 @@ from cmdb.models import Host, HostIP, HostGroup
 from deploy_manager.models import *
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
-from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL, DEFAULT_LOGGER
+from saltops.settings import DEFAULT_LOGGER, SALT_OPS_CONFIG
 from tools_manager.models import ToolsExecDetailHistory, ToolsExecJob
 
 import shlex
@@ -38,7 +38,7 @@ def deploy_job_task(project_host_name: str,
     result = salt_api_token({'fun': 'state.apply',
                              'tgt': project_host_name,
                              'arg': project_version_name},
-                            SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun(client=client_type)['return'][0]
+                            SALT_OPS_CONFIG['salt_api_url'], {'X-Auth-Token': token_id()}).CmdRun(client=client_type)['return'][0]
     logger.info("执行结果为:%s", result)
 
     # 全生命周期是否部署成功

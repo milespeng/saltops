@@ -13,7 +13,7 @@ from cmdb.models import Host, HostIP, HostGroup
 from deploy_manager.models import *
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
-from saltops.settings import SALT_REST_URL, PACKAGE_PATH, SALT_CONN_TYPE, SALT_HTTP_URL, DEFAULT_LOGGER
+from saltops.settings import DEFAULT_LOGGER, SALT_OPS_CONFIG
 from tools_manager.models import ToolsExecDetailHistory, ToolsExecJob
 
 import shlex
@@ -30,7 +30,7 @@ def scan_host_job():
     upList = []
     try:
         manageInstance = salt_api_token({'fun': 'manage.status'},
-                                        SALT_REST_URL, {'X-Auth-Token': token_id()})
+                                        SALT_OPS_CONFIG['salt_api_url'], {'X-Auth-Token': token_id()})
         statusResult = manageInstance.runnerRun()
         upList = statusResult['return'][0]['up']
         logger.debug("SaltMinion状态列表[%s]" % upList)
@@ -44,7 +44,7 @@ def scan_host_job():
     minions_pre = []
     try:
         minionsInstance = salt_api_token({'fun': 'key.list_all'},
-                                         SALT_REST_URL, {'X-Auth-Token': token_id()})
+                                         SALT_OPS_CONFIG['salt_api_url'], {'X-Auth-Token': token_id()})
         minionList = minionsInstance.wheelRun()['return'][0]['data']['return']
         minions_pre = minionList['minions_pre']
 
@@ -65,7 +65,7 @@ def scan_host_job():
 
     logger.info("获取Minion主机资产信息")
     result = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
-                            SALT_REST_URL, {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
+                            SALT_OPS_CONFIG['salt_api_url'], {'X-Auth-Token': token_id()}).CmdRun()['return'][0]
     logger.info("扫描Minion数量为[%s]", len(result))
     logger.debug("Minions资产信息[%s]" % result)
 
@@ -148,7 +148,7 @@ def scan_host_job():
 
     logger.info("扫描Salt-SSH主机信息")
     sshResult = salt_api_token({'fun': 'grains.items', 'tgt': '*'},
-                               SALT_REST_URL, {'X-Auth-Token': token_id()}).sshRun()['return'][0]
+                               SALT_OPS_CONFIG['salt_api_url'], {'X-Auth-Token': token_id()}).sshRun()['return'][0]
     logger.info("扫描主机数量为[%s]", len(sshResult))
     for host in sshResult:
         try:

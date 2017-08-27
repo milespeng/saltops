@@ -6,16 +6,16 @@ from saltops.settings import *
 @register()
 def saltops_check(app_configs, **kwargs):
     errors = []
-    if SALT_CONN_TYPE != '' and SALT_HTTP_URL == '':
+    if SALT_OPS_CONFIG['connect_type'] != '' and SALT_OPS_CONFIG['simple_service_url'] == '':
         errors.append(
             Error(
                 'SimpleService配置未正确设置',
                 hint='使用分离部署请配置SimpleService的地址.',
-                obj=[SALT_CONN_TYPE, SALT_HTTP_URL],
+                obj=[SALT_OPS_CONFIG['connect_type'], SALT_OPS_CONFIG['simple_service_url']],
                 id='SaltOps.001',
             )
         )
-    if PACKAGE_PATH == '':
+    if SALT_OPS_CONFIG['package_path'] == '':
         errors.append(
             Error(
                 '未配置SaltStack的SLS脚本路径',
@@ -23,7 +23,7 @@ def saltops_check(app_configs, **kwargs):
                 id='SaltOps.002',
             )
         )
-    if SALT_REST_URL == '':
+    if SALT_OPS_CONFIG['salt_api_url'] == '':
         errors.append(
             Error(
                 '未配置SaltAPI的URL路径',
@@ -31,7 +31,7 @@ def saltops_check(app_configs, **kwargs):
                 id='SaltOps.003',
             )
         )
-    if SALT_USER == '':
+    if SALT_OPS_CONFIG['salt_api_user'] == '':
         errors.append(
             Error(
                 '未配置SaltAPI所使用的用户名',
@@ -39,7 +39,7 @@ def saltops_check(app_configs, **kwargs):
                 id='SaltOps.003',
             )
         )
-    if SALT_PASSWORD == '':
+    if SALT_OPS_CONFIG['salt_api_password'] == '':
         errors.append(
             Error(
                 '未配置SaltAPI所使用的密码',

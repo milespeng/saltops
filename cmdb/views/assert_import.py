@@ -10,7 +10,7 @@ from django.views.generic import *
 
 from cmdb.forms import *
 from cmdb.models import *
-from saltops.settings import PER_PAGE, SALT_HTTP_URL, DEFAULT_LOGGER
+from saltops.settings import PER_PAGE, DEFAULT_LOGGER
 from saltops.settings_backup import SALT_CONN_TYPE
 
 

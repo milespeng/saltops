@@ -17,8 +17,8 @@ from cmdb.models import Host, HostGroup
 from common.pageutil import preparePage
 from deploy_manager.forms import ProjectForm, ProjectVersionForm, ProjectListFilterForm
 from deploy_manager.models import *
-from saltjob.tasks import deploy_job_task, get_host_client_type
-from saltops.settings import PER_PAGE, DEFAULT_LOGGER, PACKAGE_PATH
+from saltjob.tasks import deploy_job_task, get_host_client_type, SALT_OPS_CONFIG
+from saltops.settings import PER_PAGE, DEFAULT_LOGGER
 
 import arrow
 import zipfile
@@ -313,7 +313,7 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
         # 解压SLS到
         f = zipfile.ZipFile(obj.files, 'r')
         for file in f.namelist():
-            f.extract(file, PACKAGE_PATH)
+            f.extract(file, SALT_OPS_CONFIG['package_path'])
         f.close()
 
         return super(ProjectVersionCreateView, self).form_valid(form)

@@ -10,7 +10,7 @@ from djqscsv import render_to_csv_response
 from cmdb.forms import *
 from cmdb.models import *
 from saltjob.tasks import scan_host_job
-from saltops.settings import PER_PAGE, SALT_HTTP_URL, SALT_CONN_TYPE
+from saltops.settings import PER_PAGE
 
 listview_lazy_url = 'cmdb:host_list'
 listview_template = 'cmdb/host_list.html'

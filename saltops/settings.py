@@ -173,66 +173,27 @@ REST_FRAMEWORK = {
     ]
 }
 
-# SALT_HTTP_URL = 'http://127.0.0.1:32769'
-# PACKAGE_PATH = "/Users/kira/opensource/saltops/static/scripts/"
-# SALT_REST_URL = 'http://127.0.0.1:32768/'
-# SALT_USER = 'ops'
-# SALT_PASSWORD = '123456'
-SALT_CONN_TYPE = ''  # http
-SALT_HTTP_URL = 'http://127.0.0.1:5000'
-PACKAGE_PATH = "./static/scripts/"
-SALT_REST_URL = 'http://127.0.0.1:8001/'
-SALT_USER = 'saltops'
-SALT_PASSWORD = 'saltops'
-
 djcelery.setup_loader()
 BROKER_URL = 'django://'
 CELERY_ALWAYS_EAGER = True
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        },
-    },
-    'formatters': {
-        'standard': {
-            'format': '%(levelname)s %(asctime)s [ %(message)s]  %(pathname)s  %(funcName)s %(lineno)d'
-        },
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'INFO',
-            'class': 'django.utils.log.AdminEmailHandler',
-            'formatter': 'standard'
-        },
-        # 'file_handler': {
-        #     'level': 'DEBUG',
-        #     'class': 'logging.handlers.TimedRotatingFileHandler',
-        #     'filename': '',
-        #     'formatter': 'standard'
-        # },
-        'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'standard'
-        },
-    },
-    'loggers': {
-        'default': {
-            'handlers': ['console'],
-            'level': 'INFO',
-            'propagate': True
-        }
-    }
-}
 
 DEFAULT_LOGGER = 'default'
 
 CORS_ORIGIN_ALLOW_ALL = True
 LOGIN_URL = "/"
 PER_PAGE = 10
+
+SALT_OPS_CONFIG = {
+    'connect_type': '',  # http,
+    'simple_service_url': '',
+    'package_path': './static/scripts/',
+    'salt_api_url': 'http://127.0.0.1:8001/',
+    'salt_api_user': 'saltops',
+    'salt_api_password': 'saltops'
+}
+
+try:
+    import log_config
+except:
+    pass
