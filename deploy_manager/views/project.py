@@ -6,17 +6,18 @@ import os
 import yaml
 from braces.views import *
 from django.contrib.auth.mixins import *
+from django.db import transaction
 from django.utils.safestring import mark_safe
 from django.urls import *
 from django.views.generic import *
 
 from cmdb.forms import ISPListFilterForm
 from common.utils.logger_utils import LoggerUtils
-from saltjob.tasks import deployTask, loadProjectConfig, scanProjectState
 from cmdb.models import Host, HostGroup
 from common.pageutil import preparePage
 from deploy_manager.forms import ProjectForm, ProjectVersionForm, ProjectListFilterForm
 from deploy_manager.models import *
+from saltjob.tasks import deploy_job_task, get_host_client_type
 from saltops.settings import PER_PAGE, DEFAULT_LOGGER, PACKAGE_PATH
 
 import arrow
@@ -117,22 +118,53 @@ class ProjectHostUnDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         job.save()
         hostlist = []
         hostlist.append(projecthost.host)
-        deployjob = deployTask.delay(job, 1, hostlist)
+        # deployjob = deployTask.delay(job, 1, hostlist)
         projecthost.delete()
         return self.render_json_response({})
 
 
 class ProjectHostDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                                   AjaxResponseMixin, View):
+    """
+    业务部署，部署单台主机
+    """
+
+    @transaction.atomic
     def get_ajax(self, request, *args, **kwargs):
-        projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')))
-        version = ProjectVersion.objects.get(pk=(projecthost.project.current_version_id))
-        job = DeployJob(project_version=version, job_name='部署' + projecthost.host.host_name + ":" + version.name)
+        projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')),
+                                              host=int(self.request.GET.get('host_id')))
+        version = ProjectVersion.objects.get(pk=projecthost.project_version_id)
+
+        is_success, deploy_result = deploy_job_task(projecthost.host.host_name,
+                                                    version.name,
+                                                    get_host_client_type(projecthost.host.enable_ssh))
+        projecthost.deploy_states = 1 if is_success else 2
+        projecthost.save()
+
+        job = DeployJob(project_version=version,
+                        job_name='部署' + projecthost.host.host_name + ":" + version.name)
         job.save()
-        hostlist = []
-        hostlist.append(projecthost.host)
-        deployjob = deployTask.delay(job, 3, hostlist)
-        return self.render_json_response({})
+
+        for k in deploy_result:
+            deploy_job_detail = DeployJobDetail(host=projecthost.host,
+                                                deploy_message=k['msg'],
+                                                job=job,
+                                                job_cmd=k['job_cmd'],
+                                                duration=k['duration'],
+                                                comment=k['comment'],
+                                                is_success=k['is_success'])
+            deploy_job_detail.save()
+
+        result_list = [
+            {
+                'is_success': '部署成功' if is_success else '部署失败',
+                'deploy_result': deploy_result,
+                'host_name': projecthost.host.host_name
+            }
+        ]
+        return self.render_json_response({
+            'result_list': result_list,
+        })
 
 
 class ProjectHostStopActionView(LoginRequiredMixin, JSONResponseMixin,
@@ -144,14 +176,14 @@ class ProjectHostStopActionView(LoginRequiredMixin, JSONResponseMixin,
         job.save()
         hostlist = []
         hostlist.append(projecthost.host)
-        deployjob = deployTask.delay(job, 4, hostlist)
+        # deployjob = deployTask.delay(job, 4, hostlist)
         return self.render_json_response({})
 
 
 class ProjectScanStateActionView(LoginRequiredMixin, JSONResponseMixin,
                                  AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
-        scanProjectState()
+        # scanProjectState()
         return self.render_json_response({})
 
 

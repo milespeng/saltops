@@ -24,7 +24,7 @@ class DeployJobTestCase(TestCase):
                 f.extract(file, './static/scripts')
             f.close()
 
-    def test_minion_deploy(self):
-        result = deploy_job_task(self.hostname, 'golang1_8_3', 'local')
-        logger.info('部署结果:' + '=' * 20)
-        logger.info(json.dumps(result, indent=4, sort_keys=True))
+    def test_minion_single_deploy(self):
+        is_success, result = deploy_job_task(self.hostname, 'golang1_8_3', 'local')
+        print('Is Deploy Success:%s' % is_success)
+        print('Deploy Result:%s' % json.dumps(result, indent=4, sort_keys=True))

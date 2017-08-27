@@ -52,6 +52,7 @@
                                         <tr>
                                             <th style="width: 20%;">主机</th>
                                             <th style="width: 20%;">版本</th>
+                                            <th style="width: 20%;">部署状态</th>
                                             <th style="width: 20%;">业务状态</th>
                                             <th style="width:20%;">操作</th>
                                         </tr>
@@ -61,10 +62,11 @@
                                             <tr id="h{{ o.id }}">
                                                 <td>{{ o.host.host_name }}</td>
                                                 <td>{{ o.project_version_id|version_name_filter }}</td>
+                                                <td id="deplystatus_td_{{ o.id }}">{{ o.deploy_states|deploy_states_filter }}</td>
                                                 <td>{{ o.is_running|isrunning_filter }}</td>
                                                 <td>
                                                     <a href="javascript:void(0)"
-                                                       onclick="deploy_host('{{ o.id }}')"
+                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}')"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>部署</a>
                                                     <a href="javascript:void(0)"
                                                        onclick="uninstall_host('{{ o.id }}')"
@@ -83,9 +85,14 @@
                                             })
                                         }
 
-                                        function deploy_host(id) {
+                                        function deploy_host(deploystatus_id, id, host_id) {
                                             layer.load();
-                                            $.get('project_host_deploy_action/?pk=' + id, function (rs) {
+                                            $.get('project_host_deploy_action/?pk=' + id + '&host_id=' + host_id, function (rs) {
+                                                result = rs.result_list
+                                                for (var i = 0; i < result.length; i++) {
+                                                    $('#' + deploystatus_id).html(result[i].is_success)
+                                                }
+                                                $('#result').html(_.template($('#tpl').html(), result));
                                                 layer.closeAll('loading');
                                             })
                                         }
@@ -112,10 +119,10 @@
                                             <div class="col-sm-10" class="form-control">
                                                 <%=item.is_success%>
                                                 <a href="javascript:void(0)"
-                                                   onclick="showContent('<%=item.host_name.trim()%>')">显示详情</a>
+                                                   onclick="showContent('<%=item.host_name%>')">显示详情</a>
                                                 <div style="display:none" id="<%=item.host_name%>">
-                                                    <% _.each(item.result, function (subitem) { %>
-                                                    部署结果:<%=subitem.deploy_message%>
+                                                    <% _.each(item.deploy_result, function (subitem) { %>
+                                                    部署结果:<%=subitem.comment%>
                                                     <br/>
                                                     作业命令：<%=subitem.job_cmd%>
                                                     <br/>
@@ -147,7 +154,7 @@
     </div>
 
     <script>
-        var result = []
+        var result;
 
         function execute() {
             layer.load();
@@ -171,7 +178,7 @@
         }
 
         function showContent(id) {
-            $('#' + id).show()
+            $('#' + id).toggle()
         }
 
         $(document).ready(function () {

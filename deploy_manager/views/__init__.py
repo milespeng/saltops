@@ -21,6 +21,19 @@ def isrunning_filter(value):
     else:
         return '未运行'
 
+
+@register.filter()
+def deploy_states_filter(value):
+    if value == 0:
+        return '未部署'
+    elif value == 1:
+        return '部署成功'
+    elif value == 2:
+        return '部署失败'
+    else:
+        return ''
+
+
 @register.filter()
 def version_name_filter(value):
     return ProjectVersion.objects.get(pk=value).name

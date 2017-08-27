@@ -9,7 +9,7 @@ from djqscsv import render_to_csv_response
 
 from cmdb.forms import *
 from cmdb.models import *
-from saltjob.tasks import scanHostJob
+from saltjob.tasks import scan_host_job
 from saltops.settings import PER_PAGE, SALT_HTTP_URL, SALT_CONN_TYPE
 
 listview_lazy_url = 'cmdb:host_list'
@@ -175,5 +175,5 @@ class HostDeleteView(JSONResponseMixin, AjaxResponseMixin, View):
 class ScanHostJobView(LoginRequiredMixin, JSONResponseMixin,
                       AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
-        scanHostJob()
+        scan_host_job()
         return self.render_json_response({})

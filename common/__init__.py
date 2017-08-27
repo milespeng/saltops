@@ -5,7 +5,9 @@ from django.utils.safestring import mark_safe
 
 # 注册自己为一个自定义的Tag
 from django import template
+
 register_lib = template.Library()
+
 
 @register.filter
 def join_queryset_attr(queryset, attr, delimiter=', '):
@@ -79,7 +81,10 @@ def replace_to_br(value: str):
     :param value: 
     :return: 
     """
-    return mark_safe(value.replace('\\n', '<br/>'))
+    if value is not None:
+        return mark_safe(value.replace('\\n', '<br/>'))
+    else:
+        return ''
 
 
 @register.filter
