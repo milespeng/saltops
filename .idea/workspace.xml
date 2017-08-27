@@ -4,7 +4,9 @@
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/views/project.py" afterPath="$PROJECT_DIR$/deploy_manager/views/project.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/templates/common/basic_layout.html" afterPath="$PROJECT_DIR$/common/templates/common/basic_layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/asserts/jQuery-multiselect2side-with-searchByOptGroup/js/jquery.multiselect2side.js" afterPath="$PROJECT_DIR$/static/asserts/jQuery-multiselect2side-with-searchByOptGroup/js/jquery.multiselect2side.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -62,11 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pagination.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/common/templates/common/pagination.html">
+      <file leaf-file-name="basic_layout.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/templates/common/basic_layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="20" column="76" lean-forward="false" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
+            <state relative-caret-position="139">
+              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -85,12 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>open</find>
-      <find>output</find>
-      <find>write</find>
-      <find>grains</find>
-      <find>group</find>
-      <find>defaults</find>
       <find>default_settings</find>
       <find>golang</find>
       <find>deployac</find>
@@ -115,6 +111,12 @@
       <find>onclick=&quot;showContent</find>
       <find>deploy_host</find>
       <find>hist</find>
+      <find>if (originalName.indexOf('[') != -1)</find>
+      <find>browser.msie</find>
+      <find>if ($.browser.msie &amp;&amp; $.browser.version == '6.0')</find>
+      <find>btuu</find>
+      <find>MoveUp</find>
+      <find>up</find>
     </findStrings>
     <replaceStrings>
       <replace>obj.jobDetails[k].result[j]</replace>
@@ -171,7 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tools_manager/forms.py" />
         <option value="$PROJECT_DIR$/tools_manager/forms/__init__.py" />
         <option value="$PROJECT_DIR$/tools_manager/templates/tools_manager/tools_script_list.html" />
         <option value="$PROJECT_DIR$/tools_manager/views/tools_script.py" />
@@ -191,7 +192,6 @@
         <option value="$PROJECT_DIR$/tools_manager/forms/ToolsTypesForm.py" />
         <option value="$PROJECT_DIR$/base_auth/forms/__init__.py" />
         <option value="$PROJECT_DIR$/base_auth/forms/GroupForm.py" />
-        <option value="$PROJECT_DIR$/common/templates/common/basic_layout.html" />
         <option value="$PROJECT_DIR$/common/templates/common/basic_list.html" />
         <option value="$PROJECT_DIR$/cmdb/forms/ISPForm.py" />
         <option value="$PROJECT_DIR$/cmdb/views/isp.py" />
@@ -217,11 +217,13 @@
         <option value="$PROJECT_DIR$/saltjob/tasks/deploy_job_task.py" />
         <option value="$PROJECT_DIR$/deploy_manager/tests.py" />
         <option value="$PROJECT_DIR$/deploy_manager/views/__init__.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
         <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_history.html" />
         <option value="$PROJECT_DIR$/saltops/settings.py" />
         <option value="$PROJECT_DIR$/deploy_manager/models/DeployJob.py" />
         <option value="$PROJECT_DIR$/deploy_manager/views/project.py" />
+        <option value="$PROJECT_DIR$/static/asserts/jQuery-multiselect2side-with-searchByOptGroup/js/jquery.multiselect2side.js" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
+        <option value="$PROJECT_DIR$/common/templates/common/basic_layout.html" />
       </list>
     </option>
   </component>
@@ -273,6 +275,40 @@
             <path>
               <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
               <item name="saltops" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="saltops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="saltops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="asserts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="saltops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="asserts" type="462c0819:PsiDirectoryNode" />
+              <item name="jQuery-multiselect2side-with-searchByOptGroup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="saltops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="asserts" type="462c0819:PsiDirectoryNode" />
+              <item name="jQuery-multiselect2side-with-searchByOptGroup" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="saltops" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="asserts" type="462c0819:PsiDirectoryNode" />
+              <item name="jQuery-multiselect2side-with-searchByOptGroup" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
@@ -952,13 +988,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00285" summary="版本下载">
-      <created>1496766649328</created>
-      <option name="number" value="00285" />
-      <option name="presentableId" value="LOCAL-00285" />
-      <option name="project" value="LOCAL" />
-      <updated>1496766649328</updated>
-    </task>
     <task id="LOCAL-00286" summary="DjCelery周期管理">
       <created>1496936004644</created>
       <option name="number" value="00286" />
@@ -1295,7 +1324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1503824689617</updated>
     </task>
-    <option name="localTasksCounter" value="334" />
+    <task id="LOCAL-00334" summary="部署历史分页">
+      <created>1503825556375</created>
+      <option name="number" value="00334" />
+      <option name="presentableId" value="LOCAL-00334" />
+      <option name="project" value="LOCAL" />
+      <updated>1503825556375</updated>
+    </task>
+    <option name="localTasksCounter" value="335" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1347,10 +1383,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46299213" sideWeight="0.51130855" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4035964" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3935282" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35545722" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35545722" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39085546" sideWeight="0.4946752" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29411766" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21653879" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24637681" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
@@ -1379,17 +1415,17 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60186625" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4035964" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3935282" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35545722" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35545722" sideWeight="0.48869145" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39085546" sideWeight="0.4946752" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29411766" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21653879" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24637681" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47935104" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39233038" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39233038" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -1420,7 +1456,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="IEFNA 导入主机，主机DNS名称这列无法导入" />
     <MESSAGE value="工具类型代码优化" />
     <MESSAGE value="修复排序问题" />
     <MESSAGE value="工具列表代码调整" />
@@ -1445,7 +1480,8 @@
     <MESSAGE value="简化Form参数" />
     <MESSAGE value="提交多选组件" />
     <MESSAGE value="单主机部署" />
-    <option name="LAST_COMMIT_MESSAGE" value="单主机部署" />
+    <MESSAGE value="部署历史分页" />
+    <option name="LAST_COMMIT_MESSAGE" value="部署历史分页" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1508,30 +1544,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb/host_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="45" column="98" lean-forward="false" selection-start-line="45" selection-start-column="89" selection-end-line="45" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/saltops_envs/lib/python3.5/site-packages/django/forms/fields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="48" column="6" lean-forward="false" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/common/basic_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="162" column="84" lean-forward="true" selection-start-line="162" selection-start-column="84" selection-end-line="162" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmdb/views/isp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1675,14 +1687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/common/basic_layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1873,14 +1877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="73" column="49" lean-forward="true" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_history.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-23">
@@ -1923,16 +1919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/views/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="338" column="39" lean-forward="false" selection-start-line="338" selection-start-column="39" selection-end-line="338" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools_manager/templates/tools_manager/tool_script_execute_history.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1943,8 +1929,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/common/templates/common/pagination.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="20" column="76" lean-forward="false" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
+        <state relative-caret-position="195">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/asserts/jQuery-multiselect2side-with-searchByOptGroup/css/jquery.multiselect2side.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/views/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="338" column="39" lean-forward="false" selection-start-line="338" selection-start-column="39" selection-end-line="338" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/asserts/jQuery-multiselect2side-with-searchByOptGroup/js/jquery.multiselect2side.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1503826495411" expanded="true" signature="4836:4844" ph="›" />
+            <marker date="1503826495411" expanded="true" signature="4919:4926" ph="»" />
+            <marker date="1503826495411" expanded="true" signature="5012:5020" ph="‹" />
+            <marker date="1503826495411" expanded="true" signature="5101:5108" ph="«" />
+            <marker date="1503826495411" expanded="true" signature="5214:5222" ph="‹" />
+            <marker date="1503826495411" expanded="true" signature="5297:5304" ph="«" />
+            <marker date="1503826495411" expanded="true" signature="5390:5398" ph="›" />
+            <marker date="1503826495411" expanded="true" signature="5479:5486" ph="»" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/templates/common/basic_layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding />
         </state>
       </provider>
