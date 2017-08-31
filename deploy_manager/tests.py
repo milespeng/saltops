@@ -25,6 +25,18 @@ class DeployJobTestCase(TestCase):
             f.close()
 
     def test_minion_single_deploy(self):
-        is_success, result = deploy_job_task(self.hostname, 'golang1_8_3', 'local')
+        is_success, result = deploy_job_task(self.hostname, 'golang1_8_3', 'local', 0)
+        print('Is Deploy Success:%s' % is_success)
+        print('Deploy Result:%s' % json.dumps(result, indent=4, sort_keys=True))
+
+        is_success, result = deploy_job_task(self.hostname, 'golang1_8_3', 'local', 1)
+        print('Is Deploy Success:%s' % is_success)
+        print('Deploy Result:%s' % json.dumps(result, indent=4, sort_keys=True))
+
+        is_success, result = deploy_job_task(self.hostname, 'golang1_8_3', 'local', 2)
+        print('Is Deploy Success:%s' % is_success)
+        print('Deploy Result:%s' % json.dumps(result, indent=4, sort_keys=True))
+
+        is_success, result = deploy_job_task(self.hostname, 'golang1_8_3', 'local', 3)
         print('Is Deploy Success:%s' % is_success)
         print('Deploy Result:%s' % json.dumps(result, indent=4, sort_keys=True))

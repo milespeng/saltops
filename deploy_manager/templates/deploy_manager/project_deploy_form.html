@@ -66,19 +66,19 @@
                                                 <td>{{ o.is_running|isrunning_filter }}</td>
                                                 <td>
                                                     <a href="javascript:void(0)"
-                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}')"
+                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}',0)"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>部署</a>
                                                     <a href="javascript:void(0)"
-                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}')"
+                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}',1)"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>启动</a>
                                                     <a href="javascript:void(0)"
-                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}')"
+                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}',2)"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>暂停</a>
                                                     <a href="javascript:void(0)"
                                                        onclick="uninstall_host('{{ o.id }}')"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
                                                     <a href="javascript:void(0)"
-                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}')"
+                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}',3)"
                                                        class="btn  btn-sm btn-danger"><i class="fa fa-edit"></i>取消关联</a>
                                                 </td>
                                             </tr>
@@ -94,9 +94,9 @@
                                             })
                                         }
 
-                                        function deploy_host(deploystatus_id, id, host_id) {
+                                        function deploy_host(deploystatus_id, id, host_id, deploy_type) {
                                             layer.load();
-                                            $.get('project_host_deploy_action/?pk=' + id + '&host_id=' + host_id, function (rs) {
+                                            $.get('project_host_deploy_action/?pk=' + id + '&host_id=' + host_id + '&deploy_type=' + deploy_type, function (rs) {
                                                 result = rs.result_list
                                                 for (var i = 0; i < result.length; i++) {
                                                     $('#' + deploystatus_id).html(result[i].is_success)

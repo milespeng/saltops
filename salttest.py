@@ -2,7 +2,6 @@ import yaml
 
 from saltjob.salt_https_api import salt_api_token, salt_api_jobs
 from saltjob.salt_token_id import token_id
-from saltjob.tasks import scanHostJob
 
 # ins = salt_api_token({'fun': 'cp.push'},
 #                      SALT_REST_URL, {'X-Auth-Token': token_id()})
