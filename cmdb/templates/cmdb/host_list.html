@@ -28,8 +28,8 @@
         function exportCsv() {
             layer.load();
             let url = '/frontend/cmdb/host_list/host_export/?host=' +
-                $('#host').val() + "&ip_filter=" + $('#ip_filter').val()
-                + "&host_group=" + $('#host_group').val();
+                $('#id_host').val() + "&ip_filter=" + $('#id_ip_filter').val()
+                + "&host_group=" + $('#id_host_group').val();
             window.location.href = url
             layer.closeAll('loading');
         }

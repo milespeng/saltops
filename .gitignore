@@ -12,3 +12,6 @@ db.sqlite3
 /saltops2-web/node_modules
 /saltops2-web/.idea
 /static/scripts
+/saltops-web/build
+/saltops-web/dist
+/saltops-web/node_modules

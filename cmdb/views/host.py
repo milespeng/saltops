@@ -9,7 +9,7 @@ from djqscsv import render_to_csv_response
 
 from cmdb.forms import *
 from cmdb.models import *
-from saltjob.tasks import scan_host_job
+from saltjob.tasks import scan_host_job, SALT_OPS_CONFIG
 from saltops.settings import PER_PAGE
 
 listview_lazy_url = 'cmdb:host_list'
@@ -36,8 +36,8 @@ def updateSaltRouster():
                     """ % (host.host, host.host, host.ssh_username, host.ssh_password,
                            host.enable_sudo, host.enable_tty)
 
-    if SALT_CONN_TYPE == 'http':
-        requests.post(SALT_HTTP_URL + '/rouster', data={'content': rosterString})
+    if SALT_OPS_CONFIG['connect_type'] == 'http':
+        requests.post(SALT_OPS_CONFIG['simple_service_url'] + '/rouster', data={'content': rosterString})
     else:
         with open('/etc/salt/roster', 'w') as content:
             content.write(rosterString)

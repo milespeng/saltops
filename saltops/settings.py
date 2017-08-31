@@ -66,19 +66,20 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
-
+CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'saltops.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), 'saltops-web/dist']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -155,6 +156,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, "saltops-web/dist/static"),
     ('scripts', os.path.join(STATIC_ROOT, 'scripts').replace('\\', '/')),
     ('asserts', os.path.join(STATIC_ROOT, 'asserts').replace('\\', '/')),
     ('hplus', os.path.join(STATIC_ROOT, 'hplus').replace('\\', '/')),
