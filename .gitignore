@@ -9,9 +9,9 @@ db.sqlite3
 /doc/script
 /doc/scripts
 .idea/workspace.xml
-/saltops2-web/node_modules
+/antd-admin-master/node_modules
 /saltops2-web/.idea
 /static/scripts
-/saltops-web/build
-/saltops-web/dist
+/antd-admin-master/build
+/antd-admin-master/dist
 /saltops-web/node_modules

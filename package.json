@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "antd": "^2.12.8"
+  },
+  "devDependencies": {
+    "react-app-rewired": "^1.2.5"
+  }
+}
