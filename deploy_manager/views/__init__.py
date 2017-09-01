@@ -30,6 +30,18 @@ def deploy_states_filter(value):
         return '部署成功'
     elif value == 2:
         return '部署失败'
+    elif value == 3:
+        return '启动成功'
+    elif value == 4:
+        return '启动失败'
+    elif value == 5:
+        return '暂停成功'
+    elif value == 6:
+        return '暂停失败'
+    elif value == 7:
+        return '卸载成功'
+    elif value == 8:
+        return '卸载失败'
     else:
         return ''
 

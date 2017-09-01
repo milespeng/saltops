@@ -112,7 +112,7 @@ class ProjectVersionDeleteView(LoginRequiredMixin, JSONResponseMixin,
 class ProjectHostDeployActionView(LoginRequiredMixin, JSONResponseMixin,
                                   AjaxResponseMixin, View):
     """
-    业务部署，部署单台主机
+    业务部署，部署单台主机,
     """
 
     @transaction.atomic
@@ -120,16 +120,27 @@ class ProjectHostDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         projecthost = ProjectHost.objects.get(pk=int(self.request.GET.get('pk')),
                                               host=int(self.request.GET.get('host_id')))
         version = ProjectVersion.objects.get(pk=projecthost.project_version_id)
+
+        # 0部署 1启动 2暂停 3卸载
         deploy_type = int(self.request.GET.get('deploy_type'))
         is_success, deploy_result = deploy_job_task(projecthost.host.host_name,
                                                     version.name,
                                                     get_host_client_type(projecthost.host.enable_ssh),
                                                     deploy_type)
-        projecthost.deploy_states = 1 if is_success else 2
+        if deploy_type == 0:
+            projecthost.deploy_states = 1 if is_success else 2
+        if deploy_type == 1:
+            projecthost.deploy_states = 3 if is_success else 4
+        if deploy_type == 2:
+            projecthost.deploy_states = 5 if is_success else 6
+        if deploy_type == 3:
+            projecthost.deploy_states = 7 if is_success else 8
+
         projecthost.save()
 
         job = DeployJob(project_version=version,
                         job_name='部署' + projecthost.host.host_name + ":" + version.name)
+
         job.save()
 
         for k in deploy_result:
@@ -146,11 +157,16 @@ class ProjectHostDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         if deploy_type == 0:
             succ_msg = '部署成功' if is_success else '部署失败'
         if deploy_type == 1:
-            succ_msg = '卸载成功' if is_success else '卸载失败'
-        if deploy_type == 2:
             succ_msg = '启动成功' if is_success else '启动失败'
-        if deploy_type == 3:
+        if deploy_type == 2:
             succ_msg = '暂停成功' if is_success else '暂停失败'
+        if deploy_type == 3:
+            succ_msg = '卸载成功' if is_success else '卸载失败'
+
+            # 卸载成功后同时取消关联
+            if is_success:
+                projecthost.delete()
+
         result_list = [
             {
                 'is_success': succ_msg,
