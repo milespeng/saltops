@@ -923,13 +923,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00293" summary="业务部署优化为多tab页">
-      <created>1497533524248</created>
-      <option name="number" value="00293" />
-      <option name="presentableId" value="LOCAL-00293" />
-      <option name="project" value="LOCAL" />
-      <updated>1497533524250</updated>
-    </task>
     <task id="LOCAL-00294" summary="自定义列表tag，列表引入排序">
       <created>1500633890511</created>
       <option name="number" value="00294" />
@@ -1266,7 +1259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504258101007</updated>
     </task>
-    <option name="localTasksCounter" value="342" />
+    <task id="LOCAL-00342" summary="saltops-web prepare">
+      <created>1504258156957</created>
+      <option name="number" value="00342" />
+      <option name="presentableId" value="LOCAL-00342" />
+      <option name="project" value="LOCAL" />
+      <updated>1504258156957</updated>
+    </task>
+    <option name="localTasksCounter" value="343" />
     <servers />
   </component>
   <component name="TestHistory">
