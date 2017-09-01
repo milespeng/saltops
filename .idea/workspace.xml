@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/public/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_auth/api_urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_auth/serializers/UserSerializer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_auth/serializers/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_auth/viewsets/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_auth/viewsets/user.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/public/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/public/manifest.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/src/App.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/src/App.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/src/App.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/src/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/src/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/src/logo.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltops-web/src/registerServiceWorker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/settings.py" afterPath="$PROJECT_DIR$/saltops/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops/urls.py" afterPath="$PROJECT_DIR$/saltops/urls.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -946,13 +923,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00292" summary="修改配置文件">
-      <created>1497363366716</created>
-      <option name="number" value="00292" />
-      <option name="presentableId" value="LOCAL-00292" />
-      <option name="project" value="LOCAL" />
-      <updated>1497363366718</updated>
-    </task>
     <task id="LOCAL-00293" summary="业务部署优化为多tab页">
       <created>1497533524248</created>
       <option name="number" value="00293" />
@@ -1289,7 +1259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504233945781</updated>
     </task>
-    <option name="localTasksCounter" value="341" />
+    <task id="LOCAL-00341" summary="saltops-web prepare">
+      <created>1504258101007</created>
+      <option name="number" value="00341" />
+      <option name="presentableId" value="LOCAL-00341" />
+      <option name="project" value="LOCAL" />
+      <updated>1504258101007</updated>
+    </task>
+    <option name="localTasksCounter" value="342" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1414,7 +1391,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="调整工具表单的代码" />
     <MESSAGE value="修改工具管理Logo" />
     <MESSAGE value=" fix bug #IEI5X 执行shell脚本报错" />
     <MESSAGE value="调整表单，避免过度优化" />
@@ -1439,7 +1415,8 @@
     <MESSAGE value="调整setting变量" />
     <MESSAGE value="修复导出问题" />
     <MESSAGE value="业务部署调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="业务部署调整" />
+    <MESSAGE value="saltops-web prepare" />
+    <option name="LAST_COMMIT_MESSAGE" value="saltops-web prepare" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
