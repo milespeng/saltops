@@ -1,10 +1,12 @@
 from django.contrib.auth.models import User
+from django.core.validators import FileExtensionValidator
 from django.db import models
 from libsaas.services.basecamp.projects import Project
 
 from cmdb.models import Host
 from common.models import BaseModel
 from deploy_manager.models.ProjectModule import ProjectModule
+from saltops.settings import SALT_OPS_CONFIG
 
 JOB_SCRIPT_TYPE = (
     (100, '----'),
@@ -19,6 +21,9 @@ class Project(BaseModel):
     dev_monitor = models.ForeignKey(User, verbose_name='开发负责人', blank=True, null=True, related_name='dev_monitor')
     ops_monitor = models.ForeignKey(User, verbose_name='运维负责人', blank=True, null=True, related_name='ops_monitor')
     backup_monitor = models.ForeignKey(User, verbose_name='备份负责人', blank=True, null=True, related_name='backup_monitor')
+    # template_sls = models.FileField(verbose_name='SLS模板包', blank=True, null=True,
+    #                                 upload_to=SALT_OPS_CONFIG['package_path'],
+    #                                 validators=[FileExtensionValidator(['zip'])])
 
     def __str__(self):
         return self.name

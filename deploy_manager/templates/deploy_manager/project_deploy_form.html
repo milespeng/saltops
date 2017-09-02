@@ -53,7 +53,7 @@
                                             <th style="width: 10%;">主机</th>
                                             <th style="width: 10%;">版本</th>
                                             <th style="width: 10%;">部署状态</th>
-{#                                            <th style="width: 10%;">业务状态</th>#}
+                                            {#                                            <th style="width: 10%;">业务状态</th>#}
                                             <th style="width:10%;">操作</th>
                                         </tr>
                                         </thead>
@@ -63,7 +63,7 @@
                                                 <td>{{ o.host.host_name }}</td>
                                                 <td>{{ o.project_version_id|version_name_filter }}</td>
                                                 <td id="deplystatus_td_{{ o.id }}">{{ o.deploy_states|deploy_states_filter }}</td>
-{#                                                <td>{{ o.is_running|isrunning_filter }}</td>#}
+                                                {#                                                <td>{{ o.is_running|isrunning_filter }}</td>#}
                                                 <td>
                                                     <a href="javascript:void(0)"
                                                        onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}',0)"
@@ -75,7 +75,7 @@
                                                        onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}',2)"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>暂停</a>
                                                     <a href="javascript:void(0)"
-                                                       onclick="uninstall_host('{{ o.id }}')"
+                                                       onclick="deploy_host('deplystatus_td_{{ o.id }}','{{ o.id }}','{{ o.host.id }}',3)"
                                                        class="btn  btn-sm btn-success"><i class="fa fa-edit"></i>卸载</a>
                                                 </td>
                                             </tr>
@@ -83,14 +83,6 @@
                                         </tbody>
                                     </table>
                                     <script>
-                                        function uninstall_host(id) {
-                                            layer.load();
-                                            $.get('project_host_undeploy_action/?pk=' + id, function (rs) {
-                                                $('#h' + id).remove()
-                                                layer.closeAll('loading');
-                                            })
-                                        }
-
                                         function deploy_host(deploystatus_id, id, host_id, deploy_type) {
                                             layer.load();
                                             $.get('project_host_deploy_action/?pk=' + id + '&host_id=' + host_id + '&deploy_type=' + deploy_type, function (rs) {
@@ -103,12 +95,6 @@
                                             })
                                         }
 
-                                        function stop_host(id) {
-                                            layer.load();
-                                            $.get('project_host_stop_action/?pk=' + id, function (rs) {
-                                                layer.closeAll('loading');
-                                            })
-                                        }
                                     </script>
                                 </div>
                             </div>
@@ -161,27 +147,6 @@
 
     <script>
         var result;
-
-        function execute() {
-            layer.load();
-            var hosts_id = $('#hosts').val();
-            hosts_str = "";
-            if (hosts_id != null) {
-                for (var i = 0; i < hosts_id.length; i++) {
-                    hosts_str += hosts_id[i] + ',';
-                }
-                hosts_str = hosts_str.substr(0, hosts_str.length - 1)
-            }
-
-            $.post('/frontend/deploy_manager/project_list/project_deploy_action/?pk={{ pk }}', {
-                'hostids': hosts_str,
-                'csrfmiddlewaretoken': '{{ csrf_token }}',
-                'version': $('#version').val(),
-            }, function (rs) {
-                location.reload()
-                layer.closeAll('loading');
-            })
-        }
 
         function showContent(id) {
             $('#' + id).toggle()

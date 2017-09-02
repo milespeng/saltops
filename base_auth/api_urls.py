@@ -13,6 +13,6 @@ urlpatterns = router.urls
 
 urlpatterns += [
     url(r'^v1/user/', include([
-        url(r'^login', drf_views.obtain_auth_token, name='api.login'),
+        url(r'^login', csrf_exempt(drf_views.obtain_auth_token), name='api.login'),
     ])),
 ]
