@@ -26,7 +26,7 @@
                                             class="form-control " id="version"
                                             tabindex="4">
                                         {% for o in project_version_obj %}
-                                            <option value="{{ o.id }}">{{ o.name }}</option>
+                                            <option value="{{ o.id }}">{{ o.files|file_path_filter }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -83,6 +83,28 @@
                                         </tbody>
                                     </table>
                                     <script>
+                                        function execute() {
+                                            layer.load();
+                                            var hosts_id = $('#hosts').val();
+                                            hosts_str = "";
+                                            if (hosts_id != null) {
+                                                for (var i = 0; i < hosts_id.length; i++) {
+                                                    hosts_str += hosts_id[i] + ',';
+                                                }
+                                                hosts_str = hosts_str.substr(0, hosts_str.length - 1)
+                                            }
+
+                                            $.post('/frontend/deploy_manager/project_list/project_deploy_action/?pk={{ pk }}', {
+                                                'hostids': hosts_str,
+                                                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                                                'version': $('#version').val(),
+                                            }, function (rs) {
+                                                location.reload()
+                                                layer.closeAll('loading');
+                                            })
+                                        }
+
+
                                         function deploy_host(deploystatus_id, id, host_id, deploy_type) {
                                             layer.load();
                                             $.get('project_host_deploy_action/?pk=' + id + '&host_id=' + host_id + '&deploy_type=' + deploy_type, function (rs) {

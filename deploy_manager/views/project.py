@@ -12,6 +12,7 @@ from django.urls import *
 from django.views.generic import *
 
 from cmdb.forms import ISPListFilterForm
+from common import file_path_filter
 from common.utils.logger_utils import LoggerUtils
 from cmdb.models import Host, HostGroup
 from common.pageutil import preparePage
@@ -98,6 +99,20 @@ class ProjectVersionUpdateView(LoginRequiredMixin, UpdateView):
         return '/frontend/deploy_manager/project_list/project_version/?pk=%s' % self.request.GET.get('pk')
 
 
+class ProjectDeployActionView(LoginRequiredMixin, JSONResponseMixin,
+                              AjaxResponseMixin, View):
+    def post_ajax(self, request, *args, **kwargs):
+        hosts = request.POST.get('hostids', '')
+        project_pk = int(self.request.GET.get('pk'))
+        obj = Project.objects.get(pk=project_pk)
+        project_version_id = request.POST.get('version', '')
+        # 记录下主机-业务-业务版本号的对应关系
+        hosts_ids = hosts.split(',')
+        for o in hosts_ids:
+            ProjectHost(project=obj, host_id=int(o), project_version_id=project_version_id).save()
+        return self.render_json_response([])
+
+
 class ProjectVersionDeleteView(LoginRequiredMixin, JSONResponseMixin,
                                AjaxResponseMixin, View):
     def get_ajax(self, request, *args, **kwargs):
@@ -124,7 +139,7 @@ class ProjectHostDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         # 0部署 1启动 2暂停 3卸载
         deploy_type = int(self.request.GET.get('deploy_type'))
         is_success, deploy_result = deploy_job_task(projecthost.host.host_name,
-                                                    version.name,
+                                                    file_path_filter(version.files),
                                                     get_host_client_type(projecthost.host.enable_ssh),
                                                     deploy_type)
         if deploy_type == 0:
@@ -139,7 +154,7 @@ class ProjectHostDeployActionView(LoginRequiredMixin, JSONResponseMixin,
         projecthost.save()
 
         job = DeployJob(project_version=version,
-                        job_name='部署' + projecthost.host.host_name + ":" + version.name)
+                        job_name='部署' + projecthost.host.host_name + ":" + file_path_filter(version.files))
 
         job.save()
 
@@ -217,13 +232,14 @@ class ProjectVersionCreateView(LoginRequiredMixin, CreateView):
         project = Project.objects.get(pk=int(self.request.POST['pid']))
         obj = form.save()
         obj.project = project
-        obj.save()
+
         # 解压SLS到
         f = zipfile.ZipFile(obj.files, 'r')
         for file in f.namelist():
             f.extract(file, SALT_OPS_CONFIG['package_path'])
         f.close()
 
+        obj.save()
         return super(ProjectVersionCreateView, self).form_valid(form)
 
 

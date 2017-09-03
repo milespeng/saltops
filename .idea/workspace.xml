@@ -2,24 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e088783-cf77-4b85-a3e6-d0b5b2b13436" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/public/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/public/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/public/manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/src/App.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/src/App.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/src/App.test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/src/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/src/logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saltops-web/src/registerServiceWorker.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/storages/OverwriteStorage.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/storages/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_auth/api_urls.py" afterPath="$PROJECT_DIR$/base_auth/api_urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/models/Project.py" afterPath="$PROJECT_DIR$/deploy_manager/models/Project.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/__init__.py" afterPath="$PROJECT_DIR$/common/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/forms/ProjectForm.py" afterPath="$PROJECT_DIR$/deploy_manager/forms/ProjectForm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py" afterPath="$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_edit_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_edit_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" afterPath="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/urls.py" afterPath="$PROJECT_DIR$/deploy_manager/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/views/__init__.py" afterPath="$PROJECT_DIR$/deploy_manager/views/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy_manager/views/project.py" afterPath="$PROJECT_DIR$/deploy_manager/views/project.py" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -76,14 +71,14 @@
     <favorites_list name="saltops" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Project.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="deploy_job_task.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/saltjob/tasks/deploy_job_task.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+            <state relative-caret-position="856">
+              <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,20 +90,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>if ($.browser.msie &amp;&amp; $.browser.version == '6.0')</find>
-      <find>btuu</find>
-      <find>MoveUp</find>
-      <find>up</find>
-      <find>toolexe</find>
-      <find>REST_FRAMEWORK</find>
-      <find>TEMPLATES</find>
       <find>middl</find>
       <find>SALT_CONN_TYPE</find>
       <find>salt</find>
@@ -132,6 +120,13 @@
       <find>loginLoading</find>
       <find>browserHistory</find>
       <find>id=&quot;root&quot;</find>
+      <find>name</find>
+      <find>project_version_id</find>
+      <find>version_name_filter</find>
+      <find>execute</find>
+      <find>project_deploy_action</find>
+      <find>ProjectDeployActionView</find>
+      <find>get_available_name</find>
     </findStrings>
     <replaceStrings>
       <replace>obj.jobDetails[k].result[j]</replace>
@@ -191,16 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/saltjob/tasks/deploy_job_task.py" />
-        <option value="$PROJECT_DIR$/saltops-web/src/main.js" />
-        <option value="$PROJECT_DIR$/saltops-web/src/components/Hello.vue" />
-        <option value="$PROJECT_DIR$/deploy_manager/models/DeployJob.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/models/ProjectHost.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/views/__init__.py" />
-        <option value="$PROJECT_DIR$/deploy_manager/views/project.py" />
-        <option value="$PROJECT_DIR$/base_auth/serializers/UserSerializer.py" />
-        <option value="$PROJECT_DIR$/base_auth/serializers/__init__.py" />
-        <option value="$PROJECT_DIR$/base_auth/viewsets/user.py" />
         <option value="$PROJECT_DIR$/saltops/urls.py" />
         <option value="$PROJECT_DIR$/saltops/settings.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -240,8 +225,18 @@
         <option value="$PROJECT_DIR$/saltops-web/src/routes/Dashboard.js" />
         <option value="$PROJECT_DIR$/saltops-web/src/routes/IndexPage.js" />
         <option value="$PROJECT_DIR$/saltops-web/src/components/Mainform/Mainform.js" />
-        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
         <option value="$PROJECT_DIR$/deploy_manager/models/Project.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/forms/ProjectForm.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_edit_form.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/views/__init__.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html" />
+        <option value="$PROJECT_DIR$/deploy_manager/urls.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/views/project.py" />
+        <option value="$PROJECT_DIR$/common/__init__.py" />
+        <option value="$PROJECT_DIR$/common/storages/__init__.py" />
+        <option value="$PROJECT_DIR$/common/storages/OverwriteStorage.py" />
+        <option value="$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py" />
       </list>
     </option>
   </component>
@@ -294,23 +289,6 @@
               <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
               <item name="saltops" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="deploy_manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="deploy_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops" type="462c0819:PsiDirectoryNode" />
-              <item name="deploy_manager" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -325,7 +303,7 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="$USER_HOME$/soft/node-v5.5.0-linux-x64/bin/node" />
     <property name="settings.editor.splitter.proportion" value="0.24204436" />
-    <property name="SearchEverywhereHistoryKey" value="select_option.html&#9;FILE&#9;file:///home/kira/saltops_envs/lib/python3.5/site-packages/django/forms/jinja2/django/forms/widgets/select_option.html&#10;ProjectVersion&#9;null&#9;null&#10;mainf&#9;FILE&#9;file:///Users/kira/opensource/saltops/common/templates/common/mainform.html&#10;mainform&#9;FILE&#9;file:///home/kira/code/saltops/common/templates/common/mainform.html&#10;mainfor&#9;FILE&#9;file:///home/kira/code/saltops/common/templates/common/mainform.html&#10;host&#9;null&#9;null&#10;toolsc&#9;null&#9;null&#10;tasks.py&#9;FILE&#9;file:///Users/kira/oschina/saltops/saltjob/tasks.py&#10;model&#9;FILE&#9;file:///Users/kira/oschina/saltops/deploy_manager/models.py" />
+    <property name="SearchEverywhereHistoryKey" value="projecthost&#9;FILE&#9;file:///home/kira/code/saltops/deploy_manager/models/ProjectHost.py&#10;prover&#9;FILE&#9;file:///home/kira/code/saltops/deploy_manager/models/ProjectVersion.py&#10;proj&#9;FILE&#9;file:///home/kira/code/saltops/deploy_manager/models/ProjectHost.py&#10;select_option.html&#9;FILE&#9;file:///home/kira/saltops_envs/lib/python3.5/site-packages/django/forms/jinja2/django/forms/widgets/select_option.html&#10;ProjectVersion&#9;null&#9;null&#10;mainf&#9;FILE&#9;file:///Users/kira/opensource/saltops/common/templates/common/mainform.html&#10;mainform&#9;FILE&#9;file:///home/kira/code/saltops/common/templates/common/mainform.html&#10;mainfor&#9;FILE&#9;file:///home/kira/code/saltops/common/templates/common/mainform.html&#10;host&#9;null&#9;null&#10;toolsc&#9;null&#9;null&#10;tasks.py&#9;FILE&#9;file:///Users/kira/oschina/saltops/saltjob/tasks.py&#10;model&#9;FILE&#9;file:///Users/kira/oschina/saltops/deploy_manager/models.py" />
     <property name="GO_FMT" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
@@ -970,13 +948,6 @@
       <option name="presentableId" value="Default" />
       <updated>1484832479714</updated>
     </task>
-    <task id="LOCAL-00294" summary="自定义列表tag，列表引入排序">
-      <created>1500633890511</created>
-      <option name="number" value="00294" />
-      <option name="presentableId" value="LOCAL-00294" />
-      <option name="project" value="LOCAL" />
-      <updated>1500633890512</updated>
-    </task>
     <task id="LOCAL-00295" summary="使用System Check Framework">
       <created>1500639197384</created>
       <option name="number" value="00295" />
@@ -1313,7 +1284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504258156957</updated>
     </task>
-    <option name="localTasksCounter" value="343" />
+    <task id="LOCAL-00343" summary="saltops-web prepare">
+      <created>1504346884553</created>
+      <option name="number" value="00343" />
+      <option name="presentableId" value="LOCAL-00343" />
+      <option name="project" value="LOCAL" />
+      <updated>1504346884554</updated>
+    </task>
+    <option name="localTasksCounter" value="344" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1363,16 +1341,16 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45427728" sideWeight="0.514919" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40292275" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27728614" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3935282" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33775812" sideWeight="0.485081" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26696166" sideWeight="0.485081" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29436326" sideWeight="0.4946752" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24211423" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19181585" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24637681" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39085546" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24188791" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1395,19 +1373,19 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45427728" sideWeight="0.514919" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6012526" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40292275" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27728614" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3935282" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4498525" sideWeight="0.485081" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26696166" sideWeight="0.485081" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29436326" sideWeight="0.4946752" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20886615" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23358908" sideWeight="0.48366013" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24637681" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47935104" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26655897" sideWeight="0.49144635" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307444" sideWeight="0.51521736" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39085546" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24188791" sideWeight="0.49190938" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -1498,6 +1476,11 @@
           <line>49</line>
           <option name="timeStamp" value="681" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/common/storages/OverwriteStorage.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="691" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -1509,7 +1492,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="688" />
+      <option name="time" value="692" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python.DjangoServer">
@@ -1519,6 +1502,7 @@
         <watch expression="context['filter_form']" language="Python" />
         <watch expression="context['result_list'].count()" language="Python" />
         <watch expression="int(self.request.GET.get('deploy_type'))" language="Python" />
+        <watch expression="value.name" language="Python" />
       </configuration>
       <configuration name="PythonConfigurationType">
         <watch expression="content" language="Python" />
@@ -1527,89 +1511,23 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/utils/request.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/routes/dashboard/index.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/index.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/router.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/components/layer/layer.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/models/user/detail.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/models/common.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/services/user.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/models/post.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/models/dashboard.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/utils/config.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/services/dashboard.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/services/app.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/routes/login/index.js" />
-    <entry file="file://$PROJECT_DIR$/antd-admin-master/src/services/login.js" />
     <entry file="file://$PROJECT_DIR$/antd-admin-master/src/models/login.js" />
     <entry file="file://$PROJECT_DIR$/antd-admin-master/src/mock/user.js" />
     <entry file="file://$PROJECT_DIR$/antd-admin-master/src/models/user.js" />
     <entry file="file://$PROJECT_DIR$/antd-admin-master/src/models/app.js" />
     <entry file="file://$PROJECT_DIR$/antd-admin-master/src/routes/app.js" />
-    <entry file="file://$PROJECT_DIR$/saltops-web/.roadhogrc.mock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/.roadhogrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="61" lean-forward="false" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/Login.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/services/example.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/utils/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/services/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/utils/request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="54" column="11" lean-forward="false" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops-web/.roadhogrc.mock.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/package.json" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/.roadhogrc" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/Login.less" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/services/example.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/utils/config.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/services/login.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/utils/request.js" />
     <entry file="file://$PROJECT_DIR$/base_auth/api_urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="15" column="63" lean-forward="false" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1621,113 +1539,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459">
-          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/models/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="28" column="8" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="73" lean-forward="false" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/Login.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/models/login.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/index.css" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/public/index.html" />
     <entry file="file://$PROJECT_DIR$/saltops-web/src/components/Layout/Layout.css" />
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/Dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/Dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/Dashboard.css" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/index.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/router.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/Dashboard.js" />
     <entry file="file://$PROJECT_DIR$/saltops-web/src/components/Layout/Layout.js" />
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/IndexPage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/IndexPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/components/Mainform/Mainform.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/saltops-web/src/components/Mainform/Mainform.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/IndexPage.css" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/routes/IndexPage.js" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/components/Mainform/Mainform.css" />
+    <entry file="file://$PROJECT_DIR$/saltops-web/src/components/Mainform/Mainform.js" />
     <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="93" column="27" lean-forward="false" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/views/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="123" column="30" lean-forward="true" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1735,38 +1564,178 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/wiki/安装前准备.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-688">
+            <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/saltops_envs/lib/python3.5/site-packages/django/forms/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="271" column="0" lean-forward="false" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/forms/ProjectForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_edit_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_version_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="61" column="107" lean-forward="false" selection-start-line="61" selection-start-column="91" selection-end-line="61" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltjob/tasks/deploy_task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5491">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/templates/deploy_manager/project_deploy_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="96" column="111" lean-forward="false" selection-start-line="96" selection-start-column="90" selection-end-line="96" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectHost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="22" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectHost.py">
+    <entry file="file://$USER_HOME$/saltops_envs/lib/python3.5/site-packages/django/db/models/manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-388">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="108">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/saltops_envs/lib/python3.5/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="379" column="0" lean-forward="false" selection-start-line="379" selection-start-column="0" selection-end-line="379" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="23" column="59" lean-forward="false" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy_manager/views/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="140" column="43" lean-forward="false" selection-start-line="140" selection-start-column="43" selection-end-line="140" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/saltops_envs/lib/python3.5/site-packages/django/db/models/fields/files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="239" column="50" lean-forward="false" selection-start-line="239" selection-start-column="49" selection-end-line="239" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="59" column="14" lean-forward="false" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/storages/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/storages/OverwriteStorage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy_manager/models/ProjectVersion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="74" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="12" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="12" column="46" lean-forward="false" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy_manager/models/Project.py">
+    <entry file="file://$PROJECT_DIR$/deploy_manager/views/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+        <state relative-caret-position="296">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltjob/tasks/deploy_job_task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="856">
+          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

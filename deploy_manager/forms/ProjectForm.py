@@ -17,4 +17,4 @@ class ProjectListFilterForm(forms.Form):
 class ProjectVersionForm(forms.ModelForm):
     class Meta:
         model = ProjectVersion
-        fields = ['project', 'name', 'files', 'software_files']
+        fields = ['project', 'files', 'software_files']

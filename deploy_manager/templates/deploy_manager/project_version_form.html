@@ -19,17 +19,13 @@
                             {% csrf_token %}
                             <input type="hidden" id="pid" name="pid" value="{{ pk }}"/>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label"> {{ form.name.label_tag }}</label>
-                                <div class="col-sm-10">
-                                    {{ form.name }}
-                                    {{ form.name.errors }}
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-sm-2 control-label"> {{ form.files.label_tag }}</label>
                                 <div class="col-sm-10">
                                     {{ form.files }}
                                     {{ form.files.errors }}
+                                    <div class="alert alert-success">
+                                        SLS压缩包中的init将会被用作部署,start.sls被用于业务启动,stop.sls被用于业务暂停,uninstall.sls被用于业务卸载
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -37,6 +33,9 @@
                                 <div class="col-sm-10">
                                     {{ form.software_files }}
                                     {{ form.software_files.errors }}
+                                    <div class="alert alert-success">
+                                        SLS中所使用的部署文件,使用方式为salt://....
+                                    </div>
                                 </div>
                             </div>
 
@@ -52,7 +51,7 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
                             <thead>
                             <tr>
-                                <th style="width: 7%;">版本名称</th>
+                                <th style="width: 7%;">版本</th>
                                 <th style="width:5%;">操作</th>
                             </tr>
                             </thead>
@@ -60,7 +59,7 @@
                             {% for project_version in project_versions %}
                                 <tr>
                                     <th style="width: 7%;"><a
-                                            href="/static/scripts/{{ project_version.files|file_path_filter }}"> {{ project_version.name }}</a>
+                                            href="/static/scripts/{{ project_version.files|file_path_filter }}"> {{ project_version.files|file_path_filter }}</a>
                                     </th>
                                     <th style="width:5%;">
                                         <a href="/frontend/deploy_manager/project_list/{{ project_version.id }}/project_version_edit/?pk={{ project_version.project.id }}"

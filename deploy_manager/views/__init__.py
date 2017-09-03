@@ -48,4 +48,4 @@ def deploy_states_filter(value):
 
 @register.filter()
 def version_name_filter(value):
-    return ProjectVersion.objects.get(pk=value).name
+    return ProjectVersion.objects.get(pk=value).files
