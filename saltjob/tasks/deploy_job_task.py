@@ -1,24 +1,4 @@
-import os
-import re
-import traceback
-from uuid import uuid1
-
-import logging
-import requests
-import yaml
-from celery import task
-from post_office import mail
-
-from cmdb.models import Host, HostIP, HostGroup
-from deploy_manager.models import *
-from saltjob.salt_https_api import salt_api_token
-from saltjob.salt_token_id import token_id
-from saltops.settings import DEFAULT_LOGGER, SALT_OPS_CONFIG
-from tools_manager.models import ToolsExecDetailHistory, ToolsExecJob
-
-import shlex
-
-logger = logging.getLogger(DEFAULT_LOGGER)
+from .task_utils import *
 
 
 def deploy_job_task(project_host_name: str,
@@ -37,22 +17,23 @@ def deploy_job_task(project_host_name: str,
     :return:部署是否成功,单台主机部署结果列表
     """
     salt_func = 'state.apply'
-    salt_args = project_version_name
+    # salt_args = project_version_name
+    sls_dir = os.path.splitext(project_version_name)[0]
     if deploy_type == 0:
+        salt_args = sls_dir
         logger.info("执行部署，目标主机为:%s", project_host_name)
     if deploy_type == 1:
         salt_func = 'state.apply'
-        salt_args = '%s.uninstall'
-        logger.info("执行卸载，目标主机为:%s", project_host_name)
+        salt_args = '%s.start' % sls_dir
+        logger.info("执行启动，目标主机为:%s", project_host_name)
     if deploy_type == 2:
         salt_func = 'state.apply'
-        salt_args = '%s.start'
-        logger.info("执行启动，目标主机为:%s", project_host_name)
+        salt_args = '%s.stop' % sls_dir
+        logger.info("执行暂停，目标主机为:%s", project_host_name)
     if deploy_type == 3:
         salt_func = 'state.apply'
-        salt_args = '%s.stop'
-        logger.info("执行暂停，目标主机为:%s", project_host_name)
-
+        salt_args = '%s.uninstall' % sls_dir
+        logger.info("执行卸载，目标主机为:%s", project_host_name)
     result = salt_api_token({'fun': salt_func,
                              'tgt': project_host_name,
                              'arg': salt_args},
@@ -85,14 +66,14 @@ def deploy_job_task(project_host_name: str,
             if "stderr" in data_result[cmd]['changes']:
                 result_dict['stderr'] = data_result[cmd]['changes']["stderr"]
                 result_dict['is_success'] = False
-                deploy_success = False;
+                deploy_success = False
             result_dict['job_cmd'] = cmd
             if 'duration' in data_result[cmd]:
                 result_dict['duration'] = data_result[cmd]['duration']
             if 'comment' in data_result[cmd]:
                 result_dict['comment'] = data_result[cmd]['comment']
         except:
-            deploy_success = False;
+            deploy_success = False
             pass
         result_list.append(result_dict)
     return deploy_success, result_list
