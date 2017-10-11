@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'suit',
+    'smart_selects',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'common',
-    'cmdb'
+    'cmdb',
+    'nested_inline',
 ]
-
+JQUERY_URL = False
+USE_DJANGO_JQUERY = True
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -122,8 +125,7 @@ SUIT_CONFIG = {
     'ADMIN_NAME': "SaltOps2",
     'MENU': (
         {'app': 'cmdb', 'icon': 'icon-leaf',
-         'models': ('ISP',)},
-        # 'models': ('IDCLevel', 'ISP', 'IDC', 'Cabinet', 'Rack', 'Host')},
+         'models': ('IDCLevel', 'ISP', 'IDC', 'Cabinet', 'Rack', 'Host')},
         #     {'app': 'deploy_manager', 'icon': 'icon-hdd',
         #      'models': ('ProjectModule', 'Project', 'DeployJob')},
         #     {'app': 'tools_manager', 'icon': 'icon-tasks',
