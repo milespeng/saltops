@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from cmdb.models import Host, HostIP
-from saltrest.tasks.scan_host_job import scan_host_job
+from crontasks.tasks import scan_host_job
 
 
 class IPInline(admin.TabularInline):

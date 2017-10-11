@@ -127,7 +127,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
-PACKAGE_PATH = "/Users/kira/oschina/saltops/doc/script/"
+PACKAGE_PATH = "/home/kira/PycharmProjects/saltops2/scripts/"
 STATIC_ROOT = 'static/'
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
@@ -148,8 +148,8 @@ SUIT_CONFIG = {
          'models': ('IDCLevel', 'ISP', 'IDC', 'Cabinet', 'Rack', 'Host')},
         #     {'app': 'deploy_manager', 'icon': 'icon-hdd',
         #      'models': ('ProjectModule', 'Project', 'DeployJob')},
-        #     {'app': 'tools_manager', 'icon': 'icon-tasks',
-        #      'models': ('ToolsTypes', 'ToolsScript', 'ToolsExecJob')},
+        {'app': 'ops_tools', 'icon': 'icon-tasks',
+         'models': ('ToolsTypes', 'ToolsScript', 'ToolsExecJob')},
         {'app': 'auth', 'icon': 'icon-lock', 'models': ('user', 'group')},
         {'app': 'djcelery', 'icon': 'icon-cog',
          'models': ('IntervalSchedule', 'CrontabSchedule', 'PeriodicTask', 'TaskState')},

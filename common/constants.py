@@ -12,3 +12,12 @@ IP_TYPE = (
     (1, '外网'),
     (2, '管理网')
 )
+
+TOOL_RUN_TYPE = (
+    (0, 'SaltState'),
+    (1, 'Shell'),
+    (2, 'PowerShell'),
+    (3, 'Python'),
+    (4, 'Salt命令'),
+    (5, 'Windows批处理')
+)
