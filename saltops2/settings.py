@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'suit',
     'smart_selects',
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'nested_inline',
     'saltrest',
     'ops_tools',
+    'suit_dashboard',
+    'dashboard',
+    'django.contrib.admin.apps.SimpleAdminConfig',
 ]
 JQUERY_URL = False
 USE_DJANGO_JQUERY = True
@@ -59,7 +62,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+SUIT = True
 ROOT_URLCONF = 'saltops2.urls'
 
 TEMPLATES = [
