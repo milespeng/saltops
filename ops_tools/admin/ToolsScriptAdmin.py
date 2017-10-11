@@ -3,6 +3,7 @@ import re
 import yaml
 from django.contrib import admin
 from django.http import HttpResponseRedirect
+from import_export.admin import ImportExportModelAdmin
 
 from cmdb.models import Host
 from crontasks.tasks.exec_tools_job import execTools
@@ -10,7 +11,7 @@ from ops_tools.models import ToolsScript, ToolsExecJob
 
 
 @admin.register(ToolsScript)
-class ToolsScriptAdmin(admin.ModelAdmin):
+class ToolsScriptAdmin(ImportExportModelAdmin):
     list_display = ['name', 'tools_type', 'tool_run_type', 'comment', 'create_time', 'update_time', 'lastExecHistory']
     search_fields = ['name']
     list_filter = ['tools_type', 'tool_run_type']

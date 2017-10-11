@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 from nested_inline.admin import NestedStackedInline
 
 from cmdb.filters import IDCFilter
@@ -16,7 +18,7 @@ class RackInline(NestedStackedInline):
 
 
 @admin.register(Cabinet)
-class CabinetAdmin(admin.ModelAdmin):
+class CabinetAdmin(ImportExportModelAdmin):
     list_display = ['idc', 'name', 'rack_count', 'create_time', 'update_time']
     search_fields = ['name']
     fk_name = 'cabinet'

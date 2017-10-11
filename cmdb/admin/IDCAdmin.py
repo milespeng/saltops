@@ -1,4 +1,5 @@
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 from nested_inline.admin import NestedModelAdmin, NestedStackedInline
 
 from cmdb.models import IDC, Cabinet, Rack
@@ -24,7 +25,7 @@ class CabinetInline(NestedStackedInline):
 
 
 @admin.register(IDC)
-class IDCAdmin(NestedModelAdmin):
+class IDCAdmin(ImportExportModelAdmin, NestedModelAdmin):
     list_display = ['name', 'type', 'phone',
                     'linkman', 'address',
                     'operator', 'concat_email', 'cabinet_count', 'create_time', 'update_time']

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib import admin
 from django.contrib import messages
 from django.shortcuts import redirect
+from import_export.admin import ImportExportModelAdmin
 
 from ops_tools.models import ToolsExecDetailHistory, ToolsExecJob
 
@@ -21,7 +22,7 @@ class ToolsExecDetailHistoryInline(admin.StackedInline):
 
 
 @admin.register(ToolsExecJob)
-class ToolsExecJobAdmin(admin.ModelAdmin):
+class ToolsExecJobAdmin(ImportExportModelAdmin):
     list_display = ['tools', 'param', 'create_time', 'update_time']
     search_fields = ['tools']
     list_filter = ['tools']

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
+from import_export.admin import ImportExportModelAdmin
 
 from cmdb.models import Rack, Cabinet
 
@@ -25,7 +26,7 @@ class CabinetFilter(admin.SimpleListFilter):
 
 
 @admin.register(Rack)
-class RackAdmin(admin.ModelAdmin):
+class RackAdmin(ImportExportModelAdmin):
     list_display = ['idc_column', 'cabinet', 'name', 'create_time', 'update_time']
     search_fields = ['cabinet', 'name']
     list_filter = [CabinetFilter]

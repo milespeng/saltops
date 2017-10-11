@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 
 from cmdb.models import Host, HostIP
 from crontasks.tasks import scan_host_job
@@ -14,7 +15,7 @@ class IPInline(admin.TabularInline):
 
 
 @admin.register(Host)
-class HostAdmin(admin.ModelAdmin):
+class HostAdmin(ImportExportModelAdmin):
     def get_urls(self):
         urls = super().get_urls()
         custom_urls = [

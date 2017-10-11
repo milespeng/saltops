@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'suit_dashboard',
     'dashboard',
     'django.contrib.admin.apps.SimpleAdminConfig',
+    'import_export',
 ]
 JQUERY_URL = False
 USE_DJANGO_JQUERY = True

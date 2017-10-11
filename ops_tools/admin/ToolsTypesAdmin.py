@@ -1,10 +1,11 @@
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 
 from ops_tools.models import ToolsTypes
 
 
 @admin.register(ToolsTypes)
-class ToolsTypesAdmin(admin.ModelAdmin):
+class ToolsTypesAdmin(ImportExportModelAdmin):
     list_display = ['name', 'script_count', 'create_time', 'update_time']
     search_fields = ['name']
 
