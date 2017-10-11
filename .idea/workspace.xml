@@ -2,31 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba5aeb47-da67-4227-8f12-1b4ddae86029" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admin/HostAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admin/IDCAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admin/IDCLevelAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admin/RackAdmin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/filters/CabinetFilter.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/filters/IDCFilter.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/filters/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/Cabinet.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/Host.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/HostIP.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/IDC.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/IDCLevel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/models/Rack.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/constants.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmdb/migrations/0001_initial.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/cmdb/migrations/__init__.py" afterPath="$PROJECT_DIR$/cmdb/admin/CabinetAdmin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/admin/CabinetAdmin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltrest/salt_https_api.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltrest/salt_token_id.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltrest/tasks/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/saltrest/tasks/scan_host_job.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/admin/__init__.py" afterPath="$PROJECT_DIR$/cmdb/admin/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/models/__init__.py" afterPath="$PROJECT_DIR$/cmdb/models/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmdb/admin/HostAdmin.py" afterPath="$PROJECT_DIR$/cmdb/admin/HostAdmin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops2/settings.py" afterPath="$PROJECT_DIR$/saltops2/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops2/urls.py" afterPath="$PROJECT_DIR$/saltops2/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,13 +43,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Host.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cmdb/models/Host.py">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/saltops2/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="32" column="114" lean-forward="false" selection-start-line="32" selection-start-column="114" selection-end-line="32" selection-end-column="114" />
+            <state relative-caret-position="300">
+              <caret line="187" column="5" lean-forward="true" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#312#321#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,6 +67,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>chained_filter</find>
+      <find>changelist</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -110,15 +96,20 @@
         <option value="$PROJECT_DIR$/cmdb/inlines/CabinetInline.py" />
         <option value="$PROJECT_DIR$/cmdb/inlines/RackInline.py" />
         <option value="$PROJECT_DIR$/cmdb/inlines/IPInline.py" />
-        <option value="$PROJECT_DIR$/cmdb/admin/HostAdmin.py" />
         <option value="$PROJECT_DIR$/cmdb/admin/IDCAdmin.py" />
         <option value="$PROJECT_DIR$/cmdb/admin/CabinetAdmin.py" />
         <option value="$PROJECT_DIR$/cmdb/models/Rack.py" />
         <option value="$PROJECT_DIR$/saltops2/urls.py" />
         <option value="$PROJECT_DIR$/cmdb/filters/CabinetFilter.py" />
-        <option value="$PROJECT_DIR$/saltops2/settings.py" />
         <option value="$PROJECT_DIR$/cmdb/admin/RackAdmin.py" />
         <option value="$PROJECT_DIR$/cmdb/models/Host.py" />
+        <option value="$PROJECT_DIR$/saltrest/salt_https_api.py" />
+        <option value="$PROJECT_DIR$/saltrest/salt_token_id.py" />
+        <option value="$PROJECT_DIR$/saltrest/tasks.py" />
+        <option value="$PROJECT_DIR$/saltrest/tasks/scan_host_job.py" />
+        <option value="$PROJECT_DIR$/cmdb/admin/HostAdmin.py" />
+        <option value="$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html" />
+        <option value="$PROJECT_DIR$/saltops2/settings.py" />
       </list>
     </option>
   </component>
@@ -161,24 +152,7 @@
             </path>
             <path>
               <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops2" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops2" type="462c0819:PsiDirectoryNode" />
-              <item name="cmdb" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops2" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops2" type="462c0819:PsiDirectoryNode" />
-              <item name="saltops2" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -239,12 +213,20 @@
       <option name="presentableId" value="Default" />
       <updated>1507650446822</updated>
     </task>
+    <task id="LOCAL-00001" summary="CMDB">
+      <created>1507704255206</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1507704255206</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1028" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21848291" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1388889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -291,6 +273,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="CMDB" />
+    <option name="LAST_COMMIT_MESSAGE" value="CMDB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -520,16 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmdb/admin/HostAdmin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmdb/admin/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -621,14 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saltops2/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="45" column="14" lean-forward="false" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/envs/saltops2/lib/python3.5/site-packages/django/core/management/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -659,10 +628,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmdb/models/Host.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="32" column="114" lean-forward="false" selection-start-line="32" selection-start-column="114" selection-end-line="32" selection-end-column="114" />
+        <state relative-caret-position="242">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltrest/salt_https_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltrest/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltrest/salt_token_id.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/templates/cmdb_host_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+          <folding>
+            <element signature="e#143#173#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmdb/admin/HostAdmin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltrest/tasks/scan_host_job.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/envs/saltops2/lib/python3.5/site-packages/suit/templates/admin/change_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-87">
+          <caret line="90" column="28" lean-forward="false" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saltops2/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="187" column="5" lean-forward="true" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
+          <folding>
+            <element signature="e#312#321#0" expanded="true" />
           </folding>
         </state>
       </provider>
