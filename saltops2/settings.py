@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cmdb',
     'nested_inline',
     'saltrest',
+    'ops_tools',
 ]
 JQUERY_URL = False
 USE_DJANGO_JQUERY = True
@@ -112,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -126,7 +127,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+PACKAGE_PATH = "/Users/kira/oschina/saltops/doc/script/"
+STATIC_ROOT = 'static/'
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
 
+    # ('admin', os.path.join(STATIC_ROOT, 'admin').replace('\\', '/')),
+    # ('jet', os.path.join(STATIC_ROOT, 'jet').replace('\\', '/')),
+    # ('range_filter', os.path.join(STATIC_ROOT, 'range_filter').replace('\\', '/')),
+    # ('fonts', os.path.join(STATIC_ROOT, 'fonts').replace('\\', '/')),
+    # ('plugins', os.path.join(STATIC_ROOT, 'plugins').replace('\\', '/')),
+
+)
 SUIT_CONFIG = {
     'ADMIN_NAME': "SaltOps2",
     'MENU': (

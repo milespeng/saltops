@@ -1,0 +1,17 @@
+amqp==1.4.9
+anyjson==0.3.3
+billiard==3.3.0.23
+celery==3.1.25
+certifi==2017.7.27.1
+chardet==3.0.4
+Django==1.11.6
+django-celery==3.2.1
+django-nested-inline==0.3.7
+django-smart-selects==1.5.2
+django-suit==0.2.25
+idna==2.6
+kombu==3.0.37
+pytz==2017.2
+PyYAML==3.12
+requests==2.18.4
+urllib3==1.22
