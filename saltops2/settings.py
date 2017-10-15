@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'dashboard',
     'django.contrib.admin.apps.SimpleAdminConfig',
     'import_export',
+    'ops_polling',
 ]
 JQUERY_URL = False
 USE_DJANGO_JQUERY = True
@@ -131,7 +132,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
-PACKAGE_PATH = "/home/kira/PycharmProjects/saltops2/scripts/"
+PACKAGE_PATH = "./scripts/"
 STATIC_ROOT = 'static/'
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
