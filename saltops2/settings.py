@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.admin.apps.SimpleAdminConfig',
     'import_export',
     'ops_polling',
+    'django.contrib.admindocs',
 ]
 JQUERY_URL = False
 USE_DJANGO_JQUERY = True

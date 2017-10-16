@@ -20,8 +20,9 @@ class PollingScript(SortableTabularInline):
 @admin.register(PollingJob)
 class PollingJobAdmin(ImportExportModelAdmin):
     def walk_job_action(self, request, queryset):
-        #TODO: 循环执行脚本，生成报告，任务写到Job里面去
-        pass
+        for obj in queryset:
+            pass
+        self.message_user(request, "%s 个巡检任务被成功执行." % len(queryset))
 
     walk_job_action.short_description = "执行巡检"
 

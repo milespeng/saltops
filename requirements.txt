@@ -14,6 +14,7 @@ django-nested-inline==0.3.7
 django-smart-selects==1.5.2
 django-suit==0.2.25
 django-suit-dashboard==1.0.3
+docutils==0.14
 et-xmlfile==1.0.1
 idna==2.6
 jdcal==1.3
