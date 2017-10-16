@@ -151,8 +151,8 @@ SUIT_CONFIG = {
     'MENU': (
         {'app': 'cmdb', 'icon': 'icon-leaf',
          'models': ('IDCLevel', 'ISP', 'IDC', 'Cabinet', 'Rack', 'Host')},
-        #     {'app': 'deploy_manager', 'icon': 'icon-hdd',
-        #      'models': ('ProjectModule', 'Project', 'DeployJob')},
+        {'app': 'ops_polling', 'icon': 'icon-hdd',
+         'models': ('PollingJob',)},
         {'app': 'ops_tools', 'icon': 'icon-tasks',
          'models': ('ToolsTypes', 'ToolsScript', 'ToolsExecJob')},
         {'app': 'auth', 'icon': 'icon-lock', 'models': ('user', 'group')},

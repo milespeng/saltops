@@ -9,10 +9,9 @@ from saltops2.settings import PACKAGE_PATH
 
 class PollingScript(BaseModel):
     name = models.CharField(max_length=255, verbose_name='任务名称')
-    tool_script = models.TextField(verbose_name='脚本')
+    tool_script = models.TextField(verbose_name='脚本', null=True)
     polling_job = models.ForeignKey(PollingJob, verbose_name='巡检任务')
-    tool_run_type = models.IntegerField(verbose_name='脚本类型', choices=(TOOL_RUN_TYPE), default=0)
-    comment = models.TextField(verbose_name='工具说明', null=True, blank=True)
+    tool_run_type = models.IntegerField(verbose_name='脚本类型', choices=(TOOL_RUN_TYPE), default=1)
     order = models.PositiveIntegerField()
 
     def __str__(self):
