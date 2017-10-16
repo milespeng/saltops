@@ -12,6 +12,6 @@ class PollingJob(BaseModel):
         return self.name
 
     class Meta:
-        verbose_name = "巡检类型"
+        verbose_name = "巡检任务"
         verbose_name_plural = verbose_name
 
