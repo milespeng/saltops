@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba5aeb47-da67-4227-8f12-1b4ddae86029" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/models/PollingJob.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/models/PollingJobHistory.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/models/PollingScript.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/models/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/22ebbe1f-7f4e-406a-8793-853515f00e4f/storage.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/98d03354-d376-4f9d-86e1-98b68457af4e/storage.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/apps.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_polling/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_tools/migrations/0002_toolsscript_report_files.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ops_tools/migrations/0003_remove_toolsscript_report_files.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ops_tools/models/ToolsScript.py" afterPath="$PROJECT_DIR$/ops_tools/models/ToolsScript.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ops_tools/templates/tools_script_change_form.html" afterPath="$PROJECT_DIR$/ops_tools/templates/tools_script_change_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltops2/settings.py" afterPath="$PROJECT_DIR$/saltops2/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saltrest/salt_https_api.py" afterPath="$PROJECT_DIR$/saltrest/salt_https_api.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,35 +47,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PollingScript.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ops_polling/models/PollingScript.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="13" column="55" lean-forward="false" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PollingJobHistory.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ops_polling/models/PollingJobHistory.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PollingJob.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ops_polling/models/PollingJob.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -207,11 +183,6 @@
             <path>
               <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
               <item name="saltops2" type="462c0819:PsiDirectoryNode" />
-              <item name="ops_polling" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops2" type="462c0819:PsiDirectoryNode" />
               <item name="ops_tools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -337,13 +308,20 @@
       <option name="project" value="LOCAL" />
       <updated>1507715874762</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="巡检">
+      <created>1508064213963</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1508064213963</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1280" height="748" extended-state="6" />
+    <frame x="0" y="-1" width="1920" height="1028" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19561689" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12873931" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -398,7 +376,8 @@
     <MESSAGE value="tools" />
     <MESSAGE value="仪表盘" />
     <MESSAGE value="导入导出" />
-    <option name="LAST_COMMIT_MESSAGE" value="导入导出" />
+    <MESSAGE value="巡检" />
+    <option name="LAST_COMMIT_MESSAGE" value="巡检" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -791,8 +770,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ops_polling/models/PollingJob.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
