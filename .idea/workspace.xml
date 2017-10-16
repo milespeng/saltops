@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba5aeb47-da67-4227-8f12-1b4ddae86029" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ReadMe.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ops_polling/models/PollingJob.py" afterPath="$PROJECT_DIR$/ops_polling/models/PollingJob.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -127,7 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cmdb/models/IDC.py" />
         <option value="$PROJECT_DIR$/cmdb/inlines/CabinetInline.py" />
         <option value="$PROJECT_DIR$/cmdb/inlines/RackInline.py" />
         <option value="$PROJECT_DIR$/cmdb/inlines/IPInline.py" />
@@ -178,6 +177,7 @@
         <option value="$PROJECT_DIR$/ops_polling/models/PollingScript.py" />
         <option value="$PROJECT_DIR$/ops_polling/admin/PollingJobAdmin.py" />
         <option value="$PROJECT_DIR$/ops_polling/models/PollingJob.py" />
+        <option value="$PROJECT_DIR$/ReadMe.md" />
       </list>
     </option>
   </component>
@@ -215,17 +215,6 @@
             <path>
               <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
               <item name="saltops2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops2" type="462c0819:PsiDirectoryNode" />
-              <item name="ops_polling" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="saltops2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="saltops2" type="462c0819:PsiDirectoryNode" />
-              <item name="ops_polling" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -365,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508130741727</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="添加巡检任务">
+      <created>1508130811628</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1508130811628</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -428,7 +424,8 @@
     <MESSAGE value="导入导出" />
     <MESSAGE value="巡检" />
     <MESSAGE value="提交依赖文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="提交依赖文件" />
+    <MESSAGE value="添加巡检任务" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加巡检任务" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -441,13 +438,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/saltrest/tasks/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crontasks/tasks/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -822,6 +812,17 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReadMe.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="600">
+            <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
