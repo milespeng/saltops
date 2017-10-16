@@ -3,16 +3,16 @@
 </div>
 
 
-#saltops
+# saltops
 
 
 
-#目标
+# 目标
 SaltOps是一个基于SaltStack和Django开发的运维平台，
 平台的主要功能包括：CMDB、包发布管理、工具系统、最终作为包发布和工具系统的接色
 与Jenkins、Zabbix等系统进行整合
 
-#系统会具备什么功能
+# 系统会具备什么功能
 
 * CMDB：这个也是没办法的事情，资产信息还是要的。。而且Salt的Agent非常适合采集这些基础信息
 最后，包发布的过程是需要用到CMDB信息的，所以CMDB是作为附属品存在的
